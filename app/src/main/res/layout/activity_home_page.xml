@@ -31,5 +31,6 @@
             android:text="LéoWasHere"
             android:layout_width="166dp"
             android:layout_height="56dp" tools:layout_editor_absoluteY="152dp"
-            tools:layout_editor_absoluteX="131dp" android:id="@+id/button"/>
+            android:id="@+id/button" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"/>
 </android.support.constraint.ConstraintLayout>
