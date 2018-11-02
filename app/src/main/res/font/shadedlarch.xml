@@ -3,5 +3,5 @@
     <font
             android:fontStyle="normal"
             android:fontWeight="400"
-            android:font="@font/ShadedLarch_PERSONAL_USE" />
+            android:font="@font/shaded" />
 </font-family>
