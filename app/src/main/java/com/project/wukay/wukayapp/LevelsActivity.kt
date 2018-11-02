@@ -3,7 +3,7 @@ package com.project.wukay.wukayapp
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 
-class LevelActivity : AppCompatActivity() {
+class LevelsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
