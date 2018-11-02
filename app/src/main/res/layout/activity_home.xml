@@ -5,6 +5,98 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".HomeActivity">
+        tools:context=".HomeActivity"
+        android:background="#629c44">
 
+    <TextView
+            android:text="Lapinou              Notre prof à nous"
+            android:layout_width="248dp"
+            android:layout_height="103dp"
+            android:id="@+id/titre" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" android:textSize="36sp"
+            app:layout_constraintHorizontal_bias="0.491" app:layout_constraintVertical_bias="0.0"
+            android:textAlignment="center" android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@font/butterfly_kids"/>
+    <ImageView
+            android:layout_width="182dp"
+            android:layout_height="267dp" app:srcCompat="@drawable/lapinou"
+            android:id="@+id/lapinou" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.665"/>
+    <Button
+            android:text="Commencer l'aventure !"
+            android:layout_width="215dp"
+            android:layout_height="56dp"
+            android:id="@+id/button" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintVertical_bias="0.953" android:textAlignment="center"
+            android:background="@drawable/rounded_button" android:fontFamily="@font/butterfly_kids"
+            android:textSize="28sp" android:typeface="normal" android:textAllCaps="false"/>
+    <ImageView
+            android:layout_width="81dp"
+            android:layout_height="206dp" app:srcCompat="@drawable/girafe"
+            android:id="@+id/girafe" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintVertical_bias="0.0"/>
+    <ImageView
+            android:layout_width="63dp"
+            android:layout_height="114dp" app:srcCompat="@drawable/cochon"
+            android:id="@+id/cochon" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintHorizontal_bias="0.957" app:layout_constraintVertical_bias="0.455"/>
+    <ImageView
+            android:layout_width="64dp"
+            android:layout_height="99dp" app:srcCompat="@drawable/mouton"
+            android:id="@+id/mouton" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.026" app:layout_constraintVertical_bias="0.455"/>
+    <ImageView
+            android:layout_width="95dp"
+            android:layout_height="86dp" app:srcCompat="@drawable/vache"
+            android:id="@+id/vache" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.78"
+            app:layout_constraintVertical_bias="0.258"/>
+    <ImageView
+            android:layout_width="57dp"
+            android:layout_height="90dp" app:srcCompat="@drawable/chien"
+            android:id="@+id/chien" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintVertical_bias="0.214"/>
+    <ImageView
+            android:layout_width="92dp"
+            android:layout_height="94dp" app:srcCompat="@drawable/pingouin"
+            android:id="@+id/pingouin" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintHorizontal_bias="0.231" app:layout_constraintVertical_bias="0.258"/>
+    <ImageView
+            android:layout_width="96dp"
+            android:layout_height="104dp" app:srcCompat="@drawable/lion"
+            android:id="@+id/lion" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.241"/>
 </android.support.constraint.ConstraintLayout>
