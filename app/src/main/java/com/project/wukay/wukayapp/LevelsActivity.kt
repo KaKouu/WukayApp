@@ -1,6 +1,7 @@
 package com.project.wukay.wukayapp
 
 import android.app.Dialog
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.LinearLayout
@@ -20,8 +21,6 @@ class LevelsActivity : AppCompatActivity() {
 
         imageOption.setOnClickListener(){
 
-
-
             val view = layoutInflater.inflate(R.layout.popoption,null )
 
             val pop = PopupWindow(view,
@@ -29,14 +28,14 @@ class LevelsActivity : AppCompatActivity() {
                           LinearLayout.LayoutParams.WRAP_CONTENT // Window height
                                    )
 
+            pop.showAtLocation(imageOption,5,200,500)
 
+        }
 
-                pop.showAtLocation(imageOption,5,200,500)
+        playButton.setOnClickListener {
 
-
-
-
-
+            val nextGame = Intent(this@LevelsActivity, WhatIsThisActivity::class.java)
+            startActivity(nextGame);
         }
 
 

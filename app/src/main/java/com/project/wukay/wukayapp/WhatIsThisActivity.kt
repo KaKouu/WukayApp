@@ -3,10 +3,10 @@ package com.project.wukay.wukayapp
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 
-class HomePageActivity : AppCompatActivity() {
+class WhatIsThisActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home_page)
+        setContentView(R.layout.activity_what_is_this)
     }
 }
