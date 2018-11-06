@@ -17,6 +17,8 @@ class WhatIsThisActivity : AppCompatActivity() {
         var tampon2 = 0
         var tampon3 = 0
 
+        var tabTampon = IntArray(3)
+
 
 
 
@@ -32,13 +34,28 @@ class WhatIsThisActivity : AppCompatActivity() {
 
             ////SILHOUETTE
 
-            tampon = randomizeImage(tampon, animalArray, animalPic )
+            tabTampon.set(0,tampon)
+            tabTampon.set(1,10)
+            tabTampon.set(2,10)
+
+
+            tampon = randomizeImage(tabTampon, animalArray, animalPic )
+
+
+            System.out.println("random silhouette")
+            System.out.println(tabTampon.get(0))
+            System.out.println(tabTampon.get(1))
 
 
             ////AWNSER
-            tampon1 = randomizeImage(tampon1, anwserAnimal1, animalAnwser1 )
-            tampon2 = randomizeImage(tampon2, anwserAnimal2, animalAnwser2 )
-            tampon3 = randomizeImage(tampon3, anwserAnimal3, animalAnwser3 )
+            tampon1 = randomizeImage(tabTampon, anwserAnimal1, animalAnwser1 )
+            tabTampon.set(0,tampon1)
+
+
+            tampon2 = randomizeImage(tabTampon, anwserAnimal2, animalAnwser2 )
+            tabTampon.set(1,tampon2)
+
+            tampon3 = randomizeImage(tabTampon, anwserAnimal3, animalAnwser3 )
 
 
         }
@@ -47,23 +64,24 @@ class WhatIsThisActivity : AppCompatActivity() {
 
     }
 
-    private fun randomizeImage(tampon: Int, animalArray: Array<Int>, view: ImageView): Int  {
+    private fun randomizeImage(tampon: IntArray, animalArray: Array<Int>, view: ImageView): Int  {
         var tampon4 = tampon
         var r = Random()
 
         var n = r.nextInt(3)
 
 
-        while (tampon4 == n) {
+        while (tampon4.contains(n) ) {
             n = r.nextInt(3)
+
 
         }
 
         view.setImageResource(animalArray[n])
 
-        tampon4 = n
+        var tamponNext = n
 
-        return tampon4
+        return tamponNext
 
     }
 
