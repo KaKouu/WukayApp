@@ -11,6 +11,8 @@ class WhatIsThisActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_what_is_this)
 
+        var tampon = 0
+
 
 
 
@@ -20,11 +22,24 @@ class WhatIsThisActivity : AppCompatActivity() {
 
         startButton.setOnClickListener {
 
-                val r = Random()
+                var r = Random()
 
-                val n = r.nextInt(3)
+                var n = r.nextInt(3)
 
-                animalPic.setImageResource(animalArray[n])
+
+            while( tampon == n){
+                    n = r.nextInt(3)
+
+                }
+
+            animalPic.setImageResource(animalArray[n])
+
+            tampon = n
+
+
+
+
+
 
 
         }
