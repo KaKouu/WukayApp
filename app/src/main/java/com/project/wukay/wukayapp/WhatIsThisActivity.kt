@@ -15,13 +15,14 @@ class WhatIsThisActivity : AppCompatActivity() {
         var tampon = 0
         var tampon1 = 0
         var tampon2 = 0
+        var tampon3 = 0
 
         var tabTampon = IntArray(3)
 
 
 
 
-        val animalArray = arrayOf( R.drawable.cochon,R.drawable.vache, R.drawable.girafe)
+        val animalArray = arrayOf( R.drawable.cochon_silhouette,R.drawable.vache_silhouette, R.drawable.girafe_silhouette )
 
         val anwserAnimal1 = arrayOf( R.drawable.cochon,R.drawable.vache, R.drawable.girafe)
         val anwserAnimal2 = arrayOf( R.drawable.cochon,R.drawable.vache, R.drawable.girafe)
@@ -31,14 +32,18 @@ class WhatIsThisActivity : AppCompatActivity() {
 
         startButton.setOnClickListener {
 
-            ////SILHOUETTE
 
+            resultat.setText("___________")
+
+            ////SILHOUETTE
             tabTampon.set(0,tampon)
             tabTampon.set(1,10)
             tabTampon.set(2,10)
 
 
             tampon = randomizeImage(tabTampon, animalArray, animalPic )
+
+
 
 
             System.out.println("random silhouette")
@@ -54,7 +59,45 @@ class WhatIsThisActivity : AppCompatActivity() {
             tampon2 = randomizeImage(tabTampon, anwserAnimal2, animalAnwser2 )
             tabTampon.set(1,tampon2)
 
-            randomizeImage(tabTampon, anwserAnimal3, animalAnwser3 )
+            tampon3 = randomizeImage(tabTampon, anwserAnimal3, animalAnwser3 )
+            tabTampon.set(2,tampon3)
+
+
+        }
+
+
+        animalAnwser1.setOnClickListener{
+
+            if  (tampon==tabTampon.get(0) ) {
+
+                resultat.setText("BRAVO")
+            }else{
+                resultat.setText("RECOMMENCE")
+            }
+
+
+        }
+
+        animalAnwser2.setOnClickListener{
+
+            if  (tampon==tabTampon.get(1) ) {
+
+                resultat.setText("BRAVO")
+            }else{
+                resultat.setText("RECOMMENCE")
+            }
+
+
+        }
+
+        animalAnwser3.setOnClickListener{
+
+            if  (tampon==tabTampon.get(2) ) {
+
+                resultat.setText("BRAVO")
+            }else{
+                resultat.setText("RECOMMENCE")
+            }
 
 
         }
