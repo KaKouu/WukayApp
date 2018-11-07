@@ -15,7 +15,6 @@ class WhatIsThisActivity : AppCompatActivity() {
         var tampon = 0
         var tampon1 = 0
         var tampon2 = 0
-        var tampon3 = 0
 
         var tabTampon = IntArray(3)
 
@@ -55,7 +54,7 @@ class WhatIsThisActivity : AppCompatActivity() {
             tampon2 = randomizeImage(tabTampon, anwserAnimal2, animalAnwser2 )
             tabTampon.set(1,tampon2)
 
-            tampon3 = randomizeImage(tabTampon, anwserAnimal3, animalAnwser3 )
+            randomizeImage(tabTampon, anwserAnimal3, animalAnwser3 )
 
 
         }
