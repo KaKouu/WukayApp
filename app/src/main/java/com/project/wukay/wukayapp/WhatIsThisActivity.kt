@@ -19,9 +19,6 @@ class WhatIsThisActivity : AppCompatActivity() {
 
         var tabTampon = IntArray(3)
 
-
-
-
         val animalArray = arrayOf( R.drawable.cochon_silhouette,R.drawable.vache_silhouette, R.drawable.girafe_silhouette )
 
         val anwserAnimal1 = arrayOf( R.drawable.cochon,R.drawable.vache, R.drawable.girafe)
@@ -65,45 +62,30 @@ class WhatIsThisActivity : AppCompatActivity() {
 
         }
 
-
         animalAnwser1.setOnClickListener{
-
-            if  (tampon==tabTampon.get(0) ) {
-
-                resultat.setText("BRAVO")
-            }else{
-                resultat.setText("RECOMMENCE")
-            }
-
-
+            compareImage(tampon, tabTampon, 0)
         }
 
         animalAnwser2.setOnClickListener{
-
-            if  (tampon==tabTampon.get(1) ) {
-
-                resultat.setText("BRAVO")
-            }else{
-                resultat.setText("RECOMMENCE")
-            }
-
-
+            compareImage(tampon, tabTampon, 1)
         }
 
         animalAnwser3.setOnClickListener{
-
-            if  (tampon==tabTampon.get(2) ) {
-
-                resultat.setText("BRAVO")
-            }else{
-                resultat.setText("RECOMMENCE")
-            }
-
-
+            compareImage(tampon, tabTampon, 2)
         }
 
+    }
 
 
+
+
+    private fun compareImage(tampon: Int, tabTampon: IntArray, n: Int) {
+        if (tampon == tabTampon.get(n)) {
+
+            resultat.setText("BRAVO")
+        } else {
+            resultat.setText("RECOMMENCE")
+        }
     }
 
     private fun randomizeImage(tampon: IntArray, animalArray: Array<Int>, view: ImageView): Int  {
@@ -126,6 +108,8 @@ class WhatIsThisActivity : AppCompatActivity() {
         return tamponNext
 
     }
+
+
 
 
 }
