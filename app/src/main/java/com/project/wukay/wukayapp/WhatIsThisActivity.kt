@@ -19,10 +19,7 @@ class WhatIsThisActivity : AppCompatActivity() {
 
         var tabTampon = IntArray(3)
 
-
-
-
-        val animalArray = arrayOf( R.drawable.cochon,R.drawable.vache, R.drawable.girafe)
+        val animalArray = arrayOf( R.drawable.cochon_silhouette,R.drawable.vache_silhouette, R.drawable.girafe_silhouette )
 
         val anwserAnimal1 = arrayOf( R.drawable.cochon,R.drawable.vache, R.drawable.girafe)
         val anwserAnimal2 = arrayOf( R.drawable.cochon,R.drawable.vache, R.drawable.girafe)
@@ -32,14 +29,18 @@ class WhatIsThisActivity : AppCompatActivity() {
 
         startButton.setOnClickListener {
 
-            ////SILHOUETTE
 
+            resultat.setText("___________")
+
+            ////SILHOUETTE
             tabTampon.set(0,tampon)
             tabTampon.set(1,10)
             tabTampon.set(2,10)
 
 
             tampon = randomizeImage(tabTampon, animalArray, animalPic )
+
+
 
 
             System.out.println("random silhouette")
@@ -56,12 +57,35 @@ class WhatIsThisActivity : AppCompatActivity() {
             tabTampon.set(1,tampon2)
 
             tampon3 = randomizeImage(tabTampon, anwserAnimal3, animalAnwser3 )
+            tabTampon.set(2,tampon3)
 
 
         }
 
+        animalAnwser1.setOnClickListener{
+            compareImage(tampon, tabTampon, 0)
+        }
+
+        animalAnwser2.setOnClickListener{
+            compareImage(tampon, tabTampon, 1)
+        }
+
+        animalAnwser3.setOnClickListener{
+            compareImage(tampon, tabTampon, 2)
+        }
+
+    }
 
 
+
+
+    private fun compareImage(tampon: Int, tabTampon: IntArray, n: Int) {
+        if (tampon == tabTampon.get(n)) {
+
+            resultat.setText("BRAVO")
+        } else {
+            resultat.setText("RECOMMENCE")
+        }
     }
 
     private fun randomizeImage(tampon: IntArray, animalArray: Array<Int>, view: ImageView): Int  {
@@ -84,6 +108,8 @@ class WhatIsThisActivity : AppCompatActivity() {
         return tamponNext
 
     }
+
+
 
 
 }
