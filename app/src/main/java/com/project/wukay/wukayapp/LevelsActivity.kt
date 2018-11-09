@@ -18,7 +18,10 @@ class LevelsActivity : AppCompatActivity() {
 
 
 
-
+        imageRetour.setOnClickListener(){
+            val previousPage = Intent(this@LevelsActivity, HomeActivity::class.java)
+            startActivity(previousPage);
+        }
         imageOption.setOnClickListener(){
 
             val view = layoutInflater.inflate(R.layout.popoption,null )
