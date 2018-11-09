@@ -19,11 +19,10 @@ class WhatIsThisActivity : AppCompatActivity() {
 
         var tabTampon = IntArray(3)
 
-        val animalArray = arrayOf( R.drawable.cochon_silhouette,R.drawable.vache_silhouette, R.drawable.girafe_silhouette )
+        val animalArray = arrayOf( R.drawable.animaux_cochon_silhouette,R.drawable.animaux_vache_silhouette, R.drawable.animaux_girafe_silhouette )
 
-        val anwserAnimal1 = arrayOf( R.drawable.cochon,R.drawable.vache, R.drawable.girafe)
-        val anwserAnimal2 = arrayOf( R.drawable.cochon,R.drawable.vache, R.drawable.girafe)
-        val anwserAnimal3 = arrayOf( R.drawable.cochon,R.drawable.vache, R.drawable.girafe)
+        val anwserAnimal = arrayOf( R.drawable.animaux_cochon,R.drawable.animaux_vache, R.drawable.animaux_girafe)
+
 
 
 
@@ -49,14 +48,14 @@ class WhatIsThisActivity : AppCompatActivity() {
 
 
             ////AWNSER
-            tampon1 = randomizeImage(tabTampon, anwserAnimal1, animalAnwser1 )
+            tampon1 = randomizeImage(tabTampon, anwserAnimal, animalAnwser1 )
             tabTampon.set(0,tampon1)
 
 
-            tampon2 = randomizeImage(tabTampon, anwserAnimal2, animalAnwser2 )
+            tampon2 = randomizeImage(tabTampon, anwserAnimal, animalAnwser2 )
             tabTampon.set(1,tampon2)
 
-            tampon3 = randomizeImage(tabTampon, anwserAnimal3, animalAnwser3 )
+            tampon3 = randomizeImage(tabTampon, anwserAnimal, animalAnwser3 )
             tabTampon.set(2,tampon3)
 
 

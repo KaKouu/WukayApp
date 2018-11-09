@@ -3,7 +3,6 @@ package com.project.wukay.wukayapp
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageView
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
@@ -18,7 +17,7 @@ class HomeActivity : AppCompatActivity() {
 
 
 
-        boutonCommencerAventure.setOnClickListener{
+        startButton.setOnClickListener{
             val start = Intent(this@HomeActivity, LevelsActivity::class.java)
             startActivity(start);
         }

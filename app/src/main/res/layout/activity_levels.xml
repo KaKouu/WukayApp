@@ -202,7 +202,7 @@
             app:layout_constraintVertical_bias="0.849"/>
     <ImageView
             android:layout_width="64dp"
-            android:layout_height="130dp" app:srcCompat="@drawable/lapinou"
+            android:layout_height="130dp" app:srcCompat="@drawable/personnage_lapinou"
             android:id="@+id/imageView3" android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
@@ -260,7 +260,7 @@
             app:layout_constraintHorizontal_bias="0.024" app:layout_constraintVertical_bias="0.015"/>
     <ImageView
             android:layout_width="55dp"
-            android:layout_height="51dp" app:srcCompat="@drawable/fleche_retour"
+            android:layout_height="51dp" app:srcCompat="@drawable/icone_fleche_retour"
             android:id="@+id/imageRetour" android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
