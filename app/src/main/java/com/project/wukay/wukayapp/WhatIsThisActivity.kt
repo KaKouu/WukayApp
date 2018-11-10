@@ -1,7 +1,9 @@
 package com.project.wukay.wukayapp
 
+import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Vibrator
 import android.widget.ImageView
 import kotlinx.android.synthetic.main.activity_what_is_this.*
 import java.util.*
@@ -16,8 +18,6 @@ class WhatIsThisActivity : AppCompatActivity() {
         val intent = intent
 
         val difficulty = intent.getStringExtra("difficulty")
-
-        System.out.println(difficulty)
 
         if(difficulty=="easy") {
 
@@ -50,15 +50,7 @@ class WhatIsThisActivity : AppCompatActivity() {
                 tabTampon.set(1, 10)
                 tabTampon.set(2, 10)
 
-
                 tampon = randomizeImage(tabTampon, animalArray, animalPic)
-
-
-
-
-                System.out.println("random silhouette")
-                System.out.println(tabTampon.get(0))
-                System.out.println(tabTampon.get(1))
 
 
                 ////AWNSER
@@ -103,9 +95,12 @@ class WhatIsThisActivity : AppCompatActivity() {
     private fun compareImage(tampon: Int, tabTampon: IntArray, n: Int) {
         if (tampon == tabTampon.get(n)) {
 
-            resultat.setText("BRAVO")
+            resultat.text = " BRAVO"
+            val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+            vibratorService.vibrate(100)
+
         } else {
-            resultat.setText("RECOMMENCE")
+            resultat.text = " RECOMMENCE"
         }
     }
 
