@@ -14,11 +14,8 @@ class HomeActivity : AppCompatActivity() {
 
 
 
-
-
-
         startButton.setOnClickListener{
-            val start = Intent(this@HomeActivity, LevelsActivity::class.java)
+            val start = Intent(this@HomeActivity, DifficultyActivity::class.java)
             startActivity(start);
         }
     }

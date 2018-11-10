@@ -12,68 +12,90 @@ class WhatIsThisActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_what_is_this)
 
-        var tampon = 0
-        var tampon1 = 0
-        var tampon2 = 0
-        var tampon3 = 0
 
-        var tabTampon = IntArray(3)
+        val intent = intent
 
-        val animalArray = arrayOf( R.drawable.animaux_cochon_silhouette,R.drawable.animaux_vache_silhouette, R.drawable.animaux_girafe_silhouette )
+        val difficulty = intent.getStringExtra("difficulty")
 
-        val anwserAnimal = arrayOf( R.drawable.animaux_cochon,R.drawable.animaux_vache, R.drawable.animaux_girafe)
+        System.out.println(difficulty)
+
+        if(difficulty=="easy") {
 
 
+            var tampon = 0
+            var tampon1 = 0
+            var tampon2 = 0
+            var tampon3 = 0
 
+            var tabTampon = IntArray(3)
 
-        startButton.setOnClickListener {
+            val animalArray = arrayOf(
+                R.drawable.animaux_cochon_silhouette,
+                R.drawable.animaux_vache_silhouette,
+                R.drawable.animaux_girafe_silhouette
+            )
 
-
-            resultat.setText("___________")
-
-            ////SILHOUETTE
-            tabTampon.set(0,tampon)
-            tabTampon.set(1,10)
-            tabTampon.set(2,10)
-
-
-            tampon = randomizeImage(tabTampon, animalArray, animalPic )
+            val anwserAnimal = arrayOf(R.drawable.animaux_cochon, R.drawable.animaux_vache, R.drawable.animaux_girafe)
 
 
 
 
-            System.out.println("random silhouette")
-            System.out.println(tabTampon.get(0))
-            System.out.println(tabTampon.get(1))
+            startButton.setOnClickListener {
 
 
-            ////AWNSER
-            tampon1 = randomizeImage(tabTampon, anwserAnimal, animalAnwser1 )
-            tabTampon.set(0,tampon1)
+                resultat.setText("___________")
+
+                ////SILHOUETTE
+                tabTampon.set(0, tampon)
+                tabTampon.set(1, 10)
+                tabTampon.set(2, 10)
 
 
-            tampon2 = randomizeImage(tabTampon, anwserAnimal, animalAnwser2 )
-            tabTampon.set(1,tampon2)
-
-            tampon3 = randomizeImage(tabTampon, anwserAnimal, animalAnwser3 )
-            tabTampon.set(2,tampon3)
+                tampon = randomizeImage(tabTampon, animalArray, animalPic)
 
 
-        }
 
-        animalAnwser1.setOnClickListener{
-            compareImage(tampon, tabTampon, 0)
-        }
 
-        animalAnwser2.setOnClickListener{
-            compareImage(tampon, tabTampon, 1)
-        }
+                System.out.println("random silhouette")
+                System.out.println(tabTampon.get(0))
+                System.out.println(tabTampon.get(1))
 
-        animalAnwser3.setOnClickListener{
-            compareImage(tampon, tabTampon, 2)
+
+                ////AWNSER
+                tampon1 = randomizeImage(tabTampon, anwserAnimal, animalAnwser1)
+                tabTampon.set(0, tampon1)
+
+
+                tampon2 = randomizeImage(tabTampon, anwserAnimal, animalAnwser2)
+                tabTampon.set(1, tampon2)
+
+                tampon3 = randomizeImage(tabTampon, anwserAnimal, animalAnwser3)
+                tabTampon.set(2, tampon3)
+
+
+            }
+
+            animalAnwser1.setOnClickListener {
+                compareImage(tampon, tabTampon, 0)
+            }
+
+            animalAnwser2.setOnClickListener {
+                compareImage(tampon, tabTampon, 1)
+            }
+
+            animalAnwser3.setOnClickListener {
+                compareImage(tampon, tabTampon, 2)
+            }
+
+        }else{
+
+
+
+            //CODE DE LA PARTIE DIFFICILE
         }
 
     }
+
 
 
 

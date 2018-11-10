@@ -25,6 +25,8 @@
 
         <activity android:name=".WhatIsThisActivity">
         </activity>
+        <activity android:name=".DifficultyActivity">
+        </activity>
     </application>
 
 </manifest>

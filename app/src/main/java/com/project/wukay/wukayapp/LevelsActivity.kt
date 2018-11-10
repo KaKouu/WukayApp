@@ -17,12 +17,16 @@ class LevelsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_levels)
 
 
+        val intent = intent
+        val difficulty = intent.getStringExtra("difficulty")
 
-        imageRetour.setOnClickListener(){
+
+        imageRetour.setOnClickListener{
             val previousPage = Intent(this@LevelsActivity, HomeActivity::class.java)
-            startActivity(previousPage);
+            startActivity(previousPage)
         }
-        imageOption.setOnClickListener(){
+
+        imageOption.setOnClickListener{
 
             val view = layoutInflater.inflate(R.layout.popoption,null )
 
@@ -38,7 +42,8 @@ class LevelsActivity : AppCompatActivity() {
         playButton.setOnClickListener {
 
             val nextGame = Intent(this@LevelsActivity, WhatIsThisActivity::class.java)
-            startActivity(nextGame);
+            nextGame.putExtra("difficulty", difficulty)
+            startActivity(nextGame)
         }
 
 
