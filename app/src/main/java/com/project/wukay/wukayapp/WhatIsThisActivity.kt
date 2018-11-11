@@ -5,6 +5,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Vibrator
+import android.view.View
 import android.widget.ImageView
 import kotlinx.android.synthetic.main.activity_what_is_this.*
 import java.util.*
@@ -15,14 +16,21 @@ class WhatIsThisActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_what_is_this)
 
-        var numberWin=0
-        val intent = intent
 
         val difficulty = intent.getStringExtra("difficulty")
 
+        //renvaiera la difficulté choisit precedement
+        val nextAnimal = Intent(this@WhatIsThisActivity, LevelsActivity::class.java)
+        nextAnimal.putExtra("difficulty",difficulty)
+
+        val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+
+        System.out.println(difficulty)
+
+
         if(difficulty=="easy") {
 
-
+            var numberWin=0
             var tampon = 0
             var tampon1 = 0
             var tampon2 = 0
@@ -36,18 +44,25 @@ class WhatIsThisActivity : AppCompatActivity() {
                 R.drawable.animaux_girafe_silhouette
             )
 
-            val anwserAnimal = arrayOf(R.drawable.animaux_cochon, R.drawable.animaux_vache, R.drawable.animaux_girafe)
-
-
+            val answerAnimal = arrayOf(
+                R.drawable.animaux_cochon,
+                R.drawable.animaux_vache,
+                R.drawable.animaux_girafe
+            )
 
 
             startButton.setOnClickListener {
 
+                System.out.println(numberWin)
+
                 if(numberWin==3){
-                    val changement = Intent(this@WhatIsThisActivity, LevelsActivity::class.java)
-                    changement.putExtra("carotsWon",(1..3).shuffled().first())
-                    startActivity(changement);
+                    val nextAnimal = Intent(this@WhatIsThisActivity, LevelsActivity::class.java)
+                    nextAnimal.putExtra("carotsWon",(1..10).shuffled().first())
+                    nextAnimal.putExtra("difficulty","easy")
+                    startActivity(nextAnimal)
+
                 }else{
+
                     resultat.setText("___________")
 
                     ////SILHOUETTE
@@ -59,32 +74,155 @@ class WhatIsThisActivity : AppCompatActivity() {
 
 
                     ////AWNSER
-                    tampon1 = randomizeImage(tabTampon, anwserAnimal, animalAnwser1)
+                    tampon1 = randomizeImage(tabTampon, answerAnimal, animalAnwser1)
                     tabTampon.set(0, tampon1)
 
 
-                    tampon2 = randomizeImage(tabTampon, anwserAnimal, animalAnwser2)
+                    tampon2 = randomizeImage(tabTampon, answerAnimal, animalAnwser2)
                     tabTampon.set(1, tampon2)
 
-                    tampon3 = randomizeImage(tabTampon, anwserAnimal, animalAnwser3)
+                    tampon3 = randomizeImage(tabTampon, answerAnimal, animalAnwser3)
                     tabTampon.set(2, tampon3)
+
+                    startButton.visibility = View.INVISIBLE
                 }
-
-
-
-
             }
 
+
             animalAnwser1.setOnClickListener {
-                numberWin=numberWin+compareImage(tampon, tabTampon, 0 )
+
+                //condition si le joueur donne la bonne réponse
+                if( isTheCorrectAnswer(tampon,tabTampon,0)){
+
+                    //incrementation du nombre d'animal trouvé
+                    resultat.text=""
+                    numberWin+=1
+
+                    //fin du mini jeux
+                    if(numberWin==3){
+                        nextAnimal.putExtra("carotsWon",(1..10).shuffled().first())
+                        startActivity(nextAnimal)
+
+                     //prochain animal à deviner
+                    }else{
+
+                        ////SILHOUETTE
+                        tabTampon.set(0, tampon)
+                        tabTampon.set(1, 10)
+                        tabTampon.set(2, 10)
+
+                        tampon = randomizeImage(tabTampon, animalArray, animalPic)
+
+
+                        ////AWNSER
+                        tampon1 = randomizeImage(tabTampon, answerAnimal, animalAnwser1)
+                        tabTampon.set(0, tampon1)
+
+
+                        tampon2 = randomizeImage(tabTampon, answerAnimal, animalAnwser2)
+                        tabTampon.set(1, tampon2)
+
+                        tampon3 = randomizeImage(tabTampon, answerAnimal, animalAnwser3)
+                        tabTampon.set(2, tampon3)
+
+                    }
+
+                }else{
+                    //vibration de defaite +texte
+                    vibratorService.vibrate(100)
+                    resultat.text="recommence"
+                }
+
             }
 
             animalAnwser2.setOnClickListener {
-                numberWin=numberWin+compareImage(tampon, tabTampon, 1)
+                //condition si le joueur donne la bonne réponse
+                if( isTheCorrectAnswer(tampon,tabTampon,1)){
+
+                    //incrementation du nombre d'animal trouvé
+                    resultat.text=""
+                    numberWin+=1
+
+                    //fin du mini jeux
+                    if(numberWin==3){
+                        nextAnimal.putExtra("carotsWon",(1..10).shuffled().first())
+                        startActivity(nextAnimal)
+
+                        //prochain animal à deviner
+                    }else{
+                        ////SILHOUETTE
+                        tabTampon.set(0, tampon)
+                        tabTampon.set(1, 10)
+                        tabTampon.set(2, 10)
+
+                        tampon = randomizeImage(tabTampon, animalArray, animalPic)
+
+
+                        ////AWNSER
+                        tampon1 = randomizeImage(tabTampon, answerAnimal, animalAnwser1)
+                        tabTampon.set(0, tampon1)
+
+
+                        tampon2 = randomizeImage(tabTampon, answerAnimal, animalAnwser2)
+                        tabTampon.set(1, tampon2)
+
+                        tampon3 = randomizeImage(tabTampon, answerAnimal, animalAnwser3)
+                        tabTampon.set(2, tampon3)
+
+                    }
+
+                }else{
+                    //vibration de defaite
+                    vibratorService.vibrate(100)
+
+                    resultat.text="recommence"
+                }
+
             }
 
             animalAnwser3.setOnClickListener {
-                numberWin=numberWin+ compareImage(tampon, tabTampon, 2)
+                //condition si le joueur donne la bonne réponse
+                if( isTheCorrectAnswer(tampon,tabTampon,2)){
+
+                    //incrementation du nombre d'animal trouvé
+                    resultat.text=""
+                    numberWin+=1
+
+                    //fin du mini jeux
+                    if(numberWin==3){
+                        nextAnimal.putExtra("carotsWon",(1..10).shuffled().first())
+                        startActivity(nextAnimal)
+
+                        //prochain animal à deviner
+                    }else{
+                        ////SILHOUETTE
+                        tabTampon.set(0, tampon)
+                        tabTampon.set(1, 10)
+                        tabTampon.set(2, 10)
+
+                        tampon = randomizeImage(tabTampon, animalArray, animalPic)
+
+
+                        ////AWNSER
+                        tampon1 = randomizeImage(tabTampon, answerAnimal, animalAnwser1)
+                        tabTampon.set(0, tampon1)
+
+
+                        tampon2 = randomizeImage(tabTampon, answerAnimal, animalAnwser2)
+                        tabTampon.set(1, tampon2)
+
+                        tampon3 = randomizeImage(tabTampon, answerAnimal, animalAnwser3)
+                        tabTampon.set(2, tampon3)
+
+                    }
+
+                }else{
+                    //vibration de defaite
+                    vibratorService.vibrate(100)
+
+                    resultat.text="recommence"
+                }
+
             }
 
 
@@ -94,28 +232,15 @@ class WhatIsThisActivity : AppCompatActivity() {
 
             //CODE DE LA PARTIE DIFFICILE
         }
-
+        resultat.setText(difficulty)
     }
 
 
 
+    //data class Result(var win: Int, var succeed: Boolean)
 
-
-    private fun compareImage(tampon: Int, tabTampon: IntArray, n: Int):Int {
-        if (tampon == tabTampon.get(n)) {
-
-            resultat.text = " BRAVO"
-
-
-            val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-            vibratorService.vibrate(100)
-
-            return 1
-
-        } else {
-            resultat.text = " RECOMMENCE"
-            return 0
-        }
+    private fun isTheCorrectAnswer(tampon: Int, tabTampon: IntArray, n: Int):Boolean  {
+        return tampon == tabTampon.get(n)
     }
 
     private fun randomizeImage(tampon: IntArray, animalArray: Array<Int>, view: ImageView): Int  {
@@ -127,7 +252,6 @@ class WhatIsThisActivity : AppCompatActivity() {
 
         while (tampon4.contains(n) ) {
             n = r.nextInt(3)
-
 
         }
 
