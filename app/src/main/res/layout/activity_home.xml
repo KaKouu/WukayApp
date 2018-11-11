@@ -10,12 +10,12 @@
 
     <ImageView
             android:layout_width="395dp"
-            android:layout_height="498dp" app:srcCompat="@drawable/fond_Lac"
+            android:layout_height="498dp" app:srcCompat="@drawable/fond_lac"
             android:id="@+id/background" android:scaleType="center"
             android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginBottom="76dp"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.481"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginBottom="88dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.703"
     />
     <ImageView
             android:layout_width="95dp"
@@ -46,7 +46,7 @@
             app:layout_constraintVertical_bias="0.419"/>
     <ImageView
             android:layout_width="130dp"
-            android:layout_height="135dp" app:srcCompat="@drawable/animaux_éléphant"
+            android:layout_height="135dp" app:srcCompat="@drawable/animaux_elephant"
             android:id="@+id/imageElephant"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="268dp"
             android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
