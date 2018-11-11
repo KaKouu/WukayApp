@@ -146,7 +146,6 @@ class WhatIsThisActivity : AppCompatActivity() {
 
                     //fin du mini jeux
                     if(numberWin==3){
-                        val nextAnimal = Intent(this@WhatIsThisActivity, LevelsActivity::class.java)
                         nextAnimal.putExtra("carotsWon",(1..10).shuffled().first())
                         startActivity(nextAnimal)
 
@@ -192,7 +191,6 @@ class WhatIsThisActivity : AppCompatActivity() {
 
                     //fin du mini jeux
                     if(numberWin==3){
-                        val nextAnimal = Intent(this@WhatIsThisActivity, LevelsActivity::class.java)
                         nextAnimal.putExtra("carotsWon",(1..10).shuffled().first())
                         startActivity(nextAnimal)
 
