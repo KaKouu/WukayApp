@@ -45,8 +45,17 @@ class LevelsActivity : AppCompatActivity() {
             nextGame.putExtra("difficulty", difficulty)
             startActivity(nextGame)
         }
+        // counter of carots
+        var carrots=0
+        var testNbCarrotsgagneprecedement=intent.getIntExtra("carotsWon",0)
+        carrots=carrots+testNbCarrotsgagneprecedement
+        numberCarrots.setText(carrots.toString())
 
-
+        testCarrotes.setOnClickListener {
+            var nb = (1..3).shuffled().first()
+            carrots=carrots+nb
+            numberCarrots.setText(carrots.toString())
+        }
     }
 
 
