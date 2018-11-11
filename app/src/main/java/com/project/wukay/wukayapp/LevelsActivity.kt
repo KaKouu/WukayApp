@@ -17,9 +17,16 @@ class LevelsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_levels)
 
 
+        val intent = intent
+        val difficulty = intent.getStringExtra("difficulty")
 
 
-        imageOption.setOnClickListener(){
+        imageRetour.setOnClickListener{
+            val previousPage = Intent(this@LevelsActivity, HomeActivity::class.java)
+            startActivity(previousPage)
+        }
+
+        imageOption.setOnClickListener{
 
             val view = layoutInflater.inflate(R.layout.popoption,null )
 
@@ -35,10 +42,20 @@ class LevelsActivity : AppCompatActivity() {
         playButton.setOnClickListener {
 
             val nextGame = Intent(this@LevelsActivity, WhatIsThisActivity::class.java)
-            startActivity(nextGame);
+            nextGame.putExtra("difficulty", difficulty)
+            startActivity(nextGame)
         }
+        // counter of carots
+        var carrots=0
+        var testNbCarrotsgagneprecedement=intent.getIntExtra("carotsWon",0)
+        carrots=carrots+testNbCarrotsgagneprecedement
+        numberCarrots.setText(carrots.toString())
 
-
+        testCarrotes.setOnClickListener {
+            var nb = (1..3).shuffled().first()
+            carrots=carrots+nb
+            numberCarrots.setText(carrots.toString())
+        }
     }
 
 

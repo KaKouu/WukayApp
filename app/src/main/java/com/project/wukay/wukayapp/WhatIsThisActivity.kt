@@ -1,7 +1,10 @@
 package com.project.wukay.wukayapp
 
+import android.content.Context
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Vibrator
 import android.widget.ImageView
 import kotlinx.android.synthetic.main.activity_what_is_this.*
 import java.util.*
@@ -12,66 +15,84 @@ class WhatIsThisActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_what_is_this)
 
-        var tampon = 0
-        var tampon1 = 0
-        var tampon2 = 0
-        var tampon3 = 0
+        var numberWin=0
+        val intent = intent
 
-        var tabTampon = IntArray(3)
+        val difficulty = intent.getStringExtra("difficulty")
 
-        val animalArray = arrayOf( R.drawable.cochon_silhouette,R.drawable.vache_silhouette, R.drawable.girafe_silhouette )
-
-        val anwserAnimal1 = arrayOf( R.drawable.cochon,R.drawable.vache, R.drawable.girafe)
-        val anwserAnimal2 = arrayOf( R.drawable.cochon,R.drawable.vache, R.drawable.girafe)
-        val anwserAnimal3 = arrayOf( R.drawable.cochon,R.drawable.vache, R.drawable.girafe)
+        if(difficulty=="easy") {
 
 
+            var tampon = 0
+            var tampon1 = 0
+            var tampon2 = 0
+            var tampon3 = 0
 
-        startButton.setOnClickListener {
+            var tabTampon = IntArray(3)
 
+            val animalArray = arrayOf(
+                R.drawable.animaux_cochon_silhouette,
+                R.drawable.animaux_vache_silhouette,
+                R.drawable.animaux_girafe_silhouette
+            )
 
-            resultat.setText("___________")
-
-            ////SILHOUETTE
-            tabTampon.set(0,tampon)
-            tabTampon.set(1,10)
-            tabTampon.set(2,10)
-
-
-            tampon = randomizeImage(tabTampon, animalArray, animalPic )
+            val anwserAnimal = arrayOf(R.drawable.animaux_cochon, R.drawable.animaux_vache, R.drawable.animaux_girafe)
 
 
 
 
-            System.out.println("random silhouette")
-            System.out.println(tabTampon.get(0))
-            System.out.println(tabTampon.get(1))
+            startButton.setOnClickListener {
+
+                if(numberWin==3){
+                    val changement = Intent(this@WhatIsThisActivity, LevelsActivity::class.java)
+                    changement.putExtra("carotsWon",(1..3).shuffled().first())
+                    startActivity(changement);
+                }else{
+                    resultat.setText("___________")
+
+                    ////SILHOUETTE
+                    tabTampon.set(0, tampon)
+                    tabTampon.set(1, 10)
+                    tabTampon.set(2, 10)
+
+                    tampon = randomizeImage(tabTampon, animalArray, animalPic)
 
 
-            ////AWNSER
-            tampon1 = randomizeImage(tabTampon, anwserAnimal1, animalAnwser1 )
-            tabTampon.set(0,tampon1)
+                    ////AWNSER
+                    tampon1 = randomizeImage(tabTampon, anwserAnimal, animalAnwser1)
+                    tabTampon.set(0, tampon1)
 
 
-            tampon2 = randomizeImage(tabTampon, anwserAnimal2, animalAnwser2 )
-            tabTampon.set(1,tampon2)
+                    tampon2 = randomizeImage(tabTampon, anwserAnimal, animalAnwser2)
+                    tabTampon.set(1, tampon2)
 
-            tampon3 = randomizeImage(tabTampon, anwserAnimal3, animalAnwser3 )
-            tabTampon.set(2,tampon3)
+                    tampon3 = randomizeImage(tabTampon, anwserAnimal, animalAnwser3)
+                    tabTampon.set(2, tampon3)
+                }
 
 
-        }
 
-        animalAnwser1.setOnClickListener{
-            compareImage(tampon, tabTampon, 0)
-        }
 
-        animalAnwser2.setOnClickListener{
-            compareImage(tampon, tabTampon, 1)
-        }
+            }
 
-        animalAnwser3.setOnClickListener{
-            compareImage(tampon, tabTampon, 2)
+            animalAnwser1.setOnClickListener {
+                numberWin=numberWin+compareImage(tampon, tabTampon, 0 )
+            }
+
+            animalAnwser2.setOnClickListener {
+                numberWin=numberWin+compareImage(tampon, tabTampon, 1)
+            }
+
+            animalAnwser3.setOnClickListener {
+                numberWin=numberWin+ compareImage(tampon, tabTampon, 2)
+            }
+
+
+        }else{
+
+
+
+            //CODE DE LA PARTIE DIFFICILE
         }
 
     }
@@ -79,12 +100,21 @@ class WhatIsThisActivity : AppCompatActivity() {
 
 
 
-    private fun compareImage(tampon: Int, tabTampon: IntArray, n: Int) {
+
+    private fun compareImage(tampon: Int, tabTampon: IntArray, n: Int):Int {
         if (tampon == tabTampon.get(n)) {
 
-            resultat.setText("BRAVO")
+            resultat.text = " BRAVO"
+
+
+            val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+            vibratorService.vibrate(100)
+
+            return 1
+
         } else {
-            resultat.setText("RECOMMENCE")
+            resultat.text = " RECOMMENCE"
+            return 0
         }
     }
 
