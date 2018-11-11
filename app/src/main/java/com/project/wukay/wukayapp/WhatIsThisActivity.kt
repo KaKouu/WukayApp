@@ -17,8 +17,6 @@ class WhatIsThisActivity : AppCompatActivity() {
         setContentView(R.layout.activity_what_is_this)
 
 
-        val intent = intent
-
         val difficulty = intent.getStringExtra("difficulty")
 
         //renvaiera la difficulté choisit precedement
@@ -60,6 +58,7 @@ class WhatIsThisActivity : AppCompatActivity() {
                 if(numberWin==3){
                     val nextAnimal = Intent(this@WhatIsThisActivity, LevelsActivity::class.java)
                     nextAnimal.putExtra("carotsWon",(1..10).shuffled().first())
+                    nextAnimal.putExtra("difficulty","easy")
                     startActivity(nextAnimal)
 
                 }else{
@@ -233,7 +232,7 @@ class WhatIsThisActivity : AppCompatActivity() {
 
             //CODE DE LA PARTIE DIFFICILE
         }
-
+        resultat.setText(difficulty)
     }
 
 
