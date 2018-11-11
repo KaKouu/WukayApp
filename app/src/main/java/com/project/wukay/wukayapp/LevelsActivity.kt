@@ -20,6 +20,8 @@ class LevelsActivity : AppCompatActivity() {
         val intent = intent
         val difficulty = intent.getStringExtra("difficulty")
 
+        System.out.println(difficulty)
+
 
         imageRetour.setOnClickListener{
             val previousPage = Intent(this@LevelsActivity, HomeActivity::class.java)
@@ -45,6 +47,8 @@ class LevelsActivity : AppCompatActivity() {
             nextGame.putExtra("difficulty", difficulty)
             startActivity(nextGame)
         }
+
+
         // counter of carots
         var carrots=0
         var testNbCarrotsgagneprecedement=intent.getIntExtra("carotsWon",0)
