@@ -6,7 +6,7 @@ import android.content.SharedPreferences
 
 class Prefs(context : Context) {
 
-    val PREFS_FILENAME = "com.project.wukay.myapplication"
+    val PREFS_FILENAME = "com.project.wukay.wukayapp"
     val NB_LIFE = "nb_lapin"
     val NB_SECONDS = "nb_seconds"
     val NB_CARROTS = "nb_carrots"

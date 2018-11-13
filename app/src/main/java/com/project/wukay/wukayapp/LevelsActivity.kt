@@ -43,36 +43,36 @@ class LevelsActivity : AppCompatActivity() {
 
         var nbLife=prefs!!.nbLife
 
+
         var lastSeconds=prefs!!.lastSeconds
-
         var test: Calendar = Calendar.getInstance()
-
         var actualSeconds = test.timeInMillis
 
-
+        System.out.println("LAST = " + lastSeconds.toString())
+        System.out.println(actualSeconds.toString())
         //compare les deux dates
         var difference = (actualSeconds-lastSeconds) /1000
 
 
-       System.out.println(difference.toString())
+       System.out.println("DIFFERENCE = "+difference.toString())
 
         //si la difference est superieur au temps qu'il faut pour récuperer une vie alors on ajoute des vies
         if(difference>=5){
 
             var nbLifeToAdd = difference/5
-            System.out.println(nbLifeToAdd)
+            System.out.println("VIE A AJOUTER = " + nbLifeToAdd.toString())
 
             while(nbLifeToAdd>0 && nbLife<10){
                 nbLife+=1
                 nbLifeToAdd-=1
             }
-            setTxtLife(lifeText,nbLife)
         }
 
 
 
 
         setTxtLife(lifeText,nbLife)
+
 
         if(nbLife<10){
             startTimer(lifeText,nbLife)
@@ -85,22 +85,30 @@ class LevelsActivity : AppCompatActivity() {
 
 
         //// counter of carrots ///
-        var carrots=prefs!!.nbLife
+        var carrots=prefs!!.nbCarrots
 
         var testNbCarrotsGagnePrecedement=intent.getIntExtra("carotsWon",0)
         carrots+=testNbCarrotsGagnePrecedement
 
 
-        //// DATA SAVING ///
-        prefs!!.nbCarrots=carrots
-        numberCarrots.text = carrots.toString()
+
 
 
         ////BUTTONS////
         testCarrotes.setOnClickListener {
             var nb = (1..3).shuffled().first()
-            carrots=carrots+nb
+            carrots+=nb
             numberCarrots.setText(carrots.toString())
+
+            prefs!!.nbCarrots=carrots
+        }
+
+        testLife.setOnClickListener {
+
+            nbLife=4
+            setTxtLife(lifeText,nbLife)
+
+
         }
 
         imageRetour.setOnClickListener{
@@ -114,6 +122,10 @@ class LevelsActivity : AppCompatActivity() {
             nextGame.putExtra("difficulty", difficulty)
             startActivity(nextGame)
         }
+
+        //// DATA SAVING ///
+        prefs!!.nbCarrots=carrots
+        numberCarrots.text = carrots.toString()
 
     }
 
@@ -129,15 +141,18 @@ class LevelsActivity : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
-        if(timerState== TimerState.Running){
+
             timer.cancel()
 
             //ACTUAL CALENDAR WHEN THE USER REOPEN THE APP ///
             var actualCalendar: Calendar = Calendar.getInstance()
             var actualSeconds = actualCalendar.timeInMillis
 
+            System.out.println("STOPPED APP")
+            System.out.println(actualSeconds)
+
             saveLastSeconds(actualSeconds)
-        }
+
 
         PrefsTimer.setPreviousTimerLengthSeconds(timerLengthSecond,this)
         PrefsTimer.setSecondsRemaining(secondsRemaining,this)
@@ -196,11 +211,15 @@ class LevelsActivity : AppCompatActivity() {
         txt.text="$nb / 10"
 
         prefs!!.nbLife=nb
+        System.out.println("SAVED LIVES")
+        System.out.println(nb)
 
     }
 
     private fun saveLastSeconds(seconds : Long){
         prefs!!.lastSeconds=seconds
+        System.out.println(seconds)
+
     }
 
     private fun setNewTimerLength(){
