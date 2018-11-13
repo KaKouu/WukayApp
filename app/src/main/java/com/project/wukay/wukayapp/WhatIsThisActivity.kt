@@ -100,6 +100,7 @@ class WhatIsThisActivity : AppCompatActivity() {
 
                     //fin du mini jeux
                     if(numberWin==3){
+
                         nextAnimal.putExtra("carotsWon",(1..10).shuffled().first())
                         startActivity(nextAnimal)
 
@@ -190,6 +191,7 @@ class WhatIsThisActivity : AppCompatActivity() {
 
                     //fin du mini jeux
                     if(numberWin==3){
+
                         nextAnimal.putExtra("carotsWon",(1..10).shuffled().first())
                         startActivity(nextAnimal)
 
