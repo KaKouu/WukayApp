@@ -20,7 +20,7 @@ class WhatIsThisActivity : AppCompatActivity() {
         val difficulty = intent.getStringExtra("difficulty")
 
         //renvaiera la difficulté choisit precedement
-        val nextAnimal = Intent(this@WhatIsThisActivity, Victory::class.java)
+        val nextAnimal = Intent(this@WhatIsThisActivity, VictoryActivity::class.java)
         nextAnimal.putExtra("difficulty",difficulty)
 
         val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator

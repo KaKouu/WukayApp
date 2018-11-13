@@ -11,7 +11,16 @@ import com.project.wukay.wukayapp.util.PrefsTimer
 import kotlinx.android.synthetic.main.activity_levels.*
 import java.util.*
 
+
+
+
 class LevelsActivity : AppCompatActivity() {
+
+
+    companion object {
+        private const val SECONDS_FOR_ONE_LIFE = 5L
+    }
+
 
     private var prefs: Prefs? = null
 
@@ -23,8 +32,8 @@ class LevelsActivity : AppCompatActivity() {
     private var timerLengthSecond =0L
     private var timerState = TimerState.Stopped
 
-    //duree pour regagner une vie ( en seconde )
-    private var secondsRemaining =5L
+
+    private var secondsRemaining =SECONDS_FOR_ONE_LIFE
 
 
 
@@ -33,6 +42,7 @@ class LevelsActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_levels)
+
 
         prefs = Prefs(this)
 
@@ -228,6 +238,8 @@ class LevelsActivity : AppCompatActivity() {
     private fun setPreviousTimerLength(){
         timerLengthSecond = PrefsTimer.getPreviousTimerLengthSeconds(this)
     }
+
+
 
 
 }
