@@ -20,7 +20,7 @@ class WhatIsThisActivity : AppCompatActivity() {
         val difficulty = intent.getStringExtra("difficulty")
 
         //renvaiera la difficulté choisit precedement
-        val nextAnimal = Intent(this@WhatIsThisActivity, LevelsActivity::class.java)
+        val nextAnimal = Intent(this@WhatIsThisActivity, Victory::class.java)
         nextAnimal.putExtra("difficulty",difficulty)
 
         val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
@@ -56,6 +56,7 @@ class WhatIsThisActivity : AppCompatActivity() {
                 System.out.println(numberWin)
 
                 if(numberWin==3){
+                    System.out.println("NOMBRE WIN : " + numberWin)
                     val nextAnimal = Intent(this@WhatIsThisActivity, LevelsActivity::class.java)
                     nextAnimal.putExtra("carotsWon",(1..10).shuffled().first())
                     nextAnimal.putExtra("difficulty","easy")
@@ -97,11 +98,10 @@ class WhatIsThisActivity : AppCompatActivity() {
                     //incrementation du nombre d'animal trouvé
                     resultat.text=""
                     numberWin+=1
+                    System.out.println("NOMBRE WIN : " + numberWin)
 
                     //fin du mini jeux
                     if(numberWin==3){
-
-                        nextAnimal.putExtra("carotsWon",(1..10).shuffled().first())
                         startActivity(nextAnimal)
 
                      //prochain animal à deviner
@@ -143,10 +143,10 @@ class WhatIsThisActivity : AppCompatActivity() {
                     //incrementation du nombre d'animal trouvé
                     resultat.text=""
                     numberWin+=1
+                    System.out.println("NOMBRE WIN : " + numberWin)
 
                     //fin du mini jeux
                     if(numberWin==3){
-                        nextAnimal.putExtra("carotsWon",(1..10).shuffled().first())
                         startActivity(nextAnimal)
 
                         //prochain animal à deviner
@@ -188,11 +188,10 @@ class WhatIsThisActivity : AppCompatActivity() {
                     //incrementation du nombre d'animal trouvé
                     resultat.text=""
                     numberWin+=1
+                    System.out.println("NOMBRE WIN : " + numberWin)
 
                     //fin du mini jeux
                     if(numberWin==3){
-
-                        nextAnimal.putExtra("carotsWon",(1..10).shuffled().first())
                         startActivity(nextAnimal)
 
                         //prochain animal à deviner
