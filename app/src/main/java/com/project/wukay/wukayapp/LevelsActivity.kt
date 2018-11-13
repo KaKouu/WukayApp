@@ -1,12 +1,12 @@
 package com.project.wukay.wukayapp
 
-import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.widget.TextView
 import com.project.wukay.wukayapp.util.Prefs
+import com.project.wukay.wukayapp.util.PrefsTimer
 
 import kotlinx.android.synthetic.main.activity_levels.*
 import java.util.*
@@ -22,6 +22,8 @@ class LevelsActivity : AppCompatActivity() {
     private lateinit var  timer: CountDownTimer
     private var timerLengthSecond =0L
     private var timerState = TimerState.Stopped
+
+    //duree pour regagner une vie ( en seconde )
     private var secondsRemaining =5L
 
 
@@ -38,11 +40,73 @@ class LevelsActivity : AppCompatActivity() {
         val difficulty = intent.getStringExtra("difficulty")
 
 
+
+        var nbLife=prefs!!.nbLife
+
+        var lastSeconds=prefs!!.lastSeconds
+
+        var test: Calendar = Calendar.getInstance()
+
+        var actualSeconds = test.timeInMillis
+
+
+        //compare les deux dates
+        var difference = (actualSeconds-lastSeconds) /1000
+
+
+       System.out.println(difference.toString())
+
+        //si la difference est superieur au temps qu'il faut pour récuperer une vie alors on ajoute des vies
+        if(difference>=5){
+
+            var nbLifeToAdd = difference/5
+            System.out.println(nbLifeToAdd)
+
+            while(nbLifeToAdd>0 && nbLife<10){
+                nbLife+=1
+                nbLifeToAdd-=1
+            }
+            setTxtLife(lifeText,nbLife)
+        }
+
+
+
+
+        setTxtLife(lifeText,nbLife)
+
+        if(nbLife<10){
+            startTimer(lifeText,nbLife)
+            timerState=TimerState.Running
+        }
+
+
+
+
+
+
+        //// counter of carrots ///
+        var carrots=prefs!!.nbLife
+
+        var testNbCarrotsGagnePrecedement=intent.getIntExtra("carotsWon",0)
+        carrots+=testNbCarrotsGagnePrecedement
+
+
+        //// DATA SAVING ///
+        prefs!!.nbCarrots=carrots
+        numberCarrots.text = carrots.toString()
+
+
+        ////BUTTONS////
+        testCarrotes.setOnClickListener {
+            var nb = (1..3).shuffled().first()
+            carrots=carrots+nb
+            numberCarrots.setText(carrots.toString())
+        }
+
         imageRetour.setOnClickListener{
             val previousPage = Intent(this@LevelsActivity, HomeActivity::class.java)
             startActivity(previousPage)
         }
-
 
         playButton.setOnClickListener {
 
@@ -51,37 +115,13 @@ class LevelsActivity : AppCompatActivity() {
             startActivity(nextGame)
         }
 
-
-
-
-        // counter of carots
-        var carrots=prefs!!.nbLapin
-
-        var testNbCarrotsGagnePrecedement=intent.getIntExtra("carotsWon",0)
-        carrots+=testNbCarrotsGagnePrecedement
-
-
-
-
-
-        // Enregistrer les donnés
-        prefs!!.nbCarrots=carrots
-        numberCarrots.text = carrots.toString()
-
-        testCarrotes.setOnClickListener {
-            var nb = (1..3).shuffled().first()
-            carrots=carrots+nb
-            numberCarrots.setText(carrots.toString())
-        }
-
-
     }
 
 
 
 
 
-
+    ////app////
     override fun onResume() {
         super.onResume()
         initTimer()
@@ -91,36 +131,37 @@ class LevelsActivity : AppCompatActivity() {
         super.onPause()
         if(timerState== TimerState.Running){
             timer.cancel()
+
+            //ACTUAL CALENDAR WHEN THE USER REOPEN THE APP ///
             var actualCalendar: Calendar = Calendar.getInstance()
             var actualSeconds = actualCalendar.timeInMillis
 
             saveLastSeconds(actualSeconds)
         }
 
-        PrefUtil.setPreviousTimerLengthSeconds(timerLengthSecond,this)
-        PrefUtil.setSecondsRemaining(secondsRemaining,this)
-        PrefUtil.setTimerState(timerState,this)
+        PrefsTimer.setPreviousTimerLengthSeconds(timerLengthSecond,this)
+        PrefsTimer.setSecondsRemaining(secondsRemaining,this)
+        PrefsTimer.setTimerState(timerState,this)
     }
 
 
+    //////TIMER//////
     private fun initTimer(){
-        timerState = PrefUtil.getTimerState(this)
+        timerState = PrefsTimer.getTimerState(this)
         if(timerState== TimerState.Stopped){
             setNewTimerLength()
         }else{
             setPreviousTimerLength()
         }
         secondsRemaining = if( timerState== TimerState.Running || timerState == TimerState.Paused){
-            PrefUtil.getSecondsRemaining(this)
+            PrefsTimer.getSecondsRemaining(this)
         }else{
             timerLengthSecond
         }
         if(timerState==TimerState.Running){
             //startTimer()
         }
-        updateLifeCount()
     }
-
 
     private fun onTimerFinished(txt : TextView, nb: Int){
         timerState= TimerState.Stopped
@@ -128,7 +169,7 @@ class LevelsActivity : AppCompatActivity() {
         System.out.println("fin Timer")
         var nbL = nb +1
 
-        setTxtLapin(txt, nbL)
+        setTxtLife(txt, nbL)
 
         setNewTimerLength()
         secondsRemaining = timerLengthSecond
@@ -146,15 +187,15 @@ class LevelsActivity : AppCompatActivity() {
             override fun onFinish() = onTimerFinished(txt,nb)
             override fun onTick(millisUntilFinished: Long) {
                 secondsRemaining = millisUntilFinished/1000
-                updateLifeCount()
+
             }
         }.start()
     }
 
-    private fun setTxtLapin(txt : TextView, nb: Int){
+    private fun setTxtLife(txt : TextView, nb: Int){
         txt.text="$nb / 10"
 
-        prefs!!.nbLapin=nb
+        prefs!!.nbLife=nb
 
     }
 
@@ -162,15 +203,13 @@ class LevelsActivity : AppCompatActivity() {
         prefs!!.lastSeconds=seconds
     }
 
-
     private fun setNewTimerLength(){
         //val lengthInMinutes = PrefUtil.getTimerLength(this)
         timerLengthSecond = 5L
     }
 
-
     private fun setPreviousTimerLength(){
-        timerLengthSecond = PrefUtil.getPreviousTimerLengthSeconds(this)
+        timerLengthSecond = PrefsTimer.getPreviousTimerLengthSeconds(this)
     }
 
 
