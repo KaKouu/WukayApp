@@ -23,6 +23,7 @@ class VictoryActivity : AppCompatActivity() {
             val next = Intent( this@VictoryActivity, LevelsActivity::class.java)
             next.putExtra("difficulty",difficulty)
             next.putExtra("carotsWon",nbCarrots)
+            next.putExtra("isLastActivityIsAGame",true)
 
 
 

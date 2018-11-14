@@ -50,9 +50,7 @@ class LevelsActivity : AppCompatActivity() {
         val difficulty = intent.getStringExtra("difficulty")
 
 
-
         var nbLife=prefs!!.nbLife
-
 
         var lastSeconds=prefs!!.lastSeconds
         var test: Calendar = Calendar.getInstance()
@@ -79,6 +77,12 @@ class LevelsActivity : AppCompatActivity() {
         }
 
 
+        //si l'on vient de finir un mini jeux
+
+        val isLastActivityIsAGame = intent.getBooleanExtra("isLastActivityIsAGame",false)
+        if(isLastActivityIsAGame){
+            nbLife-=1
+        }
 
 
         setTxtLife(lifeText,nbLife)
