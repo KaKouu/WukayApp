@@ -13,25 +13,21 @@ import java.util.*
 class WhatIsThisActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // mise en place du layout
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_what_is_this)
 
-
-        val difficulty = intent.getStringExtra("difficulty")
-
-        //renvaiera la difficulté choisit precedement
+        //déclaration des variables
+        val difficulty = intent.getStringExtra("difficulty") //renvaiera la difficulté choisit precedement
         val nextAnimal = Intent(this@WhatIsThisActivity, VictoryActivity::class.java)
         nextAnimal.putExtra("difficulty",difficulty)
-
-
         val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
 
-        System.out.println(difficulty)
-
-
+        //selon le niveau de difficulté
         if(difficulty=="easy") {
 
             var numberWin=0
+            //var tabbleauTampon : Array<Int> = arrayOf(0,0,0,0)
             var tampon = 0
             var tampon1 = 0
             var tampon2 = 0
@@ -241,7 +237,7 @@ class WhatIsThisActivity : AppCompatActivity() {
 
     //data class Result(var win: Int, var succeed: Boolean)
 
-    private fun isTheCorrectAnswer(tampon: Int, tabTampon: IntArray, n: Int):Boolean  {
+    public fun isTheCorrectAnswer(tampon: Int, tabTampon: IntArray, n: Int):Boolean  {
         return tampon == tabTampon.get(n)
     }
 
