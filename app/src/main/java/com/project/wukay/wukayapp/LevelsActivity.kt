@@ -9,9 +9,19 @@ import com.project.wukay.wukayapp.util.Prefs
 import com.project.wukay.wukayapp.util.PrefsTimer
 
 import kotlinx.android.synthetic.main.activity_levels.*
+import kotlinx.android.synthetic.main.activity_life_pop.*
 import java.util.*
 
+
+
+
 class LevelsActivity : AppCompatActivity() {
+
+
+    companion object {
+        private const val SECONDS_FOR_ONE_LIFE = 5L
+    }
+
 
     private var prefs: Prefs? = null
 
@@ -23,16 +33,15 @@ class LevelsActivity : AppCompatActivity() {
     private var timerLengthSecond =0L
     private var timerState = TimerState.Stopped
 
-    //duree pour regagner une vie ( en seconde )
-    private var secondsRemaining =5L
 
-
+    private var secondsRemaining =SECONDS_FOR_ONE_LIFE
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_levels)
+
 
         prefs = Prefs(this)
 
@@ -41,8 +50,8 @@ class LevelsActivity : AppCompatActivity() {
 
 
 
-        var nbLife=prefs!!.nbLife
 
+        var nbLife=prefs!!.nbLife
 
         var lastSeconds=prefs!!.lastSeconds
         var test: Calendar = Calendar.getInstance()
@@ -57,18 +66,32 @@ class LevelsActivity : AppCompatActivity() {
        System.out.println("DIFFERENCE = "+difference.toString())
 
         //si la difference est superieur au temps qu'il faut pour récuperer une vie alors on ajoute des vies
-        if(difference>=5){
+        if(difference>=5 && nbLife<10){
 
             var nbLifeToAdd = difference/5
+            var test = 0
             System.out.println("VIE A AJOUTER = " + nbLifeToAdd.toString())
+
+            val popIntent = Intent(applicationContext,LifePopActivity::class.java)
+            popIntent.putExtra("test","$nbLifeToAdd")
+            startActivity(popIntent)
 
             while(nbLifeToAdd>0 && nbLife<10){
                 nbLife+=1
                 nbLifeToAdd-=1
+                test+=1
+
             }
+
         }
 
 
+        //si l'on vient de finir un mini jeux
+
+        val isLastActivityIsAGame = intent.getBooleanExtra("isLastActivityIsAGame",false)
+        if(isLastActivityIsAGame){
+            nbLife-=1
+        }
 
 
         setTxtLife(lifeText,nbLife)
@@ -78,8 +101,6 @@ class LevelsActivity : AppCompatActivity() {
             startTimer(lifeText,nbLife)
             timerState=TimerState.Running
         }
-
-
 
 
 
@@ -107,7 +128,16 @@ class LevelsActivity : AppCompatActivity() {
 
             nbLife=4
             setTxtLife(lifeText,nbLife)
+            if(nbLife<10){
+                startTimer(lifeText,nbLife)
+                timerState=TimerState.Running
+            }
 
+
+
+        }
+
+        popButton.setOnClickListener {
 
         }
 
@@ -130,9 +160,6 @@ class LevelsActivity : AppCompatActivity() {
     }
 
 
-
-
-
     ////app////
     override fun onResume() {
         super.onResume()
@@ -141,8 +168,6 @@ class LevelsActivity : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
-
-            timer.cancel()
 
             //ACTUAL CALENDAR WHEN THE USER REOPEN THE APP ///
             var actualCalendar: Calendar = Calendar.getInstance()
@@ -230,6 +255,5 @@ class LevelsActivity : AppCompatActivity() {
     private fun setPreviousTimerLength(){
         timerLengthSecond = PrefsTimer.getPreviousTimerLengthSeconds(this)
     }
-
 
 }

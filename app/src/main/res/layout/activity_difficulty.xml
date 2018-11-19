@@ -23,8 +23,8 @@
             android:layout_height="177dp"
             android:id="@+id/hardPic" app:layout_constraintStart_toEndOf="@+id/easyPic"
             android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            android:layout_marginBottom="216dp" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.553"/>
+            android:layout_marginBottom="204dp" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.843"/>
     <TextView
             android:text="facile"
             android:layout_width="wrap_content"
@@ -38,12 +38,12 @@
             app:layout_constraintHorizontal_bias="0.445" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/easyPic" app:layout_constraintVertical_bias="0.0"/>
     <TextView
-            android:text="diffcile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/txtHard" android:textSize="24sp"
             android:fontFamily="@font/grobold" android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/hardPic" android:layout_marginEnd="52dp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintVertical_bias="0.538"/>
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintVertical_bias="0.538"
+            android:text="diffcile"/>
 </android.support.constraint.ConstraintLayout>
