@@ -69,18 +69,22 @@ class LevelsActivity : AppCompatActivity() {
         if(difference>=5 && nbLife<10){
 
             var nbLifeToAdd = difference/5
-            var test = 0
+
+
+            //condition pour l'affichage dans la popUp
+            if(nbLifeToAdd>10){
+                nbLifeToAdd =10
+            }
+
             System.out.println("VIE A AJOUTER = " + nbLifeToAdd.toString())
 
             val popIntent = Intent(applicationContext,LifePopActivity::class.java)
-            popIntent.putExtra("test","$nbLifeToAdd")
+            popIntent.putExtra("nbLifeToShow","$nbLifeToAdd")
             startActivity(popIntent)
 
             while(nbLifeToAdd>0 && nbLife<10){
                 nbLife+=1
                 nbLifeToAdd-=1
-                test+=1
-
             }
 
         }
