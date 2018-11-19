@@ -23,8 +23,8 @@
             android:layout_height="177dp"
             android:id="@+id/hardPic" app:layout_constraintStart_toEndOf="@+id/easyPic"
             android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            android:layout_marginBottom="220dp" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.553"/>
+            android:layout_marginBottom="204dp" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.843"/>
     <TextView
             android:text="facile"
             android:layout_width="wrap_content"

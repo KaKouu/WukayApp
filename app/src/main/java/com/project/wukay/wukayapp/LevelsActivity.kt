@@ -9,6 +9,7 @@ import com.project.wukay.wukayapp.util.Prefs
 import com.project.wukay.wukayapp.util.PrefsTimer
 
 import kotlinx.android.synthetic.main.activity_levels.*
+import kotlinx.android.synthetic.main.activity_life_pop.*
 import java.util.*
 
 
@@ -36,8 +37,6 @@ class LevelsActivity : AppCompatActivity() {
     private var secondsRemaining =SECONDS_FOR_ONE_LIFE
 
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -48,6 +47,8 @@ class LevelsActivity : AppCompatActivity() {
 
         val intent = intent
         val difficulty = intent.getStringExtra("difficulty")
+
+
 
 
         var nbLife=prefs!!.nbLife
@@ -65,15 +66,23 @@ class LevelsActivity : AppCompatActivity() {
        System.out.println("DIFFERENCE = "+difference.toString())
 
         //si la difference est superieur au temps qu'il faut pour récuperer une vie alors on ajoute des vies
-        if(difference>=5){
+        if(difference>=5 && nbLife<10){
 
             var nbLifeToAdd = difference/5
+            var test = 0
             System.out.println("VIE A AJOUTER = " + nbLifeToAdd.toString())
+
+            val popIntent = Intent(applicationContext,LifePopActivity::class.java)
+            popIntent.putExtra("test","$nbLifeToAdd")
+            startActivity(popIntent)
 
             while(nbLifeToAdd>0 && nbLife<10){
                 nbLife+=1
                 nbLifeToAdd-=1
+                test+=1
+
             }
+
         }
 
 
@@ -92,8 +101,6 @@ class LevelsActivity : AppCompatActivity() {
             startTimer(lifeText,nbLife)
             timerState=TimerState.Running
         }
-
-
 
 
 
@@ -121,7 +128,16 @@ class LevelsActivity : AppCompatActivity() {
 
             nbLife=4
             setTxtLife(lifeText,nbLife)
+            if(nbLife<10){
+                startTimer(lifeText,nbLife)
+                timerState=TimerState.Running
+            }
 
+
+
+        }
+
+        popButton.setOnClickListener {
 
         }
 
@@ -142,9 +158,6 @@ class LevelsActivity : AppCompatActivity() {
         numberCarrots.text = carrots.toString()
 
     }
-
-
-
 
 
     ////app////
@@ -242,8 +255,5 @@ class LevelsActivity : AppCompatActivity() {
     private fun setPreviousTimerLength(){
         timerLengthSecond = PrefsTimer.getPreviousTimerLengthSeconds(this)
     }
-
-
-
 
 }

@@ -6,4 +6,5 @@
     <color name="colorButton">#fef8a0</color>
     <color name="colorPrimaryOption">#494948</color>
     <color name="colorCarrots">#de6413</color>
+    <color name="colorWhite">#d1d1d1</color>
 </resources>
