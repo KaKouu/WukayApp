@@ -33,6 +33,12 @@ class WhatIsThisActivity : AppCompatActivity() {
             var tampon2 = 0
             var tampon3 = 0
 
+            var tableau = IntArray(4);
+            tableau.set(0,0)
+            tableau.set(1,0)
+            tableau.set(2,0)
+            tableau.set(3,0)
+
             var tabTampon = IntArray(3)
 
             val animalArray = arrayOf(
@@ -52,23 +58,16 @@ class WhatIsThisActivity : AppCompatActivity() {
 
                 System.out.println(numberWin)
 
-                if(numberWin==3){
-                    System.out.println("NOMBRE WIN : " + numberWin)
-                    val nextAnimal = Intent(this@WhatIsThisActivity, LevelsActivity::class.java)
-                    nextAnimal.putExtra("carotsWon",(1..10).shuffled().first())
-                    nextAnimal.putExtra("difficulty","easy")
-                    startActivity(nextAnimal)
 
-                }else{
 
                     resultat.setText("___________")
-
+                    tampon = randomizeImage(tabTampon, animalArray, animalPic)
                     ////SILHOUETTE
                     tabTampon.set(0, tampon)
                     tabTampon.set(1, 10)
                     tabTampon.set(2, 10)
 
-                    tampon = randomizeImage(tabTampon, animalArray, animalPic)
+
 
 
                     ////AWNSER
@@ -83,7 +82,7 @@ class WhatIsThisActivity : AppCompatActivity() {
                     tabTampon.set(2, tampon3)
 
                     startButton.visibility = View.INVISIBLE
-                }
+
             }
 
 
@@ -233,31 +232,25 @@ class WhatIsThisActivity : AppCompatActivity() {
         resultat.setText(difficulty)
     }
 
-
-
-    //data class Result(var win: Int, var succeed: Boolean)
-
-    public fun isTheCorrectAnswer(tampon: Int, tabTampon: IntArray, n: Int):Boolean  {
-        return tampon == tabTampon.get(n)
+    
+    public fun isTheCorrectAnswer(indexOfAnswer: Int, arrayIndexOfPicturesPutedAsAnswer: IntArray, index: Int):Boolean  {
+        return indexOfAnswer == arrayIndexOfPicturesPutedAsAnswer.get(index)
     }
 
-    private fun randomizeImage(tampon: IntArray, animalArray: Array<Int>, view: ImageView): Int  {
-        var tampon4 = tampon
-        var r = Random()
 
-        var n = r.nextInt(3)
+    private fun randomizeImage(arrayIndexOfAnswerPicture: IntArray, arrayOfPictures: Array<Int>, view: ImageView): Int  {
+        var rand = Random()
+        var indexOfAnimalPicture = rand.nextInt(3)
 
-
-        while (tampon4.contains(n) ) {
-            n = r.nextInt(3)
+        //don't chose an index which has been already chosen
+        while (arrayIndexOfAnswerPicture.contains(indexOfAnimalPicture) ) {
+            indexOfAnimalPicture = rand.nextInt(3)
 
         }
 
-        view.setImageResource(animalArray[n])
-
-        var tamponNext = n
-
-        return tamponNext
+        //change the picture passed in parameters by one of the arrayOfPictures
+        view.setImageResource(arrayOfPictures[indexOfAnimalPicture])
+        return indexOfAnimalPicture
 
     }
 
