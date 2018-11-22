@@ -236,7 +236,17 @@ class WhatIsThisActivity : AppCompatActivity() {
 
             //CODE DE LA PARTIE DIFFICILE
 
+            var numberOfWin=0;
 
+            val arrayOfAnimalsPicture = arrayOf(
+                R.drawable.animaux_cochon,
+                R.drawable.animaux_vache,
+                R.drawable.animaux_girafe,
+                R.drawable.animaux_bouc,
+                R.drawable.animaux_chat,
+                R.drawable.animaux_crabe
+            )
+            
            description.setText("J'ai 4 pattes")
             answer1.setOnClickListener{
                 description.setText("gagné")
@@ -284,6 +294,27 @@ class WhatIsThisActivity : AppCompatActivity() {
         view.setImageResource(arrayOfPictures[indexOfAnimalPicture])
         return indexOfAnimalPicture
 
+    }
+    private fun giveRandomPicture(arrayOfAnimalsPicture : Array<Int>):IntArray{
+        var arrayAnswer = IntArray(4);
+        var rand = Random()
+        arrayAnswer.set(0,rand.nextInt(arrayOfAnimalsPicture.size))
+        arrayAnswer.set(1,arrayAnswer.get(0))
+        arrayAnswer.set(2,randomWithNotTheParameters(arrayAnswer.get(0),arrayOfAnimalsPicture.size))
+        arrayAnswer.set(3,randomWithNotTheParameters(arrayAnswer.get(0),arrayOfAnimalsPicture.size))
+
+        return arrayAnswer
+
+    }
+
+    private fun randomWithNotTheParameters(n : Int, bound : Int):Int{
+        var rand = Random()
+        var result=rand.nextInt(bound)
+
+        while(result==n) {
+            result = rand.nextInt(bound)
+        }
+        return result;
     }
 
 
