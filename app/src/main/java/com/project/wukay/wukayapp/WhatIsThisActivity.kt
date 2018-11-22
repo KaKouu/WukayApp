@@ -7,27 +7,35 @@ import android.os.Bundle
 import android.os.Vibrator
 import android.view.View
 import android.widget.ImageView
+import kotlinx.android.synthetic.main.activity_hard_what_is_this.*
 import kotlinx.android.synthetic.main.activity_what_is_this.*
 import java.util.*
 
 class WhatIsThisActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         // mise en place du layout
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_what_is_this)
+
 
         //déclaration des variables
         val difficulty = intent.getStringExtra("difficulty") //renvaiera la difficulté choisit precedement
         val nextAnimal = Intent(this@WhatIsThisActivity, VictoryActivity::class.java)
-        nextAnimal.putExtra("difficulty",difficulty)
+        nextAnimal.putExtra("difficulty", difficulty)
         val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        if (difficulty == "easy"){
+            setContentView(R.layout.activity_what_is_this)
+        }else
+        {
+            setContentView(R.layout.activity_hard_what_is_this)
+        }
 
         //selon le niveau de difficulté
         if(difficulty=="easy") {
 
             var numberWin=0
-            //var tabbleauTampon : Array<Int> = arrayOf(0,0,0,0)
+            //var tableauTampon : Array<Int> = arrayOf(0,0,0,0)
             var tampon = 0
             var tampon1 = 0
             var tampon2 = 0
@@ -82,6 +90,7 @@ class WhatIsThisActivity : AppCompatActivity() {
                     tabTampon.set(2, tampon3)
 
                     startButton.visibility = View.INVISIBLE
+
 
             }
 
@@ -225,14 +234,37 @@ class WhatIsThisActivity : AppCompatActivity() {
 
         }else{
 
-
-
             //CODE DE LA PARTIE DIFFICILE
+
+
+           description.setText("J'ai 4 pattes")
+            answer1.setOnClickListener{
+                description.setText("gagné")
+            }
+            answer2.setOnClickListener{
+                description.setText("perdu")
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         }
-        resultat.setText(difficulty)
+
     }
 
-    
+
     public fun isTheCorrectAnswer(indexOfAnswer: Int, arrayIndexOfPicturesPutedAsAnswer: IntArray, index: Int):Boolean  {
         return indexOfAnswer == arrayIndexOfPicturesPutedAsAnswer.get(index)
     }

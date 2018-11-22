@@ -22,8 +22,12 @@ class HomeActivity : AppCompatActivity() {
 
 
         startButton.setOnClickListener{
+
             val start = Intent(this@HomeActivity, DifficultyActivity::class.java)
+
+
             startActivity(start);
+
         }
     }
 
