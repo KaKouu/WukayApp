@@ -10,11 +10,12 @@
 
     <ImageView
             android:layout_width="383dp"
-            android:layout_height="569dp" app:srcCompat="@drawable/bg_what_is_this"
+            android:layout_height="576dp" app:srcCompat="@drawable/bg_what_is_this"
             android:id="@+id/imageView2"
-            android:scaleType="center" app:layout_constraintStart_toStartOf="parent"
+            android:scaleType="centerCrop" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintVertical_bias="1.0"/>
     <Button
             android:text="Commencer !"
             android:layout_width="wrap_content"
@@ -34,30 +35,30 @@
             android:layout_marginTop="32dp" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintHorizontal_bias="0.558"/>
     <ImageView
-            android:layout_width="107dp"
-            android:layout_height="121dp"
+            android:layout_width="117dp"
+            android:layout_height="138dp"
             android:id="@+id/animalAnwser1"
             android:layout_marginTop="328dp" app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.549"
-            app:srcCompat="@drawable/animaux_girafe" android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.548"
+            app:srcCompat="@drawable/animaux_girafe" android:layout_marginStart="4dp"
             app:layout_constraintStart_toStartOf="parent"/>
     <ImageView
-            android:layout_width="115dp"
-            android:layout_height="141dp" app:srcCompat="@drawable/animaux_mouton"
+            android:layout_width="98dp"
+            android:layout_height="121dp" app:srcCompat="@drawable/animaux_mouton"
             android:id="@+id/animalAnwser2"
             app:layout_constraintStart_toEndOf="@+id/animalAnwser1"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="148dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="160dp"
             app:layout_constraintTop_toBottomOf="@+id/animalPic"/>
     <ImageView
-            android:layout_width="111dp"
-            android:layout_height="120dp" app:srcCompat="@drawable/animaux_lion"
+            android:layout_width="135dp"
+            android:layout_height="135dp" app:srcCompat="@drawable/animaux_lion"
             android:id="@+id/animalAnwser3"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="12dp" android:layout_marginTop="328dp" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toEndOf="@+id/animalAnwser2" android:layout_marginStart="8dp"
             android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="1.0" app:layout_constraintVertical_bias="0.686"/>
+            app:layout_constraintHorizontal_bias="1.0" app:layout_constraintVertical_bias="0.635"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

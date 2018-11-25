@@ -68,7 +68,7 @@ class WhatIsThisActivity : AppCompatActivity() {
 
 
 
-                    resultat.setText("___________")
+                    resultat.setText("")
                     tampon = randomizeImage(tabTampon, animalArray, animalPic)
                     ////SILHOUETTE
                     tabTampon.set(0, tampon)
