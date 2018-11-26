@@ -143,7 +143,7 @@ class LevelsActivity : AppCompatActivity() {
         }
 
         imageRetour.setOnClickListener{
-            val previousPage = Intent(this@LevelsActivity, HomeActivity::class.java)
+            val previousPage = Intent(this@LevelsActivity, DifficultyActivity::class.java)
             startActivity(previousPage)
         }
 

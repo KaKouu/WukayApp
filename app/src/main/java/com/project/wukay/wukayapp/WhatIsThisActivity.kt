@@ -23,7 +23,9 @@ class WhatIsThisActivity : AppCompatActivity() {
         val difficulty = intent.getStringExtra("difficulty") //renvaiera la difficulté choisit precedement
         val nextAnimal = Intent(this@WhatIsThisActivity, VictoryActivity::class.java)
         nextAnimal.putExtra("difficulty", difficulty)
+
         val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+
         if (difficulty == "easy"){
             setContentView(R.layout.activity_what_is_this)
         }else
@@ -90,6 +92,7 @@ class WhatIsThisActivity : AppCompatActivity() {
                     tabTampon.set(2, tampon3)
 
                     startButton.visibility = View.INVISIBLE
+                    arrow.visibility = View.INVISIBLE
 
 
             }
@@ -136,7 +139,7 @@ class WhatIsThisActivity : AppCompatActivity() {
                 }else{
                     //vibration de defaite +texte
                     vibratorService.vibrate(100)
-                    resultat.text="recommence"
+                    resultat.text="Essaye encore !"
                 }
 
             }
@@ -181,7 +184,7 @@ class WhatIsThisActivity : AppCompatActivity() {
                     //vibration de defaite
                     vibratorService.vibrate(100)
 
-                    resultat.text="recommence"
+                    resultat.text="Essaye encore !"
                 }
 
             }
@@ -226,7 +229,7 @@ class WhatIsThisActivity : AppCompatActivity() {
                     //vibration de defaite
                     vibratorService.vibrate(100)
 
-                    resultat.text="recommence"
+                    resultat.text="Essaye encore !"
                 }
 
             }
@@ -256,20 +259,6 @@ class WhatIsThisActivity : AppCompatActivity() {
             }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         }
 
     }
@@ -295,8 +284,9 @@ class WhatIsThisActivity : AppCompatActivity() {
         return indexOfAnimalPicture
 
     }
+
     private fun giveRandomPicture(arrayOfAnimalsPicture : Array<Int>):IntArray{
-        var arrayAnswer = IntArray(4);
+        var arrayAnswer = IntArray(4)
         var rand = Random()
         arrayAnswer.set(0,rand.nextInt(arrayOfAnimalsPicture.size))
         arrayAnswer.set(1,arrayAnswer.get(0))
