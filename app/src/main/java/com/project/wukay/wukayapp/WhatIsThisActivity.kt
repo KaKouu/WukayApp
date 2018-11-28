@@ -249,14 +249,51 @@ class WhatIsThisActivity : AppCompatActivity() {
                 R.drawable.animaux_chat,
                 R.drawable.animaux_crabe
             )
-            
+
            description.setText("J'ai 4 pattes")
+            question.setOnClickListener {
+                var rand = Random()
+                var nombreDeReponsesPossibles=2;
+                var reponse =rand.nextInt(arrayOfAnimalsPicture.size)
+                var ouMettreLaReponse=rand.nextInt(nombreDeReponsesPossibles)
+                description.setText(reponse.toString())
+
+                var memoAnimauxChoisi=IntArray(nombreDeReponsesPossibles)
+
+                var i=0;
+                while(i<nombreDeReponsesPossibles){
+                    System.out.print(i)
+                    memoAnimauxChoisi.set(i,-1)
+                    i++
+                }
+                memoAnimauxChoisi.set(ouMettreLaReponse,reponse)
+
+
+                var rep1=rand.nextInt(arrayOfAnimalsPicture.size)
+                if(memoAnimauxChoisi.get(0)!=reponse){
+                    memoAnimauxChoisi.set(0,rep1)
+                }
+
+
+                var rep2=rand.nextInt(arrayOfAnimalsPicture.size)
+                while(memoAnimauxChoisi.contains(rep2)){
+
+                    rep2=rand.nextInt(arrayOfAnimalsPicture.size)
+                }
+                if(memoAnimauxChoisi.get(1)!=reponse){
+                    memoAnimauxChoisi.set(1,rep2)
+                }
+                answer1.setImageResource(arrayOfAnimalsPicture[memoAnimauxChoisi.get(0)])
+                answer2.setImageResource(arrayOfAnimalsPicture[memoAnimauxChoisi.get(1)])
+
+            }
             answer1.setOnClickListener{
                 description.setText("gagné")
             }
             answer2.setOnClickListener{
                 description.setText("perdu")
             }
+
 
 
         }
