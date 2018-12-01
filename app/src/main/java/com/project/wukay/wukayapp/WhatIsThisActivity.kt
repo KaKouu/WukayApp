@@ -247,7 +247,15 @@ class WhatIsThisActivity : AppCompatActivity() {
                 R.drawable.animaux_girafe,
                 R.drawable.animaux_bouc,
                 R.drawable.animaux_chat,
-                R.drawable.animaux_crabe
+                R.drawable.animaux_crabe,
+                R.drawable.animaux_morse,
+                R.drawable.animaux_panda,
+                R.drawable.animaux_paon,
+                R.drawable.animaux_pingouin,
+                R.drawable.animaux_poule,
+                R.drawable.animaux_tigre,
+                R.drawable.animaux_zebre,
+                R.drawable.animaux_lion
             )
             val arrayOfQuestionPicture = arrayOf(
                 R.drawable.animaux_cochon,
@@ -255,7 +263,14 @@ class WhatIsThisActivity : AppCompatActivity() {
                 R.drawable.animaux_girafe,
                 R.drawable.animaux_bouc,
                 R.drawable.animaux_chat,
-                R.drawable.animaux_crabe
+                R.drawable.animaux_crabe,
+                R.drawable.animaux_morse,
+                R.drawable.animaux_panda,
+                R.drawable.animaux_paon,
+                R.drawable.animaux_pingouin,
+                R.drawable.animaux_poule,
+                R.drawable.animaux_tigre,
+                R.drawable.animaux_zebre
             )
            description.setText("J'ai 4 pattes")
             var nombreDeReponsesPossibles=2
@@ -263,8 +278,8 @@ class WhatIsThisActivity : AppCompatActivity() {
             var reponse =-1
             question.setOnClickListener {
                 var rand = Random()
-
-                reponse =rand.nextInt(arrayOfAnimalsPicture.size)
+                
+                reponse =rand.nextInt(arrayOfAnimalsPicture.size-1)
                 var ouMettreLaReponse=rand.nextInt(nombreDeReponsesPossibles)
                 description.setText(reponse.toString())
 
