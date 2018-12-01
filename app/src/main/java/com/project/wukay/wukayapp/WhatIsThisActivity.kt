@@ -249,23 +249,36 @@ class WhatIsThisActivity : AppCompatActivity() {
                 R.drawable.animaux_chat,
                 R.drawable.animaux_crabe
             )
-
+            val arrayOfQuestionPicture = arrayOf(
+                R.drawable.animaux_cochon,
+                R.drawable.animaux_vache,
+                R.drawable.animaux_girafe,
+                R.drawable.animaux_bouc,
+                R.drawable.animaux_chat,
+                R.drawable.animaux_crabe
+            )
            description.setText("J'ai 4 pattes")
+            var nombreDeReponsesPossibles=2
+            var memoAnimauxChoisi=IntArray(nombreDeReponsesPossibles)
+            var reponse =-1
             question.setOnClickListener {
                 var rand = Random()
-                var nombreDeReponsesPossibles=2;
-                var reponse =rand.nextInt(arrayOfAnimalsPicture.size)
+
+                reponse =rand.nextInt(arrayOfAnimalsPicture.size)
                 var ouMettreLaReponse=rand.nextInt(nombreDeReponsesPossibles)
                 description.setText(reponse.toString())
 
-                var memoAnimauxChoisi=IntArray(nombreDeReponsesPossibles)
+
+                questionPicture.setImageResource(arrayOfQuestionPicture[reponse])
 
                 var i=0;
+
                 while(i<nombreDeReponsesPossibles){
                     System.out.print(i)
                     memoAnimauxChoisi.set(i,-1)
                     i++
                 }
+
                 memoAnimauxChoisi.set(ouMettreLaReponse,reponse)
 
 
@@ -288,10 +301,19 @@ class WhatIsThisActivity : AppCompatActivity() {
 
             }
             answer1.setOnClickListener{
-                description.setText("gagné")
+                if(memoAnimauxChoisi.get(0)==reponse){
+                    description.setText("gagné")
+                }else{
+                    description.setText("perdu")
+                }
+
             }
             answer2.setOnClickListener{
-                description.setText("perdu")
+                if(memoAnimauxChoisi.get(1)==reponse){
+                    description.setText("gagné")
+                }else{
+                    description.setText("perdu")
+                }
             }
 
 
