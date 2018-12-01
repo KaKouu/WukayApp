@@ -258,27 +258,29 @@ class WhatIsThisActivity : AppCompatActivity() {
                 R.drawable.animaux_lion
             )
             val arrayOfQuestionPicture = arrayOf(
-                R.drawable.animaux_cochon,
-                R.drawable.animaux_vache,
-                R.drawable.animaux_girafe,
-                R.drawable.animaux_bouc,
-                R.drawable.animaux_chat,
-                R.drawable.animaux_crabe,
-                R.drawable.animaux_morse,
-                R.drawable.animaux_panda,
-                R.drawable.animaux_paon,
-                R.drawable.animaux_pingouin,
-                R.drawable.animaux_poule,
-                R.drawable.animaux_tigre,
-                R.drawable.animaux_zebre
+                R.drawable.animaux_description_cochon,
+                R.drawable.animaux_description_vache,
+                R.drawable.animaux_description_girafe,
+                R.drawable.animaux_description_bouc,
+                R.drawable.animaux_description_chat,
+                R.drawable.animaux_description_crabe,
+                R.drawable.animaux_description_morse,
+                R.drawable.animaux_description_panda,
+                R.drawable.animaux_description_paon,
+                R.drawable.animaux_description_pingouin,
+                R.drawable.animaux_description_poule,
+                R.drawable.animaux_description_tigre,
+                R.drawable.animaux_description_zebre,
+                R.drawable.animaux_description_lion
             )
            description.setText("J'ai 4 pattes")
-            var nombreDeReponsesPossibles=2
+            var nombreDeReponsesPossibles=3
             var memoAnimauxChoisi=IntArray(nombreDeReponsesPossibles)
             var reponse =-1
+
             question.setOnClickListener {
                 var rand = Random()
-                
+
                 reponse =rand.nextInt(arrayOfAnimalsPicture.size-1)
                 var ouMettreLaReponse=rand.nextInt(nombreDeReponsesPossibles)
                 description.setText(reponse.toString())
@@ -294,25 +296,23 @@ class WhatIsThisActivity : AppCompatActivity() {
                     i++
                 }
 
+                var j =0
+                while(j< memoAnimauxChoisi.size){
+
+                    var temp=rand.nextInt(arrayOfAnimalsPicture.size)
+
+                    while(memoAnimauxChoisi.contains(temp) || temp==reponse){
+                        temp=rand.nextInt(arrayOfAnimalsPicture.size)
+                    }
+
+                    memoAnimauxChoisi.set(j,temp)
+                    j++
+                }
                 memoAnimauxChoisi.set(ouMettreLaReponse,reponse)
 
-
-                var rep1=rand.nextInt(arrayOfAnimalsPicture.size)
-                if(memoAnimauxChoisi.get(0)!=reponse){
-                    memoAnimauxChoisi.set(0,rep1)
-                }
-
-
-                var rep2=rand.nextInt(arrayOfAnimalsPicture.size)
-                while(memoAnimauxChoisi.contains(rep2)){
-
-                    rep2=rand.nextInt(arrayOfAnimalsPicture.size)
-                }
-                if(memoAnimauxChoisi.get(1)!=reponse){
-                    memoAnimauxChoisi.set(1,rep2)
-                }
                 answer1.setImageResource(arrayOfAnimalsPicture[memoAnimauxChoisi.get(0)])
                 answer2.setImageResource(arrayOfAnimalsPicture[memoAnimauxChoisi.get(1)])
+                answer3.setImageResource(arrayOfAnimalsPicture[memoAnimauxChoisi.get(2)])
 
             }
             answer1.setOnClickListener{
@@ -325,6 +325,13 @@ class WhatIsThisActivity : AppCompatActivity() {
             }
             answer2.setOnClickListener{
                 if(memoAnimauxChoisi.get(1)==reponse){
+                    description.setText("gagné")
+                }else{
+                    description.setText("perdu")
+                }
+            }
+            answer3.setOnClickListener{
+                if(memoAnimauxChoisi.get(2)==reponse){
                     description.setText("gagné")
                 }else{
                     description.setText("perdu")
