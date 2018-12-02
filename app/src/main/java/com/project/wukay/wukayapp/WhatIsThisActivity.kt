@@ -257,21 +257,22 @@ class WhatIsThisActivity : AppCompatActivity() {
                 R.drawable.animaux_zebre,
                 R.drawable.animaux_lion
             )
-            val arrayOfQuestionPicture = arrayOf(
-                R.drawable.animaux_description_cochon,
-                R.drawable.animaux_description_vache,
-                R.drawable.animaux_description_girafe,
-                R.drawable.animaux_description_bouc,
-                R.drawable.animaux_description_chat,
-                R.drawable.animaux_description_crabe,
-                R.drawable.animaux_description_morse,
-                R.drawable.animaux_description_panda,
-                R.drawable.animaux_description_paon,
-                R.drawable.animaux_description_pingouin,
-                R.drawable.animaux_description_poule,
-                R.drawable.animaux_description_tigre,
-                R.drawable.animaux_description_zebre,
-                R.drawable.animaux_description_lion
+
+            val arrayOfQuestion=arrayOf(
+                "Je suis rose, je me roule dans la boue et j'ai une queue en tire bouchon",
+                "Je fais du lait et j'ai des tâches noires et blanches",
+                "J'ai un long cou et je vis dans la savane",
+                "Je suis le mari de la chèbre et j'ai des cornes",
+                "Je ronronne quand un me caresse",
+                "J'ai des pinces et je vis sur la plage",
+                "J'ai de grandes dents et je vis sur la glace",
+                "Je suis noir et blanc et je mange des bambous",
+                "Je fais la roue avec ma queue",
+                "Je vis sur la glace et je glisse sur mon ventre",
+                "Je ponds des oeufs et je picore le grain",
+                "J'ai des giffes et je vis dans la savane",
+                "Je suis rayé de noir et de blanc",
+                "Je suis le roi de la savane et j'ai une belle crinière"
             )
            description.setText("")
             var nombreDeReponsesPossibles=3
@@ -280,12 +281,12 @@ class WhatIsThisActivity : AppCompatActivity() {
             var rand = Random()
             var ouMettreLaReponse=0
 
-            reponse =rand.nextInt(arrayOfAnimalsPicture.size-1)
+            reponse =rand.nextInt(arrayOfAnimalsPicture.size)
             ouMettreLaReponse=rand.nextInt(nombreDeReponsesPossibles)
 
 
             minijeu(
-                arrayOfQuestionPicture,
+                arrayOfQuestion,
                 reponse,
                 nombreDeReponsesPossibles,
                 memoAnimauxChoisi,
@@ -307,7 +308,7 @@ class WhatIsThisActivity : AppCompatActivity() {
 
 
                         minijeu(
-                            arrayOfQuestionPicture,
+                            arrayOfQuestion,
                             reponse,
                             nombreDeReponsesPossibles,
                             memoAnimauxChoisi,
@@ -318,7 +319,8 @@ class WhatIsThisActivity : AppCompatActivity() {
                     }
 
                 }else{
-                    description.setText("perdu")
+                    description.setText("Essaye encore !")
+                    vibratorService.vibrate(100)
                 }
 
             }
@@ -334,7 +336,7 @@ class WhatIsThisActivity : AppCompatActivity() {
 
 
                         minijeu(
-                            arrayOfQuestionPicture,
+                            arrayOfQuestion,
                             reponse,
                             nombreDeReponsesPossibles,
                             memoAnimauxChoisi,
@@ -344,7 +346,8 @@ class WhatIsThisActivity : AppCompatActivity() {
                         )
                     }
                 }else{
-                    description.setText("perdu")
+                    description.setText("Essaye encore !")
+                    vibratorService.vibrate(100)
                 }
             }
             answer3.setOnClickListener{
@@ -359,7 +362,7 @@ class WhatIsThisActivity : AppCompatActivity() {
 
 
                         minijeu(
-                            arrayOfQuestionPicture,
+                            arrayOfQuestion,
                             reponse,
                             nombreDeReponsesPossibles,
                             memoAnimauxChoisi,
@@ -369,7 +372,8 @@ class WhatIsThisActivity : AppCompatActivity() {
                         )
                     }
                 }else{
-                    description.setText("perdu")
+                    description.setText("Essaye encore !")
+                    vibratorService.vibrate(100)
                 }
             }
 
@@ -380,7 +384,7 @@ class WhatIsThisActivity : AppCompatActivity() {
     }
 
     private fun minijeu(
-        arrayOfQuestionPicture: Array<Int>,
+        arrayOfQuestion: Array<String>,
         reponse: Int,
         nombreDeReponsesPossibles: Int,
         memoAnimauxChoisi: IntArray,
@@ -388,8 +392,8 @@ class WhatIsThisActivity : AppCompatActivity() {
         arrayOfAnimalsPicture: Array<Int>,
         ouMettreLaReponse: Int
     ) {
-        questionPicture.setImageResource(arrayOfQuestionPicture[reponse])
-
+        question.setText(arrayOfQuestion[reponse])
+        description.setText("")
         var i = 0;
 
         while (i < nombreDeReponsesPossibles) {

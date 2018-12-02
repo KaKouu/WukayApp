@@ -31,23 +31,18 @@
             tools:srcCompat="@drawable/animaux_bouc"/>
     <TextView
             android:text="TextView"
-            android:layout_width="77dp"
-            android:layout_height="39dp"
+            android:layout_width="297dp"
+            android:layout_height="40dp"
             android:id="@+id/description" android:layout_marginTop="8dp"
+            android:textAlignment="center"
+            android:fontFamily="@font/grobold"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="30sp"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.515"
-            app:layout_constraintVertical_bias="0.439"/>
-    <ImageView
-            android:layout_width="301dp"
-            android:layout_height="67dp" app:srcCompat="@drawable/animaux_bouc"
-            android:id="@+id/questionPicture"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.507"
-            app:layout_constraintVertical_bias="0.045" tools:srcCompat="@drawable/animaux_description_bouc"/>
+            android:layout_marginEnd="8dp"
+            app:layout_constraintVertical_bias="0.551"/>
     <ImageView
             android:layout_width="105dp"
             android:layout_height="104dp" app:srcCompat="@drawable/animaux_crabe"
@@ -57,4 +52,18 @@
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.935"
             app:layout_constraintVertical_bias="0.912"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="277dp"
+            android:layout_height="101dp"
+            android:textAlignment="center"
+            android:fontFamily="@font/grobold"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            android:id="@+id/question" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintVertical_bias="0.251"
+            app:layout_constraintHorizontal_bias="0.505"/>
 </android.support.constraint.ConstraintLayout>
