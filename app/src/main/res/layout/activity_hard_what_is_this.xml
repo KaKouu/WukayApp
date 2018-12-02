@@ -18,45 +18,36 @@
             android:layout_marginEnd="8dp" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.808"
-    />
+            app:layout_constraintVertical_bias="0.439"/>
     <ImageView
             android:layout_width="86dp"
             android:layout_height="100dp"
             android:id="@+id/answer2"
             android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.656"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.578"
             app:srcCompat="@drawable/animaux_bouc" android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.234"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.173"
             tools:srcCompat="@drawable/animaux_bouc"/>
     <TextView
             android:text="TextView"
-            android:layout_width="203dp"
-            android:layout_height="91dp"
+            android:layout_width="77dp"
+            android:layout_height="39dp"
             android:id="@+id/description" android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.503"
-            app:layout_constraintVertical_bias="0.147"/>
-    <Button
-            android:text="Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/question" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintVertical_bias="0.015"/>
+            android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.541"
+            app:layout_constraintVertical_bias="0.269"/>
     <ImageView
             android:layout_width="333dp"
-            android:layout_height="199dp" app:srcCompat="@drawable/animaux_bouc"
+            android:layout_height="90dp" app:srcCompat="@drawable/animaux_bouc"
             android:id="@+id/questionPicture"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
             android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.514"
-            app:layout_constraintVertical_bias="0.193" tools:srcCompat="@drawable/animaux_description_bouc"/>
+            app:layout_constraintVertical_bias="0.0" tools:srcCompat="@drawable/animaux_description_bouc"/>
     <ImageView
             android:layout_width="105dp"
             android:layout_height="104dp" app:srcCompat="@drawable/animaux_crabe"

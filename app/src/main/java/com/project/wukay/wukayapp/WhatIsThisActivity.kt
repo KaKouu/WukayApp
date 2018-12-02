@@ -23,7 +23,7 @@ class WhatIsThisActivity : AppCompatActivity() {
         val difficulty = intent.getStringExtra("difficulty") //renvaiera la difficulté choisit precedement
         val nextAnimal = Intent(this@WhatIsThisActivity, VictoryActivity::class.java)
         nextAnimal.putExtra("difficulty", difficulty)
-
+        var numberWin=0
         val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
 
         if (difficulty == "easy"){
@@ -36,7 +36,7 @@ class WhatIsThisActivity : AppCompatActivity() {
         //selon le niveau de difficulté
         if(difficulty=="easy") {
 
-            var numberWin=0
+
             //var tableauTampon : Array<Int> = arrayOf(0,0,0,0)
             var tampon = 0
             var tampon1 = 0
@@ -273,51 +273,50 @@ class WhatIsThisActivity : AppCompatActivity() {
                 R.drawable.animaux_description_zebre,
                 R.drawable.animaux_description_lion
             )
-           description.setText("J'ai 4 pattes")
+           description.setText("")
             var nombreDeReponsesPossibles=3
             var memoAnimauxChoisi=IntArray(nombreDeReponsesPossibles)
             var reponse =-1
+            var rand = Random()
+            var ouMettreLaReponse=0
 
-            question.setOnClickListener {
-                var rand = Random()
-
-                reponse =rand.nextInt(arrayOfAnimalsPicture.size-1)
-                var ouMettreLaReponse=rand.nextInt(nombreDeReponsesPossibles)
-                description.setText(reponse.toString())
+            reponse =rand.nextInt(arrayOfAnimalsPicture.size-1)
+            ouMettreLaReponse=rand.nextInt(nombreDeReponsesPossibles)
 
 
-                questionPicture.setImageResource(arrayOfQuestionPicture[reponse])
+            minijeu(
+                arrayOfQuestionPicture,
+                reponse,
+                nombreDeReponsesPossibles,
+                memoAnimauxChoisi,
+                rand,
+                arrayOfAnimalsPicture,
+                ouMettreLaReponse
+            )
 
-                var i=0;
 
-                while(i<nombreDeReponsesPossibles){
-                    System.out.print(i)
-                    memoAnimauxChoisi.set(i,-1)
-                    i++
-                }
-
-                var j =0
-                while(j< memoAnimauxChoisi.size){
-
-                    var temp=rand.nextInt(arrayOfAnimalsPicture.size)
-
-                    while(memoAnimauxChoisi.contains(temp) || temp==reponse){
-                        temp=rand.nextInt(arrayOfAnimalsPicture.size)
-                    }
-
-                    memoAnimauxChoisi.set(j,temp)
-                    j++
-                }
-                memoAnimauxChoisi.set(ouMettreLaReponse,reponse)
-
-                answer1.setImageResource(arrayOfAnimalsPicture[memoAnimauxChoisi.get(0)])
-                answer2.setImageResource(arrayOfAnimalsPicture[memoAnimauxChoisi.get(1)])
-                answer3.setImageResource(arrayOfAnimalsPicture[memoAnimauxChoisi.get(2)])
-
-            }
             answer1.setOnClickListener{
                 if(memoAnimauxChoisi.get(0)==reponse){
-                    description.setText("gagné")
+
+                    numberWin+=1
+                    if(numberWin==3){
+                        startActivity(nextAnimal)
+                    }else{
+                        reponse =rand.nextInt(arrayOfAnimalsPicture.size-1)
+                        ouMettreLaReponse=rand.nextInt(nombreDeReponsesPossibles)
+
+
+                        minijeu(
+                            arrayOfQuestionPicture,
+                            reponse,
+                            nombreDeReponsesPossibles,
+                            memoAnimauxChoisi,
+                            rand,
+                            arrayOfAnimalsPicture,
+                            ouMettreLaReponse
+                        )
+                    }
+
                 }else{
                     description.setText("perdu")
                 }
@@ -325,14 +324,50 @@ class WhatIsThisActivity : AppCompatActivity() {
             }
             answer2.setOnClickListener{
                 if(memoAnimauxChoisi.get(1)==reponse){
-                    description.setText("gagné")
+
+                    numberWin+=1
+                    if(numberWin==3){
+                        startActivity(nextAnimal)
+                    }else{
+                        reponse =rand.nextInt(arrayOfAnimalsPicture.size-1)
+                        ouMettreLaReponse=rand.nextInt(nombreDeReponsesPossibles)
+
+
+                        minijeu(
+                            arrayOfQuestionPicture,
+                            reponse,
+                            nombreDeReponsesPossibles,
+                            memoAnimauxChoisi,
+                            rand,
+                            arrayOfAnimalsPicture,
+                            ouMettreLaReponse
+                        )
+                    }
                 }else{
                     description.setText("perdu")
                 }
             }
             answer3.setOnClickListener{
                 if(memoAnimauxChoisi.get(2)==reponse){
-                    description.setText("gagné")
+
+                    numberWin+=1
+                    if(numberWin==3){
+                        startActivity(nextAnimal)
+                    }else{
+                        reponse =rand.nextInt(arrayOfAnimalsPicture.size-1)
+                        ouMettreLaReponse=rand.nextInt(nombreDeReponsesPossibles)
+
+
+                        minijeu(
+                            arrayOfQuestionPicture,
+                            reponse,
+                            nombreDeReponsesPossibles,
+                            memoAnimauxChoisi,
+                            rand,
+                            arrayOfAnimalsPicture,
+                            ouMettreLaReponse
+                        )
+                    }
                 }else{
                     description.setText("perdu")
                 }
@@ -342,6 +377,44 @@ class WhatIsThisActivity : AppCompatActivity() {
 
         }
 
+    }
+
+    private fun minijeu(
+        arrayOfQuestionPicture: Array<Int>,
+        reponse: Int,
+        nombreDeReponsesPossibles: Int,
+        memoAnimauxChoisi: IntArray,
+        rand: Random,
+        arrayOfAnimalsPicture: Array<Int>,
+        ouMettreLaReponse: Int
+    ) {
+        questionPicture.setImageResource(arrayOfQuestionPicture[reponse])
+
+        var i = 0;
+
+        while (i < nombreDeReponsesPossibles) {
+            System.out.print(i)
+            memoAnimauxChoisi.set(i, -1)
+            i++
+        }
+
+        var j = 0
+        while (j < memoAnimauxChoisi.size) {
+
+            var temp = rand.nextInt(arrayOfAnimalsPicture.size)
+
+            while (memoAnimauxChoisi.contains(temp) || temp == reponse) {
+                temp = rand.nextInt(arrayOfAnimalsPicture.size)
+            }
+
+            memoAnimauxChoisi.set(j, temp)
+            j++
+        }
+        memoAnimauxChoisi.set(ouMettreLaReponse, reponse)
+
+        answer1.setImageResource(arrayOfAnimalsPicture[memoAnimauxChoisi.get(0)])
+        answer2.setImageResource(arrayOfAnimalsPicture[memoAnimauxChoisi.get(1)])
+        answer3.setImageResource(arrayOfAnimalsPicture[memoAnimauxChoisi.get(2)])
     }
 
 
