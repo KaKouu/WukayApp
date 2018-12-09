@@ -158,8 +158,9 @@ class LevelsActivity : AppCompatActivity() {
 
         testSkin.setOnClickListener {
 
-            skinName= R.drawable.animaux_ane
+            skinName= R.drawable.skin_lapinou_blanc
             prefs!!.skinName=skinName
+            lapinouSkin.setImageResource(skinName)
             System.out.println("SAVE SKIN :" + skinName)
         }
 
@@ -167,6 +168,8 @@ class LevelsActivity : AppCompatActivity() {
 
             skinName= R.drawable.skin_lapinou
             prefs!!.skinName=skinName
+
+            lapinouSkin.setImageResource(skinName)
             System.out.println("SAVE SKIN :" + skinName)
         }
 
