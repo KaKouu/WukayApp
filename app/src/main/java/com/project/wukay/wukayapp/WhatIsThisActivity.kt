@@ -6,10 +6,12 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Vibrator
 import android.view.View
+import android.view.animation.TranslateAnimation
 import android.widget.ImageView
 import kotlinx.android.synthetic.main.activity_hard_what_is_this.*
 import kotlinx.android.synthetic.main.activity_what_is_this.*
 import java.util.*
+import kotlin.concurrent.schedule
 
 class WhatIsThisActivity : AppCompatActivity() {
 
@@ -62,7 +64,11 @@ class WhatIsThisActivity : AppCompatActivity() {
                 R.drawable.animaux_vache,
                 R.drawable.animaux_girafe
             )
-
+           
+            animalAnwser2.startAnimation(TranslateAnimation(0f, 0f, 0f, -975f).apply {
+                setFillAfter(true)
+                duration = 5000
+            })
 
             startButton.setOnClickListener {
 
