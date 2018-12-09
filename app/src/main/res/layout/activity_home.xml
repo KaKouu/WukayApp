@@ -54,13 +54,15 @@
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintVertical_bias="0.702"/>
+
     <ImageView
             android:layout_width="260dp"
-            android:layout_height="320dp" app:srcCompat="@drawable/personnage_lapinou"
+            android:layout_height="320dp" app:srcCompat="@drawable/skin_lapinou"
             android:id="@+id/imageLapinou" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-            android:layout_marginBottom="4dp" app:layout_constraintBottom_toTopOf="@+id/startButton"
-            app:layout_constraintHorizontal_bias="0.518"/>
+            android:layout_marginBottom="28dp" app:layout_constraintBottom_toTopOf="@+id/startButton"
+            app:layout_constraintHorizontal_bias="0.537"/>
+
     <ImageView
             android:layout_width="54dp"
             android:layout_height="57dp" app:srcCompat="@drawable/animaux_poisson"

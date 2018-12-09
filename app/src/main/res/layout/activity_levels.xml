@@ -11,14 +11,14 @@
 
     <ImageView
             android:layout_width="64dp"
-            android:layout_height="130dp" app:srcCompat="@drawable/personnage_lapinou"
-            android:id="@+id/imageView3"
+            android:layout_height="130dp"
+            android:id="@+id/lapinouSkin"
             android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.289"
-            app:layout_constraintVertical_bias="1.0"/>
+            app:layout_constraintVertical_bias="1.0" app:srcCompat="@drawable/skin_lapinou"/>
     <android.support.constraint.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
                                           android:id="@+id/guideline" app:layout_constraintGuide_begin="20dp"
                                           android:orientation="vertical"/>
@@ -51,18 +51,36 @@
             android:id="@+id/testCarrotes"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="360dp"
+            android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="332dp"
             app:layout_constraintTop_toTopOf="parent"/>
     <Button
             android:text="LIFE"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/testLife"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginTop="8dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/testCarrotes" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="288dp" app:layout_constraintVertical_bias="0.168"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"/>
+            android:layout_marginEnd="288dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/testSkin"/>
+    <Button
+            android:text="SKIN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/testSkin"
+            android:layout_marginBottom="36dp" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintHorizontal_bias="0.0"/>
+    <Button
+            android:text="SKIN2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/testSkin2"
+            android:layout_marginBottom="268dp" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintHorizontal_bias="0.0"/>
     <TextView
             android:text="10 / 10"
             android:layout_width="91dp"

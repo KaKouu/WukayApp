@@ -48,7 +48,9 @@ class LevelsActivity : AppCompatActivity() {
         val intent = intent
         val difficulty = intent.getStringExtra("difficulty")
 
-
+        prefs = Prefs(this)
+        var skinName=prefs!!.skinName
+        lapinouSkin.setImageResource(skinName)
 
 
         var nbLife=prefs!!.nbLife
@@ -154,8 +156,24 @@ class LevelsActivity : AppCompatActivity() {
             startActivity(nextGame)
         }
 
+        testSkin.setOnClickListener {
+
+            skinName= R.drawable.animaux_ane
+            prefs!!.skinName=skinName
+            System.out.println("SAVE SKIN :" + skinName)
+        }
+
+        testSkin2.setOnClickListener {
+
+            skinName= R.drawable.skin_lapinou
+            prefs!!.skinName=skinName
+            System.out.println("SAVE SKIN :" + skinName)
+        }
+
         //// DATA SAVING ///
         prefs!!.nbCarrots=carrots
+        prefs!!.skinName=skinName
+        System.out.println("SAVE SKIN :" + skinName)
         numberCarrots.text = carrots.toString()
 
     }
