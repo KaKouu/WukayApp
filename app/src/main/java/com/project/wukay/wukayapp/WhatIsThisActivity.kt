@@ -64,11 +64,18 @@ class WhatIsThisActivity : AppCompatActivity() {
                 R.drawable.animaux_vache,
                 R.drawable.animaux_girafe
             )
-           
-            animalAnwser2.startAnimation(TranslateAnimation(0f, 0f, 0f, -975f).apply {
-                setFillAfter(true)
-                duration = 5000
-            })
+            startButton.visibility = View.VISIBLE
+
+                val animation = TranslateAnimation(0f, 0f, 0f, -975f)
+                animation.setDuration(5000)
+                animalAnwser2.startAnimation(animation)
+                animation.setFillAfter(true)
+
+            Timer().schedule(6000) {
+                animation.setFillAfter(false)
+                startButton.visibility = View.VISIBLE
+            }
+
 
             startButton.setOnClickListener {
 

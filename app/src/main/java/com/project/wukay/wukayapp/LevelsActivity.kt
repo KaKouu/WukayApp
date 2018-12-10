@@ -158,7 +158,7 @@ class LevelsActivity : AppCompatActivity() {
 
         testSkin.setOnClickListener {
 
-            skinName= R.drawable.skin_lapinou_blanc
+            skinName= R.drawable.skin_lapinou
             prefs!!.skinName=skinName
             lapinouSkin.setImageResource(skinName)
             System.out.println("SAVE SKIN :" + skinName)
