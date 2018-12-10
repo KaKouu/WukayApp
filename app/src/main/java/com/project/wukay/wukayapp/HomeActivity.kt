@@ -4,6 +4,7 @@ import android.content.Intent
 import android.media.MediaPlayer
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.project.wukay.wukayapp.IHM.DifficultyActivity
 import com.project.wukay.wukayapp.util.Prefs
 import kotlinx.android.synthetic.main.activity_home.*
 
@@ -39,7 +40,7 @@ class HomeActivity : AppCompatActivity() {
 
             //prefs!!.skinName=R.drawable.skin_lapinou
             prefs!!.skinName=skinName
-            System.out.println(R.drawable.skin_lapinou)
+            //System.out.println(R.drawable.skin_lapinou)
             System.out.println("SAVE SKIN :" + skinName)
 
         }

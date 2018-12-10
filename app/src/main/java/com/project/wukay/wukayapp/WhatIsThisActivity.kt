@@ -275,15 +275,15 @@ class WhatIsThisActivity : AppCompatActivity() {
                 "Je suis rose, je me roule dans la boue et j'ai une queue en tire bouchon",
                 "Je fais du lait et j'ai des tâches noires et blanches",
                 "J'ai un long cou et je vis dans la savane",
-                "Je suis le mari de la chèbre et j'ai des cornes",
-                "Je ronronne quand un me caresse",
+                "Je suis le mari de la chèvre et j'ai des cornes",
+                "Je ronronne quand on me caresse",
                 "J'ai des pinces et je vis sur la plage",
                 "J'ai de grandes dents et je vis sur la glace",
                 "Je suis noir et blanc et je mange des bambous",
                 "Je fais la roue avec ma queue",
                 "Je vis sur la glace et je glisse sur mon ventre",
                 "Je ponds des oeufs et je picore le grain",
-                "J'ai des giffes et je vis dans la savane",
+                "J'ai des griffes et je vis dans la savane",
                 "Je suis rayé de noir et de blanc",
                 "Je suis le roi de la savane et j'ai une belle crinière"
             )
