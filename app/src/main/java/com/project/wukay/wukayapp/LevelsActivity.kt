@@ -156,9 +156,17 @@ class LevelsActivity : AppCompatActivity() {
             startActivity(nextGame)
         }
 
+        shopIcone.setOnClickListener {
+
+            val shop = Intent(this@LevelsActivity, ShopActivity::class.java)
+            shop.putExtra("difficulty", difficulty)
+            startActivity(shop)
+
+        }
+
         testSkin.setOnClickListener {
 
-            skinName= R.drawable.skin_lapinou
+            skinName= R.drawable.skin_lapinou_blanc
             prefs!!.skinName=skinName
             lapinouSkin.setImageResource(skinName)
             System.out.println("SAVE SKIN :" + skinName)
