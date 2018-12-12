@@ -62,6 +62,10 @@
                             android:id="@+id/imagenbCarrot" android:layout_alignParentEnd="true"
                             android:layout_alignParentTop="true" android:layout_marginTop="0dp"
                             android:layout_marginEnd="0dp"/>
+                    <Button
+                            android:text="Button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:id="@+id/retour"/>
                 </RelativeLayout>
             </LinearLayout>
             <LinearLayout
@@ -90,6 +94,13 @@
                         android:layout_marginLeft="5dp"
                         android:orientation="vertical">
 
+                    <Button
+                            android:text="ACHETER"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:id="@+id/btPrice1"
+                            android:layout_alignParentEnd="true" android:layout_marginEnd="22dp"
+                            android:layout_alignParentBottom="true" android:layout_marginBottom="6dp"
+                            android:background="@drawable/rounded_button" android:fontFamily="@font/grobold"/>
                     <TextView
                             android:id="@+id/itemName1"
                             android:layout_width="match_parent"
@@ -134,6 +145,12 @@
                         android:layout_marginLeft="5dp"
                         android:orientation="vertical">
 
+                    <ImageView
+                            android:layout_width="58dp"
+                            android:layout_height="48dp" tools:srcCompat="@drawable/icon_carrot2"
+                            android:id="@+id/imageCarrot0" android:layout_alignParentEnd="true"
+                            android:layout_alignParentTop="true" android:layout_marginTop="43dp"
+                            android:layout_marginEnd="134dp"/>
                     <TextView
                             android:text="5"
                             android:layout_width="wrap_content"
@@ -182,7 +199,7 @@
                         android:layout_height="175dp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="5dp"
-                        android:gravity="center_vertical" app:srcCompat="@drawable/skin_lapinou_blanc"/>
+                        android:gravity="center_vertical" app:srcCompat="@drawable/skin_lapinou_test2"/>
 
                 <RelativeLayout
                         android:id="@+id/itemDetail2"
@@ -192,6 +209,12 @@
                         android:layout_marginLeft="5dp"
                         android:orientation="vertical">
 
+                    <ImageView
+                            android:layout_width="58dp"
+                            android:layout_height="48dp" tools:srcCompat="@drawable/icon_carrot2"
+                            android:id="@+id/imageCarrot2" android:layout_alignParentEnd="true"
+                            android:layout_alignParentTop="true" android:layout_marginTop="43dp"
+                            android:layout_marginEnd="134dp"/>
                     <TextView
                             android:id="@+id/itemName2"
                             android:layout_width="match_parent"
@@ -204,9 +227,23 @@
                             android:marqueeRepeatLimit="marquee_forever"
                             android:scrollHorizontally="true"
                             android:singleLine="true"
-                            android:text="Lapinou Blanc"
+                            android:text="Lapinou TEST 1"
                             android:textColor="@android:color/background_dark"
                             android:textSize="24sp" android:fontFamily="@font/grobold"/>
+                    <Button
+                            android:text="ACHETER"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:id="@+id/btPrice2"
+                            android:layout_alignParentEnd="true" android:layout_marginEnd="22dp"
+                            android:layout_alignParentBottom="true" android:fontFamily="@font/grobold"
+                            android:background="@drawable/rounded_button"/>
+                    <TextView
+                            android:text="100"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:id="@+id/price2"
+                            android:layout_alignParentStart="true" android:layout_marginStart="12dp"
+                            android:layout_alignBaseline="@+id/btPrice2" android:textSize="18sp"
+                            android:fontFamily="@font/grobold" android:textColor="@color/colorPrimaryDark"/>
 
 
                 </RelativeLayout>
@@ -226,7 +263,7 @@
                         android:layout_height="175dp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="5dp"
-                        android:gravity="center_vertical" app:srcCompat="@drawable/skin_lapinou_blanc"/>
+                        android:gravity="center_vertical" app:srcCompat="@drawable/skin_lapinou_test3"/>
 
                 <RelativeLayout
                         android:id="@+id/itemDetail3"
@@ -236,6 +273,26 @@
                         android:layout_marginLeft="5dp"
                         android:orientation="vertical">
 
+                    <TextView
+                            android:text="250"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:id="@+id/price3" android:textSize="18sp"
+                            android:textColor="@color/colorPrimaryDark" android:fontFamily="@font/grobold"
+                            android:layout_alignTop="@+id/btPrice3" android:layout_alignStart="@+id/itemName3"
+                            android:layout_marginTop="9dp" android:layout_marginStart="8dp"/>
+                    <Button
+                            android:text="ACHETER"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:id="@+id/btPrice3"
+                            android:layout_alignParentEnd="true" android:layout_marginEnd="22dp"
+                            android:layout_alignParentBottom="true" android:fontFamily="@font/grobold"
+                            android:background="@drawable/rounded_button"/>
+                    <ImageView
+                            android:layout_width="58dp"
+                            android:layout_height="48dp" tools:srcCompat="@drawable/icon_carrot2"
+                            android:id="@+id/imageCarrot3" android:layout_alignParentEnd="true"
+                            android:layout_alignParentTop="true" android:layout_marginTop="43dp"
+                            android:layout_marginEnd="134dp"/>
                     <TextView
                             android:id="@+id/itemName3"
                             android:layout_width="match_parent"
@@ -248,7 +305,7 @@
                             android:marqueeRepeatLimit="marquee_forever"
                             android:scrollHorizontally="true"
                             android:singleLine="true"
-                            android:text="Lapinou Blanc"
+                            android:text="Lapinou TEST 2"
                             android:textColor="@android:color/background_dark"
                             android:textSize="24sp" android:fontFamily="@font/grobold"/>
 

@@ -124,7 +124,7 @@ class LevelsActivity : AppCompatActivity() {
 
         ////BUTTONS////
         testCarrotes.setOnClickListener {
-            var nb = (1..3).shuffled().first()
+            var nb = 100
             carrots+=nb
             numberCarrots.setText(carrots.toString())
 
@@ -162,23 +162,6 @@ class LevelsActivity : AppCompatActivity() {
             shop.putExtra("difficulty", difficulty)
             startActivity(shop)
 
-        }
-
-        testSkin.setOnClickListener {
-
-            skinName= R.drawable.skin_lapinou_blanc
-            prefs!!.skinName=skinName
-            lapinouSkin.setImageResource(skinName)
-            System.out.println("SAVE SKIN :" + skinName)
-        }
-
-        testSkin2.setOnClickListener {
-
-            skinName= R.drawable.skin_lapinou
-            prefs!!.skinName=skinName
-
-            lapinouSkin.setImageResource(skinName)
-            System.out.println("SAVE SKIN :" + skinName)
         }
 
         //// DATA SAVING ///
