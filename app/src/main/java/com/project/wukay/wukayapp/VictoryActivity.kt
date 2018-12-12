@@ -18,7 +18,10 @@ class VictoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_victory)
 
-        var nbCarrots =(1..10).shuffled().first()
+        //var nbCarrots =(1..10).shuffled().first()
+        val numberCarrotsWonText=intent.getStringExtra("numberCarrotsWonText")
+        var numberCarrotsWonValue=numberCarrotsWonText.toInt()
+        var nbCarrots=numberCarrotsWonValue
         carrotTxt.text="+$nbCarrots"
 
         prefs = Prefs(this)
