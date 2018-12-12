@@ -11,6 +11,11 @@ class ShopActivity : AppCompatActivity() {
 
     private var prefs: Prefs? = null
 
+
+    enum class ItemPurchased{
+        YES,NO
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shop)
@@ -19,7 +24,7 @@ class ShopActivity : AppCompatActivity() {
         val yellowRabbit = Skin(R.drawable.skin_lapinou,0)
 
 
-        prefs = Prefs(this)
+
         var carrots = prefs!!.nbCarrots
         nbCarrot.text = carrots.toString()
 
@@ -27,13 +32,32 @@ class ShopActivity : AppCompatActivity() {
 
         btPrice0.setOnClickListener {
 
-            prefs!!.nbCarrots= (prefs!!.nbCarrots)-whiteRabbit.price
-            carrots = prefs!!.nbCarrots
 
 
-            prefs!!.skinName = whiteRabbit.file
-            nbCarrot.text = carrots.toString()
-            System.out.println("SAVE SKIN :" + prefs!!.skinName )
+            if(whiteRabbit.isPurchase){
+
+
+
+            }else {
+
+                if(carrots-whiteRabbit.price<0){
+                    //pas assez de carrotes
+                    //TODO
+
+                }else {
+
+
+                    carrots -= carrots - whiteRabbit.price
+                    prefs!!.nbCarrots = carrots
+
+
+                    prefs!!.skinName = whiteRabbit.file
+                    nbCarrot.text = carrots.toString()
+                    System.out.println("SAVE SKIN :" + prefs!!.skinName)
+                    whiteRabbit.savePurchase(true)
+                    btPrice0.text = "►"
+                }
+            }
 
 
 

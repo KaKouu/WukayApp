@@ -11,6 +11,7 @@ class Prefs(context : Context) {
     val NB_LIFE = "nb_lapin"
     val NB_SECONDS = "nb_seconds"
     val NB_CARROTS = "nb_carrots"
+    val IS_PURCHASED ="is_purchased"
     val ACTUAL_SKIN_NAME = "skinName"
 
     val prefs: SharedPreferences = context.getSharedPreferences(PREFS_FILENAME, 0)
@@ -34,4 +35,9 @@ class Prefs(context : Context) {
 
         get() = prefs.getInt(ACTUAL_SKIN_NAME, R.drawable.skin_lapinou)
         set(value) = prefs.edit().putInt(ACTUAL_SKIN_NAME, value).apply()
+
+    var isPurchased : Boolean
+
+        get() = prefs.getBoolean(IS_PURCHASED, false)
+        set(value) = prefs.edit().putBoolean(IS_PURCHASED, value).apply()
 }
