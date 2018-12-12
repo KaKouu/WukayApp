@@ -26,6 +26,8 @@ class WhatIsThisActivity : AppCompatActivity() {
         val nextAnimal = Intent(this@WhatIsThisActivity, VictoryActivity::class.java)
         nextAnimal.putExtra("difficulty", difficulty)
         var numberWin=0
+        var numberCarrotsWon=10
+
         val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
 
         if (difficulty == "easy"){
@@ -123,6 +125,8 @@ class WhatIsThisActivity : AppCompatActivity() {
 
                     //fin du mini jeux
                     if(numberWin==3){
+                        var numberCarrotsWonText=numberCarrotsWon.toString()
+                        nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
                         startActivity(nextAnimal)
 
                      //prochain animal à deviner
@@ -153,6 +157,9 @@ class WhatIsThisActivity : AppCompatActivity() {
                     //vibration de defaite +texte
                     vibratorService.vibrate(100)
                     resultat.text="Essaye encore !"
+                    if (numberCarrotsWon>1) {
+                        numberCarrotsWon -= 1
+                    }
                 }
 
             }
@@ -168,6 +175,8 @@ class WhatIsThisActivity : AppCompatActivity() {
 
                     //fin du mini jeux
                     if(numberWin==3){
+                        var numberCarrotsWonText=numberCarrotsWon.toString()
+                        nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
                         startActivity(nextAnimal)
 
                         //prochain animal à deviner
@@ -198,6 +207,9 @@ class WhatIsThisActivity : AppCompatActivity() {
                     vibratorService.vibrate(100)
 
                     resultat.text="Essaye encore !"
+                    if (numberCarrotsWon>1) {
+                        numberCarrotsWon -= 1
+                    }
                 }
 
             }
@@ -213,6 +225,8 @@ class WhatIsThisActivity : AppCompatActivity() {
 
                     //fin du mini jeux
                     if(numberWin==3){
+                        var numberCarrotsWonText=numberCarrotsWon.toString()
+                        nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
                         startActivity(nextAnimal)
 
                         //prochain animal à deviner
@@ -243,6 +257,9 @@ class WhatIsThisActivity : AppCompatActivity() {
                     vibratorService.vibrate(100)
 
                     resultat.text="Essaye encore !"
+                    if (numberCarrotsWon>1) {
+                        numberCarrotsWon -= 1
+                    }
                 }
 
             }
@@ -314,7 +331,11 @@ class WhatIsThisActivity : AppCompatActivity() {
 
                     numberWin+=1
                     if(numberWin==3){
+                        var numberCarrotsWonText=numberCarrotsWon.toString()
+                        nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
                         startActivity(nextAnimal)
+
+
                     }else{
                         reponse =rand.nextInt(arrayOfAnimalsPicture.size-1)
                         ouMettreLaReponse=rand.nextInt(nombreDeReponsesPossibles)
@@ -334,6 +355,9 @@ class WhatIsThisActivity : AppCompatActivity() {
                 }else{
                     description.setText("Essaye encore !")
                     vibratorService.vibrate(100)
+                    if (numberCarrotsWon>1) {
+                        numberCarrotsWon -= 1
+                    }
                 }
 
             }
@@ -342,6 +366,8 @@ class WhatIsThisActivity : AppCompatActivity() {
 
                     numberWin+=1
                     if(numberWin==3){
+                        var numberCarrotsWonText=numberCarrotsWon.toString()
+                        nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
                         startActivity(nextAnimal)
                     }else{
                         reponse =rand.nextInt(arrayOfAnimalsPicture.size-1)
@@ -361,6 +387,9 @@ class WhatIsThisActivity : AppCompatActivity() {
                 }else{
                     description.setText("Essaye encore !")
                     vibratorService.vibrate(100)
+                    if (numberCarrotsWon>1) {
+                        numberCarrotsWon -= 1
+                    }
                 }
             }
             answer3.setOnClickListener{
@@ -368,7 +397,10 @@ class WhatIsThisActivity : AppCompatActivity() {
 
                     numberWin+=1
                     if(numberWin==3){
+                        var numberCarrotsWonText=numberCarrotsWon.toString()
+                        nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
                         startActivity(nextAnimal)
+
                     }else{
                         reponse =rand.nextInt(arrayOfAnimalsPicture.size-1)
                         ouMettreLaReponse=rand.nextInt(nombreDeReponsesPossibles)
@@ -387,6 +419,9 @@ class WhatIsThisActivity : AppCompatActivity() {
                 }else{
                     description.setText("Essaye encore !")
                     vibratorService.vibrate(100)
+                    if (numberCarrotsWon>1) {
+                        numberCarrotsWon -= 1
+                    }
                 }
             }
 
