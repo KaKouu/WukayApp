@@ -5,16 +5,28 @@ import kotlin.concurrent.schedule
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.project.wukay.wukayapp.util.Prefs
 import kotlinx.android.synthetic.main.activity_victory.*
 
 class VictoryActivity : AppCompatActivity() {
+
+    private var prefs: Prefs? = null
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_victory)
 
-        var nbCarrots =(1..10).shuffled().first()
+        //var nbCarrots =(1..10).shuffled().first()
+        val numberCarrotsWonText=intent.getStringExtra("numberCarrotsWonText")
+        var numberCarrotsWonValue=numberCarrotsWonText.toInt()
+        var nbCarrots=numberCarrotsWonValue
         carrotTxt.text="+$nbCarrots"
+
+        prefs = Prefs(this)
+        var skinName=prefs!!.skinName
+        imageLapinou.setImageResource(skinName)
 
 
         val difficulty = intent.getStringExtra("difficulty")

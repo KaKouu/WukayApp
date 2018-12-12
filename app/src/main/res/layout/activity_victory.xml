@@ -19,7 +19,7 @@
             app:layout_constraintVertical_bias="1.0"/>
     <ImageView
             android:layout_width="258dp"
-            android:layout_height="226dp" app:srcCompat="@drawable/personnage_lapinou"
+            android:layout_height="226dp" app:srcCompat="@drawable/skin_lapinou"
             android:id="@+id/imageLapinou"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="24dp"
             android:layout_marginTop="336dp"

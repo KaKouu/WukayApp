@@ -24,7 +24,7 @@ class LifePopActivity : AppCompatActivity() {
 
         val intent = intent
 
-        var nbLife = intent.getStringExtra("test")
+        var nbLife = intent.getStringExtra("nbLifeToShow")
         System.out.print("NBLIFE POPUP = " + nbLife)
 
 

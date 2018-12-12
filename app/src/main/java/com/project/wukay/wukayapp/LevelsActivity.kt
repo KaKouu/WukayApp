@@ -5,11 +5,11 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.widget.TextView
+import com.project.wukay.wukayapp.IHM.DifficultyActivity
 import com.project.wukay.wukayapp.util.Prefs
 import com.project.wukay.wukayapp.util.PrefsTimer
 
 import kotlinx.android.synthetic.main.activity_levels.*
-import kotlinx.android.synthetic.main.activity_life_pop.*
 import java.util.*
 
 
@@ -48,7 +48,9 @@ class LevelsActivity : AppCompatActivity() {
         val intent = intent
         val difficulty = intent.getStringExtra("difficulty")
 
-
+        prefs = Prefs(this)
+        var skinName=prefs!!.skinName
+        lapinouSkin.setImageResource(skinName)
 
 
         var nbLife=prefs!!.nbLife
@@ -69,19 +71,24 @@ class LevelsActivity : AppCompatActivity() {
         if(difference>=5 && nbLife<10){
 
             var nbLifeToAdd = difference/5
-            var test = 0
-            System.out.println("VIE A AJOUTER = " + nbLifeToAdd.toString())
 
-            val popIntent = Intent(applicationContext,LifePopActivity::class.java)
-            popIntent.putExtra("test","$nbLifeToAdd")
-            startActivity(popIntent)
+
+
+            //condition pour l'affichage dans la popUp
+            var nbLifeToShow =0
+
+
+            System.out.println("VIE A AJOUTER = " + nbLifeToAdd.toString())
 
             while(nbLifeToAdd>0 && nbLife<10){
                 nbLife+=1
                 nbLifeToAdd-=1
-                test+=1
-
+                nbLifeToShow+=1
             }
+
+            val popIntent = Intent(applicationContext,LifePopActivity::class.java)
+            popIntent.putExtra("nbLifeToShow","$nbLifeToShow")
+            startActivity(popIntent)
 
         }
 
@@ -117,7 +124,7 @@ class LevelsActivity : AppCompatActivity() {
 
         ////BUTTONS////
         testCarrotes.setOnClickListener {
-            var nb = (1..3).shuffled().first()
+            var nb = 100
             carrots+=nb
             numberCarrots.setText(carrots.toString())
 
@@ -137,12 +144,8 @@ class LevelsActivity : AppCompatActivity() {
 
         }
 
-        popButton.setOnClickListener {
-
-        }
-
         imageRetour.setOnClickListener{
-            val previousPage = Intent(this@LevelsActivity, HomeActivity::class.java)
+            val previousPage = Intent(this@LevelsActivity, DifficultyActivity::class.java)
             startActivity(previousPage)
         }
 
@@ -153,8 +156,18 @@ class LevelsActivity : AppCompatActivity() {
             startActivity(nextGame)
         }
 
+        shopIcone.setOnClickListener {
+
+            val shop = Intent(this@LevelsActivity, ShopActivity::class.java)
+            shop.putExtra("difficulty", difficulty)
+            startActivity(shop)
+
+        }
+
         //// DATA SAVING ///
         prefs!!.nbCarrots=carrots
+        prefs!!.skinName=skinName
+        System.out.println("SAVE SKIN :" + skinName)
         numberCarrots.text = carrots.toString()
 
     }
