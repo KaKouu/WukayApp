@@ -114,6 +114,7 @@ class HideAnimals : AppCompatActivity() {
                 }else{
                     infos.setText("trouvé1")
                     hideAnimalsMetier.trouveElem(0)
+                    animalToFind1.visibility=View.INVISIBLE
                     if(hideAnimalsMetier.isWin()){
                         val nextAnimal = Intent(this@HideAnimals, VictoryActivity::class.java)
                         nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
@@ -129,6 +130,7 @@ class HideAnimals : AppCompatActivity() {
                 }else{
                     infos.setText("trouvé3")
                     hideAnimalsMetier.trouveElem(1)
+                    animalToFind3.visibility=View.INVISIBLE
                     if(hideAnimalsMetier.isWin()){
                         val nextAnimal = Intent(this@HideAnimals, VictoryActivity::class.java)
                         nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
@@ -144,6 +146,7 @@ class HideAnimals : AppCompatActivity() {
                 }else{
                     infos.setText("trouvé2")
                     hideAnimalsMetier.trouveElem(2)
+                    animalToFind2.visibility=View.INVISIBLE
                     if(hideAnimalsMetier.isWin()){
                         val nextAnimal = Intent(this@HideAnimals, VictoryActivity::class.java)
                         nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
