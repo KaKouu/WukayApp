@@ -52,6 +52,10 @@
         </activity>
         <activity android:name=".ShopActivity">
         </activity>
+        <activity android:name=".HideAnimals"
+                  android:configChanges="orientation"
+                  android:screenOrientation="portrait" >
+        </activity>
     </application>
 
 </manifest>

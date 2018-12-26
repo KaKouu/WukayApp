@@ -151,7 +151,7 @@ class LevelsActivity : AppCompatActivity() {
 
         playButton.setOnClickListener {
 
-            val nextGame = Intent(this@LevelsActivity, WhatIsThisActivity::class.java)
+            val nextGame = Intent(this@LevelsActivity, HideAnimals::class.java)
             nextGame.putExtra("difficulty", difficulty)
             startActivity(nextGame)
         }

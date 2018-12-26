@@ -15,6 +15,7 @@ class DifficultyActivity : AppCompatActivity() {
         setContentView(R.layout.activity_difficulty)
         val next = Intent(this@DifficultyActivity, LevelsActivity::class.java)
         var difficulty = ""
+
         easyPic.setOnClickListener{
             difficulty="easy"
             next.putExtra("difficulty", difficulty)

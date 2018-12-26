@@ -4,7 +4,9 @@ import android.content.Intent
 import android.media.MediaPlayer
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.project.wukay.wukayapp.IHM.ChoixDifficulte
 import com.project.wukay.wukayapp.IHM.DifficultyActivity
+import com.project.wukay.wukayapp.metier.Partie
 import com.project.wukay.wukayapp.util.Prefs
 import kotlinx.android.synthetic.main.activity_home.*
 
@@ -14,6 +16,7 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        var controler= Controler(this, Partie("null"))
         setContentView(R.layout.activity_home)
 
         val music  = MediaPlayer.create(this, R.raw.sound_birds)
@@ -33,8 +36,6 @@ class HomeActivity : AppCompatActivity() {
         startButton.setOnClickListener{
 
             val start = Intent(this@HomeActivity, DifficultyActivity::class.java)
-
-
             startActivity(start)
             music.stop()
 
@@ -42,6 +43,10 @@ class HomeActivity : AppCompatActivity() {
             prefs!!.skinName=skinName
             //System.out.println(R.drawable.skin_lapinou)
             System.out.println("SAVE SKIN :" + skinName)
+
+
+
+            System.out.println(controler.partie.difficulte)
 
         }
     }

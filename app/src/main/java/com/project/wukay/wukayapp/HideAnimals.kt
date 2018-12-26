@@ -9,6 +9,8 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.animation.TranslateAnimation
 import android.widget.ImageView
+import com.project.wukay.wukayapp.metier.HideAnimalsMetier
+import com.project.wukay.wukayapp.util.Aleatoire
 import kotlinx.android.synthetic.main.activity_hard_what_is_this.*
 import kotlinx.android.synthetic.main.activity_hide_animals.*
 import kotlinx.android.synthetic.main.activity_what_is_this.*
@@ -16,18 +18,20 @@ import java.util.*
 import kotlin.concurrent.schedule
 
 class HideAnimals : AppCompatActivity() {
+    var hideAnimalsMetier = HideAnimalsMetier()
+    var aleatoire = Aleatoire()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
+        hideAnimalsMetier.initialisationJeu()
         // mise en place du layout
         super.onCreate(savedInstanceState)
 
 
         //déclaration des variables
         val difficulty = intent.getStringExtra("difficulty") //renvaiera la difficulté choisit precedement
-        val nextAnimal = Intent(this@HideAnimals, VictoryActivity::class.java)
-        nextAnimal.putExtra("difficulty", difficulty)
-        var numberWin=0
+
+
 
         val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
 
@@ -74,78 +78,25 @@ class HideAnimals : AppCompatActivity() {
 
 
             val nombreAnimauxAchercher =3;
+            var tableauEntierAleatoireDifferent:IntArray
+            System.out.println("PASSEPAS")
+            tableauEntierAleatoireDifferent = aleatoire.chiffreAleatoireDifferentEntreDeuxBornes(listOfAnimalsPictureQuestion.size,nombreAnimauxAchercher)
+            System.out.println("PASSE")
+            animalToFind3.setImageResource(listOfAnimalsPictureQuestion[tableauEntierAleatoireDifferent.get(0)])
+            animalToFind2.setImageResource(listOfAnimalsPictureQuestion[tableauEntierAleatoireDifferent.get(1)])
+            animalToFind1.setImageResource(listOfAnimalsPictureQuestion[tableauEntierAleatoireDifferent.get(2)])
 
-            animalToFind3.setImageResource(listOfAnimalsPictureQuestion[1])
-            animalToFind2.setImageResource(listOfAnimalsPictureQuestion[1])
-            animalToFind1.setImageResource(listOfAnimalsPictureQuestion[1])
-
-            answer3Hide.setImageResource(listOfAnimalsPicture[1])
-            answer2Hide.setImageResource(listOfAnimalsPicture[1])
-            answer1Hide.setImageResource(listOfAnimalsPicture[1])
+            answer3Hide.setImageResource(listOfAnimalsPicture[tableauEntierAleatoireDifferent.get(0)])
+            answer2Hide.setImageResource(listOfAnimalsPicture[tableauEntierAleatoireDifferent.get(1)])
+            answer1Hide.setImageResource(listOfAnimalsPicture[tableauEntierAleatoireDifferent.get(2)])
 
         }else
         {
             setContentView(R.layout.activity_hide_animals)
         }
 
-        //selon le niveau de difficulté
-        if(difficulty=="easy") {
-            var decouvert=false;
-    /*
-            answer1Hide.setOnClickListener {
-
-                    System.out.println("answer1 est cliqué")
 
 
-            }
-            answer2Hide.setOnClickListener {
-                System.out.println("answer2 est cliqué")
-            }
-            answer3Hide.setOnClickListener {
-                System.out.println("answer3 est cliqué")
-            }*/
-
-        }else {
-
-        }
-
-    }
-    private fun minijeu(
-        arrayOfQuestion: Array<String>,
-        reponse: Int,
-        nombreDeReponsesPossibles: Int,
-        memoAnimauxChoisi: IntArray,
-        rand: Random,
-        arrayOfAnimalsPicture: Array<Int>,
-        ouMettreLaReponse: Int
-    ) {
-        question.setText(arrayOfQuestion[reponse])
-        description.setText("")
-        var i = 0;
-
-        while (i < nombreDeReponsesPossibles) {
-            System.out.print(i)
-            memoAnimauxChoisi.set(i, -1)
-            i++
-        }
-
-        var j = 0
-        while (j < memoAnimauxChoisi.size) {
-
-            var temp = rand.nextInt(arrayOfAnimalsPicture.size)
-
-            while (memoAnimauxChoisi.contains(temp) || temp == reponse) {
-                temp = rand.nextInt(arrayOfAnimalsPicture.size)
-            }
-
-            memoAnimauxChoisi.set(j, temp)
-            j++
-        }
-        memoAnimauxChoisi.set(ouMettreLaReponse, reponse)
-
-        answer1.setImageResource(arrayOfAnimalsPicture[memoAnimauxChoisi.get(0)])
-        answer2.setImageResource(arrayOfAnimalsPicture[memoAnimauxChoisi.get(1)])
-        answer3.setImageResource(arrayOfAnimalsPicture[memoAnimauxChoisi.get(2)])
     }
     private fun handleTouch(m: MotionEvent){
         if(m.action == MotionEvent.ACTION_MOVE) {
@@ -162,6 +113,14 @@ class HideAnimals : AppCompatActivity() {
                 if(answer1Hide.x >= herbe.x && answer1Hide.x + answer1Hide.width < herbe.x + herbe.width && answer1Hide.y >= herbe.y && answer1Hide.y + answer1Hide.height< herbe.y + herbe.height){
                 }else{
                     infos.setText("trouvé1")
+                    hideAnimalsMetier.trouveElem(0)
+                    if(hideAnimalsMetier.isWin()){
+                        val nextAnimal = Intent(this@HideAnimals, VictoryActivity::class.java)
+                        nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
+                        var numberCarrotsWonText = 1.toString()
+                        nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
+                        startActivity(nextAnimal)
+                    }
                 }
 
             }
@@ -169,6 +128,14 @@ class HideAnimals : AppCompatActivity() {
                 if(answer3Hide.x >= herbe.x && answer3Hide.x + answer3Hide.width < herbe.x + herbe.width && answer3Hide.y >= herbe.y && answer3Hide.y + answer3Hide.height< herbe.y + herbe.height){
                 }else{
                     infos.setText("trouvé3")
+                    hideAnimalsMetier.trouveElem(1)
+                    if(hideAnimalsMetier.isWin()){
+                        val nextAnimal = Intent(this@HideAnimals, VictoryActivity::class.java)
+                        nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
+                        var numberCarrotsWonText = 1.toString()
+                        nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
+                        startActivity(nextAnimal)
+                    }
                 }
 
             }
@@ -176,6 +143,14 @@ class HideAnimals : AppCompatActivity() {
                 if(answer2Hide.x >= herbe.x && answer2Hide.x + answer2Hide.width < herbe.x + herbe.width && answer2Hide.y >= herbe.y && answer2Hide.y + answer2Hide.height< herbe.y + herbe.height){
                 }else{
                     infos.setText("trouvé2")
+                    hideAnimalsMetier.trouveElem(2)
+                    if(hideAnimalsMetier.isWin()){
+                        val nextAnimal = Intent(this@HideAnimals, VictoryActivity::class.java)
+                        nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
+                        var numberCarrotsWonText = 1.toString()
+                        nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
+                        startActivity(nextAnimal)
+                    }
                 }
 
             }
