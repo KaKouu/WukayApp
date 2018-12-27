@@ -31,4 +31,26 @@ class HideAnimalsTest {
         Assert.assertTrue(test.isWin())
 
     }
+    @Test
+    fun should_return_true_if_we_creat_the_class_and_call_the_method_up_3_timese(){
+        var test = HideAnimalsMetier()
+        test.initialisationJeu()
+        test.placementAleatoireDansTableau()
+
+        var i=0
+        var j=0
+
+        while(i<test.getPlacementX().size){
+            System.out.println(test.getPlacementX()[i])
+            i++
+        }
+        while(j<test.getPlacementY().size){
+            System.out.println(test.getPlacementY()[j])
+            j++
+        }
+
+        Assert.assertTrue(test.isWin())
+
+    }
+
 }

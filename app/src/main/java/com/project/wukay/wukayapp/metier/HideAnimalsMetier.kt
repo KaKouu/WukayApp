@@ -1,9 +1,15 @@
 package com.project.wukay.wukayapp.metier
 
+import java.util.*
+
 class HideAnimalsMetier {
     private var nombreVictoire =0;
     private var difficulte = ""
     private var nombreAnimauxATrouver=3;
+    private var nombreDeCaseDePlacementX = 3
+    private var nombreDeCaseDePlacementY = 3
+    private var placementX = IntArray(nombreDeCaseDePlacementX)
+    private var placementY = IntArray(nombreDeCaseDePlacementY)
 
     private var tableauReponse = IntArray(nombreAnimauxATrouver)
 
@@ -23,6 +29,12 @@ class HideAnimalsMetier {
     public fun upNombreVictoire(){
         nombreVictoire=nombreVictoire+1
     }
+    public fun getPlacementX(): IntArray{
+        return placementX
+    }
+    public fun getPlacementY(): IntArray{
+        return placementY
+    }
 
     public fun isWin(): Boolean{
        var estGagne = true
@@ -38,5 +50,34 @@ class HideAnimalsMetier {
 
     public fun trouveElem(numeroDeLaReponseClique: Int){
         tableauReponse.set(numeroDeLaReponseClique,1)
+    }
+    public fun placementAleatoireDansTableau(){
+        var aleatoire = Random()
+        var tamponX=-1
+        var tamponY = -1
+        var i=0
+
+        while(i<nombreAnimauxATrouver){
+            tamponX = aleatoire.nextInt(nombreDeCaseDePlacementX)
+            tamponY = aleatoire.nextInt(nombreDeCaseDePlacementY)
+
+            var j=0
+            while(j<i){
+                while(placementX[j] ==tamponX && placementY[j]==tamponY){
+                    tamponX = aleatoire.nextInt(nombreDeCaseDePlacementX)
+                    tamponY = aleatoire.nextInt(nombreDeCaseDePlacementY)
+                    j=0
+                }
+                j++
+            }
+
+            placementX[i]=tamponX
+            placementY[i]=tamponY
+            i++
+        }
+
+
+
+
     }
 }

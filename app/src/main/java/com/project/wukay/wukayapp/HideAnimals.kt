@@ -9,6 +9,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.animation.TranslateAnimation
 import android.widget.ImageView
+import com.project.wukay.wukayapp.R.layout.activity_hide_animals
 import com.project.wukay.wukayapp.metier.HideAnimalsMetier
 import com.project.wukay.wukayapp.util.Aleatoire
 import kotlinx.android.synthetic.main.activity_hard_what_is_this.*
@@ -20,6 +21,8 @@ import kotlin.concurrent.schedule
 class HideAnimals : AppCompatActivity() {
     var hideAnimalsMetier = HideAnimalsMetier()
     var aleatoire = Aleatoire()
+    var positionX=FloatArray(3)
+    var positionY=FloatArray(3)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,6 +39,13 @@ class HideAnimals : AppCompatActivity() {
         val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
 
         if (difficulty == "easy"){
+            positionX.set(0,0.0f)
+            positionX.set(1,400f)
+            positionX.set(2,700f)
+
+            positionY.set(0,0f)
+            positionY.set(1,400f)
+            positionY.set(2,800f)
 
             val listOfAnimalsPictureQuestion = arrayOf(
                 R.drawable.animaux_cochon_silhouette,
@@ -89,6 +99,25 @@ class HideAnimals : AppCompatActivity() {
             answer3Hide.setImageResource(listOfAnimalsPicture[tableauEntierAleatoireDifferent.get(0)])
             answer2Hide.setImageResource(listOfAnimalsPicture[tableauEntierAleatoireDifferent.get(1)])
             answer1Hide.setImageResource(listOfAnimalsPicture[tableauEntierAleatoireDifferent.get(2)])
+            hideAnimalsMetier.placementAleatoireDansTableau()
+
+
+            System.out.println("PLACEMENT"+positionX[hideAnimalsMetier.getPlacementX()[0]])
+
+
+            answer1Hide.x=positionX[hideAnimalsMetier.getPlacementX()[0]]
+            answer2Hide.x=positionX[hideAnimalsMetier.getPlacementX()[1]]
+            answer3Hide.x=positionX[hideAnimalsMetier.getPlacementX()[2]]
+
+            answer1Hide.y=positionY[hideAnimalsMetier.getPlacementY()[0]]
+            answer2Hide.y=positionY[hideAnimalsMetier.getPlacementY()[1]]
+            answer3Hide.y=positionY[hideAnimalsMetier.getPlacementY()[2]]
+            hideAnimalsMetier.placementAleatoireDansTableau()
+            var random=Random()
+            herbe.setX(positionX[random.nextInt(2)])
+            herbe.setY(positionY[random.nextInt(2)])
+
+
 
         }else
         {
