@@ -17,9 +17,9 @@
             <LinearLayout
                     android:id="@+id/title"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="72dp"
                     android:layout_gravity="center_vertical"
-                    android:background="@color/colorWhite"
+                    android:background="@drawable/bg_shop_title"
                     android:orientation="horizontal"
                     android:padding="5dp">
 
@@ -62,10 +62,12 @@
                             android:id="@+id/imagenbCarrot" android:layout_alignParentEnd="true"
                             android:layout_alignParentTop="true" android:layout_marginTop="0dp"
                             android:layout_marginEnd="0dp"/>
-                    <Button
-                            android:text="Retour"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" android:id="@+id/retour"/>
+                    <ImageView
+                            android:layout_width="76dp"
+                            android:layout_height="45dp" app:srcCompat="@drawable/icone_fleche_retour"
+                            android:id="@+id/retour"
+                            android:layout_marginTop="-5dp" android:layout_alignTop="@+id/mainTitle3"
+                            android:layout_alignStart="@+id/mainTitle4" android:layout_marginStart="-8dp"/>
                 </RelativeLayout>
             </LinearLayout>
             <LinearLayout
@@ -73,7 +75,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
-                    android:background="@color/colorWhite"
+                    android:background="@drawable/bg_shop"
                     android:orientation="horizontal"
                     android:padding="5dp">
 
@@ -103,7 +105,7 @@
                             android:background="@drawable/rounded_button" android:fontFamily="@font/grobold"/>
                     <TextView
                             android:id="@+id/itemName1"
-                            android:layout_width="match_parent"
+                            android:layout_width="176dp"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="5dp"
@@ -115,7 +117,7 @@
                             android:singleLine="true"
                             android:text="Lapinou Jaune"
                             android:textColor="@android:color/background_dark"
-                            android:textSize="24sp" android:fontFamily="@font/grobold"/>
+                            android:textSize="22sp" android:fontFamily="@font/grobold"/>
 
 
                 </RelativeLayout>
@@ -125,7 +127,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
-                    android:background="@color/colorWhite"
+                    android:background="@drawable/bg_shop"
                     android:orientation="horizontal"
                     android:padding="5dp">
 
@@ -189,7 +191,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
-                    android:background="@color/colorWhite"
+                    android:background="@drawable/bg_shop"
                     android:orientation="horizontal"
                     android:padding="5dp">
 
@@ -253,7 +255,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
-                    android:background="@color/colorWhite"
+                    android:background="@drawable/bg_shop"
                     android:orientation="horizontal"
                     android:padding="5dp">
 
@@ -317,7 +319,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
-                    android:background="@color/colorWhite"
+                    android:background="@drawable/bg_shop"
                     android:orientation="horizontal"
                     android:padding="5dp">
 
@@ -381,7 +383,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
-                    android:background="@color/colorWhite"
+                    android:background="@drawable/bg_shop"
                     android:orientation="horizontal"
                     android:padding="5dp">
 
@@ -445,7 +447,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
-                    android:background="@color/colorWhite"
+                    android:background="@drawable/bg_shop"
                     android:orientation="horizontal"
                     android:padding="5dp">
 
