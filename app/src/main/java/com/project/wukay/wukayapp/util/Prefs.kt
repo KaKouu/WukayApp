@@ -13,10 +13,13 @@ class Prefs(context : Context) {
     val NB_CARROTS = "nb_carrots"
     val ACTUAL_SKIN_NAME = "skinName"
 
-
     val SHOP_PURCHASES0 ="shop_PURCHASES0"
     val SHOP_PURCHASES2 ="shop_PURCHASES2"
     val SHOP_PURCHASES3 ="shop_PURCHASES3"
+    val SHOP_PURCHASES4 ="shop_PURCHASES4"
+    val SHOP_PURCHASES5 ="shop_PURCHASES5"
+    val SHOP_PURCHASES6 ="shop_PURCHASES6"
+
 
     val prefs: SharedPreferences = context.getSharedPreferences(PREFS_FILENAME, 0)
 
@@ -54,4 +57,19 @@ class Prefs(context : Context) {
 
         get() = prefs.getBoolean(SHOP_PURCHASES3,false)
         set(value) = prefs.edit().putBoolean(SHOP_PURCHASES3, value).apply()
+
+    var shopPurchased4 : Boolean
+
+        get() = prefs.getBoolean(SHOP_PURCHASES4,false)
+        set(value) = prefs.edit().putBoolean(SHOP_PURCHASES4, value).apply()
+
+    var shopPurchased5 : Boolean
+
+        get() = prefs.getBoolean(SHOP_PURCHASES5,false)
+        set(value) = prefs.edit().putBoolean(SHOP_PURCHASES5, value).apply()
+
+    var shopPurchased6 : Boolean
+
+        get() = prefs.getBoolean(SHOP_PURCHASES6,false)
+        set(value) = prefs.edit().putBoolean(SHOP_PURCHASES6, value).apply()
 }

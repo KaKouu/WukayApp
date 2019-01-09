@@ -438,6 +438,7 @@ class WhatIsThisActivity : AppCompatActivity() {
         }
 
     }
+
     private fun minijeu(
         arrayOfQuestion: Array<String>,
         reponse: Int,
