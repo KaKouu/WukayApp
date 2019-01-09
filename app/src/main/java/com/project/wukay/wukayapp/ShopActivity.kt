@@ -181,7 +181,7 @@ class ShopActivity : AppCompatActivity() {
                 }else {
                     //actions
                     carrots -= girlRabbit.price
-                    cowBoyRabbit.isPurchase=true
+                    girlRabbit.isPurchase=true
 
                     //affichages
                     btPrice2.text = "m'utiliser ?"
