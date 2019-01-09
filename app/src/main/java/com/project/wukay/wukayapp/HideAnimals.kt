@@ -141,9 +141,10 @@ class HideAnimals : AppCompatActivity() {
             if (m.x >= answer1Hide.x && m.x < answer1Hide.x + herbe.width && m.y >= answer1Hide.y && m.y < answer1Hide.y + answer1Hide.height) {
                 if(answer1Hide.x >= herbe.x && answer1Hide.x + answer1Hide.width < herbe.x + herbe.width && answer1Hide.y >= herbe.y && answer1Hide.y + answer1Hide.height< herbe.y + herbe.height){
                 }else{
-                    infos.setText("trouvé1")
+
                     hideAnimalsMetier.trouveElem(0)
                     animalToFind1.visibility=View.INVISIBLE
+                    answer1Hide.visibility=View.INVISIBLE
                     if(hideAnimalsMetier.isWin()){
                         val nextAnimal = Intent(this@HideAnimals, VictoryActivity::class.java)
                         nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
@@ -157,9 +158,10 @@ class HideAnimals : AppCompatActivity() {
             if (m.x >= answer3Hide.x && m.x < answer3Hide.x + herbe.width && m.y >= answer3Hide.y && m.y < answer3Hide.y + answer3Hide.height) {
                 if(answer3Hide.x >= herbe.x && answer3Hide.x + answer3Hide.width < herbe.x + herbe.width && answer3Hide.y >= herbe.y && answer3Hide.y + answer3Hide.height< herbe.y + herbe.height){
                 }else{
-                    infos.setText("trouvé3")
+
                     hideAnimalsMetier.trouveElem(1)
                     animalToFind3.visibility=View.INVISIBLE
+                    answer3Hide.visibility=View.INVISIBLE
                     if(hideAnimalsMetier.isWin()){
                         val nextAnimal = Intent(this@HideAnimals, VictoryActivity::class.java)
                         nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
@@ -173,9 +175,10 @@ class HideAnimals : AppCompatActivity() {
             if (m.x >= answer2Hide.x && m.x < answer2Hide.x + herbe.width && m.y >= answer2Hide.y && m.y < answer2Hide.y + answer2Hide.height) {
                 if(answer2Hide.x >= herbe.x && answer2Hide.x + answer2Hide.width < herbe.x + herbe.width && answer2Hide.y >= herbe.y && answer2Hide.y + answer2Hide.height< herbe.y + herbe.height){
                 }else{
-                    infos.setText("trouvé2")
+
                     hideAnimalsMetier.trouveElem(2)
                     animalToFind2.visibility=View.INVISIBLE
+                    answer2Hide.visibility=View.INVISIBLE
                     if(hideAnimalsMetier.isWin()){
                         val nextAnimal = Intent(this@HideAnimals, VictoryActivity::class.java)
                         nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
