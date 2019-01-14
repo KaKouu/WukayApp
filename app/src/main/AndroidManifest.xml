@@ -61,6 +61,11 @@
                   android:configChanges="orientation"
                   android:screenOrientation="portrait" >
         </activity>
+
+    <activity android:name="FeedAnimalsControler">
+    </activity>
+
+
     </application>
 
 </manifest>
