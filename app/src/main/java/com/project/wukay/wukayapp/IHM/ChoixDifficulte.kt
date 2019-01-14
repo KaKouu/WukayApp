@@ -12,6 +12,14 @@ class ChoixDifficulte(var controler: Controler) : AppCompatActivity() {
     public fun choixDifficulte(){
         controler.app.setContentView(R.layout.activity_difficulty)
 
+        controler.app.txtEasy.setOnClickListener{
+            controler.partie.difficulte="easy"
+        }
+
+        controler.app.txtHard.setOnClickListener{
+            controler.partie.difficulte="dificult"
+        }
+
         controler.app.easyPic.setOnClickListener{
             controler.partie.difficulte="easy"
         }
@@ -19,6 +27,8 @@ class ChoixDifficulte(var controler: Controler) : AppCompatActivity() {
         controler.app.hardPic.setOnClickListener{
             controler.partie.difficulte="dificult"
         }
+
+
     }
 
 

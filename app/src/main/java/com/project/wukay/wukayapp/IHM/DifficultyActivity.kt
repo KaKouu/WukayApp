@@ -21,8 +21,20 @@ class DifficultyActivity : AppCompatActivity() {
             next.putExtra("difficulty", difficulty)
             startActivity(next)
         }
+        txtEasy.setOnClickListener{
+            difficulty="easy"
+            next.putExtra("difficulty", difficulty)
+            startActivity(next)
+        }
 
         hardPic.setOnClickListener{
+            difficulty="hard"
+
+            next.putExtra("difficulty", difficulty)
+
+            startActivity(next)
+        }
+        txtHard.setOnClickListener{
             difficulty="hard"
 
             next.putExtra("difficulty", difficulty)
