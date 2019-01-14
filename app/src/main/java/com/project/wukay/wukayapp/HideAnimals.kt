@@ -26,7 +26,7 @@ class HideAnimals : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        hideAnimalsMetier.initialisationJeu()
+        hideAnimalsMetier.initialisationGame()
         // mise en place du layout
         super.onCreate(savedInstanceState)
 
@@ -100,7 +100,7 @@ class HideAnimals : AppCompatActivity() {
             answer3Hide.setImageResource(listOfAnimalsPicture[tableauEntierAleatoireDifferent.get(0)])
             answer2Hide.setImageResource(listOfAnimalsPicture[tableauEntierAleatoireDifferent.get(1)])
             answer1Hide.setImageResource(listOfAnimalsPicture[tableauEntierAleatoireDifferent.get(2)])
-            hideAnimalsMetier.placementAleatoireDansTableau()
+            hideAnimalsMetier.placementRandomInArray()
 
 
             System.out.println("PLACEMENT"+positionX[hideAnimalsMetier.getPlacementX()[0]])
@@ -113,7 +113,7 @@ class HideAnimals : AppCompatActivity() {
             answer1Hide.y=positionY[hideAnimalsMetier.getPlacementY()[0]]
             answer2Hide.y=positionY[hideAnimalsMetier.getPlacementY()[1]]
             answer3Hide.y=positionY[hideAnimalsMetier.getPlacementY()[2]]
-            hideAnimalsMetier.placementAleatoireDansTableau()
+            hideAnimalsMetier.placementRandomInArray()
             var random=Random()
             herbe.setX(positionX[random.nextInt(2)])
             herbe.setY(positionY[random.nextInt(2)])
@@ -143,7 +143,7 @@ class HideAnimals : AppCompatActivity() {
                 if(answer1Hide.x >= herbe.x && answer1Hide.x + answer1Hide.width < herbe.x + herbe.width && answer1Hide.y >= herbe.y && answer1Hide.y + answer1Hide.height< herbe.y + herbe.height){
                 }else{
 
-                    hideAnimalsMetier.trouveElem(0)
+                    hideAnimalsMetier.findElement(0)
                     animalToFind1.visibility=View.INVISIBLE
                     answer1Hide.visibility=View.INVISIBLE
                     if(hideAnimalsMetier.isWin()){
@@ -160,7 +160,7 @@ class HideAnimals : AppCompatActivity() {
                 if(answer3Hide.x >= herbe.x && answer3Hide.x + answer3Hide.width < herbe.x + herbe.width && answer3Hide.y >= herbe.y && answer3Hide.y + answer3Hide.height< herbe.y + herbe.height){
                 }else{
 
-                    hideAnimalsMetier.trouveElem(1)
+                    hideAnimalsMetier.findElement(1)
                     animalToFind3.visibility=View.INVISIBLE
                     answer3Hide.visibility=View.INVISIBLE
                     if(hideAnimalsMetier.isWin()){
@@ -177,7 +177,7 @@ class HideAnimals : AppCompatActivity() {
                 if(answer2Hide.x >= herbe.x && answer2Hide.x + answer2Hide.width < herbe.x + herbe.width && answer2Hide.y >= herbe.y && answer2Hide.y + answer2Hide.height< herbe.y + herbe.height){
                 }else{
 
-                    hideAnimalsMetier.trouveElem(2)
+                    hideAnimalsMetier.findElement(2)
                     animalToFind2.visibility=View.INVISIBLE
                     answer2Hide.visibility=View.INVISIBLE
                     if(hideAnimalsMetier.isWin()){
