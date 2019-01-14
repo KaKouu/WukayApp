@@ -39,6 +39,7 @@ class HideAnimals : AppCompatActivity() {
         val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
 
         if (difficulty == "easy"){
+
             positionX.set(0,0.0f)
             positionX.set(1,400f)
             positionX.set(2,700f)
