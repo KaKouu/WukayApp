@@ -151,9 +151,19 @@ class LevelsActivity : AppCompatActivity() {
 
         playButton.setOnClickListener {
 
-            val nextGame = Intent(this@LevelsActivity, HideAnimals::class.java)
-            nextGame.putExtra("difficulty", difficulty)
-            startActivity(nextGame)
+            var random = Random().nextInt(20)
+            if (random <= 10) {
+                val nextGame = Intent(this@LevelsActivity, WhatIsThisActivity::class.java)
+                nextGame.putExtra("difficulty", difficulty)
+                startActivity(nextGame)
+            }
+            else {
+                val nextGame = Intent(this@LevelsActivity, HideAnimals::class.java)
+                nextGame.putExtra("difficulty", difficulty)
+                startActivity(nextGame)
+            }
+
+
         }
 
         shopIcone.setOnClickListener {
