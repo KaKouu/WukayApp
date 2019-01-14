@@ -40,7 +40,36 @@ class WhatIsThisActivity : AppCompatActivity() {
         if(difficulty=="easy") {
 
 
+            val startAnimalAnswer = arrayOf(
 
+
+                R.drawable.animaux_cochon_silhouette,
+                R.drawable.animaux_vache_silhouette,
+                R.drawable.animaux_girafe_silhouette,
+                R.drawable.animaux_ane_silhouette,
+                R.drawable.animaux_bouc_silhouette,
+                R.drawable.animaux_chat_silhouette,
+                R.drawable.animaux_crabe_silhouette,
+                R.drawable.animaux_ecureil_silhouette,
+                R.drawable.animaux_lama_silhouette,
+                R.drawable.animaux_elephant_silhouette,
+                R.drawable.animaux_mouton_silhouette
+            )
+
+            val startAnimal = arrayOf(
+
+                R.drawable.animaux_cochon,
+                R.drawable.animaux_vache,
+                R.drawable.animaux_girafe,
+                R.drawable.animaux_ane,
+                R.drawable.animaux_bouc,
+                R.drawable.animaux_chat,
+                R.drawable.animaux_crabe,
+                R.drawable.animaux_ecureil,
+                R.drawable.animaux_lama,
+                R.drawable.animaux_elephant,
+                R.drawable.animaux_mouton
+            )
 
             //var tableauTampon : Array<Int> = arrayOf(0,0,0,0)
             var tampon = 0
@@ -55,17 +84,21 @@ class WhatIsThisActivity : AppCompatActivity() {
             tableau.set(3,0)
 
             var tabTampon = IntArray(3)
+            var rand = Random()
+            var index = rand.nextInt(startAnimalAnswer.size)
+            var index1 = rand.nextInt(startAnimalAnswer.size)
+            var index2 = rand.nextInt(startAnimalAnswer.size)
 
-            val animalArray = arrayOf(
-                R.drawable.animaux_cochon_silhouette,
-                R.drawable.animaux_vache_silhouette,
-                R.drawable.animaux_girafe_silhouette
+            val arrayAnimal = arrayOf(
+                startAnimal.get(index),
+                startAnimal.get(index1),
+                startAnimal.get(index2)
             )
 
-            val answerAnimal = arrayOf(
-                R.drawable.animaux_cochon,
-                R.drawable.animaux_vache,
-                R.drawable.animaux_girafe
+            val arrayAnswerAnimal = arrayOf(
+                startAnimalAnswer.get(index),
+                startAnimalAnswer.get(index1),
+                startAnimalAnswer.get(index2)
             )
 
 
@@ -86,23 +119,24 @@ class WhatIsThisActivity : AppCompatActivity() {
 
 
                 resultat.setText("")
-                tampon = randomizeImage(tabTampon, animalArray, animalPic)
 
                 ////SILHOUETTE
+                tampon = randomizeImage(tabTampon, arrayAnswerAnimal, animalPic)
+
                 tabTampon.set(0, tampon)
                 tabTampon.set(1, 10)
                 tabTampon.set(2, 10)
 
 
                 ////AWNSER
-                tampon1 = randomizeImage(tabTampon, answerAnimal, animalAnwser1)
+                tampon1 = randomizeImage(tabTampon, arrayAnimal, animalAnwser1)
                 tabTampon.set(0, tampon1)
 
 
-                tampon2 = randomizeImage(tabTampon, answerAnimal, animalAnwser2)
+                tampon2 = randomizeImage(tabTampon, arrayAnimal, animalAnwser2)
                 tabTampon.set(1, tampon2)
 
-                tampon3 = randomizeImage(tabTampon, answerAnimal, animalAnwser3)
+                tampon3 = randomizeImage(tabTampon, arrayAnimal, animalAnwser3)
                 tabTampon.set(2, tampon3)
 
                 startButton.visibility = View.INVISIBLE
@@ -134,18 +168,18 @@ class WhatIsThisActivity : AppCompatActivity() {
                             tabTampon.set(1, 10)
                             tabTampon.set(2, 10)
 
-                            tampon = randomizeImage(tabTampon, animalArray, animalPic)
+                            tampon = randomizeImage(tabTampon, arrayAnswerAnimal, animalPic)
 
 
                             ////AWNSER
-                            tampon1 = randomizeImage(tabTampon, answerAnimal, animalAnwser1)
+                            tampon1 = randomizeImage(tabTampon, arrayAnimal, animalAnwser1)
                             tabTampon.set(0, tampon1)
 
 
-                            tampon2 = randomizeImage(tabTampon, answerAnimal, animalAnwser2)
+                            tampon2 = randomizeImage(tabTampon, arrayAnimal, animalAnwser2)
                             tabTampon.set(1, tampon2)
 
-                            tampon3 = randomizeImage(tabTampon, answerAnimal, animalAnwser3)
+                            tampon3 = randomizeImage(tabTampon, arrayAnimal, animalAnwser3)
                             tabTampon.set(2, tampon3)
 
                         }
@@ -183,18 +217,18 @@ class WhatIsThisActivity : AppCompatActivity() {
                             tabTampon.set(1, 10)
                             tabTampon.set(2, 10)
 
-                            tampon = randomizeImage(tabTampon, animalArray, animalPic)
+                            tampon = randomizeImage(tabTampon, arrayAnswerAnimal, animalPic)
 
 
                             ////AWNSER
-                            tampon1 = randomizeImage(tabTampon, answerAnimal, animalAnwser1)
+                            tampon1 = randomizeImage(tabTampon, arrayAnimal, animalAnwser1)
                             tabTampon.set(0, tampon1)
 
 
-                            tampon2 = randomizeImage(tabTampon, answerAnimal, animalAnwser2)
+                            tampon2 = randomizeImage(tabTampon, arrayAnimal, animalAnwser2)
                             tabTampon.set(1, tampon2)
 
-                            tampon3 = randomizeImage(tabTampon, answerAnimal, animalAnwser3)
+                            tampon3 = randomizeImage(tabTampon, arrayAnimal, animalAnwser3)
                             tabTampon.set(2, tampon3)
 
                         }
@@ -233,18 +267,18 @@ class WhatIsThisActivity : AppCompatActivity() {
                             tabTampon.set(1, 10)
                             tabTampon.set(2, 10)
 
-                            tampon = randomizeImage(tabTampon, animalArray, animalPic)
+                            tampon = randomizeImage(tabTampon, arrayAnswerAnimal, animalPic)
 
 
                             ////AWNSER
-                            tampon1 = randomizeImage(tabTampon, answerAnimal, animalAnwser1)
+                            tampon1 = randomizeImage(tabTampon, arrayAnimal, animalAnwser1)
                             tabTampon.set(0, tampon1)
 
 
-                            tampon2 = randomizeImage(tabTampon, answerAnimal, animalAnwser2)
+                            tampon2 = randomizeImage(tabTampon, arrayAnimal, animalAnwser2)
                             tabTampon.set(1, tampon2)
 
-                            tampon3 = randomizeImage(tabTampon, answerAnimal, animalAnwser3)
+                            tampon3 = randomizeImage(tabTampon, arrayAnimal, animalAnwser3)
                             tabTampon.set(2, tampon3)
 
                         }

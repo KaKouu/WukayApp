@@ -31,7 +31,7 @@ class VictoryActivity : AppCompatActivity() {
 
         val difficulty = intent.getStringExtra("difficulty")
 
-        Timer().schedule(5000) {
+        Timer().schedule(2000) {
             val next = Intent( this@VictoryActivity, LevelsActivity::class.java)
             next.putExtra("difficulty",difficulty)
             next.putExtra("carotsWon",nbCarrots)

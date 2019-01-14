@@ -7,38 +7,34 @@ import android.os.Bundle
 import android.os.Vibrator
 import android.view.MotionEvent
 import android.view.View
-import android.view.animation.TranslateAnimation
-import android.widget.ImageView
-import com.project.wukay.wukayapp.R.layout.activity_hide_animals
 import com.project.wukay.wukayapp.metier.HideAnimalsMetier
 import com.project.wukay.wukayapp.util.Aleatoire
-import kotlinx.android.synthetic.main.activity_hard_what_is_this.*
 import kotlinx.android.synthetic.main.activity_hide_animals.*
-import kotlinx.android.synthetic.main.activity_what_is_this.*
 import java.util.*
-import kotlin.concurrent.schedule
 
 class HideAnimals : AppCompatActivity() {
-    var hideAnimalsMetier = HideAnimalsMetier()
+    var hideAnimalsHardMetier = HideAnimalsMetier()
+    var hideAnimalsMetier= HideAnimalsMetier()
     var aleatoire = Aleatoire()
+    var random=Random()
     var positionX=FloatArray(3)
     var positionY=FloatArray(3)
-
+    var difficulty=""
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        hideAnimalsMetier.initialisationGame()
+        hideAnimalsHardMetier.initialisationJeu()
         // mise en place du layout
         super.onCreate(savedInstanceState)
 
 
         //déclaration des variables
-        val difficulty = intent.getStringExtra("difficulty") //renvaiera la difficulté choisit precedement
+        difficulty = intent.getStringExtra("difficulty") //renvaiera la difficulté choisit precedement
 
 
 
         val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
 
-        if (difficulty == "easy"){
+
 
             positionX.set(0,0.0f)
             positionX.set(1,400f)
@@ -100,99 +96,212 @@ class HideAnimals : AppCompatActivity() {
             answer3Hide.setImageResource(listOfAnimalsPicture[tableauEntierAleatoireDifferent.get(0)])
             answer2Hide.setImageResource(listOfAnimalsPicture[tableauEntierAleatoireDifferent.get(1)])
             answer1Hide.setImageResource(listOfAnimalsPicture[tableauEntierAleatoireDifferent.get(2)])
-            hideAnimalsMetier.placementRandomInArray()
+            hideAnimalsHardMetier.placementAleatoireDansTableau()
 
 
-            System.out.println("PLACEMENT"+positionX[hideAnimalsMetier.getPlacementX()[0]])
+            System.out.println("PLACEMENT"+positionX[hideAnimalsHardMetier.getPlacementX()[0]])
 
 
-            answer1Hide.x=positionX[hideAnimalsMetier.getPlacementX()[0]]
-            answer2Hide.x=positionX[hideAnimalsMetier.getPlacementX()[1]]
-            answer3Hide.x=positionX[hideAnimalsMetier.getPlacementX()[2]]
+            answer1Hide.x=positionX[hideAnimalsHardMetier.getPlacementX()[0]]
+            answer2Hide.x=positionX[hideAnimalsHardMetier.getPlacementX()[1]]
+            answer3Hide.x=positionX[hideAnimalsHardMetier.getPlacementX()[2]]
 
-            answer1Hide.y=positionY[hideAnimalsMetier.getPlacementY()[0]]
-            answer2Hide.y=positionY[hideAnimalsMetier.getPlacementY()[1]]
-            answer3Hide.y=positionY[hideAnimalsMetier.getPlacementY()[2]]
-            hideAnimalsMetier.placementRandomInArray()
+            answer1Hide.y=positionY[hideAnimalsHardMetier.getPlacementY()[0]]
+            answer2Hide.y=positionY[hideAnimalsHardMetier.getPlacementY()[1]]
+            answer3Hide.y=positionY[hideAnimalsHardMetier.getPlacementY()[2]]
+            hideAnimalsHardMetier.placementAleatoireDansTableau()
+            hideAnimalsHardMetier.placementAleatoireDecorDansTableau()
+
             var random=Random()
-            herbe.setX(positionX[random.nextInt(2)])
-            herbe.setY(positionY[random.nextInt(2)])
+            herbe.x=positionX[hideAnimalsHardMetier.getDecorPlacementX()[0]]
+            arbre.x=positionX[hideAnimalsHardMetier.getDecorPlacementX()[1]]
+            rocher.x=positionX[hideAnimalsHardMetier.getDecorPlacementX()[2]]
+
+            herbe.y=positionY[hideAnimalsHardMetier.getDecorPlacementY()[0]]
+            arbre.y=positionY[hideAnimalsHardMetier.getDecorPlacementY()[1]]
+            rocher.y=positionY[hideAnimalsHardMetier.getDecorPlacementY()[2]]
 
 
 
-        }else
-        {
-            setContentView(R.layout.activity_hide_animals)
+        if(difficulty=="easy"){
+            herbe.scaleY=0.5f
+            arbre.scaleY=0.5f
+            rocher.scaleY=0.5f
+            herbe.scaleX=0.5f
+            arbre.scaleX=0.5f
+            rocher.scaleX=0.5f
+
         }
 
 
 
     }
     private fun handleTouch(m: MotionEvent){
-        if(m.action == MotionEvent.ACTION_MOVE) {
+        if(difficulty=="hard"){
+            if(m.action == MotionEvent.ACTION_MOVE) {
 
-             if (m.x >= herbe.x && m.x < herbe.x + herbe.width && m.y >= herbe.y && m.y < herbe.y + herbe.height) {
+                if (m.x >= herbe.x && m.x < herbe.x + herbe.width && m.y >= herbe.y && m.y < herbe.y + herbe.height) {
 
-                 herbe.x = m.x - herbe.width / 2
-                 herbe.y = m.y - herbe.height / 2
-            }
+                    herbe.x = m.x - herbe.width / 2
+                    herbe.y = m.y - herbe.height / 2
 
-        }
-        if(m.action == MotionEvent.ACTION_DOWN){
-            if (m.x >= answer1Hide.x && m.x < answer1Hide.x + herbe.width && m.y >= answer1Hide.y && m.y < answer1Hide.y + answer1Hide.height) {
-                if(answer1Hide.x >= herbe.x && answer1Hide.x + answer1Hide.width < herbe.x + herbe.width && answer1Hide.y >= herbe.y && answer1Hide.y + answer1Hide.height< herbe.y + herbe.height){
-                }else{
 
-                    hideAnimalsMetier.findElement(0)
-                    animalToFind1.visibility=View.INVISIBLE
-                    answer1Hide.visibility=View.INVISIBLE
-                    if(hideAnimalsMetier.isWin()){
-                        val nextAnimal = Intent(this@HideAnimals, VictoryActivity::class.java)
-                        nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
-                        var numberCarrotsWonText = 1.toString()
-                        nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
-                        startActivity(nextAnimal)
-                    }
+                }
+                if (m.x >= arbre.x && m.x < arbre.x + herbe.width && m.y >= arbre.y && m.y < arbre.y + arbre.height) {
+
+                    arbre.x = m.x - arbre.width / 2
+                    arbre.y = m.y - arbre.height / 2
+
+
+                }
+                if (m.x >= rocher.x && m.x < rocher.x + rocher.width && m.y >= rocher.y && m.y < rocher.y + rocher.height) {
+
+                    rocher.x = m.x - rocher.width / 2
+                    rocher.y = m.y - rocher.height / 2
+
+
                 }
 
             }
-            if (m.x >= answer3Hide.x && m.x < answer3Hide.x + herbe.width && m.y >= answer3Hide.y && m.y < answer3Hide.y + answer3Hide.height) {
-                if(answer3Hide.x >= herbe.x && answer3Hide.x + answer3Hide.width < herbe.x + herbe.width && answer3Hide.y >= herbe.y && answer3Hide.y + answer3Hide.height< herbe.y + herbe.height){
-                }else{
+            if(m.action == MotionEvent.ACTION_DOWN){
+                if (m.x >= answer1Hide.x && m.x < answer1Hide.x + answer1Hide.width && m.y >= answer1Hide.y && m.y < answer1Hide.y + answer1Hide.height) {
+                    if(answer1Hide.x >= herbe.x && answer1Hide.x + answer1Hide.width < herbe.x + herbe.width && answer1Hide.y >= herbe.y && answer1Hide.y + answer1Hide.height< herbe.y + herbe.height){
+                        //ne fait rien
+                    }else{
+                        if(answer1Hide.x >= arbre.x && answer1Hide.x + answer1Hide.width < arbre.x + arbre.width && answer1Hide.y >= arbre.y && answer1Hide.y + answer1Hide.height< arbre.y + arbre.height){
+                            //ne fait rien
+                        }else{
+                            if(answer1Hide.x >= rocher.x && answer1Hide.x + answer1Hide.width < rocher.x + rocher.width && answer1Hide.y >= rocher.y && answer1Hide.y + answer1Hide.height< rocher.y + rocher.height){
+                                // ne fait rien
+                            }else{
+                                hideAnimalsHardMetier.trouveElem(0)
+                                animalToFind1.visibility=View.INVISIBLE
+                                answer1Hide.visibility=View.INVISIBLE
+                                if(hideAnimalsHardMetier.isWin()){
+                                    val nextAnimal = Intent(this@HideAnimals, VictoryActivity::class.java)
+                                    nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
+                                    var numberCarrotsWonText = random.nextInt(10).toString()
+                                    nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
+                                    startActivity(nextAnimal)
+                                }
+                            }
+                        }
 
-                    hideAnimalsMetier.findElement(1)
+                    }
+
+                }
+                if (m.x >= answer3Hide.x && m.x < answer3Hide.x + answer3Hide.width && m.y >= answer3Hide.y && m.y < answer3Hide.y + answer3Hide.height) {
+                    if(answer3Hide.x >= herbe.x && answer3Hide.x + answer3Hide.width < herbe.x + herbe.width && answer3Hide.y >= herbe.y && answer3Hide.y + answer3Hide.height< herbe.y + herbe.height){
+                        //ne fait rien
+                    }else{
+                        if(answer3Hide.x >= arbre.x && answer3Hide.x + answer3Hide.width < arbre.x + arbre.width && answer3Hide.y >= arbre.y && answer3Hide.y + answer3Hide.height< arbre.y + arbre.height){
+                            //ne fait rien
+                        }else{
+                            if(answer3Hide.x >= rocher.x && answer3Hide.x + answer3Hide.width < rocher.x + rocher.width && answer3Hide.y >= rocher.y && answer3Hide.y + answer3Hide.height< rocher.y + rocher.height){
+                                // ne fait rien
+                            }else{
+                                hideAnimalsHardMetier.trouveElem(2)
+                                animalToFind3.visibility=View.INVISIBLE
+                                answer3Hide.visibility=View.INVISIBLE
+                                if(hideAnimalsHardMetier.isWin()){
+                                    val nextAnimal = Intent(this@HideAnimals, VictoryActivity::class.java)
+                                    nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
+                                    var numberCarrotsWonText = random.nextInt(10).toString()
+                                    nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
+                                    startActivity(nextAnimal)
+                                }
+                            }
+                        }
+
+                    }
+
+                }
+                if (m.x >= answer2Hide.x && m.x < answer2Hide.x + answer2Hide.width && m.y >= answer2Hide.y && m.y < answer2Hide.y + answer2Hide.height) {
+                    if(answer2Hide.x >= herbe.x && answer2Hide.x + answer2Hide.width < herbe.x + herbe.width && answer2Hide.y >= herbe.y && answer2Hide.y + answer2Hide.height< herbe.y + herbe.height){
+                        //ne fait rien
+                    }else{
+                        if(answer2Hide.x >= arbre.x && answer2Hide.x + answer2Hide.width < arbre.x + arbre.width && answer2Hide.y >= arbre.y && answer2Hide.y + answer2Hide.height< arbre.y + arbre.height){
+                            //ne fait rien
+                        }else{
+                            if(answer2Hide.x >= rocher.x && answer2Hide.x + answer2Hide.width < rocher.x + rocher.width && answer2Hide.y >= rocher.y && answer2Hide.y + answer2Hide.height< rocher.y + rocher.height){
+                                // ne fait rien
+                            }else{
+                                hideAnimalsHardMetier.trouveElem(1)
+                                animalToFind2.visibility=View.INVISIBLE
+                                answer2Hide.visibility=View.INVISIBLE
+                                if(hideAnimalsHardMetier.isWin()){
+                                    val nextAnimal = Intent(this@HideAnimals, VictoryActivity::class.java)
+                                    nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
+                                    var numberCarrotsWonText = random.nextInt(10).toString()
+                                    nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
+                                    startActivity(nextAnimal)
+                                }
+                            }
+                        }
+
+                    }
+
+                }
+
+
+            }
+        }else{
+            if(m.x >= answer1Hide.x && m.x < answer1Hide.x + answer1Hide.width && m.y >= answer1Hide.y && m.y < answer1Hide.y + answer1Hide.height){
+                hideAnimalsHardMetier.trouveElem(0)
+                animalToFind1.visibility=View.INVISIBLE
+                answer1Hide.visibility=View.INVISIBLE
+                if(hideAnimalsHardMetier.isWin()){
+                    val nextAnimal = Intent(this@HideAnimals, VictoryActivity::class.java)
+                    nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
+                    var numberCarrotsWonText = random.nextInt(10).toString()
+                    nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
+                    startActivity(nextAnimal)
+                }
+            }
+
+            if(m.x >= answer1Hide.x && m.x < answer1Hide.x + answer1Hide.width && m.y >= answer1Hide.y && m.y < answer1Hide.y + answer1Hide.height){
+                hideAnimalsHardMetier.trouveElem(0)
+                animalToFind1.visibility=View.INVISIBLE
+                answer1Hide.visibility=View.INVISIBLE
+                if(hideAnimalsHardMetier.isWin()){
+                    val nextAnimal = Intent(this@HideAnimals, VictoryActivity::class.java)
+                    nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
+                    var numberCarrotsWonText = random.nextInt(10).toString()
+                    nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
+                    startActivity(nextAnimal)
+                }
+            }
+
+            if(m.x >= answer2Hide.x && m.x < answer2Hide.x + answer2Hide.width && m.y >= answer2Hide.y && m.y < answer2Hide.y + answer2Hide.height){
+                hideAnimalsHardMetier.trouveElem(1)
+                animalToFind2.visibility=View.INVISIBLE
+                answer2Hide.visibility=View.INVISIBLE
+                if(hideAnimalsHardMetier.isWin()){
+                    val nextAnimal = Intent(this@HideAnimals, VictoryActivity::class.java)
+                    nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
+                    var numberCarrotsWonText = random.nextInt(10).toString()
+                    nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
+                    startActivity(nextAnimal)
+                }
+            }
+
+            if(m.x >= answer3Hide.x && m.x < answer3Hide.x + answer3Hide.width && m.y >= answer3Hide.y && m.y < answer3Hide.y + answer3Hide.height){
+
+                    hideAnimalsHardMetier.trouveElem(2)
                     animalToFind3.visibility=View.INVISIBLE
                     answer3Hide.visibility=View.INVISIBLE
-                    if(hideAnimalsMetier.isWin()){
+                    if(hideAnimalsHardMetier.isWin()){
                         val nextAnimal = Intent(this@HideAnimals, VictoryActivity::class.java)
                         nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
-                        var numberCarrotsWonText = 1.toString()
+                        var numberCarrotsWonText = random.nextInt(10).toString()
                         nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
                         startActivity(nextAnimal)
                     }
-                }
 
             }
-            if (m.x >= answer2Hide.x && m.x < answer2Hide.x + herbe.width && m.y >= answer2Hide.y && m.y < answer2Hide.y + answer2Hide.height) {
-                if(answer2Hide.x >= herbe.x && answer2Hide.x + answer2Hide.width < herbe.x + herbe.width && answer2Hide.y >= herbe.y && answer2Hide.y + answer2Hide.height< herbe.y + herbe.height){
-                }else{
-
-                    hideAnimalsMetier.findElement(2)
-                    animalToFind2.visibility=View.INVISIBLE
-                    answer2Hide.visibility=View.INVISIBLE
-                    if(hideAnimalsMetier.isWin()){
-                        val nextAnimal = Intent(this@HideAnimals, VictoryActivity::class.java)
-                        nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
-                        var numberCarrotsWonText = 1.toString()
-                        nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
-                        startActivity(nextAnimal)
-                    }
-                }
-
-            }
-
 
         }
+
     }
 
 
