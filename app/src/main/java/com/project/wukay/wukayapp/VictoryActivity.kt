@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.activity_victory.*
 class VictoryActivity : AppCompatActivity() {
 
     private var prefs: Prefs? = null
-    private val after = Intent( this@VictoryActivity, LevelsActivity::class.java)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -26,24 +26,21 @@ class VictoryActivity : AppCompatActivity() {
         var numberCarrotsWonValue=numberCarrotsWonText.toInt()
         var nbCarrots=numberCarrotsWonValue
         carrotTxt.text="+$nbCarrots"
-        after.putExtra("difficulty",difficulty)
-        after.putExtra("carotsWon",nbCarrots)
-        after.putExtra("isLastActivityIsAGame",true)
 
         prefs = Prefs(this)
         var skinName=prefs!!.skinName
         imageLapinou.setImageResource(skinName)
 
 
+        val difficulty = intent.getStringExtra("difficulty")
 
-        layoutVictory.setOnTouchListener { v: View, m: MotionEvent ->
-            handleTouch(m)
-            true
+        Timer().schedule(1000) {
+            val next = Intent( this@VictoryActivity, LevelsActivity::class.java)
+            next.putExtra("difficulty",difficulty)
+            next.putExtra("carotsWon",nbCarrots)
+            next.putExtra("isLastActivityIsAGame",true)
+            
+            startActivity(next)
         }
-
-    }
-    val difficulty = intent.getStringExtra("difficulty")
-    private fun handleTouch(m: MotionEvent){
-        startActivity(after)
     }
 }
