@@ -46,13 +46,18 @@ class LevelsActivity : AppCompatActivity() {
 
         prefs = Prefs(this)
 
+        //difficulty
         val intent = intent
         val difficulty = intent.getStringExtra("difficulty")
 
-        prefs = Prefs(this)
+        //levels
+        var loopLevel = prefs!!.actualLevel
+
+        //skin
         var skinName=prefs!!.skinName
         lapinouSkin.setImageResource(skinName)
 
+        //life
 
         var nbLife=prefs!!.nbLife
 
@@ -92,30 +97,50 @@ class LevelsActivity : AppCompatActivity() {
 
 
         //si l'on vient de finir un mini jeux
-
         val isLastActivityIsAGame = intent.getBooleanExtra("isLastActivityIsAGame",false)
         if(isLastActivityIsAGame){
             nbLife-=1
+            loopLevel+=1
+            levelCounter.text= "OK"
         }
 
-
+        //life
         setTxtLife(lifeText,nbLife)
-
-
         if(nbLife<10){
             startTimer(lifeText,nbLife)
             timerState=TimerState.Running
         }
 
-        levelsScroll.fullScroll(ScrollView.FOCUS_UP)
-
-
-
         //// counter of carrots ///
         var carrots=prefs!!.nbCarrots
-
         var testNbCarrotsGagnePrecedement=intent.getIntExtra("carotsWon",0)
         carrots+=testNbCarrotsGagnePrecedement
+
+        //levels
+
+        when (loopLevel) {
+            1,4,7 -> {
+                lapinouSkin.x = 350F //625F
+                lapinouSkin.y = -450F //1170F
+                levelCounter.text = "Niveau : " + loopLevel
+            }
+            2,5,8 -> {
+                lapinouSkin.x = -100F
+                lapinouSkin.y = -800F
+                levelCounter.text = "Niveau : " + loopLevel
+            }
+            3,6,9 -> {
+                lapinouSkin.x = 400F
+                lapinouSkin.y = -1050F
+                levelCounter.text = "Niveau : " + loopLevel
+            }
+
+
+            ////BUTTONS////
+
+
+            //// DATA SAVING ///
+        }
 
 
         ////BUTTONS////
@@ -136,8 +161,9 @@ class LevelsActivity : AppCompatActivity() {
         }
 
         lapinTest.setOnClickListener {
-            lapinouSkin.x = 200F
-            lapinouSkin.y = 200F
+
+
+
         }
 
         testLife.setOnClickListener {
@@ -188,7 +214,7 @@ class LevelsActivity : AppCompatActivity() {
         //// DATA SAVING ///
         prefs!!.nbCarrots=carrots
         prefs!!.skinName=skinName
-        System.out.println("SAVE SKIN :" + skinName)
+        prefs!!.actualLevel=loopLevel
         numberCarrots.text = carrots.toString()
 
     }

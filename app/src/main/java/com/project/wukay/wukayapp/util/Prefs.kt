@@ -12,6 +12,7 @@ class Prefs(context : Context) {
     val NB_SECONDS = "nb_seconds"
     val NB_CARROTS = "nb_carrots"
     val ACTUAL_SKIN_NAME = "skinName"
+    val ACTUAL_LEVEL = "actualLevel"
 
     val SHOP_PURCHASES0 ="shop_PURCHASES0"
     val SHOP_PURCHASES2 ="shop_PURCHASES2"
@@ -72,4 +73,9 @@ class Prefs(context : Context) {
 
         get() = prefs.getBoolean(SHOP_PURCHASES6,false)
         set(value) = prefs.edit().putBoolean(SHOP_PURCHASES6, value).apply()
+
+    var actualLevel : Int
+
+        get() = prefs.getInt(ACTUAL_LEVEL, 0)
+        set(value) = prefs.edit().putInt(ACTUAL_LEVEL, value).apply()
 }
