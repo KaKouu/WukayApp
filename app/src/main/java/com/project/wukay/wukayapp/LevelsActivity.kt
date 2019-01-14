@@ -164,6 +164,14 @@ class LevelsActivity : AppCompatActivity() {
 
         }
 
+        settingsIcone.setOnClickListener {
+            val settings = Intent(this@LevelsActivity, SettingsActivity::class.java)
+            settings.putExtra("difficulty",difficulty)
+            startActivity(settings)
+        }
+
+
+
         //// DATA SAVING ///
         prefs!!.nbCarrots=carrots
         prefs!!.skinName=skinName

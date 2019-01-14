@@ -12,6 +12,7 @@ class Prefs(context : Context) {
     val NB_SECONDS = "nb_seconds"
     val NB_CARROTS = "nb_carrots"
     val ACTUAL_SKIN_NAME = "skinName"
+    val VOLUME="volume"
 
     val SHOP_PURCHASES0 ="shop_PURCHASES0"
     val SHOP_PURCHASES2 ="shop_PURCHASES2"
@@ -42,6 +43,10 @@ class Prefs(context : Context) {
 
         get() = prefs.getInt(ACTUAL_SKIN_NAME, R.drawable.skin_lapinou)
         set(value) = prefs.edit().putInt(ACTUAL_SKIN_NAME, value).apply()
+
+    var volume : Int
+        get()=prefs.getInt(VOLUME,0)
+        set(value) = prefs.edit().putInt(VOLUME,value).apply()
 
     var shopPurchased0 : Boolean
 
