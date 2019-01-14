@@ -7,4 +7,5 @@
     <color name="colorPrimaryOption">#494948</color>
     <color name="colorCarrots">#de6413</color>
     <color name="colorWhite">#badaf4</color>
+    <color name="colorBar">	#FFA500</color>
 </resources>

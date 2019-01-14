@@ -209,6 +209,12 @@ class LevelsActivity : AppCompatActivity() {
 
         }
 
+        button_settings.setOnClickListener {
+            val settings = Intent(this@LevelsActivity, SettingsActivity::class.java)
+            settings.putExtra("difficulty",difficulty)
+            startActivity(settings)
+        }
+
 
 
         //// DATA SAVING ///
