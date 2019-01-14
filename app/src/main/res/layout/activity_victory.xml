@@ -6,12 +6,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".HomeActivity"
-        android:background="#6b9b33">
+        android:background="#6b9b33"
+        android:id="@+id/layoutVictory">
 
     <ImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content" app:srcCompat="@drawable/background_victory"
-            android:id="@+id/imageView"
+            android:id="@+id/decor"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
