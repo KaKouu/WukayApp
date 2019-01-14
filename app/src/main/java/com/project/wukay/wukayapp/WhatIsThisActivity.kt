@@ -40,6 +40,8 @@ class WhatIsThisActivity : AppCompatActivity() {
         if(difficulty=="easy") {
 
 
+
+
             //var tableauTampon : Array<Int> = arrayOf(0,0,0,0)
             var tampon = 0
             var tampon1 = 0
@@ -85,6 +87,7 @@ class WhatIsThisActivity : AppCompatActivity() {
 
                 resultat.setText("")
                 tampon = randomizeImage(tabTampon, animalArray, animalPic)
+
                 ////SILHOUETTE
                 tabTampon.set(0, tampon)
                 tabTampon.set(1, 10)

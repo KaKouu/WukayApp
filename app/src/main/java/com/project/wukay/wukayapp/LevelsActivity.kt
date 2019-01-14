@@ -4,6 +4,9 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.view.View
+import android.widget.ScrollView
+
 import android.widget.TextView
 import com.project.wukay.wukayapp.IHM.DifficultyActivity
 import com.project.wukay.wukayapp.util.Prefs
@@ -22,7 +25,6 @@ class LevelsActivity : AppCompatActivity() {
         private const val SECONDS_FOR_ONE_LIFE = 5L
     }
 
-
     private var prefs: Prefs? = null
 
     enum class TimerState{
@@ -32,7 +34,6 @@ class LevelsActivity : AppCompatActivity() {
     private lateinit var  timer: CountDownTimer
     private var timerLengthSecond =0L
     private var timerState = TimerState.Stopped
-
 
     private var secondsRemaining =SECONDS_FOR_ONE_LIFE
 
@@ -63,9 +64,6 @@ class LevelsActivity : AppCompatActivity() {
         System.out.println(actualSeconds.toString())
         //compare les deux dates
         var difference = (actualSeconds-lastSeconds) /1000
-
-
-       System.out.println("DIFFERENCE = "+difference.toString())
 
         //si la difference est superieur au temps qu'il faut pour récuperer une vie alors on ajoute des vies
         if(difference>=5 && nbLife<10){
@@ -109,6 +107,7 @@ class LevelsActivity : AppCompatActivity() {
             timerState=TimerState.Running
         }
 
+        levelsScroll.fullScroll(ScrollView.FOCUS_UP)
 
 
 
@@ -119,16 +118,26 @@ class LevelsActivity : AppCompatActivity() {
         carrots+=testNbCarrotsGagnePrecedement
 
 
-
-
-
         ////BUTTONS////
         testCarrotes.setOnClickListener {
-            var nb = 100
-            carrots+=nb
+
+            carrots+=100
             numberCarrots.setText(carrots.toString())
 
             prefs!!.nbCarrots=carrots
+        }
+
+        testCarrotes2.setOnClickListener {
+
+            carrots=0
+            numberCarrots.setText(carrots.toString())
+
+            prefs!!.nbCarrots=carrots
+        }
+
+        lapinTest.setOnClickListener {
+            lapinouSkin.x = 200F
+            lapinouSkin.y = 200F
         }
 
         testLife.setOnClickListener {
@@ -173,6 +182,8 @@ class LevelsActivity : AppCompatActivity() {
             startActivity(shop)
 
         }
+
+
 
         //// DATA SAVING ///
         prefs!!.nbCarrots=carrots
