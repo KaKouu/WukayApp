@@ -4,6 +4,9 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.view.View
+import android.widget.ScrollView
+
 import android.widget.TextView
 import com.project.wukay.wukayapp.IHM.DifficultyActivity
 import com.project.wukay.wukayapp.util.Prefs
@@ -22,7 +25,6 @@ class LevelsActivity : AppCompatActivity() {
         private const val SECONDS_FOR_ONE_LIFE = 5L
     }
 
-
     private var prefs: Prefs? = null
 
     enum class TimerState{
@@ -32,7 +34,6 @@ class LevelsActivity : AppCompatActivity() {
     private lateinit var  timer: CountDownTimer
     private var timerLengthSecond =0L
     private var timerState = TimerState.Stopped
-
 
     private var secondsRemaining =SECONDS_FOR_ONE_LIFE
 
@@ -45,13 +46,18 @@ class LevelsActivity : AppCompatActivity() {
 
         prefs = Prefs(this)
 
+        //difficulty
         val intent = intent
         val difficulty = intent.getStringExtra("difficulty")
 
-        prefs = Prefs(this)
+        //levels
+        var loopLevel = prefs!!.actualLevel
+
+        //skin
         var skinName=prefs!!.skinName
         lapinouSkin.setImageResource(skinName)
 
+        //life
 
         var nbLife=prefs!!.nbLife
 
@@ -63,9 +69,6 @@ class LevelsActivity : AppCompatActivity() {
         System.out.println(actualSeconds.toString())
         //compare les deux dates
         var difference = (actualSeconds-lastSeconds) /1000
-
-
-       System.out.println("DIFFERENCE = "+difference.toString())
 
         //si la difference est superieur au temps qu'il faut pour récuperer une vie alors on ajoute des vies
         if(difference>=5 && nbLife<10){
@@ -94,41 +97,73 @@ class LevelsActivity : AppCompatActivity() {
 
 
         //si l'on vient de finir un mini jeux
-
         val isLastActivityIsAGame = intent.getBooleanExtra("isLastActivityIsAGame",false)
         if(isLastActivityIsAGame){
             nbLife-=1
+            loopLevel+=1
+            levelCounter.text= "OK"
         }
 
-
+        //life
         setTxtLife(lifeText,nbLife)
-
-
         if(nbLife<10){
             startTimer(lifeText,nbLife)
             timerState=TimerState.Running
         }
 
-
-
-
         //// counter of carrots ///
         var carrots=prefs!!.nbCarrots
-
         var testNbCarrotsGagnePrecedement=intent.getIntExtra("carotsWon",0)
         carrots+=testNbCarrotsGagnePrecedement
 
+        //levels
+
+        when (loopLevel) {
+            1,4,7 -> {
+                lapinouSkin.x = 350F //625F
+                lapinouSkin.y = -450F //1170F
+                levelCounter.text = "Niveau : " + loopLevel
+            }
+            2,5,8 -> {
+                lapinouSkin.x = -100F
+                lapinouSkin.y = -800F
+                levelCounter.text = "Niveau : " + loopLevel
+            }
+            3,6,9 -> {
+                lapinouSkin.x = 400F
+                lapinouSkin.y = -1050F
+                levelCounter.text = "Niveau : " + loopLevel
+            }
 
 
+            ////BUTTONS////
+
+
+            //// DATA SAVING ///
+        }
 
 
         ////BUTTONS////
         testCarrotes.setOnClickListener {
-            var nb = 100
-            carrots+=nb
+
+            carrots+=100
             numberCarrots.setText(carrots.toString())
 
             prefs!!.nbCarrots=carrots
+        }
+
+        testCarrotes2.setOnClickListener {
+
+            carrots=0
+            numberCarrots.setText(carrots.toString())
+
+            prefs!!.nbCarrots=carrots
+        }
+
+        lapinTest.setOnClickListener {
+
+
+
         }
 
         testLife.setOnClickListener {
@@ -174,10 +209,12 @@ class LevelsActivity : AppCompatActivity() {
 
         }
 
+
+
         //// DATA SAVING ///
         prefs!!.nbCarrots=carrots
         prefs!!.skinName=skinName
-        System.out.println("SAVE SKIN :" + skinName)
+        prefs!!.actualLevel=loopLevel
         numberCarrots.text = carrots.toString()
 
     }
