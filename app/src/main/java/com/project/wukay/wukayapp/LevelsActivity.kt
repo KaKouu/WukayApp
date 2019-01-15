@@ -14,6 +14,11 @@ import com.project.wukay.wukayapp.util.PrefsTimer
 
 import kotlinx.android.synthetic.main.activity_levels.*
 import java.util.*
+import android.view.ViewTreeObserver.OnGlobalLayoutListener
+import android.view.ViewTreeObserver
+
+
+
 
 
 
@@ -43,6 +48,9 @@ class LevelsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_levels)
 
+        val vto = levelsScroll.getViewTreeObserver()
+        vto.addOnGlobalLayoutListener(OnGlobalLayoutListener { levelsScroll.scrollTo(6000, 6000) })
+
 
         prefs = Prefs(this)
 
@@ -52,6 +60,7 @@ class LevelsActivity : AppCompatActivity() {
 
         //levels
         var loopLevel = prefs!!.actualLevel
+
 
         //skin
         var skinName=prefs!!.skinName
@@ -101,7 +110,6 @@ class LevelsActivity : AppCompatActivity() {
         if(isLastActivityIsAGame){
             nbLife-=1
             loopLevel+=1
-            levelCounter.text= "OK"
         }
 
         //life
@@ -117,6 +125,7 @@ class LevelsActivity : AppCompatActivity() {
         carrots+=testNbCarrotsGagnePrecedement
 
         //levels
+
 
         when (loopLevel) {
             1,4,7 -> {
@@ -134,12 +143,6 @@ class LevelsActivity : AppCompatActivity() {
                 lapinouSkin.y = -1050F
                 levelCounter.text = "Niveau : " + loopLevel
             }
-
-
-            ////BUTTONS////
-
-
-            //// DATA SAVING ///
         }
 
 
@@ -153,30 +156,19 @@ class LevelsActivity : AppCompatActivity() {
         }
 
         testCarrotes2.setOnClickListener {
-
             carrots=0
             numberCarrots.setText(carrots.toString())
 
             prefs!!.nbCarrots=carrots
         }
 
-        lapinTest.setOnClickListener {
-
-
-
+        testLife.setOnClickListener {
+            nbLife=10
+            setTxtLife(lifeText,nbLife)
         }
 
-        testLife.setOnClickListener {
-
-            nbLife=4
-            setTxtLife(lifeText,nbLife)
-            if(nbLife<10){
-                startTimer(lifeText,nbLife)
-                timerState=TimerState.Running
-            }
-
-
-
+        scrollTest.setOnClickListener {
+            levelsScroll.scrollTo(3000,3000)
         }
 
         imageRetour.setOnClickListener{
@@ -186,16 +178,23 @@ class LevelsActivity : AppCompatActivity() {
 
         playButton.setOnClickListener {
 
-            var random = Random().nextInt(20)
-            if (random <= 10) {
-                val nextGame = Intent(this@LevelsActivity, WhatIsThisActivity::class.java)
-                nextGame.putExtra("difficulty", difficulty)
-                startActivity(nextGame)
-            }
-            else {
-                val nextGame = Intent(this@LevelsActivity, HideAnimals::class.java)
-                nextGame.putExtra("difficulty", difficulty)
-                startActivity(nextGame)
+            var randomGame = Random().nextInt(3)
+
+
+            when (randomGame) {
+                0 -> {
+                    val nextGame = Intent(this@LevelsActivity, WhatIsThisActivity::class.java)
+                    nextGame.putExtra("difficulty", difficulty)
+                    startActivity(nextGame)
+                }
+                1 -> {
+                    val nextGame = Intent(this@LevelsActivity, HideAnimals::class.java)
+                    nextGame.putExtra("difficulty", difficulty)
+                    startActivity(nextGame)
+                }
+                2-> {
+
+                }
             }
 
 
