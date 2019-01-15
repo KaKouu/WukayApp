@@ -84,15 +84,12 @@ class LevelsActivity : AppCompatActivity() {
         var difference = (actualSeconds-lastSeconds) /1000
 
         //si la difference est superieur au temps qu'il faut pour récuperer une vie alors on ajoute des vies
-        if(difference>=5 && nbLife<10){
+        if(difference>= SECONDS_FOR_ONE_LIFE && nbLife<10){
 
             var nbLifeToAdd = difference/ SECONDS_FOR_ONE_LIFE
 
-
-
             //condition pour l'affichage dans la popUp
             var nbLifeToShow =0
-
 
             System.out.println("VIE A AJOUTER = " + nbLifeToAdd.toString())
 
