@@ -1,9 +1,10 @@
-package com.project.wukay.wukayapp
+package com.project.wukay.wukayapp.whatIsThisAnimal
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.animation.TranslateAnimation
+import com.project.wukay.wukayapp.R
 import com.project.wukay.wukayapp.util.Prefs
 import kotlinx.android.synthetic.main.activity_what_is_this_animal_tuto.*
 
@@ -31,9 +32,9 @@ class WhatIsThisAnimalTutoActivity : AppCompatActivity() {
 
         startButton.setOnClickListener {
             animation.cancel()
-            animation.setFillAfter(false)
+            animation.fillAfter = false
 
-            val nextGame = Intent(this@WhatIsThisAnimalTutoActivity, com.project.wukay.wukayapp.WhatIsThisAnimalActivity::class.java)
+            val nextGame = Intent(this@WhatIsThisAnimalTutoActivity, WhatIsThisAnimalActivity::class.java)
             nextGame.putExtra("difficulty", difficulty)
             startActivity(nextGame)
         }

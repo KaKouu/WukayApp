@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/WhatIsThisActivity"
-        tools:context=".WhatIsThisAnimalActivity"
+        tools:context=".whatIsThisAnimal.WhatIsThisAnimalActivity"
         android:background="@drawable/bg_what_is_this">
 
     <ImageView

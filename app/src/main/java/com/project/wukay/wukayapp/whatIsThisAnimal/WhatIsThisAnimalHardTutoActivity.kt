@@ -1,10 +1,10 @@
-package com.project.wukay.wukayapp
+package com.project.wukay.wukayapp.whatIsThisAnimal
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.project.wukay.wukayapp.R
 import com.project.wukay.wukayapp.util.Prefs
-import kotlinx.android.synthetic.main.activity_what_is_this_animal_tuto.*
 import kotlinx.android.synthetic.main.activity_what_is_this_tuto_hard.*
 
 class WhatIsThisAnimalHardTutoActivity : AppCompatActivity() {
@@ -23,7 +23,7 @@ class WhatIsThisAnimalHardTutoActivity : AppCompatActivity() {
 
 
         startButtonTut.setOnClickListener {
-            val nextGame = Intent(this@WhatIsThisAnimalHardTutoActivity, WhatIsThisAnimalActivity::class.java)
+            val nextGame = Intent(this@WhatIsThisAnimalHardTutoActivity, WhatIsThisAnimalHardActivity::class.java)
             nextGame.putExtra("difficulty", difficulty)
             startActivity(nextGame)
         }

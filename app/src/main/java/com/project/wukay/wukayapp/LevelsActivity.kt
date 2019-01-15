@@ -14,6 +14,8 @@ import com.project.wukay.wukayapp.util.PrefsTimer
 import kotlinx.android.synthetic.main.activity_levels.*
 import java.util.*
 import android.view.ViewTreeObserver.OnGlobalLayoutListener
+import com.project.wukay.wukayapp.whatIsThisAnimal.WhatIsThisAnimalHardTutoActivity
+import com.project.wukay.wukayapp.whatIsThisAnimal.WhatIsThisAnimalTutoActivity
 import kotlin.concurrent.schedule
 
 
@@ -175,7 +177,7 @@ class LevelsActivity : AppCompatActivity() {
                 numberOfLife.visibility = View.VISIBLE
             }
             else {
-                var randomGame = Random().nextInt(3)
+                var randomGame = Random().nextInt(1)
 
 
                 when (randomGame) {

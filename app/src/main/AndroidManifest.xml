@@ -32,7 +32,12 @@
                 android:resource="@array/preloaded_fonts"/>
 
         <activity
-                android:name=".WhatIsThisAnimalActivity"
+                android:name=".whatIsThisAnimal.WhatIsThisAnimalActivity"
+                android:configChanges="orientation"
+                android:screenOrientation="portrait">
+        </activity>
+        <activity
+                android:name=".whatIsThisAnimal.WhatIsThisAnimalHardActivity"
                 android:configChanges="orientation"
                 android:screenOrientation="portrait">
         </activity>
@@ -67,9 +72,9 @@
                 android:configChanges="orientation"
                 android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".WhatIsThisAnimalTutoActivity">
+        <activity android:name=".whatIsThisAnimal.WhatIsThisAnimalTutoActivity">
         </activity>
-        <activity android:name=".WhatIsThisAnimalHardTutoActivity">
+        <activity android:name=".whatIsThisAnimal.WhatIsThisAnimalHardTutoActivity">
         </activity>
     </application>
 

@@ -1,4 +1,4 @@
-package com.project.wukay.wukayapp
+package com.project.wukay.wukayapp.whatIsThisAnimal
 
 import android.content.Context
 import android.content.Intent
@@ -8,6 +8,8 @@ import android.os.Vibrator
 import android.view.MotionEvent
 import android.view.View
 import android.widget.ImageView
+import com.project.wukay.wukayapp.R
+import com.project.wukay.wukayapp.VictoryActivity
 import kotlinx.android.synthetic.main.activity_hard_what_is_this.*
 import kotlinx.android.synthetic.main.activity_what_is_this.*
 import java.lang.Thread.sleep
@@ -19,6 +21,7 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
 
         // mise en place du layout
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_what_is_this)
 
         //déclaration des variables
         val difficulty = intent.getStringExtra("difficulty") //renvaiera la difficulté choisit precedement
@@ -29,16 +32,9 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
 
         val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
 
-        if (difficulty == "easy"){
-            setContentView(R.layout.activity_what_is_this)
-        }else
-        {
-            setContentView(R.layout.activity_hard_what_is_this)
-        }
+
 
         //selon le niveau de difficulté
-        if(difficulty=="easy") {
-
             val startAnimalAnswer = arrayOf(
                 R.drawable.animaux_cochon_silhouette,
                 R.drawable.animaux_vache_silhouette,
@@ -114,19 +110,7 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                 startAnimalAnswer[index2]
             )
 
-
-
             var numberWin=0
-
-                //if(m.x >= startButton.x && m.x < startButton.x + startButton.width && m.y >= startButton.y && m.y < startButton.y + startButton.height){
-
-                /*animalAnwser1.x = 0f
-                animalAnwser1.y = 1300f
-                animalAnwser2.x = 300f
-                animalAnwser2.y = 1100f
-                animalAnwser3.x = 700f
-                animalAnwser3.y = 1300f
-                resultat.setText("")*/
 
                 ////SILHOUETTE
             choiceOfSilhouette = randomizeImage(tabOfChoice, arrayAnswerAnimal, animalPic)
@@ -147,6 +131,7 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
 
             animalAns.visibility = View.INVISIBLE
             nameAnimal.visibility = View.INVISIBLE
+
 
             WhatIsThisActivity.setOnTouchListener { v: View,m: MotionEvent ->
                 if(m.action == MotionEvent.ACTION_MOVE){
@@ -177,7 +162,7 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                         var numberCarrotsWon1 = numberCarrotsWon
                         if (isTheCorrectAnswer(choiceOfSilhouette, tabOfChoice, 0)) {
                             animalAns.setImageResource(startAnimal[6])
-                            nameAnimal.setText(arrayNameAnimal[6])
+                            nameAnimal.text = arrayNameAnimal[6]
                             animalPic.visibility = View.INVISIBLE
                             animalAns.visibility = View.VISIBLE
                             nameAnimal.visibility = View.VISIBLE
@@ -190,7 +175,6 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                             //incrementation du nombre d'animal trouvé
                             resultat.text = ""
                             numberWin += 1
-                            System.out.println("NOMBRE WIN : " + numberWin)
                             //fin du mini jeux
                             if (numberWin == 3) {
                                 var numberCarrotsWonText = numberCarrotsWon1.toString()
@@ -202,9 +186,9 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
 
                                 ////SILHOUETTE
                                 sleep(3000)
-                                tabOfChoice.set(0, choiceOfSilhouette)
-                                tabOfChoice.set(1, 10)
-                                tabOfChoice.set(2, 10)
+                                tabOfChoice[0] = choiceOfSilhouette
+                                tabOfChoice[1] = 10
+                                tabOfChoice[2] = 10
 
                                 choiceOfSilhouette = randomizeImage(tabOfChoice, arrayAnswerAnimal, animalPic)
                                 //animalAns.visibility = View.INVISIBLE
@@ -212,13 +196,13 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
 
                                 ////AWNSER
                                 choice1 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser1)
-                                tabOfChoice.set(0, choice1)
+                                tabOfChoice[0] = choice1
 
                                 choice2 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser2)
-                                tabOfChoice.set(1, choice2)
+                                tabOfChoice[1] = choice2
 
                                 choice3 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser3)
-                                tabOfChoice.set(2, choice3)
+                                tabOfChoice[2] = choice3
 
                             }
 
@@ -241,7 +225,7 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                         var numberCarrotsWon1 = numberCarrotsWon
                         if (isTheCorrectAnswer(choiceOfSilhouette, tabOfChoice, 1)) {
                             animalAns.setImageResource(startAnimal[6])
-                            nameAnimal.setText(arrayNameAnimal[6])
+                            nameAnimal.text = arrayNameAnimal[6]
                             animalPic.visibility = View.INVISIBLE
                             animalAns.visibility = View.VISIBLE
                             nameAnimal.visibility = View.VISIBLE
@@ -266,9 +250,9 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                             } else {
                                 sleep(3000)
                                 ////SILHOUETTE
-                                tabOfChoice.set(0, choiceOfSilhouette)
-                                tabOfChoice.set(1, 10)
-                                tabOfChoice.set(2, 10)
+                                tabOfChoice[0] = choiceOfSilhouette
+                                tabOfChoice[1] = 10
+                                tabOfChoice[2] = 10
 
                                 choiceOfSilhouette = randomizeImage(tabOfChoice, arrayAnswerAnimal, animalPic)
                                 //animalAns.visibility = View.INVISIBLE
@@ -276,14 +260,14 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
 
                                 ////AWNSER
                                 choice1 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser1)
-                                tabOfChoice.set(0, choice1)
+                                tabOfChoice[0] = choice1
 
 
                                 choice2 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser2)
-                                tabOfChoice.set(1, choice2)
+                                tabOfChoice[1] = choice2
 
                                 choice3 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser3)
-                                tabOfChoice.set(2, choice3)
+                                tabOfChoice[2] = choice3
 
                             }
 
@@ -304,7 +288,7 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                         var numberCarrotsWon1 = numberCarrotsWon
                         if (isTheCorrectAnswer(choiceOfSilhouette, tabOfChoice, 2)) {
                             animalAns.setImageResource(startAnimal[6])
-                            nameAnimal.setText(arrayNameAnimal[6])
+                            nameAnimal.text = arrayNameAnimal[6]
                             animalPic.visibility = View.INVISIBLE
                             animalAns.visibility = View.VISIBLE
                             nameAnimal.visibility = View.VISIBLE
@@ -329,9 +313,9 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                             } else {
                                 sleep(3000)
                                 ////SILHOUETTE
-                                tabOfChoice.set(0, choiceOfSilhouette)
-                                tabOfChoice.set(1, 10)
-                                tabOfChoice.set(2, 10)
+                                tabOfChoice[0] = choiceOfSilhouette
+                                tabOfChoice[1] = 10
+                                tabOfChoice[2] = 10
 
                                 choiceOfSilhouette = randomizeImage(tabOfChoice, arrayAnswerAnimal, animalPic)
                                 //animalAns.visibility = View.INVISIBLE
@@ -339,14 +323,14 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
 
                                 ////AWNSER
                                 choice1 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser1)
-                                tabOfChoice.set(0, choice1)
+                                tabOfChoice[0] = choice1
 
 
                                 choice2 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser2)
-                                tabOfChoice.set(1, choice2)
+                                tabOfChoice[1] = choice2
 
                                 choice3 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser3)
-                                tabOfChoice.set(2, choice3)
+                                tabOfChoice[2] = choice3
 
                             }
 
@@ -365,217 +349,13 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
             }
 
 
-        }else{
 
-            //CODE DE LA PARTIE DIFFICILE
-            var numberWin=0
-
-            val arrayOfAnimalsPicture = arrayOf(
-                R.drawable.animaux_cochon,
-                R.drawable.animaux_vache,
-                R.drawable.animaux_girafe,
-                R.drawable.animaux_bouc,
-                R.drawable.animaux_chat,
-                R.drawable.animaux_crabe,
-                R.drawable.animaux_morse,
-                R.drawable.animaux_panda,
-                R.drawable.animaux_paon,
-                R.drawable.animaux_pingouin,
-                R.drawable.animaux_poule,
-                R.drawable.animaux_tigre,
-                R.drawable.animaux_zebre,
-                R.drawable.animaux_lion
-            )
-
-            val arrayOfQuestion=arrayOf(
-                "Je suis rose, je me roule dans la boue et j'ai une queue en tire bouchon",
-                "Je fais du lait et j'ai des tâches noires et blanches",
-                "J'ai un long cou et je vis dans la savane",
-                "Je suis le mari de la chèvre et j'ai des cornes",
-                "Je ronronne quand on me caresse",
-                "J'ai des pinces et je vis sur la plage",
-                "J'ai de grandes dents et je vis sur la glace",
-                "Je suis noir et blanc et je mange des bambous",
-                "Je fais la roue avec ma queue",
-                "Je vis sur la glace et je glisse sur mon ventre",
-                "Je ponds des oeufs et je picore le grain",
-                "J'ai des griffes et je vis dans la savane",
-                "Je suis rayé de noir et de blanc",
-                "Je suis le roi de la savane et j'ai une belle crinière"
-            )
-
-            description.setText("")
-            var nombreDeReponsesPossibles=3
-            var memoAnimauxChoisi=IntArray(nombreDeReponsesPossibles)
-            var reponse =-1
-            var rand = Random()
-            var ouMettreLaReponse=0
-
-            reponse =rand.nextInt(arrayOfAnimalsPicture.size)
-            ouMettreLaReponse=rand.nextInt(nombreDeReponsesPossibles)
-
-            question.setText("j'aboie et j'ai un pelage blanc")
-
-                curseur2.visibility = View.INVISIBLE
-                minijeu(
-                    arrayOfQuestion,
-                    reponse,
-                    nombreDeReponsesPossibles,
-                    memoAnimauxChoisi,
-                    rand,
-                    arrayOfAnimalsPicture,
-                    ouMettreLaReponse
-                )
-                answer1.setOnClickListener {
-                    if (memoAnimauxChoisi.get(0) == reponse) {
-
-                        numberWin += 1
-                        if (numberWin == 3) {
-                            var numberCarrotsWonText = numberCarrotsWon.toString()
-                            nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
-                            startActivity(nextAnimal)
-
-
-                        } else {
-                            reponse = rand.nextInt(arrayOfAnimalsPicture.size - 1)
-                            ouMettreLaReponse = rand.nextInt(nombreDeReponsesPossibles)
-
-
-                            minijeu(
-                                arrayOfQuestion,
-                                reponse,
-                                nombreDeReponsesPossibles,
-                                memoAnimauxChoisi,
-                                rand,
-                                arrayOfAnimalsPicture,
-                                ouMettreLaReponse
-                            )
-                        }
-
-                    } else {
-                        description.setText("Essaye encore !")
-                        vibratorService.vibrate(100)
-                        if (numberCarrotsWon > 1) {
-                            numberCarrotsWon -= 1
-                        }
-                    }
-
-                }
-                answer2.setOnClickListener {
-                    if (memoAnimauxChoisi.get(1) == reponse) {
-
-                        numberWin += 1
-                        if (numberWin == 3) {
-                            var numberCarrotsWonText = numberCarrotsWon.toString()
-                            nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
-                            startActivity(nextAnimal)
-                        } else {
-                            reponse = rand.nextInt(arrayOfAnimalsPicture.size - 1)
-                            ouMettreLaReponse = rand.nextInt(nombreDeReponsesPossibles)
-
-
-                            minijeu(
-                                arrayOfQuestion,
-                                reponse,
-                                nombreDeReponsesPossibles,
-                                memoAnimauxChoisi,
-                                rand,
-                                arrayOfAnimalsPicture,
-                                ouMettreLaReponse
-                            )
-                        }
-                    } else {
-                        description.setText("Essaye encore !")
-                        vibratorService.vibrate(100)
-                        if (numberCarrotsWon > 1) {
-                            numberCarrotsWon -= 1
-                        }
-                    }
-                }
-                answer3.setOnClickListener {
-                    if (memoAnimauxChoisi.get(2) == reponse) {
-
-                        numberWin += 1
-                        if (numberWin == 3) {
-                            var numberCarrotsWonText = numberCarrotsWon.toString()
-                            nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
-                            startActivity(nextAnimal)
-
-                        } else {
-                            reponse = rand.nextInt(arrayOfAnimalsPicture.size - 1)
-                            ouMettreLaReponse = rand.nextInt(nombreDeReponsesPossibles)
-
-
-                            minijeu(
-                                arrayOfQuestion,
-                                reponse,
-                                nombreDeReponsesPossibles,
-                                memoAnimauxChoisi,
-                                rand,
-                                arrayOfAnimalsPicture,
-                                ouMettreLaReponse
-                            )
-                        }
-                    } else {
-                        description.setText("Essaye encore !")
-                        vibratorService.vibrate(100)
-                        if (numberCarrotsWon > 1) {
-                            numberCarrotsWon -= 1
-                        }
-                    }
-                }
-                startButton2.visibility = View.INVISIBLE
-
-
-
-
-        }
 
     }
-
-    private fun minijeu(
-        arrayOfQuestion: Array<String>,
-        reponse: Int,
-        nombreDeReponsesPossibles: Int,
-        memoAnimauxChoisi: IntArray,
-        rand: Random,
-        arrayOfAnimalsPicture: Array<Int>,
-        ouMettreLaReponse: Int
-    ) {
-        question.setText(arrayOfQuestion[reponse])
-        description.setText("")
-        var i = 0;
-
-        while (i < nombreDeReponsesPossibles) {
-            System.out.print(i)
-            memoAnimauxChoisi.set(i, -1)
-            i++
-        }
-
-        var j = 0
-        while (j < memoAnimauxChoisi.size) {
-
-            var temp = rand.nextInt(arrayOfAnimalsPicture.size)
-
-            while (memoAnimauxChoisi.contains(temp) || temp == reponse) {
-                temp = rand.nextInt(arrayOfAnimalsPicture.size)
-            }
-
-            memoAnimauxChoisi.set(j, temp)
-            j++
-        }
-        memoAnimauxChoisi.set(ouMettreLaReponse, reponse)
-
-        answer1.setImageResource(arrayOfAnimalsPicture[memoAnimauxChoisi[0]])
-        answer2.setImageResource(arrayOfAnimalsPicture[memoAnimauxChoisi[1]])
-        answer3.setImageResource(arrayOfAnimalsPicture[memoAnimauxChoisi[2]])
-    }
-
 
     private fun isTheCorrectAnswer(indexOfAnswer: Int, arrayIndexOfPicturesPutedAsAnswer: IntArray, index: Int):Boolean  {
-        return indexOfAnswer == arrayIndexOfPicturesPutedAsAnswer.get(index)
+        return indexOfAnswer == arrayIndexOfPicturesPutedAsAnswer[index]
     }
-
 
     private fun randomizeImage(arrayIndexOfAnswerPicture: IntArray, arrayOfPictures: Array<Int>, view: ImageView): Int {
         var rand = Random()
