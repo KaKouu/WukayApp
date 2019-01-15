@@ -5,11 +5,13 @@
     <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
-            android:allowBackup="true"
+            android:allowBackup="false"
+            android:hardwareAccelerated="false"
             android:icon="@mipmap/lapin_lauch_ic"
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
+            android:largeHeap="true"
             android:theme="@style/AppTheme">
         <activity
                 android:name=".HomeActivity"
