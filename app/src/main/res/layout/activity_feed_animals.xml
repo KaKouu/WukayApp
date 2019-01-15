@@ -6,17 +6,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".WhatIsThisActivity"
-        android:background="@drawable/bg_what_is_this">
+        android:background="@drawable/bg_what_is_this"
+        android:id="@+id/feedAnimalLayout">
 
     <ImageView
-            android:layout_width="94dp"
-            android:layout_height="106dp" app:srcCompat="@drawable/panier_nourriture"
+            android:layout_width="128dp"
+            android:layout_height="109dp" app:srcCompat="@drawable/panier_nourriture"
             android:id="@+id/bucket3" android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintVertical_bias="0.26"
-            app:layout_constraintHorizontal_bias="0.97"/>
+            android:layout_marginEnd="8dp" app:layout_constraintVertical_bias="0.273"
+            app:layout_constraintHorizontal_bias="1.0"/>
     <ImageView
             android:layout_width="109dp"
             android:layout_height="117dp"
@@ -46,8 +47,8 @@
             app:layout_constraintVertical_bias="0.011" android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="1.0"/>
     <ImageView
-            android:layout_width="115dp"
-            android:layout_height="90dp" app:srcCompat="@drawable/panier_nourriture"
+            android:layout_width="124dp"
+            android:layout_height="106dp" app:srcCompat="@drawable/panier_nourriture"
             android:id="@+id/bucket1" android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
@@ -55,16 +56,17 @@
             android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintVertical_bias="0.271"/>
     <ImageView
-            android:layout_width="94dp"
+            android:layout_width="119dp"
             android:layout_height="106dp" app:srcCompat="@drawable/panier_nourriture"
             android:id="@+id/bucket2" android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintVertical_bias="0.26"/>
+            android:layout_marginEnd="8dp" app:layout_constraintVertical_bias="0.278"
+            app:layout_constraintHorizontal_bias="0.502"/>
     <ImageView
             android:layout_width="114dp"
-            android:layout_height="48dp" app:srcCompat="@drawable/icon_carrot"
+            android:layout_height="97dp" app:srcCompat="@drawable/icon_carrot"
             android:id="@+id/food1" android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
@@ -73,7 +75,7 @@
             app:layout_constraintVertical_bias="0.763"/>
     <ImageView
             android:layout_width="114dp"
-            android:layout_height="48dp" app:srcCompat="@drawable/icon_carrot"
+            android:layout_height="91dp" app:srcCompat="@drawable/icon_carrot"
             android:id="@+id/food2" android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
@@ -82,11 +84,11 @@
             app:layout_constraintVertical_bias="0.636"/>
     <ImageView
             android:layout_width="114dp"
-            android:layout_height="48dp" app:srcCompat="@drawable/icon_carrot"
+            android:layout_height="92dp" app:srcCompat="@drawable/icon_carrot"
             android:id="@+id/food3" android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.909"
-            app:layout_constraintVertical_bias="0.827"/>
+            app:layout_constraintVertical_bias="0.836"/>
 </android.support.constraint.ConstraintLayout>

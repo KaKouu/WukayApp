@@ -193,7 +193,9 @@ class LevelsActivity : AppCompatActivity() {
                     startActivity(nextGame)
                 }
                 2-> {
-
+                    val nextGame = Intent(this@LevelsActivity, FeedAnimalsControler::class.java)
+                    nextGame.putExtra("difficulty", difficulty)
+                    startActivity(nextGame)
                 }
             }
 

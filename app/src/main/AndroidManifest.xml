@@ -62,8 +62,11 @@
                   android:screenOrientation="portrait" >
         </activity>
 
-    <activity android:name="FeedAnimalsControler">
-    </activity>
+        <activity android:name=".FeedAnimalsControler"
+                  android:configChanges="orientation"
+                  android:screenOrientation="portrait" >
+        </activity>
+
 
 
     </application>
