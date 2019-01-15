@@ -7,15 +7,13 @@ import android.os.Bundle
 import android.os.Vibrator
 import android.view.MotionEvent
 import android.view.View
-import android.view.animation.TranslateAnimation
 import android.widget.ImageView
-import com.project.wukay.wukayapp.R.id.animalAnwser2
 import kotlinx.android.synthetic.main.activity_hard_what_is_this.*
 import kotlinx.android.synthetic.main.activity_what_is_this.*
 import java.lang.Thread.sleep
 import java.util.*
 
-class WhatIsThisActivity : AppCompatActivity() {
+class WhatIsThisAnimalActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -24,7 +22,7 @@ class WhatIsThisActivity : AppCompatActivity() {
 
         //déclaration des variables
         val difficulty = intent.getStringExtra("difficulty") //renvaiera la difficulté choisit precedement
-        val nextAnimal = Intent(this@WhatIsThisActivity, VictoryActivity::class.java)
+        val nextAnimal = Intent(this@WhatIsThisAnimalActivity, VictoryActivity::class.java)
         nextAnimal.putExtra("difficulty", difficulty)
 
         var numberCarrotsWon=10
@@ -418,16 +416,6 @@ class WhatIsThisActivity : AppCompatActivity() {
 
             question.setText("j'aboie et j'ai un pelage blanc")
 
-            /*minijeu(
-                arrayOfQuestion,
-                reponse,
-                nombreDeReponsesPossibles,
-                memoAnimauxChoisi,
-                rand,
-                arrayOfAnimalsPicture,
-                ouMettreLaReponse
-            )*/
-            startButton2.setOnClickListener {
                 curseur2.visibility = View.INVISIBLE
                 minijeu(
                     arrayOfQuestion,
@@ -537,7 +525,7 @@ class WhatIsThisActivity : AppCompatActivity() {
                     }
                 }
                 startButton2.visibility = View.INVISIBLE
-            }
+
 
 
 

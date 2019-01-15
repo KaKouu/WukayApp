@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.View
-import android.widget.ScrollView
 
 import android.widget.TextView
 import com.project.wukay.wukayapp.IHM.DifficultyActivity
@@ -15,7 +14,6 @@ import com.project.wukay.wukayapp.util.PrefsTimer
 import kotlinx.android.synthetic.main.activity_levels.*
 import java.util.*
 import android.view.ViewTreeObserver.OnGlobalLayoutListener
-import android.view.ViewTreeObserver
 import kotlin.concurrent.schedule
 
 
@@ -122,8 +120,6 @@ class LevelsActivity : AppCompatActivity() {
         carrots+=testNbCarrotsGagnePrecedement
 
         //levels
-
-
         when (loopLevel) {
             1,4,7 -> {
                 lapinouSkin.x = 350F //625F
@@ -184,9 +180,17 @@ class LevelsActivity : AppCompatActivity() {
 
                 when (randomGame) {
                     0 -> {
-                        val nextGame = Intent(this@LevelsActivity, WhatIsThisAnimalTutoActivity::class.java)
-                        nextGame.putExtra("difficulty", difficulty)
-                        startActivity(nextGame)
+                        if(difficulty=="easy"){
+                            val nextGame = Intent(this@LevelsActivity, WhatIsThisAnimalTutoActivity::class.java)
+                            nextGame.putExtra("difficulty", difficulty)
+                            startActivity(nextGame)
+                        }else{
+                            val nextGame = Intent(this@LevelsActivity, WhatIsThisAnimalHardTutoActivity::class.java)
+                            nextGame.putExtra("difficulty", difficulty)
+                            startActivity(nextGame)
+
+                        }
+
                     }
                     1 -> {
                         val nextGame = Intent(this@LevelsActivity, HideAnimals::class.java)
