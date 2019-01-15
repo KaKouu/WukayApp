@@ -1,0 +1,20 @@
+
+lkotlin:S1192µ"NDefine a constant instead of duplicating this literal "NOMBRE WIN : " 3 times.(ÁÆôÔùÿÿÿÿ
+Akotlin:S108›")Either remove or fill this block of code.(½™î¦
+6kotlin:S125C"Remove this commented out code.(ÙÖş¯
+;kotlin:S125u"Remove this commented out code.(™Ìÿ—ÿÿÿÿÿ
+7kotlin:S125Œ"Remove this commented out code.(“øû
+ikotlin:S1192Ø"PDefine a constant instead of duplicating this literal "Essaye encore !" 6 times.(ÕÄÙÔ
+pkotlin:S3776"SRefactor this method to reduce its Cognitive Complexity from 150 to the 15 allowed.(¶Á»¬şÿÿÿÿ
+6kotlin:S125i"Remove this commented out code.(Çï™×
+Fkotlin:S108¤")Either remove or fill this block of code.(‚ñ™ıÿÿÿÿ
+Vkotlin:S1144‹"1Remove this unused private "verifAnimal1" method.(ñøíÿúÿÿÿÿ8³©ö…-
+Ukotlin:S1144–"0Remove this unused private "handleTouch" method.(±ÜÂ¾ÿÿÿÿÿ8³©ö…-
+Ukotlin:S1144€"6Remove this unused private "giveRandomPicture" method.(ˆÏ8³©ö…-
+Hkotlin:S108à")Either remove or fill this block of code.(—ÅıÃ8³©ö…-
+Mkotlin:S1172Œ"(Remove these unused function parameters.( Ô«§ÿÿÿÿÿ8³©ö…-
+zkotlin:S1186’"ZAdd a nested comment explaining why this function is empty or complete the implementation.(­ïã8³©ö…-
+wkotlin:S3776–"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(±ÜÂ¾ÿÿÿÿÿ8³©ö…-
+Mkotlin:S108¬")Either remove or fill this block of code.(‚ñ™ıÿÿÿÿ8³©ö…-
+Hkotlin:S108³")Either remove or fill this block of code.(—ÅıÃ8³©ö…-
+Hkotlin:S108º")Either remove or fill this block of code.(½™î¦8³©ö…-
