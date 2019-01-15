@@ -19,7 +19,7 @@ class HomeActivity : AppCompatActivity() {
         var controler= Controler(this, Partie("null"))
         setContentView(R.layout.activity_home)
 
-        val music  = MediaPlayer.create(this, R.raw.sound_birds)
+        val music  = MediaPlayer.create(this, R.raw.wukay_music)
 
         prefs = Prefs(this)
         var skinName = prefs!!.skinName
@@ -37,7 +37,7 @@ class HomeActivity : AppCompatActivity() {
 
             val start = Intent(this@HomeActivity, DifficultyActivity::class.java)
             startActivity(start)
-            music.stop()
+
 
             //prefs!!.skinName=R.drawable.skin_lapinou
             prefs!!.skinName=skinName
