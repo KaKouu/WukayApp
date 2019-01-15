@@ -23,7 +23,7 @@ class LevelsActivity : AppCompatActivity() {
 
 
     companion object {
-        private const val SECONDS_FOR_ONE_LIFE = 50L
+        private const val SECONDS_FOR_ONE_LIFE = 1500L
     }
 
     private var prefs: Prefs? = null
@@ -44,8 +44,8 @@ class LevelsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_levels)
 
-        val vto = levelsScroll.getViewTreeObserver()
-        vto.addOnGlobalLayoutListener(OnGlobalLayoutListener { levelsScroll.scrollTo(6000, 6000) })
+        val vto = levelsScroll.viewTreeObserver
+        vto.addOnGlobalLayoutListener { levelsScroll.scrollTo(6000, 6000) }
 
         heart.visibility = View.INVISIBLE
         numberOfLife.visibility = View.INVISIBLE
@@ -79,7 +79,7 @@ class LevelsActivity : AppCompatActivity() {
         //si la difference est superieur au temps qu'il faut pour récuperer une vie alors on ajoute des vies
         if(difference>=5 && nbLife<10){
 
-            var nbLifeToAdd = difference/5
+            var nbLifeToAdd = difference/ SECONDS_FOR_ONE_LIFE
 
 
 
