@@ -24,8 +24,8 @@ class FeedAnimalsControler : AppCompatActivity() {
         setContentView(R.layout.activity_feed_animals)
         feedAnimalsModel.beginGame()
         position.set(0,0f)
-        position.set(0,200f)
-        position.set(0,600f)
+        position.set(1,350f)
+        position.set(2,680f)
         feedAnimalLayout.setOnTouchListener { v: View, m: MotionEvent ->
             handleTouch(m)
             true
@@ -37,7 +37,7 @@ class FeedAnimalsControler : AppCompatActivity() {
             R.drawable.animaux_girafe_silhouette,
             R.drawable.animaux_bouc_silhouette,
             R.drawable.animaux_chat_silhouette,
-            R.drawable.animaux_crabe_silhouette,
+            R.drawable.animaux_piranha_silhouette,
             R.drawable.animaux_morse_silhouette,
             R.drawable.animaux_panda_silhouette,
             R.drawable.animaux_paon_silhouette,
@@ -54,7 +54,7 @@ class FeedAnimalsControler : AppCompatActivity() {
             R.drawable.animaux_girafe,
             R.drawable.animaux_bouc,
             R.drawable.animaux_chat,
-            R.drawable.animaux_crabe,
+            R.drawable.animaux_pirahna,
             R.drawable.animaux_morse,
             R.drawable.animaux_panda,
             R.drawable.animaux_paon,
@@ -74,11 +74,13 @@ class FeedAnimalsControler : AppCompatActivity() {
         food3.setImageResource(listOfFood[feedAnimalsModel.getBoardOfAnimals()[2]])
 
         bucket1.x=position[feedAnimalsModel.getBoardOfPosition().get(0)]
-        bucket1.x=position[feedAnimalsModel.getBoardOfPosition().get(1)]
-        bucket1.x=position[feedAnimalsModel.getBoardOfPosition().get(2)]
+        bucket2.x=position[feedAnimalsModel.getBoardOfPosition().get(1)]
+        bucket3.x=position[feedAnimalsModel.getBoardOfPosition().get(2)]
         animalFeed1.x=position[feedAnimalsModel.getBoardOfPosition().get(0)]
         animalFeed2.x=position[feedAnimalsModel.getBoardOfPosition().get(1)]
         animalFeed3.x=position[feedAnimalsModel.getBoardOfPosition().get(2)]
+
+
     }
     private fun handleTouch(m: MotionEvent){
         if(m.action == MotionEvent.ACTION_MOVE) {
@@ -86,7 +88,9 @@ class FeedAnimalsControler : AppCompatActivity() {
                if( food1.x >= bucket1.x-bucket1.width/3 && food1.x + food1.width < bucket1.x + bucket1.width+ bucket1.width/3
                    && food1.y >= bucket1.y-bucket1.height/3 && food1.y + food1.height< bucket1.y + bucket1.height+bucket1.height/3){
 
-                   food1.setImageDrawable(null);
+                   //food1.setImageDrawable(null);
+                   food1.x=-500f
+                   food1.y=-500f
                    feedAnimalsModel.getBoardOfFood().set(0,1)
                    if(feedAnimalsModel.isWin()){
                        val nextAnimal = Intent(this@FeedAnimalsControler, VictoryActivity::class.java)
@@ -95,9 +99,11 @@ class FeedAnimalsControler : AppCompatActivity() {
                        nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
                        startActivity(nextAnimal)
                    }
+               }else{
+                   food1.x = m.x - food1.width / 2
+                   food1.y = m.y - food1.height / 2
                }
-                food1.x = m.x - food1.width / 2
-                food1.y = m.y - food1.height / 2
+
 
 
             }else{
@@ -105,7 +111,8 @@ class FeedAnimalsControler : AppCompatActivity() {
                     if( food2.x >= bucket2.x-bucket2.width/3 && food2.x + food2.width < bucket2.x + bucket2.width+ bucket2.width/3
                         && food2.y >= bucket2.y-bucket2.height/3 && food2.y + food1.height< bucket2.y + bucket2.height+bucket2.height/3){
 
-                        food2.setImageDrawable(null);
+                        food2.x=-500f
+                        food2.y=-500f
                         feedAnimalsModel.getBoardOfFood().set(1,1)
                         if(feedAnimalsModel.isWin()){
                             val nextAnimal = Intent(this@FeedAnimalsControler, VictoryActivity::class.java)
@@ -114,9 +121,11 @@ class FeedAnimalsControler : AppCompatActivity() {
                             nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
                             startActivity(nextAnimal)
                         }
+                    }else{
+                        food2.x = m.x - food2.width / 2
+                        food2.y = m.y - food2.height / 2
                     }
-                    food2.x = m.x - food2.width / 2
-                    food2.y = m.y - food2.height / 2
+
 
 
                 }else{
@@ -124,7 +133,8 @@ class FeedAnimalsControler : AppCompatActivity() {
                         if( food3.x >= bucket3.x-bucket3.width/3 && food3.x + food3.width < bucket3.x + bucket3.width+ bucket3.width/3
                             && food3.y >= bucket3.y-bucket3.height/3 && food3.y + food3.height< bucket3.y + bucket3.height+bucket3.height/3){
 
-                            food3.setImageDrawable(null);
+                            food3.x=-500f
+                            food3.y=-500f
                             feedAnimalsModel.getBoardOfFood().set(2,1)
                             if(feedAnimalsModel.isWin()){
                                 val nextAnimal = Intent(this@FeedAnimalsControler, VictoryActivity::class.java)
@@ -134,9 +144,11 @@ class FeedAnimalsControler : AppCompatActivity() {
                                 startActivity(nextAnimal)
                             }
 
+                        }else{
+                            food3.x = m.x - food3.width /2
+                            food3.y = m.y - food3.height / 2
                         }
-                        food3.x = m.x - food3.width /2
-                        food3.y = m.y - food3.height / 2
+
 
 
                     }
