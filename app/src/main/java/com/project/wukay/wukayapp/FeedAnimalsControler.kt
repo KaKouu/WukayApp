@@ -1,15 +1,12 @@
 package com.project.wukay.wukayapp
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.MotionEvent
 import android.view.View
-import com.project.wukay.wukayapp.R
 import com.project.wukay.wukayapp.metier.FeedAnimalsModel
 import kotlinx.android.synthetic.main.activity_feed_animals.*
-import kotlinx.android.synthetic.main.activity_hide_animals.*
 import java.util.*
 
 class FeedAnimalsControler : AppCompatActivity() {
@@ -66,7 +63,7 @@ class FeedAnimalsControler : AppCompatActivity() {
         )
         feedAnimalsModel.generateAnimalsAndFood()
         animalFeed1.setImageResource(listOfAnimals[feedAnimalsModel.getBoardOfAnimals()[0]])
-        animalFeed2.setImageResource(listOfAnimals[feedAnimalsModel.getBoardOfAnimals()[1]])
+        animalAnwser2.setImageResource(listOfAnimals[feedAnimalsModel.getBoardOfAnimals()[1]])
         animalFeed3.setImageResource(listOfAnimals[feedAnimalsModel.getBoardOfAnimals()[2]])
 
         food1.setImageResource(listOfFood[feedAnimalsModel.getBoardOfAnimals()[0]])
@@ -77,7 +74,7 @@ class FeedAnimalsControler : AppCompatActivity() {
         bucket2.x=position[feedAnimalsModel.getBoardOfPosition().get(1)]
         bucket3.x=position[feedAnimalsModel.getBoardOfPosition().get(2)]
         animalFeed1.x=position[feedAnimalsModel.getBoardOfPosition().get(0)]
-        animalFeed2.x=position[feedAnimalsModel.getBoardOfPosition().get(1)]
+        animalAnwser2.x=position[feedAnimalsModel.getBoardOfPosition().get(1)]
         animalFeed3.x=position[feedAnimalsModel.getBoardOfPosition().get(2)]
 
 
