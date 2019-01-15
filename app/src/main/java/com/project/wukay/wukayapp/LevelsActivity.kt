@@ -16,18 +16,14 @@ import kotlinx.android.synthetic.main.activity_levels.*
 import java.util.*
 import android.view.ViewTreeObserver.OnGlobalLayoutListener
 import android.view.ViewTreeObserver
-
-
-
-
-
+import kotlin.concurrent.schedule
 
 
 class LevelsActivity : AppCompatActivity() {
 
 
     companion object {
-        private const val SECONDS_FOR_ONE_LIFE = 5L
+        private const val SECONDS_FOR_ONE_LIFE = 50L
     }
 
     private var prefs: Prefs? = null
@@ -51,7 +47,8 @@ class LevelsActivity : AppCompatActivity() {
         val vto = levelsScroll.getViewTreeObserver()
         vto.addOnGlobalLayoutListener(OnGlobalLayoutListener { levelsScroll.scrollTo(6000, 6000) })
 
-
+        heart.visibility = View.INVISIBLE
+        numberOfLife.visibility = View.INVISIBLE
         prefs = Prefs(this)
 
         //difficulty
@@ -163,7 +160,7 @@ class LevelsActivity : AppCompatActivity() {
         }
 
         testLife.setOnClickListener {
-            nbLife=10
+            nbLife=nbLife -1
             setTxtLife(lifeText,nbLife)
         }
 
@@ -177,26 +174,37 @@ class LevelsActivity : AppCompatActivity() {
         }
 
         playButton.setOnClickListener {
+            if (nbLife == 0) {
+                heart.visibility = View.VISIBLE
+                numberOfLife.visibility = View.VISIBLE
+            }
+            else {
+                var randomGame = Random().nextInt(3)
 
-            var randomGame = Random().nextInt(3)
 
-
-            when (randomGame) {
-                0 -> {
-                    val nextGame = Intent(this@LevelsActivity, WhatIsThisActivity::class.java)
-                    nextGame.putExtra("difficulty", difficulty)
-                    startActivity(nextGame)
-                }
-                1 -> {
-                    val nextGame = Intent(this@LevelsActivity, HideAnimals::class.java)
-                    nextGame.putExtra("difficulty", difficulty)
-                    startActivity(nextGame)
-                }
-                2-> {
-
+                when (randomGame) {
+                    0 -> {
+                        val nextGame = Intent(this@LevelsActivity, WhatIsThisActivity::class.java)
+                        nextGame.putExtra("difficulty", difficulty)
+                        startActivity(nextGame)
+                    }
+                    1 -> {
+                        val nextGame = Intent(this@LevelsActivity, HideAnimals::class.java)
+                        nextGame.putExtra("difficulty", difficulty)
+                        startActivity(nextGame)
+                    }
+                    2-> {
+                        val nextGame = Intent(this@LevelsActivity, FeedAnimalsControler::class.java)
+                        nextGame.putExtra("difficulty", difficulty)
+                        startActivity(nextGame)
+                    }
                 }
             }
+            Timer().schedule(1000) {
+                heart.visibility = View.INVISIBLE
+                numberOfLife.visibility = View.INVISIBLE
 
+            }
 
         }
 

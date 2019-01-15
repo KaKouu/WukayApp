@@ -1,5 +1,4 @@
 
-gkotlin:S1192"JDefine a constant instead of duplicating this literal "Niveau : " 3 times.(εΊ†8“ισθ„-
-;kotlin:S125"Remove this commented out code.(“Ξÿ8“ισθ„-
-:kotlin:S125"Remove this commented out code.(ΐμΥ%8“ισθ„-
-Jkotlin:S108")Either remove or fill this block of code.(Β®‚‹ÿÿÿÿÿ8ϋ‰¨…-
+;kotlin:S125"Remove this commented out code.(“Ξÿ8υ¨φθ„-
+:kotlin:S125"Remove this commented out code.(ΐμΥ%8υ¨φθ„-
+gkotlin:S1192"JDefine a constant instead of duplicating this literal "Niveau : " 3 times.(εΊ†8υ¨φθ„-
