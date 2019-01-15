@@ -4,6 +4,7 @@ import android.content.Intent
 import android.media.MediaPlayer
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.KeyEvent
 import com.project.wukay.wukayapp.IHM.ChoixDifficulte
 import com.project.wukay.wukayapp.IHM.DifficultyActivity
 import com.project.wukay.wukayapp.metier.Partie
@@ -13,6 +14,12 @@ import kotlinx.android.synthetic.main.activity_home.*
 class HomeActivity : AppCompatActivity() {
 
     private var prefs: Prefs? = null
+
+    override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
+        return if (keyCode == KeyEvent.KEYCODE_BACK) {
+            false
+        } else super.onKeyDown(keyCode, event)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

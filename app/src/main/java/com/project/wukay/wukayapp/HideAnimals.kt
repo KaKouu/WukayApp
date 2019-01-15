@@ -5,6 +5,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Vibrator
+import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.View
 import com.project.wukay.wukayapp.metier.HideAnimalsMetier
@@ -19,6 +20,12 @@ class HideAnimals : AppCompatActivity() {
     var positionX=FloatArray(3)
     var positionY=FloatArray(3)
     var difficulty=""
+
+    override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
+        return if (keyCode == KeyEvent.KEYCODE_BACK) {
+            false
+        } else super.onKeyDown(keyCode, event)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         hideAnimalsHardMetier.initialisationJeu()

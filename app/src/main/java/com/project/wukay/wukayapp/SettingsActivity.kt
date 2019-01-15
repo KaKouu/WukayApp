@@ -11,6 +11,7 @@ import android.content.Context
 import android.content.Context.AUDIO_SERVICE
 import android.content.Context.AUDIO_SERVICE
 import android.content.Intent
+import android.view.KeyEvent
 import com.project.wukay.wukayapp.util.Prefs
 import kotlinx.android.synthetic.main.activity_shop.*
 
@@ -19,7 +20,11 @@ class SettingsActivity : AppCompatActivity(){
 
     private var prefs: Prefs? = null
 
-
+    override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
+        return if (keyCode == KeyEvent.KEYCODE_BACK) {
+            false
+        } else super.onKeyDown(keyCode, event)
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

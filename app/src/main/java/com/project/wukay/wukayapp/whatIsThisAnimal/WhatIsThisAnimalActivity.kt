@@ -5,6 +5,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Vibrator
+import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.View
 import android.widget.ImageView
@@ -16,6 +17,12 @@ import java.lang.Thread.sleep
 import java.util.*
 
 class WhatIsThisAnimalActivity : AppCompatActivity() {
+
+    override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
+        return if (keyCode == KeyEvent.KEYCODE_BACK) {
+            false
+        } else super.onKeyDown(keyCode, event)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
 

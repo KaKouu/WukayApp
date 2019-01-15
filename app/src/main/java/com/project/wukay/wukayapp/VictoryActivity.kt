@@ -5,6 +5,7 @@ import kotlin.concurrent.schedule
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.View
 import com.project.wukay.wukayapp.util.Prefs
@@ -15,6 +16,11 @@ class VictoryActivity : AppCompatActivity() {
 
     private var prefs: Prefs? = null
 
+    override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
+        return if (keyCode == KeyEvent.KEYCODE_BACK) {
+            false
+        } else super.onKeyDown(keyCode, event)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
 

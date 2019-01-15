@@ -5,12 +5,19 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Vibrator
 import android.support.v7.app.AppCompatActivity
+import android.view.KeyEvent
 import com.project.wukay.wukayapp.R
 import com.project.wukay.wukayapp.VictoryActivity
 import kotlinx.android.synthetic.main.activity_hard_what_is_this.*
 import java.util.*
 
 class WhatIsThisAnimalHardActivity: AppCompatActivity()  {
+
+    override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
+        return if (keyCode == KeyEvent.KEYCODE_BACK) {
+            false
+        } else super.onKeyDown(keyCode, event)
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
