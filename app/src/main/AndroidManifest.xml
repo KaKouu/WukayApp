@@ -21,6 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
         <activity
                 android:name=".LevelsActivity"
                 android:configChanges="orientation"
@@ -52,6 +53,22 @@
         </activity>
         <activity android:name=".ShopActivity">
         </activity>
+        <activity android:name=".HideAnimals"
+                  android:configChanges="orientation"
+                  android:screenOrientation="portrait" >
+        </activity>
+        <activity android:name=".SettingsActivity"
+                  android:configChanges="orientation"
+                  android:screenOrientation="portrait" >
+        </activity>
+
+        <activity android:name=".FeedAnimalsControler"
+                  android:configChanges="orientation"
+                  android:screenOrientation="portrait" >
+        </activity>
+
+
+
     </application>
 
 </manifest>

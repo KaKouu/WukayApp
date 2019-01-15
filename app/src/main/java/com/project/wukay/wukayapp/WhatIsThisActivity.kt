@@ -5,13 +5,15 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Vibrator
+import android.view.MotionEvent
 import android.view.View
 import android.view.animation.TranslateAnimation
 import android.widget.ImageView
+import com.project.wukay.wukayapp.R.id.animalAnwser2
 import kotlinx.android.synthetic.main.activity_hard_what_is_this.*
 import kotlinx.android.synthetic.main.activity_what_is_this.*
+import java.lang.Thread.sleep
 import java.util.*
-import kotlin.concurrent.schedule
 
 class WhatIsThisActivity : AppCompatActivity() {
 
@@ -20,12 +22,11 @@ class WhatIsThisActivity : AppCompatActivity() {
         // mise en place du layout
         super.onCreate(savedInstanceState)
 
-
         //déclaration des variables
         val difficulty = intent.getStringExtra("difficulty") //renvaiera la difficulté choisit precedement
         val nextAnimal = Intent(this@WhatIsThisActivity, VictoryActivity::class.java)
         nextAnimal.putExtra("difficulty", difficulty)
-        var numberWin=0
+
         var numberCarrotsWon=10
 
         val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
@@ -40,236 +41,345 @@ class WhatIsThisActivity : AppCompatActivity() {
         //selon le niveau de difficulté
         if(difficulty=="easy") {
 
+            val startAnimalAnswer = arrayOf(
+                R.drawable.animaux_cochon_silhouette,
+                R.drawable.animaux_vache_silhouette,
+                R.drawable.animaux_girafe_silhouette,
+                R.drawable.animaux_ane_silhouette,
+                R.drawable.animaux_bouc_silhouette,
+                R.drawable.animaux_chat_silhouette,
+                R.drawable.animaux_ecureil_silhouette,
+                R.drawable.animaux_lama_silhouette,
+                R.drawable.animaux_elephant_silhouette,
+                R.drawable.animaux_chien_silhouette
+            )
+
+            val startAnimal = arrayOf(
+                R.drawable.animaux_cochon,
+                R.drawable.animaux_vache,
+                R.drawable.animaux_girafe,
+                R.drawable.animaux_ane,
+                R.drawable.animaux_bouc,
+                R.drawable.animaux_chat,
+                R.drawable.animaux_ecureil,
+                R.drawable.animaux_lama,
+                R.drawable.animaux_elephant,
+                R.drawable.animaux_chien
+            )
+
+            val arrayNameAnimal=arrayOf(
+                "Le cochon",
+                "La vache",
+                "La girafe",
+                "L'âne",
+                "Le bouc",
+                "Le chat",
+                "L'ecureil",
+                "Le lama",
+                "L'éléphant",
+                "Le chien"
+            )
 
             //var tableauTampon : Array<Int> = arrayOf(0,0,0,0)
-            var tampon = 0
-            var tampon1 = 0
-            var tampon2 = 0
-            var tampon3 = 0
+            var choiceOfSilhouette = 0
+            var choice1 = 0
+            var choice2 = 0
+            var choice3 = 0
 
-            var tableau = IntArray(4);
+            var tableau = IntArray(4)
             tableau.set(0,0)
             tableau.set(1,0)
             tableau.set(2,0)
             tableau.set(3,0)
 
-            var tabTampon = IntArray(3)
+            var tabOfChoice = IntArray(3)
 
-            val animalArray = arrayOf(
-                R.drawable.animaux_cochon_silhouette,
-                R.drawable.animaux_vache_silhouette,
-                R.drawable.animaux_girafe_silhouette
-            )
+            var rand = Random()
+            var index = rand.nextInt(startAnimalAnswer.size)
+            var index1 = rand.nextInt(startAnimalAnswer.size)
+            var index2 = rand.nextInt(startAnimalAnswer.size)
 
-            val answerAnimal = arrayOf(
-                R.drawable.animaux_cochon,
-                R.drawable.animaux_vache,
-                R.drawable.animaux_girafe
-            )
-            startButton.visibility = View.VISIBLE
-
-                val animation = TranslateAnimation(0f, 0f, 0f, -975f)
-                animation.setDuration(5000)
-                animalAnwser2.startAnimation(animation)
-                animation.setFillAfter(true)
-
-            Timer().schedule(6000) {
-                animation.setFillAfter(false)
-                startButton.visibility = View.VISIBLE
+            while(index == index1 || index == index2 || index1 == index2) {
+                index = rand.nextInt(startAnimalAnswer.size)
+                index1 = rand.nextInt(startAnimalAnswer.size)
+                index2 = rand.nextInt(startAnimalAnswer.size)
             }
 
+            val arrayAnimal = arrayOf(
+                startAnimal.get(index),
+                startAnimal.get(index1),
+                startAnimal.get(index2)
+            )
 
+            val arrayAnswerAnimal = arrayOf(
+                startAnimalAnswer.get(index),
+                startAnimalAnswer.get(index1),
+                startAnimalAnswer.get(index2)
+            )
+
+            val animation = TranslateAnimation(0f, 0f, 0f, -975f)
+            animation.setDuration(5000)
+            animalAnwser2.startAnimation(animation)
+            curseur.startAnimation(animation)
+            animation.setFillAfter(true)
+
+            var numberWin=0
             startButton.setOnClickListener {
-
+                //if(m.x >= startButton.x && m.x < startButton.x + startButton.width && m.y >= startButton.y && m.y < startButton.y + startButton.height){
+                animation.cancel()
+                animation.setFillAfter(false)
+                animalAnwser1.x = 0f
+                animalAnwser1.y = 1300f
+                animalAnwser2.x = 300f
+                animalAnwser2.y = 1100f
+                animalAnwser3.x = 700f
+                animalAnwser3.y = 1300f
+                curseur.visibility = View.INVISIBLE
                 System.out.println(numberWin)
+                startButton.visibility = View.INVISIBLE
+                arrow.visibility = View.INVISIBLE
+                resultat.setText("")
 
+                ////SILHOUETTE
+                choiceOfSilhouette = randomizeImage(tabOfChoice, arrayAnswerAnimal, animalPic)
 
+                tabOfChoice.set(0, choiceOfSilhouette)
+                tabOfChoice.set(1, 10)
+                tabOfChoice.set(2, 10)
 
-                    resultat.setText("")
-                    tampon = randomizeImage(tabTampon, animalArray, animalPic)
-                    ////SILHOUETTE
-                    tabTampon.set(0, tampon)
-                    tabTampon.set(1, 10)
-                    tabTampon.set(2, 10)
+                ////ANSWER
+                choice1 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser1)
+                tabOfChoice.set(0, choice1)
 
+                choice2 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser2)
+                tabOfChoice.set(1, choice2)
 
-
-
-                    ////AWNSER
-                    tampon1 = randomizeImage(tabTampon, answerAnimal, animalAnwser1)
-                    tabTampon.set(0, tampon1)
-
-
-                    tampon2 = randomizeImage(tabTampon, answerAnimal, animalAnwser2)
-                    tabTampon.set(1, tampon2)
-
-                    tampon3 = randomizeImage(tabTampon, answerAnimal, animalAnwser3)
-                    tabTampon.set(2, tampon3)
-
-                    startButton.visibility = View.INVISIBLE
-                    arrow.visibility = View.INVISIBLE
-
-
+                choice3 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser3)
+                tabOfChoice.set(2, choice3)
             }
+            animalAns.visibility = View.INVISIBLE
+            nameAnimal.visibility = View.INVISIBLE
+            WhatIsThisActivity.setOnTouchListener { v: View,m: MotionEvent ->
+                if(m.action == MotionEvent.ACTION_MOVE){
 
-
-            animalAnwser1.setOnClickListener {
-
-                //condition si le joueur donne la bonne réponse
-                if( isTheCorrectAnswer(tampon,tabTampon,0)){
-
-                    //incrementation du nombre d'animal trouvé
-                    resultat.text=""
-                    numberWin+=1
-                    System.out.println("NOMBRE WIN : " + numberWin)
-
-                    //fin du mini jeux
-                    if(numberWin==3){
-                        var numberCarrotsWonText=numberCarrotsWon.toString()
-                        nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
-                        startActivity(nextAnimal)
-
-                     //prochain animal à deviner
-                    }else{
-
-                        ////SILHOUETTE
-                        tabTampon.set(0, tampon)
-                        tabTampon.set(1, 10)
-                        tabTampon.set(2, 10)
-
-                        tampon = randomizeImage(tabTampon, animalArray, animalPic)
-
-
-                        ////AWNSER
-                        tampon1 = randomizeImage(tabTampon, answerAnimal, animalAnwser1)
-                        tabTampon.set(0, tampon1)
-
-
-                        tampon2 = randomizeImage(tabTampon, answerAnimal, animalAnwser2)
-                        tabTampon.set(1, tampon2)
-
-                        tampon3 = randomizeImage(tabTampon, answerAnimal, animalAnwser3)
-                        tabTampon.set(2, tampon3)
-
+                    if(m.x >= animalAnwser1.x && m.x < animalAnwser1.x + animalAnwser1.width && m.y >= animalAnwser1.y && m.y < animalAnwser1.y + animalAnwser1.height ) {
+                        animalAnwser1.x = m.x - animalAnwser1.width / 2
+                        animalAnwser1.y = m.y - animalAnwser1.height / 2
+                    }
+                    else{
+                        if(m.x >= animalAnwser2.x && m.x < animalAnwser2.x + animalAnwser2.width && m.y >= animalAnwser2.y && m.y < animalAnwser2.y + animalAnwser2.height) {
+                            animalAnwser2.x = m.x - animalAnwser2.width/2
+                            animalAnwser2.y = m.y - animalAnwser2.height/2
+                        }
+                        else{
+                            if(m.x >= animalAnwser3.x && m.x < animalAnwser3.x + animalAnwser3.width && m.y >= animalAnwser3.y && m.y < animalAnwser3.y + animalAnwser1.height) {
+                                animalAnwser3.x = m.x - animalAnwser3.width/2
+                                animalAnwser3.y = m.y - animalAnwser3.height/2
+                            }
+                        }
                     }
 
-                }else{
-                    //vibration de defaite +texte
-                    vibratorService.vibrate(100)
-                    resultat.text="Essaye encore !"
-                    if (numberCarrotsWon>1) {
-                        numberCarrotsWon -= 1
+                    val hitAnimal1 = (animalPic.x - animalAnwser1.x) * (animalPic.x - animalAnwser1.x) + (animalPic.y - animalAnwser1.y) * (animalPic.y - animalAnwser1.y)
+                    if(hitAnimal1 > (animalPic.width/2 + animalAnwser1.width/2) * (animalPic.width/2 + animalAnwser1.width/2)) {
+
+                    }
+                    else{
+
+                        var numberCarrotsWon1 = numberCarrotsWon
+                        if (isTheCorrectAnswer(choiceOfSilhouette, tabOfChoice, 0)) {
+                            animalAns.setImageResource(startAnimal[6])
+                            nameAnimal.setText(arrayNameAnimal[6])
+                            animalPic.visibility = View.INVISIBLE
+                            animalAns.visibility = View.VISIBLE
+                            nameAnimal.visibility = View.VISIBLE
+                            animalAnwser1.x = 0f
+                            animalAnwser1.y = 1300f
+                            animalAnwser2.x = 300f
+                            animalAnwser2.y = 1100f
+                            animalAnwser3.x = 700f
+                            animalAnwser3.y = 1300f
+                            //incrementation du nombre d'animal trouvé
+                            resultat.text = ""
+                            numberWin += 1
+                            System.out.println("NOMBRE WIN : " + numberWin)
+                            //fin du mini jeux
+                            if (numberWin == 3) {
+                                var numberCarrotsWonText = numberCarrotsWon1.toString()
+                                nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
+                                startActivity(nextAnimal)
+
+                                //prochain animal à deviner
+                            } else {
+
+                                ////SILHOUETTE
+                                sleep(3000)
+                                tabOfChoice.set(0, choiceOfSilhouette)
+                                tabOfChoice.set(1, 10)
+                                tabOfChoice.set(2, 10)
+
+                                choiceOfSilhouette = randomizeImage(tabOfChoice, arrayAnswerAnimal, animalPic)
+                                //animalAns.visibility = View.INVISIBLE
+                                //animalPic.visibility = View.VISIBLE
+
+                                ////AWNSER
+                                choice1 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser1)
+                                tabOfChoice.set(0, choice1)
+
+                                choice2 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser2)
+                                tabOfChoice.set(1, choice2)
+
+                                choice3 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser3)
+                                tabOfChoice.set(2, choice3)
+
+                            }
+
+                        } else {
+                            //vibration de defaite +texte
+                            vibratorService.vibrate(100)
+                            resultat.text = "Essaye encore !"
+                            if (numberCarrotsWon1 > 1) {
+                                numberCarrotsWon1 -= 1
+                            }
+                        }
+
+                    }
+                    val hitAnimal2 = (animalPic.x - animalAnwser2.x) * (animalPic.x - animalAnwser2.x) + (animalPic.y - animalAnwser2.y) * (animalPic.y - animalAnwser2.y)
+                    if(hitAnimal2 > (animalPic.width/2 + animalAnwser2.width/2) * (animalPic.width/2 + animalAnwser2.width/2)) {
+
+                    }
+                    else{
+
+                        var numberCarrotsWon1 = numberCarrotsWon
+                        if (isTheCorrectAnswer(choiceOfSilhouette, tabOfChoice, 1)) {
+                            animalAns.setImageResource(startAnimal[6])
+                            nameAnimal.setText(arrayNameAnimal[6])
+                            animalPic.visibility = View.INVISIBLE
+                            animalAns.visibility = View.VISIBLE
+                            nameAnimal.visibility = View.VISIBLE
+                            animalAnwser1.x = 0f
+                            animalAnwser1.y = 1300f
+                            animalAnwser2.x = 300f
+                            animalAnwser2.y = 1100f
+                            animalAnwser3.x = 700f
+                            animalAnwser3.y = 1300f
+                            //incrementation du nombre d'animal trouvé
+                            resultat.text = ""
+                            numberWin += 1
+                            System.out.println("NOMBRE WIN : " + numberWin)
+
+                            //fin du mini jeux
+                            if (numberWin == 3) {
+                                var numberCarrotsWonText = numberCarrotsWon1.toString()
+                                nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
+                                startActivity(nextAnimal)
+
+                                //prochain animal à deviner
+                            } else {
+                                sleep(3000)
+                                ////SILHOUETTE
+                                tabOfChoice.set(0, choiceOfSilhouette)
+                                tabOfChoice.set(1, 10)
+                                tabOfChoice.set(2, 10)
+
+                                choiceOfSilhouette = randomizeImage(tabOfChoice, arrayAnswerAnimal, animalPic)
+                                //animalAns.visibility = View.INVISIBLE
+                                //animalPic.visibility = View.VISIBLE
+
+                                ////AWNSER
+                                choice1 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser1)
+                                tabOfChoice.set(0, choice1)
+
+
+                                choice2 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser2)
+                                tabOfChoice.set(1, choice2)
+
+                                choice3 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser3)
+                                tabOfChoice.set(2, choice3)
+
+                            }
+
+                        } else {
+                            //vibration de defaite +texte
+                            vibratorService.vibrate(100)
+                            resultat.text = "Essaye encore !"
+                            if (numberCarrotsWon1 > 1) {
+                                numberCarrotsWon1 -= 1
+                            }
+                        }
+                    }
+                    val hitAnimal3 = (animalPic.x - animalAnwser3.x) * (animalPic.x - animalAnwser3.x) + (animalPic.y - animalAnwser3.y) * (animalPic.y - animalAnwser3.y)
+                    if((hitAnimal3 > (animalPic.width/2 + animalAnwser3.width/2) * (animalPic.width/2 + animalAnwser3.width/2))) {
+
+                    }
+                    else{
+                        var numberCarrotsWon1 = numberCarrotsWon
+                        if (isTheCorrectAnswer(choiceOfSilhouette, tabOfChoice, 2)) {
+                            animalAns.setImageResource(startAnimal[6])
+                            nameAnimal.setText(arrayNameAnimal[6])
+                            animalPic.visibility = View.INVISIBLE
+                            animalAns.visibility = View.VISIBLE
+                            nameAnimal.visibility = View.VISIBLE
+                            animalAnwser1.x = 0f
+                            animalAnwser1.y = 1300f
+                            animalAnwser2.x = 300f
+                            animalAnwser2.y = 1100f
+                            animalAnwser3.x = 700f
+                            animalAnwser3.y = 1300f
+                            //incrementation du nombre d'animal trouvé
+                            resultat.text = ""
+                            numberWin += 1
+                            System.out.println("NOMBRE WIN : " + numberWin)
+
+                            //fin du mini jeux
+                            if (numberWin == 3) {
+                                var numberCarrotsWonText = numberCarrotsWon1.toString()
+                                nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
+                                startActivity(nextAnimal)
+
+                                //prochain animal à deviner
+                            } else {
+                                sleep(3000)
+                                ////SILHOUETTE
+                                tabOfChoice.set(0, choiceOfSilhouette)
+                                tabOfChoice.set(1, 10)
+                                tabOfChoice.set(2, 10)
+
+                                choiceOfSilhouette = randomizeImage(tabOfChoice, arrayAnswerAnimal, animalPic)
+                                //animalAns.visibility = View.INVISIBLE
+                                //animalPic.visibility = View.VISIBLE
+
+                                ////AWNSER
+                                choice1 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser1)
+                                tabOfChoice.set(0, choice1)
+
+
+                                choice2 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser2)
+                                tabOfChoice.set(1, choice2)
+
+                                choice3 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser3)
+                                tabOfChoice.set(2, choice3)
+
+                            }
+
+                        } else {
+                            //vibration de defaite +texte
+                            vibratorService.vibrate(100)
+                            resultat.text = "Essaye encore !"
+                            if (numberCarrotsWon1 > 1) {
+                                numberCarrotsWon1 -= 1
+                            }
+                        }
                     }
                 }
 
-            }
-
-            animalAnwser2.setOnClickListener {
-                //condition si le joueur donne la bonne réponse
-                if( isTheCorrectAnswer(tampon,tabTampon,1)){
-
-                    //incrementation du nombre d'animal trouvé
-                    resultat.text=""
-                    numberWin+=1
-                    System.out.println("NOMBRE WIN : " + numberWin)
-
-                    //fin du mini jeux
-                    if(numberWin==3){
-                        var numberCarrotsWonText=numberCarrotsWon.toString()
-                        nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
-                        startActivity(nextAnimal)
-
-                        //prochain animal à deviner
-                    }else{
-                        ////SILHOUETTE
-                        tabTampon.set(0, tampon)
-                        tabTampon.set(1, 10)
-                        tabTampon.set(2, 10)
-
-                        tampon = randomizeImage(tabTampon, animalArray, animalPic)
-
-
-                        ////AWNSER
-                        tampon1 = randomizeImage(tabTampon, answerAnimal, animalAnwser1)
-                        tabTampon.set(0, tampon1)
-
-
-                        tampon2 = randomizeImage(tabTampon, answerAnimal, animalAnwser2)
-                        tabTampon.set(1, tampon2)
-
-                        tampon3 = randomizeImage(tabTampon, answerAnimal, animalAnwser3)
-                        tabTampon.set(2, tampon3)
-
-                    }
-
-                }else{
-                    //vibration de defaite
-                    vibratorService.vibrate(100)
-
-                    resultat.text="Essaye encore !"
-                    if (numberCarrotsWon>1) {
-                        numberCarrotsWon -= 1
-                    }
-                }
-
-            }
-
-            animalAnwser3.setOnClickListener {
-                //condition si le joueur donne la bonne réponse
-                if( isTheCorrectAnswer(tampon,tabTampon,2)){
-
-                    //incrementation du nombre d'animal trouvé
-                    resultat.text=""
-                    numberWin+=1
-                    System.out.println("NOMBRE WIN : " + numberWin)
-
-                    //fin du mini jeux
-                    if(numberWin==3){
-                        var numberCarrotsWonText=numberCarrotsWon.toString()
-                        nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
-                        startActivity(nextAnimal)
-
-                        //prochain animal à deviner
-                    }else{
-                        ////SILHOUETTE
-                        tabTampon.set(0, tampon)
-                        tabTampon.set(1, 10)
-                        tabTampon.set(2, 10)
-
-                        tampon = randomizeImage(tabTampon, animalArray, animalPic)
-
-
-                        ////AWNSER
-                        tampon1 = randomizeImage(tabTampon, answerAnimal, animalAnwser1)
-                        tabTampon.set(0, tampon1)
-
-
-                        tampon2 = randomizeImage(tabTampon, answerAnimal, animalAnwser2)
-                        tabTampon.set(1, tampon2)
-
-                        tampon3 = randomizeImage(tabTampon, answerAnimal, animalAnwser3)
-                        tabTampon.set(2, tampon3)
-
-                    }
-
-                }else{
-                    //vibration de defaite
-                    vibratorService.vibrate(100)
-
-                    resultat.text="Essaye encore !"
-                    if (numberCarrotsWon>1) {
-                        numberCarrotsWon -= 1
-                    }
-                }
-
+                true
             }
 
 
         }else{
 
             //CODE DE LA PARTIE DIFFICILE
-
-            var numberOfWin=0;
+            var numberWin=0
 
             val arrayOfAnimalsPicture = arrayOf(
                 R.drawable.animaux_cochon,
@@ -304,7 +414,8 @@ class WhatIsThisActivity : AppCompatActivity() {
                 "Je suis rayé de noir et de blanc",
                 "Je suis le roi de la savane et j'ai une belle crinière"
             )
-           description.setText("")
+
+            description.setText("")
             var nombreDeReponsesPossibles=3
             var memoAnimauxChoisi=IntArray(nombreDeReponsesPossibles)
             var reponse =-1
@@ -314,8 +425,9 @@ class WhatIsThisActivity : AppCompatActivity() {
             reponse =rand.nextInt(arrayOfAnimalsPicture.size)
             ouMettreLaReponse=rand.nextInt(nombreDeReponsesPossibles)
 
+            question.setText("j'aboie et j'ai un pelage blanc")
 
-            minijeu(
+            /*minijeu(
                 arrayOfQuestion,
                 reponse,
                 nombreDeReponsesPossibles,
@@ -323,106 +435,117 @@ class WhatIsThisActivity : AppCompatActivity() {
                 rand,
                 arrayOfAnimalsPicture,
                 ouMettreLaReponse
-            )
+            )*/
+            startButton2.setOnClickListener {
+                curseur2.visibility = View.INVISIBLE
+                minijeu(
+                    arrayOfQuestion,
+                    reponse,
+                    nombreDeReponsesPossibles,
+                    memoAnimauxChoisi,
+                    rand,
+                    arrayOfAnimalsPicture,
+                    ouMettreLaReponse
+                )
+                answer1.setOnClickListener {
+                    if (memoAnimauxChoisi.get(0) == reponse) {
+
+                        numberWin += 1
+                        if (numberWin == 3) {
+                            var numberCarrotsWonText = numberCarrotsWon.toString()
+                            nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
+                            startActivity(nextAnimal)
 
 
-            answer1.setOnClickListener{
-                if(memoAnimauxChoisi.get(0)==reponse){
-
-                    numberWin+=1
-                    if(numberWin==3){
-                        var numberCarrotsWonText=numberCarrotsWon.toString()
-                        nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
-                        startActivity(nextAnimal)
+                        } else {
+                            reponse = rand.nextInt(arrayOfAnimalsPicture.size - 1)
+                            ouMettreLaReponse = rand.nextInt(nombreDeReponsesPossibles)
 
 
-                    }else{
-                        reponse =rand.nextInt(arrayOfAnimalsPicture.size-1)
-                        ouMettreLaReponse=rand.nextInt(nombreDeReponsesPossibles)
+                            minijeu(
+                                arrayOfQuestion,
+                                reponse,
+                                nombreDeReponsesPossibles,
+                                memoAnimauxChoisi,
+                                rand,
+                                arrayOfAnimalsPicture,
+                                ouMettreLaReponse
+                            )
+                        }
 
-
-                        minijeu(
-                            arrayOfQuestion,
-                            reponse,
-                            nombreDeReponsesPossibles,
-                            memoAnimauxChoisi,
-                            rand,
-                            arrayOfAnimalsPicture,
-                            ouMettreLaReponse
-                        )
+                    } else {
+                        description.setText("Essaye encore !")
+                        vibratorService.vibrate(100)
+                        if (numberCarrotsWon > 1) {
+                            numberCarrotsWon -= 1
+                        }
                     }
 
-                }else{
-                    description.setText("Essaye encore !")
-                    vibratorService.vibrate(100)
-                    if (numberCarrotsWon>1) {
-                        numberCarrotsWon -= 1
+                }
+                answer2.setOnClickListener {
+                    if (memoAnimauxChoisi.get(1) == reponse) {
+
+                        numberWin += 1
+                        if (numberWin == 3) {
+                            var numberCarrotsWonText = numberCarrotsWon.toString()
+                            nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
+                            startActivity(nextAnimal)
+                        } else {
+                            reponse = rand.nextInt(arrayOfAnimalsPicture.size - 1)
+                            ouMettreLaReponse = rand.nextInt(nombreDeReponsesPossibles)
+
+
+                            minijeu(
+                                arrayOfQuestion,
+                                reponse,
+                                nombreDeReponsesPossibles,
+                                memoAnimauxChoisi,
+                                rand,
+                                arrayOfAnimalsPicture,
+                                ouMettreLaReponse
+                            )
+                        }
+                    } else {
+                        description.setText("Essaye encore !")
+                        vibratorService.vibrate(100)
+                        if (numberCarrotsWon > 1) {
+                            numberCarrotsWon -= 1
+                        }
                     }
                 }
+                answer3.setOnClickListener {
+                    if (memoAnimauxChoisi.get(2) == reponse) {
 
-            }
-            answer2.setOnClickListener{
-                if(memoAnimauxChoisi.get(1)==reponse){
+                        numberWin += 1
+                        if (numberWin == 3) {
+                            var numberCarrotsWonText = numberCarrotsWon.toString()
+                            nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
+                            startActivity(nextAnimal)
 
-                    numberWin+=1
-                    if(numberWin==3){
-                        var numberCarrotsWonText=numberCarrotsWon.toString()
-                        nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
-                        startActivity(nextAnimal)
-                    }else{
-                        reponse =rand.nextInt(arrayOfAnimalsPicture.size-1)
-                        ouMettreLaReponse=rand.nextInt(nombreDeReponsesPossibles)
-
-
-                        minijeu(
-                            arrayOfQuestion,
-                            reponse,
-                            nombreDeReponsesPossibles,
-                            memoAnimauxChoisi,
-                            rand,
-                            arrayOfAnimalsPicture,
-                            ouMettreLaReponse
-                        )
-                    }
-                }else{
-                    description.setText("Essaye encore !")
-                    vibratorService.vibrate(100)
-                    if (numberCarrotsWon>1) {
-                        numberCarrotsWon -= 1
-                    }
-                }
-            }
-            answer3.setOnClickListener{
-                if(memoAnimauxChoisi.get(2)==reponse){
-
-                    numberWin+=1
-                    if(numberWin==3){
-                        var numberCarrotsWonText=numberCarrotsWon.toString()
-                        nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
-                        startActivity(nextAnimal)
-
-                    }else{
-                        reponse =rand.nextInt(arrayOfAnimalsPicture.size-1)
-                        ouMettreLaReponse=rand.nextInt(nombreDeReponsesPossibles)
+                        } else {
+                            reponse = rand.nextInt(arrayOfAnimalsPicture.size - 1)
+                            ouMettreLaReponse = rand.nextInt(nombreDeReponsesPossibles)
 
 
-                        minijeu(
-                            arrayOfQuestion,
-                            reponse,
-                            nombreDeReponsesPossibles,
-                            memoAnimauxChoisi,
-                            rand,
-                            arrayOfAnimalsPicture,
-                            ouMettreLaReponse
-                        )
-                    }
-                }else{
-                    description.setText("Essaye encore !")
-                    vibratorService.vibrate(100)
-                    if (numberCarrotsWon>1) {
-                        numberCarrotsWon -= 1
+                            minijeu(
+                                arrayOfQuestion,
+                                reponse,
+                                nombreDeReponsesPossibles,
+                                memoAnimauxChoisi,
+                                rand,
+                                arrayOfAnimalsPicture,
+                                ouMettreLaReponse
+                            )
+                        }
+                    } else {
+                        description.setText("Essaye encore !")
+                        vibratorService.vibrate(100)
+                        if (numberCarrotsWon > 1) {
+                            numberCarrotsWon -= 1
+                        }
                     }
                 }
+                startButton2.visibility = View.INVISIBLE
             }
 
 
@@ -470,17 +593,17 @@ class WhatIsThisActivity : AppCompatActivity() {
     }
 
 
-    public fun isTheCorrectAnswer(indexOfAnswer: Int, arrayIndexOfPicturesPutedAsAnswer: IntArray, index: Int):Boolean  {
+    private fun isTheCorrectAnswer(indexOfAnswer: Int, arrayIndexOfPicturesPutedAsAnswer: IntArray, index: Int):Boolean  {
         return indexOfAnswer == arrayIndexOfPicturesPutedAsAnswer.get(index)
     }
 
 
-    private fun randomizeImage(arrayIndexOfAnswerPicture: IntArray, arrayOfPictures: Array<Int>, view: ImageView): Int  {
+    private fun randomizeImage(arrayIndexOfAnswerPicture: IntArray, arrayOfPictures: Array<Int>, view: ImageView): Int {
         var rand = Random()
         var indexOfAnimalPicture = rand.nextInt(3)
 
         //don't chose an index which has been already chosen
-        while (arrayIndexOfAnswerPicture.contains(indexOfAnimalPicture) ) {
+        while (arrayIndexOfAnswerPicture.contains(indexOfAnimalPicture)) {
             indexOfAnimalPicture = rand.nextInt(3)
 
         }
@@ -490,30 +613,5 @@ class WhatIsThisActivity : AppCompatActivity() {
         return indexOfAnimalPicture
 
     }
-
-    private fun giveRandomPicture(arrayOfAnimalsPicture : Array<Int>):IntArray{
-        var arrayAnswer = IntArray(4)
-        var rand = Random()
-        arrayAnswer.set(0,rand.nextInt(arrayOfAnimalsPicture.size))
-        arrayAnswer.set(1,arrayAnswer.get(0))
-        arrayAnswer.set(2,randomWithNotTheParameters(arrayAnswer.get(0),arrayOfAnimalsPicture.size))
-        arrayAnswer.set(3,randomWithNotTheParameters(arrayAnswer.get(0),arrayOfAnimalsPicture.size))
-
-        return arrayAnswer
-
-    }
-
-    private fun randomWithNotTheParameters(n : Int, bound : Int):Int{
-        var rand = Random()
-        var result=rand.nextInt(bound)
-
-        while(result==n) {
-            result = rand.nextInt(bound)
-        }
-        return result;
-    }
-
-
-
 
 }

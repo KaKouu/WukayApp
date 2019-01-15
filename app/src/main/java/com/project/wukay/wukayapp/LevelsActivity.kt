@@ -4,6 +4,9 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.view.View
+import android.widget.ScrollView
+
 import android.widget.TextView
 import com.project.wukay.wukayapp.IHM.DifficultyActivity
 import com.project.wukay.wukayapp.util.Prefs
@@ -11,17 +14,17 @@ import com.project.wukay.wukayapp.util.PrefsTimer
 
 import kotlinx.android.synthetic.main.activity_levels.*
 import java.util.*
-
-
+import android.view.ViewTreeObserver.OnGlobalLayoutListener
+import android.view.ViewTreeObserver
+import kotlin.concurrent.schedule
 
 
 class LevelsActivity : AppCompatActivity() {
 
 
     companion object {
-        private const val SECONDS_FOR_ONE_LIFE = 5L
+        private const val SECONDS_FOR_ONE_LIFE = 50L
     }
-
 
     private var prefs: Prefs? = null
 
@@ -33,7 +36,6 @@ class LevelsActivity : AppCompatActivity() {
     private var timerLengthSecond =0L
     private var timerState = TimerState.Stopped
 
-
     private var secondsRemaining =SECONDS_FOR_ONE_LIFE
 
 
@@ -42,16 +44,26 @@ class LevelsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_levels)
 
+        val vto = levelsScroll.getViewTreeObserver()
+        vto.addOnGlobalLayoutListener(OnGlobalLayoutListener { levelsScroll.scrollTo(6000, 6000) })
 
+        heart.visibility = View.INVISIBLE
+        numberOfLife.visibility = View.INVISIBLE
         prefs = Prefs(this)
 
+        //difficulty
         val intent = intent
         val difficulty = intent.getStringExtra("difficulty")
 
-        prefs = Prefs(this)
+        //levels
+        var loopLevel = prefs!!.actualLevel
+
+
+        //skin
         var skinName=prefs!!.skinName
         lapinouSkin.setImageResource(skinName)
 
+        //life
 
         var nbLife=prefs!!.nbLife
 
@@ -63,9 +75,6 @@ class LevelsActivity : AppCompatActivity() {
         System.out.println(actualSeconds.toString())
         //compare les deux dates
         var difference = (actualSeconds-lastSeconds) /1000
-
-
-       System.out.println("DIFFERENCE = "+difference.toString())
 
         //si la difference est superieur au temps qu'il faut pour récuperer une vie alors on ajoute des vies
         if(difference>=5 && nbLife<10){
@@ -94,54 +103,69 @@ class LevelsActivity : AppCompatActivity() {
 
 
         //si l'on vient de finir un mini jeux
-
         val isLastActivityIsAGame = intent.getBooleanExtra("isLastActivityIsAGame",false)
         if(isLastActivityIsAGame){
             nbLife-=1
+            loopLevel+=1
         }
 
-
+        //life
         setTxtLife(lifeText,nbLife)
-
-
         if(nbLife<10){
             startTimer(lifeText,nbLife)
             timerState=TimerState.Running
         }
 
-
-
-
         //// counter of carrots ///
         var carrots=prefs!!.nbCarrots
-
         var testNbCarrotsGagnePrecedement=intent.getIntExtra("carotsWon",0)
         carrots+=testNbCarrotsGagnePrecedement
 
+        //levels
 
 
+        when (loopLevel) {
+            1,4,7 -> {
+                lapinouSkin.x = 350F //625F
+                lapinouSkin.y = -450F //1170F
+                levelCounter.text = "Niveau : " + loopLevel
+            }
+            2,5,8 -> {
+                lapinouSkin.x = -100F
+                lapinouSkin.y = -800F
+                levelCounter.text = "Niveau : " + loopLevel
+            }
+            3,6,9 -> {
+                lapinouSkin.x = 400F
+                lapinouSkin.y = -1050F
+                levelCounter.text = "Niveau : " + loopLevel
+            }
+        }
 
 
         ////BUTTONS////
         testCarrotes.setOnClickListener {
-            var nb = 100
-            carrots+=nb
+
+            carrots+=100
+            numberCarrots.setText(carrots.toString())
+
+            prefs!!.nbCarrots=carrots
+        }
+
+        testCarrotes2.setOnClickListener {
+            carrots=0
             numberCarrots.setText(carrots.toString())
 
             prefs!!.nbCarrots=carrots
         }
 
         testLife.setOnClickListener {
-
-            nbLife=4
+            nbLife=nbLife -1
             setTxtLife(lifeText,nbLife)
-            if(nbLife<10){
-                startTimer(lifeText,nbLife)
-                timerState=TimerState.Running
-            }
+        }
 
-
-
+        scrollTest.setOnClickListener {
+            levelsScroll.scrollTo(3000,3000)
         }
 
         imageRetour.setOnClickListener{
@@ -150,10 +174,38 @@ class LevelsActivity : AppCompatActivity() {
         }
 
         playButton.setOnClickListener {
+            if (nbLife == 0) {
+                heart.visibility = View.VISIBLE
+                numberOfLife.visibility = View.VISIBLE
+            }
+            else {
+                var randomGame = Random().nextInt(3)
 
-            val nextGame = Intent(this@LevelsActivity, WhatIsThisActivity::class.java)
-            nextGame.putExtra("difficulty", difficulty)
-            startActivity(nextGame)
+
+                when (randomGame) {
+                    0 -> {
+                        val nextGame = Intent(this@LevelsActivity, WhatIsThisActivity::class.java)
+                        nextGame.putExtra("difficulty", difficulty)
+                        startActivity(nextGame)
+                    }
+                    1 -> {
+                        val nextGame = Intent(this@LevelsActivity, HideAnimals::class.java)
+                        nextGame.putExtra("difficulty", difficulty)
+                        startActivity(nextGame)
+                    }
+                    2-> {
+                        val nextGame = Intent(this@LevelsActivity, FeedAnimalsControler::class.java)
+                        nextGame.putExtra("difficulty", difficulty)
+                        startActivity(nextGame)
+                    }
+                }
+            }
+            Timer().schedule(1000) {
+                heart.visibility = View.INVISIBLE
+                numberOfLife.visibility = View.INVISIBLE
+
+            }
+
         }
 
         shopIcone.setOnClickListener {
@@ -164,10 +216,18 @@ class LevelsActivity : AppCompatActivity() {
 
         }
 
+        button_settings.setOnClickListener {
+            val settings = Intent(this@LevelsActivity, SettingsActivity::class.java)
+            settings.putExtra("difficulty",difficulty)
+            startActivity(settings)
+        }
+
+
+
         //// DATA SAVING ///
         prefs!!.nbCarrots=carrots
         prefs!!.skinName=skinName
-        System.out.println("SAVE SKIN :" + skinName)
+        prefs!!.actualLevel=loopLevel
         numberCarrots.text = carrots.toString()
 
     }

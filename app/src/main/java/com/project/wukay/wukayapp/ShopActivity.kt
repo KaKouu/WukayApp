@@ -25,10 +25,8 @@ class ShopActivity : AppCompatActivity() {
         setContentView(R.layout.activity_shop)
 
 
-
         prefs = Prefs(this)
         val purchases : Array<Boolean> = arrayOf(true,true)
-
 
 
 
@@ -36,12 +34,13 @@ class ShopActivity : AppCompatActivity() {
         nbCarrot.text = carrots.toString()
 
 
-
-
         val whiteRabbit = Skin(R.drawable.skin_lapinou_blanc, 5, prefs!!.shopPurchased0)
         val yellowRabbit = Skin(R.drawable.skin_lapinou,0, true)
-        val test2Rabbit = Skin(R.drawable.skin_lapinou_test2,100,prefs!!.shopPurchased2)
-        val test3Rabbit = Skin(R.drawable.skin_lapinou_test3,250,prefs!!.shopPurchased3)
+        val girlRabbit = Skin(R.drawable.skin_lapinou_fille,100,prefs!!.shopPurchased2)
+        val cowBoyRabbit = Skin(R.drawable.skin_cowboy,200,prefs!!.shopPurchased3)
+        val docRabbit = Skin(R.drawable.skin_docteur,250,prefs!!.shopPurchased4)
+        val princessRabbit = Skin(R.drawable.skin_lapin_princesse,400,prefs!!.shopPurchased5)
+        val spacemanRabbit = Skin(R.drawable.skin_lapin_spaceman,500,prefs!!.shopPurchased6)
 
 
 
@@ -52,11 +51,20 @@ class ShopActivity : AppCompatActivity() {
         if(yellowRabbit.isPurchase){
             btPrice1.text= "m'utiliser ?"
         }
-        if(test2Rabbit.isPurchase){
+        if(girlRabbit.isPurchase){
             btPrice2.text= "m'utiliser ?"
         }
-        if(test3Rabbit.isPurchase){
+        if(cowBoyRabbit.isPurchase){
             btPrice3.text= "m'utiliser ?"
+        }
+        if(docRabbit.isPurchase){
+            btPrice4.text= "m'utiliser ?"
+        }
+        if(princessRabbit.isPurchase){
+            btPrice5.text= "m'utiliser ?"
+        }
+        if(spacemanRabbit.isPurchase){
+            btPrice6.text= "m'utiliser ?"
         }
 
         //whiteRabbit
@@ -69,13 +77,21 @@ class ShopActivity : AppCompatActivity() {
                 if(yellowRabbit.isPurchase){
                     btPrice1.text= "m'utiliser ?"
                 }
-                if(test2Rabbit.isPurchase){
+                if(girlRabbit.isPurchase){
                     btPrice2.text= "m'utiliser ?"
                 }
-                if(test3Rabbit.isPurchase){
+                if(cowBoyRabbit.isPurchase){
                     btPrice3.text= "m'utiliser ?"
                 }
-
+                if(docRabbit.isPurchase){
+                    btPrice4.text= "m'utiliser ?"
+                }
+                if(princessRabbit.isPurchase){
+                    btPrice5.text= "m'utiliser ?"
+                }
+                if(spacemanRabbit.isPurchase){
+                    btPrice6.text= "m'utiliser ?"
+                }
 
 
             }else {
@@ -116,18 +132,27 @@ class ShopActivity : AppCompatActivity() {
             if(whiteRabbit.isPurchase){
                 btPrice0.text= "m'utiliser ?"
             }
-            if(test2Rabbit.isPurchase){
+            if(girlRabbit.isPurchase){
                 btPrice2.text= "m'utiliser ?"
             }
-            if(test3Rabbit.isPurchase){
+            if(cowBoyRabbit.isPurchase){
                 btPrice3.text= "m'utiliser ?"
+            }
+            if(docRabbit.isPurchase){
+                btPrice4.text= "m'utiliser ?"
+            }
+            if(princessRabbit.isPurchase){
+                btPrice5.text= "m'utiliser ?"
+            }
+            if(spacemanRabbit.isPurchase){
+                btPrice6.text= "m'utiliser ?"
             }
             }
 
-        //testRabbit 2
+        //girlRabbit
         btPrice2.setOnClickListener {
-            if(test2Rabbit.isPurchase){
-                prefs!!.skinName = test2Rabbit.file
+            if(girlRabbit.isPurchase){
+                prefs!!.skinName = girlRabbit.file
 
                 btPrice2.text = "selectionné"
 
@@ -137,17 +162,26 @@ class ShopActivity : AppCompatActivity() {
                 if(yellowRabbit.isPurchase){
                     btPrice1.text= "m'utiliser ?"
                 }
-                if(test3Rabbit.isPurchase){
+                if(cowBoyRabbit.isPurchase){
                     btPrice3.text= "m'utiliser ?"
                 }
+                if(docRabbit.isPurchase){
+                    btPrice4.text= "m'utiliser ?"
+                }
+                if(princessRabbit.isPurchase){
+                    btPrice5.text= "m'utiliser ?"
+                }
+                if(spacemanRabbit.isPurchase){
+                    btPrice6.text= "m'utiliser ?"
+                }
             }else {
-                if(carrots-test2Rabbit.price<0){
+                if(carrots-girlRabbit.price<0){
                     //pas assez de carrotes
                     //TODO
                 }else {
                     //actions
-                    carrots -= test2Rabbit.price
-                    test2Rabbit.isPurchase=true
+                    carrots -= girlRabbit.price
+                    girlRabbit.isPurchase=true
 
                     //affichages
                     btPrice2.text = "m'utiliser ?"
@@ -158,8 +192,8 @@ class ShopActivity : AppCompatActivity() {
 
                     //sauvegardes
                     prefs!!.nbCarrots = carrots
-                    prefs!!.skinName = test2Rabbit.file
-                    prefs!!.shopPurchased2= test2Rabbit.isPurchase
+                    prefs!!.skinName = girlRabbit.file
+                    prefs!!.shopPurchased2= girlRabbit.isPurchase
 
                 }
             }
@@ -169,10 +203,10 @@ class ShopActivity : AppCompatActivity() {
 
         }
 
-        //testRabbit 3
+        //cowBoyRabbit
         btPrice3.setOnClickListener {
-            if(test3Rabbit.isPurchase){
-                prefs!!.skinName = test3Rabbit.file
+            if(cowBoyRabbit.isPurchase){
+                prefs!!.skinName = cowBoyRabbit.file
 
                 btPrice3.text = "selectionné"
 
@@ -182,17 +216,26 @@ class ShopActivity : AppCompatActivity() {
                 if(yellowRabbit.isPurchase){
                     btPrice1.text= "m'utiliser ?"
                 }
-                if(test2Rabbit.isPurchase){
+                if(girlRabbit.isPurchase){
                     btPrice2.text= "m'utiliser ?"
                 }
+                if(docRabbit.isPurchase){
+                    btPrice4.text= "m'utiliser ?"
+                }
+                if(princessRabbit.isPurchase){
+                    btPrice5.text= "m'utiliser ?"
+                }
+                if(spacemanRabbit.isPurchase){
+                    btPrice6.text= "m'utiliser ?"
+                }
             }else {
-                if(carrots-test3Rabbit.price<0){
+                if(carrots-cowBoyRabbit.price<0){
                     //pas assez de carrotes
                     //TODO
                 }else {
                     //actions
-                    carrots -= test3Rabbit.price
-                    test3Rabbit.isPurchase=true
+                    carrots -= cowBoyRabbit.price
+                    cowBoyRabbit.isPurchase=true
 
                     //affichages
                     btPrice3.text = "m'utiliser ?"
@@ -203,8 +246,8 @@ class ShopActivity : AppCompatActivity() {
 
                     //sauvegardes
                     prefs!!.nbCarrots = carrots
-                    prefs!!.skinName = test3Rabbit.file
-                    prefs!!.shopPurchased3= test3Rabbit.isPurchase
+                    prefs!!.skinName = cowBoyRabbit.file
+                    prefs!!.shopPurchased3= cowBoyRabbit.isPurchase
 
                 }
             }
@@ -214,10 +257,170 @@ class ShopActivity : AppCompatActivity() {
 
         }
 
+        //docRabbit
+        btPrice4.setOnClickListener {
+            if(docRabbit.isPurchase){
+                prefs!!.skinName = docRabbit.file
+
+                btPrice4.text = "selectionné"
+
+                if(whiteRabbit.isPurchase){
+                    btPrice0.text= "m'utiliser ?"
+                }
+                if(yellowRabbit.isPurchase){
+                    btPrice1.text= "m'utiliser ?"
+                }
+                if(girlRabbit.isPurchase){
+                    btPrice2.text= "m'utiliser ?"
+                }
+                if(cowBoyRabbit.isPurchase){
+                    btPrice3.text= "m'utiliser ?"
+                }
+                if(princessRabbit.isPurchase){
+                    btPrice5.text= "m'utiliser ?"
+                }
+                if(spacemanRabbit.isPurchase){
+                    btPrice6.text= "m'utiliser ?"
+                }
+            }else {
+                if(carrots-docRabbit.price<0){
+                    //pas assez de carrotes
+                    //TODO
+                }else {
+                    //actions
+                    carrots -= docRabbit.price
+                    docRabbit.isPurchase=true
+
+                    //affichages
+                    btPrice4.text = "m'utiliser ?"
+                    nbCarrot.text = carrots.toString()
+                    price4.visibility = View.INVISIBLE
+                    imageCarrot4.visibility = View.INVISIBLE
+
+
+                    //sauvegardes
+                    prefs!!.nbCarrots = carrots
+                    prefs!!.skinName = docRabbit.file
+                    prefs!!.shopPurchased4= docRabbit.isPurchase
+
+                }
+            }
 
 
 
 
+        }
+
+        //princessRabbit
+        btPrice5.setOnClickListener {
+            if(princessRabbit.isPurchase){
+                prefs!!.skinName = princessRabbit.file
+
+                btPrice5.text = "selectionné"
+
+                if(whiteRabbit.isPurchase){
+                    btPrice0.text= "m'utiliser ?"
+                }
+                if(yellowRabbit.isPurchase){
+                    btPrice1.text= "m'utiliser ?"
+                }
+                if(girlRabbit.isPurchase){
+                    btPrice2.text= "m'utiliser ?"
+                }
+                if(cowBoyRabbit.isPurchase){
+                    btPrice3.text= "m'utiliser ?"
+                }
+                if(docRabbit.isPurchase){
+                    btPrice4.text= "m'utiliser ?"
+                }
+                if(spacemanRabbit.isPurchase){
+                    btPrice6.text= "m'utiliser ?"
+                }
+
+
+            }else {
+                if(carrots-princessRabbit.price<0){
+                    //pas assez de carrotes
+                    //TODO
+                }else {
+                    //actions
+                    carrots -= princessRabbit.price
+                    princessRabbit.isPurchase=true
+
+                    //affichages
+                    btPrice5.text = "m'utiliser ?"
+                    nbCarrot.text = carrots.toString()
+                    price5.visibility = View.INVISIBLE
+                    imageCarrot5.visibility = View.INVISIBLE
+
+
+                    //sauvegardes
+                    prefs!!.nbCarrots = carrots
+                    prefs!!.skinName = princessRabbit.file
+                    prefs!!.shopPurchased5= princessRabbit.isPurchase
+
+                }
+            }
+
+
+
+
+        }
+
+        //princessRabbit
+        btPrice6.setOnClickListener {
+            if(spacemanRabbit.isPurchase){
+                prefs!!.skinName = spacemanRabbit.file
+
+                btPrice6.text = "selectionné"
+
+                if(whiteRabbit.isPurchase){
+                    btPrice0.text= "m'utiliser ?"
+                }
+                if(yellowRabbit.isPurchase){
+                    btPrice1.text= "m'utiliser ?"
+                }
+                if(girlRabbit.isPurchase){
+                    btPrice2.text= "m'utiliser ?"
+                }
+                if(cowBoyRabbit.isPurchase){
+                    btPrice3.text= "m'utiliser ?"
+                }
+                if(docRabbit.isPurchase){
+                    btPrice4.text= "m'utiliser ?"
+                }
+                if(princessRabbit.isPurchase){
+                    btPrice5.text= "m'utiliser ?"
+                }
+
+            }else {
+                if(carrots-spacemanRabbit.price<0){
+                    //pas assez de carrotes
+                    //TODO
+                }else {
+                    //actions
+                    carrots -= spacemanRabbit.price
+                    spacemanRabbit.isPurchase=true
+
+                    //affichages
+                    btPrice6.text = "m'utiliser ?"
+                    nbCarrot.text = carrots.toString()
+                    price6.visibility = View.INVISIBLE
+                    imageCarrot6.visibility = View.INVISIBLE
+
+
+                    //sauvegardes
+                    prefs!!.nbCarrots = carrots
+                    prefs!!.skinName = spacemanRabbit.file
+                    prefs!!.shopPurchased6= spacemanRabbit.isPurchase
+
+                }
+            }
+
+
+
+
+        }
 
 
         retour.setOnClickListener {
