@@ -3,8 +3,6 @@ package com.project.wukay.wukayapp.metier
 import java.util.*
 
 class HideAnimalsMetier {
-    private var nombreVictoire =0;
-    private var difficulte = ""
     private var nombreAnimauxATrouver=3;
     private var nombreDeCaseDePlacementX = 3
     private var nombreDeCaseDePlacementY = 3
@@ -26,16 +24,11 @@ class HideAnimalsMetier {
        }
    }
 
-
-
-    public fun getNombreVictoire(): Int{
-        return nombreVictoire
-    }
-    public fun upNombreVictoire(){
-        nombreVictoire=nombreVictoire+1
-    }
     public fun getPlacementX(): IntArray{
         return placementX
+    }
+    public fun getTableauReponse() : IntArray {
+        return tableauReponse
     }
     public fun getPlacementY(): IntArray{
         return placementY
@@ -62,6 +55,7 @@ class HideAnimalsMetier {
     public fun trouveElem(numeroDeLaReponseClique: Int){
         tableauReponse.set(numeroDeLaReponseClique,1)
     }
+
     public fun placementAleatoireDansTableau(){
         var aleatoire = Random()
         var tamponX=-1
@@ -115,9 +109,6 @@ class HideAnimalsMetier {
             decorPlacementY[i]=tamponY
             i++
         }
-
-
-
 
     }
 }

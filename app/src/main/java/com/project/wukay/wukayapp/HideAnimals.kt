@@ -14,7 +14,6 @@ import java.util.*
 
 class HideAnimals : AppCompatActivity() {
     var hideAnimalsHardMetier = HideAnimalsMetier()
-    var hideAnimalsMetier= HideAnimalsMetier()
     var aleatoire = Aleatoire()
     var random=Random()
     var positionX=FloatArray(3)

@@ -5,51 +5,42 @@ import org.junit.Assert
 import org.junit.Test
 
 class HideAnimalsTest {
+
     @Test
-    fun should_return_0_if_we_just_created_the_class(){
+    fun return_true_is_win_if_we_find_3_animals() {
         var test = HideAnimalsMetier()
-
-
-        Assert.assertEquals(0,test.getNombreVictoire())
-
-    }
-    @Test
-    fun should_return_1_if_we_creat_the_class_and_call_the_method_up(){
-        var test = HideAnimalsMetier()
-        test.upNombreVictoire()
-
-        Assert.assertEquals(1,test.getNombreVictoire())
-
-    }
-    @Test
-    fun should_return_true_if_we_creat_the_class_and_call_the_method_up_3_times(){
-        var test = HideAnimalsMetier()
-        test.upNombreVictoire()
-        test.upNombreVictoire()
-        test.upNombreVictoire()
-
+        test.trouveElem(0)
+        test.trouveElem(1)
+        test.trouveElem(2)
+        test.isWin()
         Assert.assertTrue(test.isWin())
-
     }
+
     @Test
-    fun should_return_true_if_we_creat_the_class_and_call_the_method_up_3_timese(){
+    fun return_false_is_we_dont_find_3_animals() {
+        var test = HideAnimalsMetier()
+        test.trouveElem(0)
+        test.isWin()
+        Assert.assertFalse(test.isWin())
+    }
+
+    @Test
+    fun ArrayAnswer_should_be_0() {
         var test = HideAnimalsMetier()
         test.initialisationJeu()
-        test.placementAleatoireDansTableau()
+        Assert.assertEquals(0,test.getTableauReponse().get(0))
+        Assert.assertEquals(0,test.getTableauReponse().get(1))
+        Assert.assertEquals(0,test.getTableauReponse().get(2))
+    }
 
-        var i=0
-        var j=0
-
-        while(i<test.getPlacementX().size){
-            System.out.println(test.getPlacementX()[i])
-            i++
-        }
-        while(j<test.getPlacementY().size){
-            System.out.println(test.getPlacementY()[j])
-            j++
-        }
-
-        Assert.assertTrue(test.isWin())
+    @Test
+    fun ArrayAnswer_should_be_1_Elem_Find(){
+        var test = HideAnimalsMetier()
+        test.initialisationJeu()
+        test.trouveElem(0)
+        Assert.assertEquals(1,test.getTableauReponse().get(0))
+        test.trouveElem(2)
+        Assert.assertEquals(1,test.getTableauReponse().get(2))
 
     }
 
