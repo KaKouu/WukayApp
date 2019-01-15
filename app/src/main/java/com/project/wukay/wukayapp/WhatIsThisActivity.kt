@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.os.Vibrator
 import android.view.MotionEvent
 import android.view.View
-import android.view.animation.TranslateAnimation
 import android.widget.ImageView
 import kotlinx.android.synthetic.main.activity_hard_what_is_this.*
 import kotlinx.android.synthetic.main.activity_what_is_this.*
@@ -134,7 +133,7 @@ class WhatIsThisActivity : AppCompatActivity() {
                         choice1 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser1)
                         tabOfChoice.set(0, choice1)
 
-                        choice2 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser2)
+                        choice2 = randomizeImage(tabOfChoice, arrayAnimal, animalFeed2)
                         tabOfChoice.set(1, choice2)
 
                         choice3 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser3)
@@ -146,9 +145,9 @@ class WhatIsThisActivity : AppCompatActivity() {
                         animalAnwser1.y = m.y - animalAnwser1.height / 2
                     }
                     else{
-                        if(m.x >= animalAnwser2.x && m.x < animalAnwser2.x + animalAnwser2.width && m.y >= animalAnwser2.y && m.y < animalAnwser2.y + animalAnwser2.height) {
-                            animalAnwser2.x = m.x - animalAnwser2.width/2
-                            animalAnwser2.y = m.y - animalAnwser2.height/2
+                        if(m.x >= animalFeed2.x && m.x < animalFeed2.x + animalFeed2.width && m.y >= animalFeed2.y && m.y < animalFeed2.y + animalFeed2.height) {
+                            animalFeed2.x = m.x - animalFeed2.width/2
+                            animalFeed2.y = m.y - animalFeed2.height/2
                         }
                         else{
                             if(m.x >= animalAnwser3.x && m.x < animalAnwser3.x + animalAnwser3.width && m.y >= animalAnwser3.y && m.y < animalAnwser3.y + animalAnwser1.height) {
@@ -172,8 +171,8 @@ class WhatIsThisActivity : AppCompatActivity() {
                             animalPic.visibility = View.INVISIBLE
                             animalAnwser1.x = 0f
                             animalAnwser1.y = 1300f
-                            animalAnwser2.x = 300f
-                            animalAnwser2.y = 1100f
+                            animalFeed2.x = 300f
+                            animalFeed2.y = 1100f
                             animalAnwser3.x = 700f
                             animalAnwser3.y = 1300f
                             //incrementation du nombre d'animal trouvé
@@ -203,7 +202,7 @@ class WhatIsThisActivity : AppCompatActivity() {
                                 tabOfChoice.set(0, choice1)
 
 
-                                choice2 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser2)
+                                choice2 = randomizeImage(tabOfChoice, arrayAnimal, animalFeed2)
                                 tabOfChoice.set(1, choice2)
 
                                 choice3 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser3)
@@ -221,8 +220,8 @@ class WhatIsThisActivity : AppCompatActivity() {
                         }
 
                     }
-                    val hitAnimal2 = (animalPic.x - animalAnwser2.x) * (animalPic.x - animalAnwser2.x) + (animalPic.y - animalAnwser2.y) * (animalPic.y - animalAnwser2.y)
-                    if(hitAnimal2 > (animalPic.width/2 + animalAnwser2.width/2) * (animalPic.width/2 + animalAnwser2.width/2)) {
+                    val hitAnimal2 = (animalPic.x - animalFeed2.x) * (animalPic.x - animalFeed2.x) + (animalPic.y - animalFeed2.y) * (animalPic.y - animalFeed2.y)
+                    if(hitAnimal2 > (animalPic.width/2 + animalFeed2.width/2) * (animalPic.width/2 + animalFeed2.width/2)) {
 
                     }
                     else{
@@ -232,8 +231,8 @@ class WhatIsThisActivity : AppCompatActivity() {
                             animalPic.visibility = View.INVISIBLE
                             animalAnwser1.x = 0f
                             animalAnwser1.y = 1300f
-                            animalAnwser2.x = 300f
-                            animalAnwser2.y = 1100f
+                            animalFeed2.x = 300f
+                            animalFeed2.y = 1100f
                             animalAnwser3.x = 700f
                             animalAnwser3.y = 1300f
                             //incrementation du nombre d'animal trouvé
@@ -263,7 +262,7 @@ class WhatIsThisActivity : AppCompatActivity() {
                                 tabOfChoice.set(0, choice1)
 
 
-                                choice2 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser2)
+                                choice2 = randomizeImage(tabOfChoice, arrayAnimal, animalFeed2)
                                 tabOfChoice.set(1, choice2)
 
                                 choice3 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser3)
@@ -290,8 +289,8 @@ class WhatIsThisActivity : AppCompatActivity() {
                             animalPic.visibility = View.INVISIBLE
                             animalAnwser1.x = 0f
                             animalAnwser1.y = 1300f
-                            animalAnwser2.x = 300f
-                            animalAnwser2.y = 1100f
+                            animalFeed2.x = 300f
+                            animalFeed2.y = 1100f
                             animalAnwser3.x = 700f
                             animalAnwser3.y = 1300f
                             //incrementation du nombre d'animal trouvé
@@ -321,7 +320,7 @@ class WhatIsThisActivity : AppCompatActivity() {
                                 tabOfChoice.set(0, choice1)
 
 
-                                choice2 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser2)
+                                choice2 = randomizeImage(tabOfChoice, arrayAnimal, animalFeed2)
                                 tabOfChoice.set(1, choice2)
 
                                 choice3 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser3)
@@ -521,6 +520,63 @@ class WhatIsThisActivity : AppCompatActivity() {
 
     }
 
+    private fun verifAnimal1(
+        numberWin: Int,
+        numberCarrotsWon: Int,
+        nextAnimal: Intent,
+        arrayAnswerAnimal: Array<Int>,
+        arrayAnimal: Array<Int>,
+        vibratorService: Vibrator
+    ) {
+
+    }
+
+    private fun handleTouch(m: MotionEvent)
+    {
+        if(m.action == MotionEvent.ACTION_MOVE){
+
+            if(m.x >= animalAnwser1.x && m.x < animalAnwser1.x + animalAnwser1.width && m.y >= animalAnwser1.y && m.y < animalAnwser1.y + animalAnwser1.height ) {
+                animalAnwser1.x = m.x - animalAnwser1.width / 2
+                animalAnwser1.y = m.y - animalAnwser1.height / 2
+            }
+            else{
+                if(m.x >= animalFeed2.x && m.x < animalFeed2.x + animalFeed2.width && m.y >= animalFeed2.y && m.y < animalFeed2.y + animalFeed2.height) {
+                    animalFeed2.x = m.x - animalFeed2.width/2
+                    animalFeed2.y = m.y - animalFeed2.height/2
+                }
+                else{
+                    if(m.x >= animalAnwser3.x && m.x < animalAnwser3.x + animalAnwser3.width && m.y >= animalAnwser3.y && m.y < animalAnwser3.y + animalAnwser1.height) {
+                        animalAnwser3.x = m.x - animalAnwser3.width/2
+                        animalAnwser3.y = m.y - animalAnwser3.height/2
+                    }
+                }
+            }
+
+            val hitAnimal1 = (animalPic.x - animalAnwser1.x) * (animalPic.x - animalAnwser1.x) + (animalPic.y - animalAnwser1.y) * (animalPic.y - animalAnwser1.y)
+            if(hitAnimal1 > (animalPic.width/2 + animalAnwser1.width/2) * (animalPic.width/2 + animalAnwser1.width/2)) {
+
+            }
+            else{
+                animalPic.visibility = View.INVISIBLE
+            }
+            val hitAnimal2 = (animalPic.x - animalFeed2.x) * (animalPic.x - animalFeed2.x) + (animalPic.y - animalFeed2.y) * (animalPic.y - animalFeed2.y)
+            if(hitAnimal2 > (animalPic.width/2 + animalFeed2.width/2) * (animalPic.width/2 + animalFeed2.width/2)) {
+
+            }
+            else{
+                animalPic.visibility = View.INVISIBLE
+            }
+            val hitAnimal3 = (animalPic.x - animalAnwser3.x) * (animalPic.x - animalAnwser3.x) + (animalPic.y - animalAnwser3.y) * (animalPic.y - animalAnwser3.y)
+            if((hitAnimal3 > (animalPic.width/2 + animalAnwser3.width/2) * (animalPic.width/2 + animalAnwser3.width/2))) {
+
+            }
+            else{
+                animalPic.visibility = View.INVISIBLE
+            }
+        }
+    }
+
+
     private fun minijeu(
         arrayOfQuestion: Array<String>,
         reponse: Int,
@@ -565,12 +621,12 @@ class WhatIsThisActivity : AppCompatActivity() {
     }
 
 
-    private fun randomizeImage(arrayIndexOfAnswerPicture: IntArray, arrayOfPictures: Array<Int>, view: ImageView): Int {
+    private fun randomizeImage(arrayIndexOfAnswerPicture: IntArray, arrayOfPictures: Array<Int>, view: ImageView): Int  {
         var rand = Random()
         var indexOfAnimalPicture = rand.nextInt(3)
 
         //don't chose an index which has been already chosen
-        while (arrayIndexOfAnswerPicture.contains(indexOfAnimalPicture)) {
+        while (arrayIndexOfAnswerPicture.contains(indexOfAnimalPicture) ) {
             indexOfAnimalPicture = rand.nextInt(3)
 
         }
@@ -580,5 +636,30 @@ class WhatIsThisActivity : AppCompatActivity() {
         return indexOfAnimalPicture
 
     }
+
+    private fun giveRandomPicture(arrayOfAnimalsPicture : Array<Int>):IntArray{
+        var arrayAnswer = IntArray(4)
+        var rand = Random()
+        arrayAnswer.set(0,rand.nextInt(arrayOfAnimalsPicture.size))
+        arrayAnswer.set(1,arrayAnswer.get(0))
+        arrayAnswer.set(2,randomWithNotTheParameters(arrayAnswer.get(0),arrayOfAnimalsPicture.size))
+        arrayAnswer.set(3,randomWithNotTheParameters(arrayAnswer.get(0),arrayOfAnimalsPicture.size))
+
+        return arrayAnswer
+
+    }
+
+    private fun randomWithNotTheParameters(n : Int, bound : Int):Int{
+        var rand = Random()
+        var result=rand.nextInt(bound)
+
+        while(result==n) {
+            result = rand.nextInt(bound)
+        }
+        return result;
+    }
+
+
+
 
 }
