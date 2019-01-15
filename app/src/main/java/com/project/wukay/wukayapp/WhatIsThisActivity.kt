@@ -80,17 +80,16 @@ class WhatIsThisActivity : AppCompatActivity() {
                 "Le chien"
             )
 
-            //var tableauTampon : Array<Int> = arrayOf(0,0,0,0)
-            var choiceOfSilhouette = 0
-            var choice1 = 0
-            var choice2 = 0
-            var choice3 = 0
+            var choiceOfSilhouette: Int
+            var choice1: Int
+            var choice2: Int
+            var choice3: Int
 
             var tableau = IntArray(4)
-            tableau.set(0,0)
-            tableau.set(1,0)
-            tableau.set(2,0)
-            tableau.set(3,0)
+            tableau[0] = 0
+            tableau[1] = 0
+            tableau[2] = 0
+            tableau[3] = 0
 
             var tabOfChoice = IntArray(3)
 
@@ -106,59 +105,51 @@ class WhatIsThisActivity : AppCompatActivity() {
             }
 
             val arrayAnimal = arrayOf(
-                startAnimal.get(index),
-                startAnimal.get(index1),
-                startAnimal.get(index2)
+                startAnimal[index],
+                startAnimal[index1],
+                startAnimal[index2]
             )
 
             val arrayAnswerAnimal = arrayOf(
-                startAnimalAnswer.get(index),
-                startAnimalAnswer.get(index1),
-                startAnimalAnswer.get(index2)
+                startAnimalAnswer[index],
+                startAnimalAnswer[index1],
+                startAnimalAnswer[index2]
             )
 
-            val animation = TranslateAnimation(0f, 0f, 0f, -975f)
-            animation.setDuration(5000)
-            animalAnwser2.startAnimation(animation)
-            curseur.startAnimation(animation)
-            animation.setFillAfter(true)
+
 
             var numberWin=0
-            startButton.setOnClickListener {
+
                 //if(m.x >= startButton.x && m.x < startButton.x + startButton.width && m.y >= startButton.y && m.y < startButton.y + startButton.height){
-                animation.cancel()
-                animation.setFillAfter(false)
-                animalAnwser1.x = 0f
+
+                /*animalAnwser1.x = 0f
                 animalAnwser1.y = 1300f
                 animalAnwser2.x = 300f
                 animalAnwser2.y = 1100f
                 animalAnwser3.x = 700f
                 animalAnwser3.y = 1300f
-                curseur.visibility = View.INVISIBLE
-                System.out.println(numberWin)
-                startButton.visibility = View.INVISIBLE
-                arrow.visibility = View.INVISIBLE
-                resultat.setText("")
+                resultat.setText("")*/
 
                 ////SILHOUETTE
-                choiceOfSilhouette = randomizeImage(tabOfChoice, arrayAnswerAnimal, animalPic)
+            choiceOfSilhouette = randomizeImage(tabOfChoice, arrayAnswerAnimal, animalPic)
 
-                tabOfChoice.set(0, choiceOfSilhouette)
-                tabOfChoice.set(1, 10)
-                tabOfChoice.set(2, 10)
+            tabOfChoice[0] = choiceOfSilhouette
+            tabOfChoice[1] = 10
+            tabOfChoice[2] = 10
 
                 ////ANSWER
-                choice1 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser1)
-                tabOfChoice.set(0, choice1)
+            choice1 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser1)
+            tabOfChoice[0] = choice1
 
-                choice2 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser2)
-                tabOfChoice.set(1, choice2)
+            choice2 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser2)
+            tabOfChoice[1] = choice2
 
-                choice3 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser3)
-                tabOfChoice.set(2, choice3)
-            }
+            choice3 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser3)
+            tabOfChoice[2] = choice3
+
             animalAns.visibility = View.INVISIBLE
             nameAnimal.visibility = View.INVISIBLE
+
             WhatIsThisActivity.setOnTouchListener { v: View,m: MotionEvent ->
                 if(m.action == MotionEvent.ACTION_MOVE){
 
@@ -587,9 +578,9 @@ class WhatIsThisActivity : AppCompatActivity() {
         }
         memoAnimauxChoisi.set(ouMettreLaReponse, reponse)
 
-        answer1.setImageResource(arrayOfAnimalsPicture[memoAnimauxChoisi.get(0)])
-        answer2.setImageResource(arrayOfAnimalsPicture[memoAnimauxChoisi.get(1)])
-        answer3.setImageResource(arrayOfAnimalsPicture[memoAnimauxChoisi.get(2)])
+        answer1.setImageResource(arrayOfAnimalsPicture[memoAnimauxChoisi[0]])
+        answer2.setImageResource(arrayOfAnimalsPicture[memoAnimauxChoisi[1]])
+        answer3.setImageResource(arrayOfAnimalsPicture[memoAnimauxChoisi[2]])
     }
 
 

@@ -184,7 +184,7 @@ class LevelsActivity : AppCompatActivity() {
 
                 when (randomGame) {
                     0 -> {
-                        val nextGame = Intent(this@LevelsActivity, WhatIsThisActivity::class.java)
+                        val nextGame = Intent(this@LevelsActivity, WhatIsThisAnimalTutoActivity::class.java)
                         nextGame.putExtra("difficulty", difficulty)
                         startActivity(nextGame)
                     }
