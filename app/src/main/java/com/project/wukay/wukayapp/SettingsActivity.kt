@@ -67,6 +67,10 @@ class SettingsActivity : AppCompatActivity(){
             startActivity(previousPage)
         }
 
+        switch_vibration.setOnCheckedChangeListener { buttonView, isChecked ->
+            textVibration.text=""+isChecked
+        }
+
         //DATA SAVING
         prefs!!.volume=volumeAppli
     }

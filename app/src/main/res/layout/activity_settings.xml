@@ -13,10 +13,6 @@
             android:layout_width="212dp"
             android:layout_height="50dp"
             android:id="@+id/volumeBar"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/testSon"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -24,15 +20,16 @@
             android:padding="8dp"
             android:splitTrack="false"
             android:progressDrawable="@drawable/custom_seekbar"
-            android:thumb="@drawable/custom_thumb"/>
+            android:thumb="@drawable/custom_thumb" android:layout_marginTop="160dp"
+            app:layout_constraintTop_toTopOf="parent"/>
 
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/testSon" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/volumeBar"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" tools:text="testson"/>
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" android:layout_marginBottom="72dp"
+            app:layout_constraintBottom_toBottomOf="parent" tools:text="testson"
+            app:layout_constraintHorizontal_bias="0.1"/>
     <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp" app:srcCompat="@drawable/icone_fleche_retour"
@@ -88,5 +85,24 @@
             android:layout_marginStart="8dp" android:textSize="36sp" android:fontFamily="@font/grobold"
             app:layout_constraintVertical_bias="0.0"
             android:textColor="@android:color/holo_orange_light" android:textAlignment="center"/>
+    <Switch
+            android:layout_width="212dp"
+            android:layout_height="50dp"
+            android:id="@+id/switch_vibration" android:layout_marginBottom="200dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="84dp"
+            style="@style/SwitchCompatStyle"
+            android:theme="@style/SwitchCompatTheme"
+            android:switchMinWidth="150dp"
+            android:scaleX="1.5"
+            android:scaleY="1.6"
+            android:padding="30dp"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textVibration" android:layout_marginBottom="152dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="172dp"/>
 
 </android.support.constraint.ConstraintLayout>
