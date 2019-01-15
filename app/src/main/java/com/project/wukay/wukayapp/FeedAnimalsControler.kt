@@ -15,12 +15,17 @@ import java.util.*
 class FeedAnimalsControler : AppCompatActivity() {
     private var feedAnimalsModel = FeedAnimalsModel()
     private var random= Random()
+    private var position = FloatArray(3)
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_feed_animals)
         feedAnimalsModel.beginGame()
-
+        position.set(0,0f)
+        position.set(0,200f)
+        position.set(0,600f)
         feedAnimalLayout.setOnTouchListener { v: View, m: MotionEvent ->
             handleTouch(m)
             true
@@ -67,6 +72,13 @@ class FeedAnimalsControler : AppCompatActivity() {
         food1.setImageResource(listOfFood[feedAnimalsModel.getBoardOfAnimals()[0]])
         food2.setImageResource(listOfFood[feedAnimalsModel.getBoardOfAnimals()[1]])
         food3.setImageResource(listOfFood[feedAnimalsModel.getBoardOfAnimals()[2]])
+
+        bucket1.x=position[feedAnimalsModel.getBoardOfPosition().get(0)]
+        bucket1.x=position[feedAnimalsModel.getBoardOfPosition().get(1)]
+        bucket1.x=position[feedAnimalsModel.getBoardOfPosition().get(2)]
+        animalFeed1.x=position[feedAnimalsModel.getBoardOfPosition().get(0)]
+        animalFeed2.x=position[feedAnimalsModel.getBoardOfPosition().get(1)]
+        animalFeed3.x=position[feedAnimalsModel.getBoardOfPosition().get(2)]
     }
     private fun handleTouch(m: MotionEvent){
         if(m.action == MotionEvent.ACTION_MOVE) {

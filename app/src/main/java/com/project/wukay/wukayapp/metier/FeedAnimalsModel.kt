@@ -6,10 +6,10 @@ class FeedAnimalsModel {
     private var numberOfAnimals = 3
     private var numberOfFood = 3
     private var numberOfAnimalPictures = 10
-
-
+    private var position=FloatArray(3)
     private var boardOfIsEaten = IntArray(numberOfFood)
     private var boardOfElements = IntArray(numberOfAnimals)
+    private var boardOfPosition = IntArray(numberOfAnimals)
 
     public fun getBoardOfFood():IntArray{
         return boardOfIsEaten
@@ -18,18 +18,23 @@ class FeedAnimalsModel {
     public fun getBoardOfAnimals():IntArray{
         return boardOfElements
     }
+    public fun getBoardOfPosition():IntArray{
+        return boardOfPosition
+    }
 
     public fun beginGame(){
         var i =0
         while(i<numberOfAnimals){
             boardOfIsEaten.set(i,0)
             boardOfElements.set(i,-1)
+            boardOfPosition.set(i,-1)
             i++
         }
     }
     public fun generateAnimalsAndFood(){
         var aleatoire = Random()
         var tamponX= -1
+        var tamponY= -1
 
         var i=0
 
@@ -37,12 +42,19 @@ class FeedAnimalsModel {
 
             tamponX = aleatoire.nextInt(numberOfAnimalPictures)
             boardOfElements.set(i,tamponX)
+            tamponY = aleatoire.nextInt(numberOfAnimals)
+            boardOfPosition.set(i,tamponY)
 
             while(boardOfElements.contains(tamponX)){
                 tamponX = aleatoire.nextInt(numberOfAnimalPictures)
 
             }
+            while(boardOfPosition.contains(tamponY)){
+                tamponY = aleatoire.nextInt(numberOfAnimals)
+
+            }
             boardOfElements.set(i,tamponX)
+            boardOfPosition.set(i,tamponY)
 
 
             i++

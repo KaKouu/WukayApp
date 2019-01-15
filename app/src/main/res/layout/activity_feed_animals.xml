@@ -17,7 +17,7 @@
             android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintVertical_bias="0.273"
-            app:layout_constraintHorizontal_bias="1.0"/>
+            app:layout_constraintHorizontal_bias="0.0"/>
     <ImageView
             android:layout_width="109dp"
             android:layout_height="117dp"
@@ -35,8 +35,8 @@
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
             android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.497" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.018"/>
+            app:layout_constraintHorizontal_bias="0.034" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.02"/>
     <ImageView
             android:layout_width="127dp"
             android:layout_height="120dp" app:srcCompat="@drawable/animaux_lion"
@@ -44,8 +44,8 @@
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.011" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="1.0"/>
+            app:layout_constraintVertical_bias="0.02" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.032"/>
     <ImageView
             android:layout_width="124dp"
             android:layout_height="106dp" app:srcCompat="@drawable/panier_nourriture"
@@ -62,8 +62,8 @@
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintVertical_bias="0.278"
-            app:layout_constraintHorizontal_bias="0.502"/>
+            android:layout_marginEnd="8dp" app:layout_constraintVertical_bias="0.271"
+            app:layout_constraintHorizontal_bias="0.0"/>
     <ImageView
             android:layout_width="114dp"
             android:layout_height="97dp" app:srcCompat="@drawable/icon_carrot"
