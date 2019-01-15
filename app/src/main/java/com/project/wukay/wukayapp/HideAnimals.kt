@@ -136,6 +136,7 @@ class HideAnimals : AppCompatActivity() {
 
 
     }
+
     private fun handleTouch(m: MotionEvent){
         if(difficulty=="hard"){
             if(m.action == MotionEvent.ACTION_MOVE) {
@@ -147,22 +148,26 @@ class HideAnimals : AppCompatActivity() {
 
 
                 }
-                if (m.x >= arbre.x && m.x < arbre.x + herbe.width && m.y >= arbre.y && m.y < arbre.y + arbre.height) {
+                else{
+                    if (m.x >= arbre.x && m.x < arbre.x + herbe.width && m.y >= arbre.y && m.y < arbre.y + arbre.height) {
 
-                    arbre.x = m.x - arbre.width / 2
-                    arbre.y = m.y - arbre.height / 2
+                        arbre.x = m.x - arbre.width / 2
+                        arbre.y = m.y - arbre.height / 2
 
 
+                    }
+                    else{
+                        if (m.x >= rocher.x && m.x < rocher.x + rocher.width && m.y >= rocher.y && m.y < rocher.y + rocher.height) {
+
+                            rocher.x = m.x - rocher.width / 2
+                            rocher.y = m.y - rocher.height / 2
+
+
+                        }
+                    }
                 }
-                if (m.x >= rocher.x && m.x < rocher.x + rocher.width && m.y >= rocher.y && m.y < rocher.y + rocher.height) {
-
-                    rocher.x = m.x - rocher.width / 2
-                    rocher.y = m.y - rocher.height / 2
-
-
-                }
-
             }
+
             if(m.action == MotionEvent.ACTION_DOWN){
                 if (m.x >= answer1Hide.x && m.x < answer1Hide.x + answer1Hide.width && m.y >= answer1Hide.y && m.y < answer1Hide.y + answer1Hide.height) {
                     if(answer1Hide.x >= herbe.x && answer1Hide.x + answer1Hide.width < herbe.x + herbe.width && answer1Hide.y >= herbe.y && answer1Hide.y + answer1Hide.height< herbe.y + herbe.height){
