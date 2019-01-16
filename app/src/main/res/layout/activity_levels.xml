@@ -14,7 +14,7 @@
             android:layout_height="match_parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="1.0" app:layout_constraintVertical_bias="0.0">
+            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="1.0">
 
         <ScrollView
                 android:layout_width="match_parent"
@@ -75,6 +75,18 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" app:srcCompat="@drawable/hud_levels2"
+                            android:id="@+id/imageView2" android:layout_alignParentEnd="true"
+                            android:layout_alignParentTop="true" android:layout_marginEnd="0dp"
+                            android:layout_marginTop="0dp"/>
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" app:srcCompat="@drawable/hud_levels"
+                            android:id="@+id/hud1" android:layout_alignParentTop="true"
+                            android:layout_alignEnd="@+id/lifeText" android:layout_marginTop="0dp"
+                            android:layout_marginEnd="-19dp"/>
                     <TextView
                             android:text="140"
                             android:layout_width="wrap_content"
@@ -89,18 +101,12 @@
                             android:layout_alignParentEnd="true" android:layout_alignParentTop="true"
                             android:layout_alignParentBottom="true"/>
                     <ImageView
-                            android:layout_width="63dp"
-                            android:layout_height="35dp" app:srcCompat="@drawable/icon_life"
-                            android:id="@+id/iconLife" android:layout_toEndOf="@+id/lifeText"
-                            android:layout_marginStart="-27dp" android:layout_alignParentTop="true"
-                            android:layout_marginTop="5dp"/>
-                    <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent" app:srcCompat="@drawable/icone_shop2"
                             android:id="@+id/shopIcone"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintEnd_toStartOf="@+id/numberCarrots"
-                            android:layout_marginEnd="2dp" app:layout_constraintStart_toEndOf="@+id/lifeText"
+                            android:layout_marginEnd="7dp" app:layout_constraintStart_toEndOf="@+id/lifeText"
                             android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.925"
                             android:layout_marginBottom="0dp" app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintVertical_bias="0.0" android:layout_marginTop="0dp"
@@ -136,9 +142,9 @@
                             android:layout_height="51dp" app:srcCompat="@drawable/icone_fleche_retour"
                             android:id="@+id/imageRetour"
                             app:layout_constraintStart_toStartOf="parent"
-                            android:layout_marginStart="6dp" app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_marginStart="0dp" app:layout_constraintEnd_toEndOf="parent"
                             android:layout_marginEnd="8dp"
-                            android:layout_marginTop="1dp" app:layout_constraintTop_toTopOf="parent"
+                            android:layout_marginTop="12dp" app:layout_constraintTop_toTopOf="parent"
                             android:layout_marginBottom="8dp"
                             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintVertical_bias="0.054" android:layout_alignParentTop="true"
@@ -153,6 +159,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
+                    <ImageView
+                            android:layout_width="133dp"
+                            android:layout_height="wrap_content" app:srcCompat="@drawable/hud_levels3"
+                            android:id="@+id/imageView3" android:layout_alignBottom="@+id/testCarrotes2"
+                            android:layout_alignStart="@+id/levelCounter" android:layout_marginStart="-24dp"
+                            android:layout_marginBottom="-73dp"/>
                     <TextView
                             android:text=" = 0"
                             android:layout_width="125dp"
