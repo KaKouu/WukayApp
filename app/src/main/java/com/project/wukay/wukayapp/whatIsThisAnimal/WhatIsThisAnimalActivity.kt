@@ -186,7 +186,7 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                     }
 
                     val hitAnimal1 = (animalPic.x - animalAnwser1.x) * (animalPic.x - animalAnwser1.x) + (animalPic.y - animalAnwser1.y) * (animalPic.y - animalAnwser1.y)
-                    if(hitAnimal1 > (animalPic.width/32  + animalAnwser1.width/32 ) * (animalPic.width/32  + animalAnwser1.width/32 )) {
+                    if(hitAnimal1 > (animalPic.width/12  + animalAnwser1.width/12 ) * (animalPic.width/12  + animalAnwser1.width/12 )) {
 
                     }
                     else{
@@ -257,7 +257,7 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                     }
 
                     val hitAnimal2 = (animalPic.x - animalAnwser2.x) * (animalPic.x - animalAnwser2.x) + (animalPic.y - animalAnwser2.y) * (animalPic.y - animalAnwser2.y)
-                    if(hitAnimal2 > (animalPic.width/32 + animalAnwser2.width/32) * (animalPic.width/32 + animalAnwser2.width/32)) {
+                    if(hitAnimal2 > (animalPic.width/12 + animalAnwser2.width/12) * (animalPic.width/12 + animalAnwser2.width/12)) {
 
                     }
                     else{
@@ -324,7 +324,7 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                         }
                     }
                     val hitAnimal3 = (animalPic.x - animalAnwser3.x) * (animalPic.x - animalAnwser3.x) + (animalPic.y - animalAnwser3.y) * (animalPic.y - animalAnwser3.y)
-                    if((hitAnimal3 > (animalPic.width/32  + animalAnwser3.width/32 ) * (animalPic.width/32  + animalAnwser3.width/32 ))) {
+                    if((hitAnimal3 > (animalPic.width/12  + animalAnwser3.width/12 ) * (animalPic.width/12  + animalAnwser3.width/12 ))) {
 
                     }
                     else{
