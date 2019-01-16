@@ -257,6 +257,8 @@ class LevelsActivity : AppCompatActivity() {
     override fun onPause() {
         super.onPause()
 
+
+
             //ACTUAL CALENDAR WHEN THE USER REOPEN THE APP ///
             var actualCalendar: Calendar = Calendar.getInstance()
             var actualSeconds = actualCalendar.timeInMillis

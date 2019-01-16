@@ -33,7 +33,6 @@ class HomeActivity : AppCompatActivity() {
         player.isLooping = true
         player.start()
 
-
         prefs = Prefs(this)
         var skinName = prefs!!.skinName
 
