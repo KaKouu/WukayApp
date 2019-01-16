@@ -5,13 +5,16 @@ import android.media.MediaPlayer
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.KeyEvent
-import com.project.wukay.wukayapp.IHM.ChoixDifficulte
 import com.project.wukay.wukayapp.IHM.DifficultyActivity
 import com.project.wukay.wukayapp.metier.Partie
+
 import com.project.wukay.wukayapp.util.Prefs
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
+
+
+    private lateinit var player :MediaPlayer
 
     private var prefs: Prefs? = null
 
@@ -26,18 +29,17 @@ class HomeActivity : AppCompatActivity() {
         var controler= Controler(this, Partie("null"))
         setContentView(R.layout.activity_home)
 
-        val music  = MediaPlayer.create(this, R.raw.wukay_music)
+        player = MediaPlayer.create(this, R.raw.wukay_music)
+        player.isLooping = true
+        player.start()
+
 
         prefs = Prefs(this)
         var skinName = prefs!!.skinName
 
-
-
         imageLapinou.setImageResource(skinName)
 
-
-
-        music.start()
+        player.start()
 
 
         startButton.setOnClickListener{
@@ -49,7 +51,7 @@ class HomeActivity : AppCompatActivity() {
             //prefs!!.skinName=R.drawable.skin_lapinou
             prefs!!.skinName=skinName
             //System.out.println(R.drawable.skin_lapinou)
-            System.out.println("SAVE SKIN :" + skinName)
+            System.out.println("SAVE SKIN :$skinName")
 
 
 
@@ -57,5 +59,7 @@ class HomeActivity : AppCompatActivity() {
 
         }
     }
+
+
 
 }
