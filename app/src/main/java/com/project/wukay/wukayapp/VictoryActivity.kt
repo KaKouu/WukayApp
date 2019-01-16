@@ -47,7 +47,6 @@ class VictoryActivity : AppCompatActivity() {
             next.putExtra("carotsWon",nbCarrots)
             next.putExtra("isLastActivityIsAGame",true)
             startActivity(next)
-
         }
 
     }
