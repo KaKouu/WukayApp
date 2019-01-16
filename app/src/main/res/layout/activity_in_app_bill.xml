@@ -22,12 +22,13 @@
     <ImageView
             android:layout_width="163dp"
             android:layout_height="189dp" app:srcCompat="@drawable/panier_nourriture"
-            android:id="@+id/imageView10" android:layout_marginTop="144dp"
+            android:id="@+id/imageView10" android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.039"
-    />
+            android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.004"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.395"/>
     <ImageView
             android:layout_width="163dp"
             android:layout_height="189dp" app:srcCompat="@drawable/panier_nourriture"
