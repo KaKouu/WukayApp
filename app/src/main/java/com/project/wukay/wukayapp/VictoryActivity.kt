@@ -40,13 +40,15 @@ class VictoryActivity : AppCompatActivity() {
 
         val difficulty = intent.getStringExtra("difficulty")
 
-        Timer().schedule(1000) {
+        layoutVictory.setOnClickListener{
+
             val next = Intent( this@VictoryActivity, LevelsActivity::class.java)
             next.putExtra("difficulty",difficulty)
             next.putExtra("carotsWon",nbCarrots)
             next.putExtra("isLastActivityIsAGame",true)
-
             startActivity(next)
+
         }
+
     }
 }
