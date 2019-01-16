@@ -162,12 +162,13 @@ class LevelsActivity : AppCompatActivity() {
         }
 
         testLife.setOnClickListener {
-            nbLife=nbLife -1
+            nbLife = 10
             setTxtLife(lifeText,nbLife)
         }
 
-        scrollTest.setOnClickListener {
-            levelsScroll.scrollTo(3000,3000)
+        testLife2.setOnClickListener {
+            nbLife -=1
+            setTxtLife(lifeText,nbLife)
         }
 
         imageRetour.setOnClickListener{
@@ -176,9 +177,15 @@ class LevelsActivity : AppCompatActivity() {
         }
 
         playButton.setOnClickListener {
-            if (nbLife == 0) {
-                heart.visibility = View.VISIBLE
+            if (nbLife <= 0) {
+               /* heart.visibility = View.VISIBLE
                 numberOfLife.visibility = View.VISIBLE
+
+                Timer().schedule(1000) {
+                    heart.visibility = View.INVISIBLE
+                    numberOfLife.visibility = View.INVISIBLE
+
+                }*/
             }
             else {
                 var randomGame = Random().nextInt(1)
@@ -210,11 +217,7 @@ class LevelsActivity : AppCompatActivity() {
                     }
                 }
             }
-            Timer().schedule(1000) {
-                heart.visibility = View.INVISIBLE
-                numberOfLife.visibility = View.INVISIBLE
 
-            }
 
         }
 
