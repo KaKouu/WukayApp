@@ -137,18 +137,6 @@
                             app:layout_constraintVertical_bias="0.0" android:layout_alignParentTop="true"
                             android:layout_toStartOf="@+id/shopIcone" android:layout_alignParentBottom="true"
                             android:layout_alignParentStart="true"/>
-                    <ImageView
-                            android:layout_width="27dp"
-                            android:layout_height="51dp" app:srcCompat="@drawable/icone_fleche_retour"
-                            android:id="@+id/imageRetour"
-                            app:layout_constraintStart_toStartOf="parent"
-                            android:layout_marginStart="0dp" app:layout_constraintEnd_toEndOf="parent"
-                            android:layout_marginEnd="8dp"
-                            android:layout_marginTop="12dp" app:layout_constraintTop_toTopOf="parent"
-                            android:layout_marginBottom="8dp"
-                            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.0"
-                            app:layout_constraintVertical_bias="0.054" android:layout_alignParentTop="true"
-                            android:layout_alignParentStart="true"/>
                 </RelativeLayout>
             </LinearLayout>
             <LinearLayout
@@ -160,10 +148,22 @@
                         android:layout_height="match_parent">
 
                     <ImageView
-                            android:layout_width="133dp"
+                            android:layout_width="42dp"
+                            android:layout_height="37dp" app:srcCompat="@drawable/icone_fleche_retour"
+                            android:id="@+id/imageRetour"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginStart="2dp" app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginTop="2dp" app:layout_constraintTop_toTopOf="parent"
+                            android:layout_marginBottom="8dp"
+                            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintVertical_bias="0.054" android:layout_alignParentTop="true"
+                            android:layout_alignParentStart="true"/>
+                    <ImageView
+                            android:layout_width="120dp"
                             android:layout_height="wrap_content" app:srcCompat="@drawable/hud_levels3"
                             android:id="@+id/imageView3" android:layout_alignBottom="@+id/testCarrotes2"
-                            android:layout_alignStart="@+id/levelCounter" android:layout_marginStart="-24dp"
+                            android:layout_alignStart="@+id/levelCounter" android:layout_marginStart="-16dp"
                             android:layout_marginBottom="-73dp"/>
                     <TextView
                             android:text=" = 0"
@@ -179,10 +179,10 @@
                             android:layout_width="125dp"
                             android:layout_height="wrap_content" android:id="@+id/levelCounter"
                             android:layout_alignParentBottom="true" android:layout_marginBottom="9dp"
-                            android:layout_alignParentStart="true" android:layout_marginStart="125dp"
+                            android:layout_alignParentStart="true" android:layout_marginStart="16dp"
                             android:fontFamily="@font/grobold" android:textSize="18sp"
                             android:textColor="@color/colorPrimaryDark" android:layout_toStartOf="@+id/playButton"
-                            android:layout_marginEnd="16dp"/>
+                            android:layout_marginEnd="125dp"/>
                     <Button
                             android:text="Full Life"
                             android:layout_width="wrap_content"
@@ -235,9 +235,9 @@
                     <ImageView
                             android:layout_width="50dp"
                             android:layout_height="40dp" app:srcCompat="@drawable/ic_parameter"
-                            android:layout_alignParentStart="true" android:layout_marginStart="6dp"
+                            android:layout_alignParentStart="true" android:layout_marginStart="1dp"
                             android:layout_alignParentTop="true" android:id="@+id/button_settings"
-                            android:layout_marginTop="459dp"/>
+                            android:layout_marginTop="70dp"/>
                     <Button
                             android:text="scroll"
                             android:layout_width="wrap_content"
