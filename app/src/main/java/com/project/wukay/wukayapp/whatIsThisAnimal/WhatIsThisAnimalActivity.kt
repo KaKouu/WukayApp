@@ -244,7 +244,10 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
 
                         } else {
                             //vibration de defaite +texte
+
                             vibratorService.vibrate(100)
+                            animalAnwser1.x = 0f
+                            animalAnwser1.y = 1300f
                             resultat.text = "Essaye encore !"
                             if (numberCarrotsWon1 > 1) {
                                 numberCarrotsWon1 -= 1
@@ -312,6 +315,8 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                         } else {
                             //vibration de defaite +texte
                             vibratorService.vibrate(100)
+                            animalAnwser2.x = 300f
+                            animalAnwser2.y = 1100f
                             resultat.text = "Essaye encore !"
                             if (numberCarrotsWon1 > 1) {
                                 numberCarrotsWon1 -= 1
@@ -377,6 +382,8 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                         else {
                             //vibration de defaite +texte
                             vibratorService.vibrate(100)
+                            animalAnwser3.x = 700f
+                            animalAnwser3.y = 1300f
                             resultat.text = "Essaye encore !"
                             if (numberCarrotsWon1 > 1) {
                                 numberCarrotsWon1 -= 1
