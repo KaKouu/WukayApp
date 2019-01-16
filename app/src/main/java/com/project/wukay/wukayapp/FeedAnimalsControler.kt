@@ -88,7 +88,7 @@ class FeedAnimalsControler : AppCompatActivity() {
                    //food1.setImageDrawable(null);
                    food1.x=-500f
                    food1.y=-500f
-                   feedAnimalsModel.getBoardOfFood().set(0,1)
+                   feedAnimalsModel.animalWasFeed(0)
                    if(feedAnimalsModel.isWin()){
                        val nextAnimal = Intent(this@FeedAnimalsControler, VictoryActivity::class.java)
                        nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
@@ -110,7 +110,7 @@ class FeedAnimalsControler : AppCompatActivity() {
 
                         food2.x=-500f
                         food2.y=-500f
-                        feedAnimalsModel.getBoardOfFood().set(1,1)
+                        feedAnimalsModel.animalWasFeed(1)
                         if(feedAnimalsModel.isWin()){
                             val nextAnimal = Intent(this@FeedAnimalsControler, VictoryActivity::class.java)
                             nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
@@ -132,7 +132,7 @@ class FeedAnimalsControler : AppCompatActivity() {
 
                             food3.x=-500f
                             food3.y=-500f
-                            feedAnimalsModel.getBoardOfFood().set(2,1)
+                            feedAnimalsModel.animalWasFeed(2)
                             if(feedAnimalsModel.isWin()){
                                 val nextAnimal = Intent(this@FeedAnimalsControler, VictoryActivity::class.java)
                                 nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
