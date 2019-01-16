@@ -20,6 +20,11 @@
         <item name="android:windowCloseOnTouchOutside">true</item>
     </style>
 
+    <style name="AppTheme.AnimalPop">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+    </style>
+
     <style name="SwitchCompatTheme" >
         <item name="colorControlActivated">#FFA500</item>
     </style>

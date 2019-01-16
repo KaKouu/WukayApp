@@ -9,9 +9,9 @@
             android:hardwareAccelerated="false"
             android:icon="@mipmap/lapin_lauch_ic"
             android:label="@string/app_name"
+            android:largeHeap="true"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
-            android:largeHeap="true"
             android:theme="@style/AppTheme">
         <activity
                 android:name=".HomeActivity"
@@ -77,6 +77,10 @@
         <activity android:name=".whatIsThisAnimal.WhatIsThisAnimalTutoActivity">
         </activity>
         <activity android:name=".whatIsThisAnimal.WhatIsThisAnimalHardTutoActivity">
+        </activity>
+        <activity android:name=".PopUpAnimalFind"
+        android:theme="@style/AppTheme.AnimalPop">
+
         </activity>
     </application>
 

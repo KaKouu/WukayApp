@@ -9,6 +9,8 @@ import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.View
 import android.widget.ImageView
+import com.project.wukay.wukayapp.LifePopActivity
+import com.project.wukay.wukayapp.PopUpAnimalFind
 import com.project.wukay.wukayapp.R
 import com.project.wukay.wukayapp.VictoryActivity
 import kotlinx.android.synthetic.main.activity_hard_what_is_this.*
@@ -75,7 +77,7 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                 "L'âne",
                 "Le bouc",
                 "Le chat",
-                "L'ecureil",
+                "L'écureil",
                 "Le lama",
                 "L'éléphant",
                 "Le chien"
@@ -117,6 +119,12 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                 startAnimalAnswer[index2]
             )
 
+            val arrayNameChoose = arrayOf(
+                arrayNameAnimal[index],
+                arrayNameAnimal[index1],
+                arrayNameAnimal[index2]
+            )
+
             var numberWin=0
 
                 ////SILHOUETTE
@@ -135,9 +143,6 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
 
             choice3 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser3)
             tabOfChoice[2] = choice3
-
-            animalAns.visibility = View.INVISIBLE
-            nameAnimal.visibility = View.INVISIBLE
 
 
             WhatIsThisActivity.setOnTouchListener { v: View,m: MotionEvent ->
@@ -168,11 +173,7 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
 
                         var numberCarrotsWon1 = numberCarrotsWon
                         if (isTheCorrectAnswer(choiceOfSilhouette, tabOfChoice, 0)) {
-                            animalAns.setImageResource(startAnimal[6])
-                            nameAnimal.text = arrayNameAnimal[6]
-                            animalPic.visibility = View.INVISIBLE
-                            animalAns.visibility = View.VISIBLE
-                            nameAnimal.visibility = View.VISIBLE
+
                             animalAnwser1.x = 0f
                             animalAnwser1.y = 1300f
                             animalAnwser2.x = 300f
@@ -182,6 +183,10 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                             //incrementation du nombre d'animal trouvé
                             resultat.text = ""
                             numberWin += 1
+                            val popIntent = Intent(applicationContext, PopUpAnimalFind::class.java)
+                            popIntent.putExtra("animalFind",arrayAnimal[choiceOfSilhouette])
+                            popIntent.putExtra("animalNameFind",arrayNameChoose[choiceOfSilhouette])
+                            startActivity(popIntent)
                             //fin du mini jeux
                             if (numberWin == 3) {
                                 var numberCarrotsWonText = numberCarrotsWon1.toString()
@@ -192,14 +197,11 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                             } else {
 
                                 ////SILHOUETTE
-                                sleep(3000)
                                 tabOfChoice[0] = choiceOfSilhouette
                                 tabOfChoice[1] = 10
                                 tabOfChoice[2] = 10
 
                                 choiceOfSilhouette = randomizeImage(tabOfChoice, arrayAnswerAnimal, animalPic)
-                                //animalAns.visibility = View.INVISIBLE
-                                //animalPic.visibility = View.VISIBLE
 
                                 ////AWNSER
                                 choice1 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser1)
@@ -223,6 +225,7 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                         }
 
                     }
+
                     val hitAnimal2 = (animalPic.x - animalAnwser2.x) * (animalPic.x - animalAnwser2.x) + (animalPic.y - animalAnwser2.y) * (animalPic.y - animalAnwser2.y)
                     if(hitAnimal2 > (animalPic.width/2 + animalAnwser2.width/2) * (animalPic.width/2 + animalAnwser2.width/2)) {
 
@@ -231,11 +234,7 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
 
                         var numberCarrotsWon1 = numberCarrotsWon
                         if (isTheCorrectAnswer(choiceOfSilhouette, tabOfChoice, 1)) {
-                            animalAns.setImageResource(startAnimal[6])
-                            nameAnimal.text = arrayNameAnimal[6]
-                            animalPic.visibility = View.INVISIBLE
-                            animalAns.visibility = View.VISIBLE
-                            nameAnimal.visibility = View.VISIBLE
+
                             animalAnwser1.x = 0f
                             animalAnwser1.y = 1300f
                             animalAnwser2.x = 300f
@@ -246,7 +245,10 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                             resultat.text = ""
                             numberWin += 1
                             System.out.println("NOMBRE WIN : " + numberWin)
-
+                            val popIntent = Intent(applicationContext, PopUpAnimalFind::class.java)
+                            popIntent.putExtra("animalFind",arrayAnimal[choiceOfSilhouette])
+                            popIntent.putExtra("animalNameFind",arrayNameChoose[choiceOfSilhouette])
+                            startActivity(popIntent)
                             //fin du mini jeux
                             if (numberWin == 3) {
                                 var numberCarrotsWonText = numberCarrotsWon1.toString()
@@ -255,15 +257,12 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
 
                                 //prochain animal à deviner
                             } else {
-                                sleep(3000)
                                 ////SILHOUETTE
                                 tabOfChoice[0] = choiceOfSilhouette
                                 tabOfChoice[1] = 10
                                 tabOfChoice[2] = 10
 
                                 choiceOfSilhouette = randomizeImage(tabOfChoice, arrayAnswerAnimal, animalPic)
-                                //animalAns.visibility = View.INVISIBLE
-                                //animalPic.visibility = View.VISIBLE
 
                                 ////AWNSER
                                 choice1 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser1)
@@ -294,11 +293,7 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                     else{
                         var numberCarrotsWon1 = numberCarrotsWon
                         if (isTheCorrectAnswer(choiceOfSilhouette, tabOfChoice, 2)) {
-                            animalAns.setImageResource(startAnimal[6])
-                            nameAnimal.text = arrayNameAnimal[6]
-                            animalPic.visibility = View.INVISIBLE
-                            animalAns.visibility = View.VISIBLE
-                            nameAnimal.visibility = View.VISIBLE
+
                             animalAnwser1.x = 0f
                             animalAnwser1.y = 1300f
                             animalAnwser2.x = 300f
@@ -309,7 +304,10 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                             resultat.text = ""
                             numberWin += 1
                             System.out.println("NOMBRE WIN : " + numberWin)
-
+                            val popIntent = Intent(applicationContext, PopUpAnimalFind::class.java)
+                            popIntent.putExtra("animalFind",arrayAnimal[choiceOfSilhouette])
+                            popIntent.putExtra("animalNameFind",arrayNameChoose[choiceOfSilhouette])
+                            startActivity(popIntent)
                             //fin du mini jeux
                             if (numberWin == 3) {
                                 var numberCarrotsWonText = numberCarrotsWon1.toString()
@@ -318,15 +316,12 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
 
                                 //prochain animal à deviner
                             } else {
-                                sleep(3000)
                                 ////SILHOUETTE
                                 tabOfChoice[0] = choiceOfSilhouette
                                 tabOfChoice[1] = 10
                                 tabOfChoice[2] = 10
 
                                 choiceOfSilhouette = randomizeImage(tabOfChoice, arrayAnswerAnimal, animalPic)
-                                //animalAns.visibility = View.INVISIBLE
-                                //animalPic.visibility = View.VISIBLE
 
                                 ////AWNSER
                                 choice1 = randomizeImage(tabOfChoice, arrayAnimal, animalAnwser1)
@@ -341,7 +336,9 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
 
                             }
 
-                        } else {
+                        }
+
+                        else {
                             //vibration de defaite +texte
                             vibratorService.vibrate(100)
                             resultat.text = "Essaye encore !"
