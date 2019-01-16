@@ -162,7 +162,12 @@ class LevelsActivity : AppCompatActivity() {
         }
 
         testLife.setOnClickListener {
-            nbLife=nbLife -1
+            nbLife = 10
+            setTxtLife(lifeText,nbLife)
+        }
+
+        testLife2.setOnClickListener {
+            nbLife -=1
             setTxtLife(lifeText,nbLife)
         }
         inappbuy.setOnClickListener{
@@ -170,9 +175,7 @@ class LevelsActivity : AppCompatActivity() {
             buy.putExtra("difficulty",difficulty)
             startActivity(buy)
         }
-        scrollTest.setOnClickListener {
-            levelsScroll.scrollTo(3000,3000)
-        }
+
 
         imageRetour.setOnClickListener{
             val previousPage = Intent(this@LevelsActivity, DifficultyActivity::class.java)
@@ -180,9 +183,15 @@ class LevelsActivity : AppCompatActivity() {
         }
 
         playButton.setOnClickListener {
-            if (nbLife == 0) {
-                heart.visibility = View.VISIBLE
+            if (nbLife <= 0) {
+               /* heart.visibility = View.VISIBLE
                 numberOfLife.visibility = View.VISIBLE
+
+                Timer().schedule(1000) {
+                    heart.visibility = View.INVISIBLE
+                    numberOfLife.visibility = View.INVISIBLE
+
+                }*/
             }
             else {
                 var randomGame = Random().nextInt(1)
@@ -214,11 +223,7 @@ class LevelsActivity : AppCompatActivity() {
                     }
                 }
             }
-            Timer().schedule(1000) {
-                heart.visibility = View.INVISIBLE
-                numberOfLife.visibility = View.INVISIBLE
 
-            }
 
         }
 

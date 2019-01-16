@@ -41,14 +41,10 @@ class FeedAnimalsModel {
         while(i<numberOfAnimals){
 
             tamponX = aleatoire.nextInt(numberOfAnimalPictures)
-
-
             tamponY = aleatoire.nextInt(numberOfAnimals)
-
 
             while(boardOfElements.contains(tamponX)){
                 tamponX = aleatoire.nextInt(numberOfAnimalPictures)
-
             }
             boardOfElements.set(i,tamponX)
 
@@ -58,8 +54,6 @@ class FeedAnimalsModel {
             }
 
             boardOfPosition.set(i,tamponY)
-
-
             i++
         }
 
