@@ -2,6 +2,7 @@ package com.project.wukay.wukayapp.whatIsThisAnimal
 
 import android.content.Context
 import android.content.Intent
+import android.media.MediaPlayer
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Vibrator
@@ -47,12 +48,12 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
             val startAnimalAnswer = arrayOf(
                 R.drawable.animaux_cochon_silhouette,
                 R.drawable.animaux_vache_silhouette,
-                R.drawable.animaux_girafe_silhouette,
+                R.drawable.animaux_lion_silhouette,
                 R.drawable.animaux_ane_silhouette,
                 R.drawable.animaux_bouc_silhouette,
                 R.drawable.animaux_chat_silhouette,
                 R.drawable.animaux_ecureil_silhouette,
-                R.drawable.animaux_lama_silhouette,
+                R.drawable.animaux_tigre_silhouette,
                 R.drawable.animaux_elephant_silhouette,
                 R.drawable.animaux_chien_silhouette
             )
@@ -60,12 +61,12 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
             val startAnimal = arrayOf(
                 R.drawable.animaux_cochon,
                 R.drawable.animaux_vache,
-                R.drawable.animaux_girafe,
+                R.drawable.animaux_lion,
                 R.drawable.animaux_ane,
                 R.drawable.animaux_bouc,
                 R.drawable.animaux_chat,
                 R.drawable.animaux_ecureil,
-                R.drawable.animaux_lama,
+                R.drawable.animaux_tigre,
                 R.drawable.animaux_elephant,
                 R.drawable.animaux_chien
             )
@@ -73,15 +74,28 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
             val arrayNameAnimal=arrayOf(
                 "Le cochon",
                 "La vache",
-                "La girafe",
+                "Le lion",
                 "L'âne",
                 "Le bouc",
                 "Le chat",
-                "L'écureil",
-                "Le lama",
+                "L'écureuil",
+                "Le tigre",
                 "L'éléphant",
                 "Le chien"
             )
+
+           val arrayMusicAnimal=arrayOf(
+               R.raw.sound_cochon,
+               R.raw.sound_vache,
+               R.raw.sound_lion,
+               R.raw.sound_ane,
+               R.raw.sound_bouc,
+               R.raw.sound_cat,
+               R.raw.sound_ecureuil,
+               R.raw.sound_tigre,
+               R.raw.sound_elephant,
+               R.raw.sound_chien
+           )
 
             var choiceOfSilhouette: Int
             var choice1: Int
@@ -123,6 +137,12 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                 arrayNameAnimal[index],
                 arrayNameAnimal[index1],
                 arrayNameAnimal[index2]
+            )
+
+            val arrayMusicChoose = arrayOf(
+                arrayMusicAnimal[index],
+                arrayMusicAnimal[index1],
+                arrayMusicAnimal[index2]
             )
 
             var numberWin=0
@@ -183,15 +203,22 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                             //incrementation du nombre d'animal trouvé
                             resultat.text = ""
                             numberWin += 1
+
                             val popIntent = Intent(applicationContext, PopUpAnimalFind::class.java)
                             popIntent.putExtra("animalFind",arrayAnimal[choiceOfSilhouette])
                             popIntent.putExtra("animalNameFind",arrayNameChoose[choiceOfSilhouette])
+
+                            val music = MediaPlayer.create(this,arrayMusicChoose[choiceOfSilhouette])
+
                             startActivity(popIntent)
+                            music.start()
+
                             //fin du mini jeux
                             if (numberWin == 3) {
                                 var numberCarrotsWonText = numberCarrotsWon1.toString()
                                 nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
                                 startActivity(nextAnimal)
+                                startActivity(popIntent)
 
                                 //prochain animal à deviner
                             } else {
@@ -244,16 +271,21 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                             //incrementation du nombre d'animal trouvé
                             resultat.text = ""
                             numberWin += 1
-                            System.out.println("NOMBRE WIN : " + numberWin)
                             val popIntent = Intent(applicationContext, PopUpAnimalFind::class.java)
                             popIntent.putExtra("animalFind",arrayAnimal[choiceOfSilhouette])
                             popIntent.putExtra("animalNameFind",arrayNameChoose[choiceOfSilhouette])
+
+                            val music = MediaPlayer.create(this,arrayMusicChoose[choiceOfSilhouette])
+
                             startActivity(popIntent)
+                            music.start()
+
                             //fin du mini jeux
                             if (numberWin == 3) {
                                 var numberCarrotsWonText = numberCarrotsWon1.toString()
                                 nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
                                 startActivity(nextAnimal)
+                                startActivity(popIntent)
 
                                 //prochain animal à deviner
                             } else {
@@ -303,17 +335,21 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                             //incrementation du nombre d'animal trouvé
                             resultat.text = ""
                             numberWin += 1
-                            System.out.println("NOMBRE WIN : " + numberWin)
                             val popIntent = Intent(applicationContext, PopUpAnimalFind::class.java)
                             popIntent.putExtra("animalFind",arrayAnimal[choiceOfSilhouette])
                             popIntent.putExtra("animalNameFind",arrayNameChoose[choiceOfSilhouette])
+
+                            val music = MediaPlayer.create(this,arrayMusicChoose[choiceOfSilhouette])
+
                             startActivity(popIntent)
+                            music.start()
+
                             //fin du mini jeux
                             if (numberWin == 3) {
                                 var numberCarrotsWonText = numberCarrotsWon1.toString()
                                 nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
                                 startActivity(nextAnimal)
-
+                                startActivity(popIntent)
                                 //prochain animal à deviner
                             } else {
                                 ////SILHOUETTE
