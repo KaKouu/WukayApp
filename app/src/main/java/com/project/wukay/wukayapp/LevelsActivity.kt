@@ -165,7 +165,11 @@ class LevelsActivity : AppCompatActivity() {
             nbLife=nbLife -1
             setTxtLife(lifeText,nbLife)
         }
-
+        inappbuy.setOnClickListener{
+            val buy = Intent(this@LevelsActivity, InAppBilling::class.java)
+            buy.putExtra("difficulty",difficulty)
+            startActivity(buy)
+        }
         scrollTest.setOnClickListener {
             levelsScroll.scrollTo(3000,3000)
         }

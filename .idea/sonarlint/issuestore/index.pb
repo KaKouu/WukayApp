@@ -5,8 +5,6 @@ x
 Happ/src/main/java/com/project/wukay/wukayapp/metier/HideAnimalsMetier.kt,b\3\b3dfdf07479230d601ec2d49a389fefd20d0d176
 k
 ;app/src/main/java/com/project/wukay/wukayapp/HideAnimals.kt,e\6\e646b895fa011216dc30962bfc51810acccbcc1b
-r
-Bapp/src/main/java/com/project/wukay/wukayapp/WhatIsThisActivity.kt,d\c\dcb0d8ebf7d382378da4b87eabb56982c150d0d5
 n
 >app/src/main/java/com/project/wukay/wukayapp/LevelsActivity.kt,a\f\af0968f234bb4b09787d0f720b8119f3dc12ff46
 \
