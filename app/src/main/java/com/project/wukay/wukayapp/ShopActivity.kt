@@ -150,6 +150,7 @@ class ShopActivity : AppCompatActivity() {
             }
 
         //girlRabbit
+
         btPrice2.setOnClickListener {
             if(girlRabbit.isPurchase){
                 prefs!!.skinName = girlRabbit.file
@@ -426,6 +427,12 @@ class ShopActivity : AppCompatActivity() {
         retour.setOnClickListener {
             val previousPage = Intent(this@ShopActivity, LevelsActivity::class.java)
             startActivity(previousPage)
+        }
+        buttonMoreCarrots.setOnClickListener {
+            val difficulty = intent.getStringExtra("difficulty")
+            val buy = Intent(this@ShopActivity, InAppBilling::class.java)
+            buy.putExtra("difficulty",difficulty)
+            startActivity(buy)
         }
 
     }

@@ -17,7 +17,7 @@ class InAppBilling : AppCompatActivity() {
         val difficulty = intent.getStringExtra("difficulty")
         nbCarrot=prefs!!.nbCarrots
         button2.setOnClickListener {
-            
+
             val next = Intent( this@InAppBilling, LevelsActivity::class.java)
             next.putExtra("difficulty",difficulty)
             next.putExtra("carotsWon",100)

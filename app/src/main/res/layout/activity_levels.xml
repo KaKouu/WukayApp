@@ -259,12 +259,6 @@
                             android:layout_marginTop="193dp" android:layout_alignParentBottom="true"
                             android:layout_marginBottom="242dp" android:layout_alignParentStart="true"
                             android:layout_marginStart="106dp"/>
-                    <Button
-                            android:text="Button"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" android:layout_alignParentEnd="true"
-                            android:layout_alignParentTop="true" android:layout_marginEnd="117dp"
-                            android:id="@+id/inappbuy" android:layout_marginTop="0dp"/>
                 </RelativeLayout>
             </LinearLayout>
         </LinearLayout>

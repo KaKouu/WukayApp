@@ -170,11 +170,7 @@ class LevelsActivity : AppCompatActivity() {
             nbLife -=1
             setTxtLife(lifeText,nbLife)
         }
-        inappbuy.setOnClickListener{
-            val buy = Intent(this@LevelsActivity, InAppBilling::class.java)
-            buy.putExtra("difficulty",difficulty)
-            startActivity(buy)
-        }
+
 
 
         imageRetour.setOnClickListener{
