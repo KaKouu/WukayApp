@@ -89,6 +89,11 @@
                 android:screenOrientation="portrait">
         </activity>
         <activity
+                android:name=".FeedAnimalsHardControler"
+                android:configChanges="orientation"
+                android:screenOrientation="portrait">
+        </activity>
+        <activity
                 android:name=".InAppBilling"
                 android:configChanges="orientation"
                 android:screenOrientation="portrait">

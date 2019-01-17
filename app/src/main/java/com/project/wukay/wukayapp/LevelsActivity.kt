@@ -174,7 +174,7 @@ class LevelsActivity : AppCompatActivity() {
                 }*/
             }
             else {
-                var randomGame = Random().nextInt(2)
+                var randomGame = Random().nextInt(3)
 
 
                 when (randomGame) {
