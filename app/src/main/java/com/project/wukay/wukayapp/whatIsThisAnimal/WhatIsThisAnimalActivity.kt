@@ -274,12 +274,11 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                             //incrementation du nombre d'animal trouvé
                             resultat.text = ""
                             numberWin += 1
+
                             val popIntent = Intent(applicationContext, PopUpAnimalFind::class.java)
                             popIntent.putExtra("animalFind",arrayAnimal[choiceOfSilhouette])
                             popIntent.putExtra("animalNameFind",arrayNameChoose[choiceOfSilhouette])
-
                             val music = MediaPlayer.create(this,arrayMusicChoose[choiceOfSilhouette])
-
                             startActivity(popIntent)
                             music.start()
 

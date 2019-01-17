@@ -146,25 +146,9 @@ class LevelsActivity : AppCompatActivity() {
 
 
         ////BUTTONS////
-        testCarrotes.setOnClickListener {
 
-            carrots+=100
-            numberCarrots.setText(carrots.toString())
 
-            prefs!!.nbCarrots=carrots
-        }
-
-        testCarrotes2.setOnClickListener {
-            carrots=0
-            numberCarrots.setText(carrots.toString())
-
-            prefs!!.nbCarrots=carrots
-        }
-
-        testLife.setOnClickListener {
-            nbLife = 10
-            setTxtLife(lifeText,nbLife)
-        }
+        
 
         testLife2.setOnClickListener {
             nbLife -=1
@@ -190,7 +174,7 @@ class LevelsActivity : AppCompatActivity() {
                 }*/
             }
             else {
-                var randomGame = Random().nextInt(1)
+                var randomGame = 1 //Random().nextInt(1)
 
 
                 when (randomGame) {
@@ -208,14 +192,30 @@ class LevelsActivity : AppCompatActivity() {
 
                     }
                     1 -> {
-                        val nextGame = Intent(this@LevelsActivity, HideAnimals::class.java)
-                        nextGame.putExtra("difficulty", difficulty)
-                        startActivity(nextGame)
+                        if (difficulty == "easy") {
+                            val nextGame = Intent(this@LevelsActivity, HideAnimalsEasyTuto::class.java)
+                            nextGame.putExtra("difficulty", difficulty)
+                            startActivity(nextGame)
+                            }
+                        else {
+                            val nextGame = Intent(this@LevelsActivity, HideAnimalsHardTuto::class.java)
+                            nextGame.putExtra("difficulty", difficulty)
+                            startActivity(nextGame)
+                        }
+
                     }
                     2-> {
-                        val nextGame = Intent(this@LevelsActivity, FeedAnimalsControler::class.java)
-                        nextGame.putExtra("difficulty", difficulty)
-                        startActivity(nextGame)
+                        if (difficulty == "easy") {
+                            val nextGame = Intent(this@LevelsActivity, FeedAnimalsControler::class.java)
+                            nextGame.putExtra("difficulty", difficulty)
+                            startActivity(nextGame)
+                        }
+                        else {
+                            val nextGame = Intent(this@LevelsActivity, FeedAnimalsControler::class.java)
+                            nextGame.putExtra("difficulty", difficulty)
+                            startActivity(nextGame)
+                        }
+
                     }
                 }
             }

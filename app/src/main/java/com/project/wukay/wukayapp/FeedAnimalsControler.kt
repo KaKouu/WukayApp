@@ -3,6 +3,7 @@ package com.project.wukay.wukayapp
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.View
 import com.project.wukay.wukayapp.metier.FeedAnimalsModel
@@ -15,6 +16,11 @@ class FeedAnimalsControler : AppCompatActivity() {
     private var position = FloatArray(3)
 
 
+    override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
+        return if (keyCode == KeyEvent.KEYCODE_BACK) {
+            false
+        } else super.onKeyDown(keyCode, event)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,23 +35,6 @@ class FeedAnimalsControler : AppCompatActivity() {
         }
 
         val listOfAnimals = arrayOf(
-            R.drawable.animaux_cochon_silhouette,
-            R.drawable.animaux_vache_silhouette,
-            R.drawable.animaux_girafe_silhouette,
-            R.drawable.animaux_bouc_silhouette,
-            R.drawable.animaux_chat_silhouette,
-            R.drawable.animaux_piranha_silhouette,
-            R.drawable.animaux_morse_silhouette,
-            R.drawable.animaux_panda_silhouette,
-            R.drawable.animaux_paon_silhouette,
-            R.drawable.animaux_pingouin_silhouette,
-            R.drawable.animaux_poule_silhouette,
-            R.drawable.animaux_tigre_silhouette,
-            R.drawable.animaux_zebre_silhouette,
-            R.drawable.animaux_lion_silhouette
-        )
-
-        val listOfFood = arrayOf(
             R.drawable.animaux_cochon,
             R.drawable.animaux_vache,
             R.drawable.animaux_girafe,
@@ -60,6 +49,23 @@ class FeedAnimalsControler : AppCompatActivity() {
             R.drawable.animaux_tigre,
             R.drawable.animaux_zebre,
             R.drawable.animaux_lion
+        )
+
+        val listOfFood = arrayOf(
+            R.drawable.food_mais,
+            R.drawable.icon_herbe,
+            R.drawable.icon_feuille,
+            R.drawable.icon_herbe,
+            R.drawable.food_souris,
+            R.drawable.food_poisson,
+            R.drawable.food_crevette,
+            R.drawable.food_bambou,
+            R.drawable.food_graine,
+            R.drawable.food_poisson,
+            R.drawable.food_graine,
+            R.drawable.food_viande,
+            R.drawable.icon_feuille,
+            R.drawable.food_viande
         )
         feedAnimalsModel.generateAnimalsAndFood()
         animalFeed1.setImageResource(listOfAnimals[feedAnimalsModel.getBoardOfAnimals()[0]])
@@ -151,9 +157,6 @@ class FeedAnimalsControler : AppCompatActivity() {
                     }
                 }
             }
-
-
-
         }
     }
 }

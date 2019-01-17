@@ -2,10 +2,12 @@ package com.project.wukay.wukayapp.whatIsThisAnimal
 
 import android.content.Context
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.Vibrator
 import android.support.v7.app.AppCompatActivity
 import android.view.KeyEvent
+import com.project.wukay.wukayapp.PopUpAnimalFind
 import com.project.wukay.wukayapp.R
 import com.project.wukay.wukayapp.VictoryActivity
 import kotlinx.android.synthetic.main.activity_hard_what_is_this.*
@@ -57,6 +59,38 @@ class WhatIsThisAnimalHardActivity: AppCompatActivity()  {
             R.drawable.animaux_zebre,
             R.drawable.animaux_lion
         )
+        val arrayNameAnimal=arrayOf(
+            "Le cochon",
+            "La vache",
+            "La girafe",
+            "Le bouc",
+            "Le chat",
+            "Le crabe",
+            "Le morse",
+            "Le panda",
+            "Le paon",
+            "Le pingouin",
+            "La poule",
+            "Le tigre",
+            "Le zèbre",
+            "Le lion"
+        )
+        val arrayMusicAnimal=arrayOf(
+            R.raw.sound_cochon,
+            R.raw.sound_vache,
+            R.raw.sound_girafe,
+            R.raw.sound_bouc,
+            R.raw.sound_cat,
+            R.raw.sound_crabe,
+            R.raw.sound_morse,
+            R.raw.sound_panda,
+            R.raw.sound_paon,
+            R.raw.sound_pinguoin,
+            R.raw.sound_poule,
+            R.raw.sound_tigre,
+            R.raw.sound_zebre,
+            R.raw.sound_lion
+        )
 
         val arrayOfQuestion = arrayOf(
             "Je suis rose, je me roule dans la boue et j'ai une queue en tire bouchon",
@@ -99,6 +133,13 @@ class WhatIsThisAnimalHardActivity: AppCompatActivity()  {
             if (memoAnimauxChoisi[0] == reponse) {
 
                 numberWin += 1
+                val popIntent = Intent(applicationContext, PopUpAnimalFind::class.java)
+                popIntent.putExtra("animalFind",arrayOfAnimalsPicture[reponse])
+                popIntent.putExtra("animalNameFind",arrayNameAnimal[reponse])
+
+               val music = MediaPlayer.create(this,arrayMusicAnimal[reponse])
+                startActivity(popIntent)
+               music.start()
                 if (numberWin == 3) {
                     var numberCarrotsWonText = numberCarrotsWon.toString()
                     nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
@@ -134,7 +175,17 @@ class WhatIsThisAnimalHardActivity: AppCompatActivity()  {
             if (memoAnimauxChoisi.get(1) == reponse) {
 
                 numberWin += 1
+
+                val popIntent = Intent(applicationContext, PopUpAnimalFind::class.java)
+                popIntent.putExtra("animalFind",arrayOfAnimalsPicture[reponse])
+                popIntent.putExtra("animalNameFind",arrayNameAnimal[reponse])
+                val music = MediaPlayer.create(this,arrayMusicAnimal[reponse])
+
+                startActivity(popIntent)
+                music.start()
+
                 if (numberWin == 3) {
+
                     var numberCarrotsWonText = numberCarrotsWon.toString()
                     nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
                     startActivity(nextAnimal)
@@ -165,6 +216,12 @@ class WhatIsThisAnimalHardActivity: AppCompatActivity()  {
             if (memoAnimauxChoisi.get(2) == reponse) {
 
                 numberWin += 1
+                val popIntent = Intent(applicationContext, PopUpAnimalFind::class.java)
+                popIntent.putExtra("animalFind",arrayOfAnimalsPicture[reponse])
+                popIntent.putExtra("animalNameFind",arrayNameAnimal[reponse])
+                val music = MediaPlayer.create(this,arrayMusicAnimal[reponse])
+                startActivity(popIntent)
+                music.start()
                 if (numberWin == 3) {
                     var numberCarrotsWonText = numberCarrotsWon.toString()
                     nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
