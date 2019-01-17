@@ -17,3 +17,19 @@ o
 ?app/src/main/java/com/project/wukay/wukayapp/VictoryActivity.kt,6\2\62d69fa3eb2d8e9dc222ba5c3923b181887e61f8
 _
 /app/src/main/res/layout/activity_difficulty.xml,1\2\12d05ed444bc626ba44199f607d2a1822a2be049
+S
+#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+l
+<app/src/main/java/com/project/wukay/wukayapp/ShopActivity.kt,1\0\105ea5f31e11757075d6805c47e63a73878526f9
+[
++app/src/main/res/layout/activity_levels.xml,8\3\83beb2cf9f093e35e6d7146a5f133fd97f2cc24d
+Y
+)app/src/main/res/layout/activity_shop.xml,a\0\a07e4b3d325ee8dfdb0b4bffe0c0520d68d761bd
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
+`
+0app/src/main/res/layout/activity_in_app_bill.xml,0\c\0cb13e952db4de12e1c5fa3884f2829bdb81a255
+l
+<app/src/main/java/com/project/wukay/wukayapp/InAppBilling.kt,c\9\c9e308c78eb3f515b833420c9502e629ed3feedd
