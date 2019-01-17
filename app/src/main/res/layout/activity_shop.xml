@@ -15,7 +15,7 @@
             android:layout_gravity="center_vertical"
             android:background="@drawable/bg_shop_title"
             android:orientation="horizontal"
-            android:padding="5dp">
+            android:padding="5dp" android:layout_alignParentStart="true" android:layout_alignParentTop="true">
 
         <RelativeLayout
                 android:layout_width="wrap_content"
@@ -48,15 +48,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:id="@+id/nbCarrot"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="48dp" android:fontFamily="@font/grobold" android:textSize="18sp"
-                    android:textColor="@color/colorPrimaryDark" android:layout_marginTop="16dp"
+                    android:layout_marginEnd="51dp" android:fontFamily="@font/grobold" android:textSize="18sp"
+                    android:textColor="@color/colorPrimaryDark" android:layout_marginTop="20dp"
                     android:layout_alignParentTop="true"/>
             <ImageView
-                    android:layout_width="58dp"
-                    android:layout_height="48dp" tools:srcCompat="@drawable/icon_carrot2"
-                    android:id="@+id/imagenbCarrot" android:layout_alignParentEnd="true"
-                    android:layout_alignParentTop="true" android:layout_marginTop="0dp"
-                    android:layout_marginEnd="0dp"/>
+                    android:layout_width="64dp"
+                    android:layout_height="42dp" app:srcCompat="@drawable/icon_carrot2"
+                    android:id="@+id/imageView12" android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true" android:layout_marginTop="2dp"
+                    android:layout_marginEnd="3dp"/>
             <ImageView
                     android:layout_width="76dp"
                     android:layout_height="45dp" app:srcCompat="@drawable/icone_fleche_retour"
@@ -148,12 +148,6 @@
                         android:layout_marginLeft="5dp"
                         android:orientation="vertical">
 
-                    <ImageView
-                            android:layout_width="58dp"
-                            android:layout_height="48dp" tools:srcCompat="@drawable/icon_carrot2"
-                            android:id="@+id/imageCarrot0" android:layout_alignParentEnd="true"
-                            android:layout_alignParentTop="true" android:layout_marginTop="43dp"
-                            android:layout_marginEnd="134dp"/>
                     <TextView
                             android:text="50"
                             android:layout_width="wrap_content"
@@ -183,6 +177,12 @@
                             android:text="Lapinou Blanc"
                             android:textColor="@android:color/background_dark"
                             android:textSize="24sp" android:fontFamily="@font/grobold"/>
+                    <ImageView
+                            android:layout_width="63dp"
+                            android:layout_height="45dp" app:srcCompat="@drawable/icon_carrot2"
+                            android:id="@+id/imageCarrot0" android:layout_alignBottom="@+id/btPrice0"
+                            android:layout_toStartOf="@+id/btPrice0" android:layout_marginEnd="2dp"
+                            android:layout_marginBottom="4dp"/>
 
 
                 </RelativeLayout>
@@ -212,12 +212,6 @@
                         android:layout_marginLeft="5dp"
                         android:orientation="vertical">
 
-                    <ImageView
-                            android:layout_width="58dp"
-                            android:layout_height="48dp" tools:srcCompat="@drawable/icon_carrot2"
-                            android:id="@+id/imageCarrot2" android:layout_alignParentEnd="true"
-                            android:layout_alignParentTop="true" android:layout_marginTop="43dp"
-                            android:layout_marginEnd="134dp"/>
                     <TextView
                             android:id="@+id/itemName2"
                             android:layout_width="match_parent"
@@ -247,6 +241,11 @@
                             android:layout_alignParentStart="true" android:layout_marginStart="12dp"
                             android:layout_alignBaseline="@+id/btPrice2" android:textSize="18sp"
                             android:fontFamily="@font/grobold" android:textColor="@color/colorPrimaryDark"/>
+                    <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="54dp" app:srcCompat="@drawable/icon_carrot2"
+                            android:id="@+id/imageCarrot2" android:layout_alignParentBottom="true"
+                            android:layout_toStartOf="@+id/btPrice2"/>
 
 
                 </RelativeLayout>
@@ -290,12 +289,6 @@
                             android:layout_alignParentEnd="true" android:layout_marginEnd="22dp"
                             android:layout_alignParentBottom="true" android:fontFamily="@font/grobold"
                             android:background="@drawable/rounded_button"/>
-                    <ImageView
-                            android:layout_width="58dp"
-                            android:layout_height="48dp" tools:srcCompat="@drawable/icon_carrot2"
-                            android:id="@+id/imageCarrot3" android:layout_alignParentEnd="true"
-                            android:layout_alignParentTop="true" android:layout_marginTop="43dp"
-                            android:layout_marginEnd="134dp"/>
                     <TextView
                             android:id="@+id/itemName3"
                             android:layout_width="match_parent"
@@ -311,6 +304,11 @@
                             android:text="Lapinou Cow-Boy"
                             android:textColor="@android:color/background_dark"
                             android:textSize="24sp" android:fontFamily="@font/grobold"/>
+                    <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="49dp" app:srcCompat="@drawable/icon_carrot2"
+                            android:id="@+id/imageCarrot3" android:layout_alignParentBottom="true"
+                            android:layout_toStartOf="@+id/btPrice3"/>
 
 
                 </RelativeLayout>
@@ -354,12 +352,6 @@
                             android:layout_alignParentEnd="true" android:layout_marginEnd="22dp"
                             android:layout_alignParentBottom="true" android:fontFamily="@font/grobold"
                             android:background="@drawable/rounded_button"/>
-                    <ImageView
-                            android:layout_width="58dp"
-                            android:layout_height="48dp" tools:srcCompat="@drawable/icon_carrot2"
-                            android:id="@+id/imageCarrot4" android:layout_alignParentEnd="true"
-                            android:layout_alignParentTop="true" android:layout_marginTop="43dp"
-                            android:layout_marginEnd="134dp"/>
                     <TextView
                             android:id="@+id/itemName4"
                             android:layout_width="match_parent"
@@ -375,6 +367,12 @@
                             android:text="Lapinou Docteur"
                             android:textColor="@android:color/background_dark"
                             android:textSize="24sp" android:fontFamily="@font/grobold"/>
+                    <ImageView
+                            android:layout_width="48dp"
+                            android:layout_height="66dp" app:srcCompat="@drawable/icon_carrot2"
+                            android:id="@+id/imageCarrot4" android:layout_alignParentStart="true"
+                            android:layout_marginStart="49dp" android:layout_alignTop="@+id/price4"
+                            android:layout_marginTop="-10dp"/>
 
 
                 </RelativeLayout>
@@ -418,12 +416,6 @@
                             android:layout_alignParentEnd="true" android:layout_marginEnd="22dp"
                             android:layout_alignParentBottom="true" android:fontFamily="@font/grobold"
                             android:background="@drawable/rounded_button"/>
-                    <ImageView
-                            android:layout_width="58dp"
-                            android:layout_height="48dp" tools:srcCompat="@drawable/icon_carrot2"
-                            android:id="@+id/imageCarrot5" android:layout_alignParentEnd="true"
-                            android:layout_alignParentTop="true" android:layout_marginTop="43dp"
-                            android:layout_marginEnd="134dp"/>
                     <TextView
                             android:id="@+id/itemName5"
                             android:layout_width="match_parent"
@@ -439,6 +431,11 @@
                             android:text="Lapinou Princesse"
                             android:textColor="@android:color/background_dark"
                             android:textSize="24sp" android:fontFamily="@font/grobold"/>
+                    <ImageView
+                            android:layout_width="56dp"
+                            android:layout_height="wrap_content" app:srcCompat="@drawable/icon_carrot2"
+                            android:id="@+id/imageCarrot5" android:layout_toEndOf="@+id/price5"
+                            android:layout_alignTop="@+id/btPrice5"/>
 
 
                 </RelativeLayout>
@@ -473,9 +470,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" android:id="@+id/price6" android:textSize="18sp"
                             android:textColor="@color/colorPrimaryDark" android:fontFamily="@font/grobold"
-                            android:layout_alignTop="@+id/imageCarrot6"
-                            android:layout_marginTop="19dp" android:layout_alignParentStart="true"
-                            android:layout_marginStart="12dp"/>
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="13dp" android:layout_alignTop="@+id/btPrice6"
+                            android:layout_marginTop="6dp"/>
                     <Button
                             android:text="ACHETER"
                             android:layout_width="wrap_content"
@@ -483,12 +480,6 @@
                             android:layout_alignParentEnd="true" android:layout_marginEnd="22dp"
                             android:layout_alignParentBottom="true" android:fontFamily="@font/grobold"
                             android:background="@drawable/rounded_button"/>
-                    <ImageView
-                            android:layout_width="58dp"
-                            android:layout_height="48dp" tools:srcCompat="@drawable/icon_carrot2"
-                            android:id="@+id/imageCarrot6" android:layout_alignParentEnd="true"
-                            android:layout_alignParentTop="true" android:layout_marginTop="43dp"
-                            android:layout_marginEnd="134dp"/>
                     <TextView
                             android:id="@+id/itemName6"
                             android:layout_width="211dp"
@@ -504,6 +495,12 @@
                             android:text="Lapinou Astronaute"
                             android:textColor="@android:color/background_dark"
                             android:textSize="21sp" android:fontFamily="@font/grobold"/>
+                    <ImageView
+                            android:layout_width="49dp"
+                            android:layout_height="49dp" app:srcCompat="@drawable/icon_carrot2"
+                            android:layout_alignParentStart="true" android:layout_marginStart="53dp"
+                            android:layout_alignParentBottom="true" android:id="@+id/imageCarrot6"
+                            android:layout_marginBottom="7dp"/>
 
 
                 </RelativeLayout>

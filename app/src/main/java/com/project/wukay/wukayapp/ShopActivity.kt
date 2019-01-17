@@ -1,13 +1,12 @@
 package com.project.wukay.wukayapp
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.KeyEvent
 import android.view.View
 import com.project.wukay.wukayapp.util.Prefs
 import com.project.wukay.wukayapp.util.Skin
-
 import kotlinx.android.synthetic.main.activity_shop.*
 
 class ShopActivity : AppCompatActivity() {
@@ -24,12 +23,10 @@ class ShopActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shop)
 
-
         prefs = Prefs(this)
 
         var carrots = prefs!!.nbCarrots
         nbCarrot.text = carrots.toString()
-
 
         val whiteRabbit = Skin(R.drawable.skin_lapinou_blanc, 5, prefs!!.shopPurchased0)
         val yellowRabbit = Skin(R.drawable.skin_lapinou,0, true)
@@ -38,7 +35,6 @@ class ShopActivity : AppCompatActivity() {
         val docRabbit = Skin(R.drawable.skin_docteur,250,prefs!!.shopPurchased4)
         val princessRabbit = Skin(R.drawable.skin_lapin_princesse,400,prefs!!.shopPurchased5)
         val spacemanRabbit = Skin(R.drawable.skin_lapin_spaceman,500,prefs!!.shopPurchased6)
-
 
 
         //initialisation purchases and button
