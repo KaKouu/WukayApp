@@ -10,7 +10,7 @@ import android.view.MotionEvent
 import android.view.View
 import com.project.wukay.wukayapp.metier.HideAnimalsMetier
 import com.project.wukay.wukayapp.util.Aleatoire
-import kotlinx.android.synthetic.main.activity_hide_animals.*
+import kotlinx.android.synthetic.main.activity_hide_animals_hard.*
 import java.util.*
 
 class HideAnimals : AppCompatActivity() {
@@ -83,7 +83,7 @@ class HideAnimals : AppCompatActivity() {
                 R.drawable.animaux_zebre,
                 R.drawable.animaux_lion
             )
-            setContentView(R.layout.activity_hide_animals)
+            setContentView(R.layout.activity_hide_animals_hard)
             myLayout.setOnTouchListener { v: View, m: MotionEvent ->
                 handleTouch(m)
                 true

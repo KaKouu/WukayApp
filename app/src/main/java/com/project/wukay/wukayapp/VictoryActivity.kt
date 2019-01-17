@@ -9,7 +9,7 @@ import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.View
 import com.project.wukay.wukayapp.util.Prefs
-import kotlinx.android.synthetic.main.activity_hide_animals.*
+import kotlinx.android.synthetic.main.activity_hide_animals_hard.*
 import kotlinx.android.synthetic.main.activity_victory.*
 
 class VictoryActivity : AppCompatActivity() {
