@@ -209,7 +209,7 @@ class LevelsActivity : AppCompatActivity() {
                     }
                     1 -> {
                         if (difficulty == "easy") {
-                            val nextGame = Intent(this@LevelsActivity, HideAnimalsEasy::class.java)
+                            val nextGame = Intent(this@LevelsActivity, HideAnimalsEasyTuto::class.java)
                             nextGame.putExtra("difficulty", difficulty)
                             startActivity(nextGame)
                             }
