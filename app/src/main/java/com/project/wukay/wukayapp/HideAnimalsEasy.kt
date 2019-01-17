@@ -10,7 +10,7 @@ import android.view.MotionEvent
 import android.view.View
 import com.project.wukay.wukayapp.metier.HideAnimalsMetier
 import com.project.wukay.wukayapp.util.Aleatoire
-import kotlinx.android.synthetic.main.activity_hide_animals_hard.*
+import kotlinx.android.synthetic.main.activity_hide_animals_easy.*
 import java.util.*
 
 class HideAnimalsEasy : AppCompatActivity() {

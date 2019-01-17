@@ -83,7 +83,7 @@ class HideAnimals : AppCompatActivity() {
                 R.drawable.animaux_zebre,
                 R.drawable.animaux_lion
             )
-            setContentView(R.layout.activity_hide_animals_hard)
+            setContentView(R.layout.activity_hide)
             myLayout.setOnTouchListener { v: View, m: MotionEvent ->
                 handleTouch(m)
                 true
