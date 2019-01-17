@@ -25,6 +25,9 @@ class ShopActivity : AppCompatActivity() {
 
         prefs = Prefs(this)
 
+        val intent = intent
+        val difficulty = intent.getStringExtra("difficulty")
+
         var carrots = prefs!!.nbCarrots
         nbCarrot.text = carrots.toString()
 
@@ -41,29 +44,36 @@ class ShopActivity : AppCompatActivity() {
         if(whiteRabbit.isPurchase){
             btPrice0.text = "m'utiliser ?"
             price0.visibility=View.INVISIBLE
+            imageCarrot0.visibility=View.INVISIBLE
         }
         if(yellowRabbit.isPurchase){
             btPrice1.text= "m'utiliser ?"
+
         }
         if(girlRabbit.isPurchase){
             btPrice2.text= "m'utiliser ?"
             price2.visibility=View.INVISIBLE
+            imageCarrot2.visibility=View.INVISIBLE
         }
         if(cowBoyRabbit.isPurchase){
             btPrice3.text= "m'utiliser ?"
             price3.visibility=View.INVISIBLE
+            imageCarrot3.visibility=View.INVISIBLE
         }
         if(docRabbit.isPurchase){
             btPrice4.text= "m'utiliser ?"
             price4.visibility=View.INVISIBLE
+            imageCarrot4.visibility=View.INVISIBLE
         }
         if(princessRabbit.isPurchase){
             btPrice5.text= "m'utiliser ?"
             price5.visibility=View.INVISIBLE
+            imageCarrot5.visibility=View.INVISIBLE
         }
         if(spacemanRabbit.isPurchase){
             btPrice6.text= "m'utiliser ?"
             price6.visibility=View.INVISIBLE
+            imageCarrot6.visibility=View.INVISIBLE
         }
 
         //whiteRabbit
@@ -475,6 +485,7 @@ class ShopActivity : AppCompatActivity() {
         //Button
         retour.setOnClickListener {
             val previousPage = Intent(this@ShopActivity, LevelsActivity::class.java)
+            previousPage.putExtra("difficulty",difficulty)
             startActivity(previousPage)
         }
 
