@@ -146,25 +146,9 @@ class LevelsActivity : AppCompatActivity() {
 
 
         ////BUTTONS////
-        testCarrotes.setOnClickListener {
 
-            carrots+=100
-            numberCarrots.setText(carrots.toString())
 
-            prefs!!.nbCarrots=carrots
-        }
-
-        testCarrotes2.setOnClickListener {
-            carrots=0
-            numberCarrots.setText(carrots.toString())
-
-            prefs!!.nbCarrots=carrots
-        }
-
-        testLife.setOnClickListener {
-            nbLife = 10
-            setTxtLife(lifeText,nbLife)
-        }
+        
 
         testLife2.setOnClickListener {
             nbLife -=1
