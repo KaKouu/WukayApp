@@ -206,7 +206,7 @@ class LevelsActivity : AppCompatActivity() {
                     }
                     2-> {
                         if (difficulty == "easy") {
-                            val nextGame = Intent(this@LevelsActivity, FeedAnimalsControler::class.java)
+                            val nextGame = Intent(this@LevelsActivity, FeedAnimalsEasyTuto::class.java)
                             nextGame.putExtra("difficulty", difficulty)
                             startActivity(nextGame)
                         }
