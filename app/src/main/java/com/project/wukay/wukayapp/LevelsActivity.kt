@@ -214,16 +214,24 @@ class LevelsActivity : AppCompatActivity() {
                             startActivity(nextGame)
                             }
                         else {
-                            val nextGame = Intent(this@LevelsActivity, HideAnimals::class.java)
+                            val nextGame = Intent(this@LevelsActivity, HideAnimalsHardTuto::class.java)
                             nextGame.putExtra("difficulty", difficulty)
                             startActivity(nextGame)
                         }
 
                     }
                     2-> {
-                        val nextGame = Intent(this@LevelsActivity, FeedAnimalsControler::class.java)
-                        nextGame.putExtra("difficulty", difficulty)
-                        startActivity(nextGame)
+                        if (difficulty == "easy") {
+                            val nextGame = Intent(this@LevelsActivity, FeedAnimalsControler::class.java)
+                            nextGame.putExtra("difficulty", difficulty)
+                            startActivity(nextGame)
+                        }
+                        else {
+                            val nextGame = Intent(this@LevelsActivity, FeedAnimalsControler::class.java)
+                            nextGame.putExtra("difficulty", difficulty)
+                            startActivity(nextGame)
+                        }
+
                     }
                 }
             }
