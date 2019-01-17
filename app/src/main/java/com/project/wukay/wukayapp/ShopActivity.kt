@@ -26,9 +26,6 @@ class ShopActivity : AppCompatActivity() {
 
 
         prefs = Prefs(this)
-        val purchases : Array<Boolean> = arrayOf(true,true)
-
-
 
         var carrots = prefs!!.nbCarrots
         nbCarrot.text = carrots.toString()
@@ -47,24 +44,30 @@ class ShopActivity : AppCompatActivity() {
         //initialisation purchases and button
         if(whiteRabbit.isPurchase){
             btPrice0.text = "m'utiliser ?"
+            price0.visibility=View.INVISIBLE
         }
         if(yellowRabbit.isPurchase){
             btPrice1.text= "m'utiliser ?"
         }
         if(girlRabbit.isPurchase){
             btPrice2.text= "m'utiliser ?"
+            price2.visibility=View.INVISIBLE
         }
         if(cowBoyRabbit.isPurchase){
             btPrice3.text= "m'utiliser ?"
+            price3.visibility=View.INVISIBLE
         }
         if(docRabbit.isPurchase){
             btPrice4.text= "m'utiliser ?"
+            price4.visibility=View.INVISIBLE
         }
         if(princessRabbit.isPurchase){
             btPrice5.text= "m'utiliser ?"
+            price5.visibility=View.INVISIBLE
         }
         if(spacemanRabbit.isPurchase){
             btPrice6.text= "m'utiliser ?"
+            price6.visibility=View.INVISIBLE
         }
 
         //whiteRabbit
@@ -73,24 +76,31 @@ class ShopActivity : AppCompatActivity() {
                 prefs!!.skinName = whiteRabbit.file
 
                 btPrice0.text = "selectionné"
+                btPrice0.setBackgroundResource(R.drawable.life_pop_background)
 
                 if(yellowRabbit.isPurchase){
                     btPrice1.text= "m'utiliser ?"
+                    btPrice1.setBackgroundResource(R.drawable.rounded_button)
                 }
                 if(girlRabbit.isPurchase){
                     btPrice2.text= "m'utiliser ?"
+                    btPrice2.setBackgroundResource(R.drawable.rounded_button)
                 }
                 if(cowBoyRabbit.isPurchase){
                     btPrice3.text= "m'utiliser ?"
+                    btPrice3.setBackgroundResource(R.drawable.rounded_button)
                 }
                 if(docRabbit.isPurchase){
                     btPrice4.text= "m'utiliser ?"
+                    btPrice4.setBackgroundResource(R.drawable.rounded_button)
                 }
                 if(princessRabbit.isPurchase){
                     btPrice5.text= "m'utiliser ?"
+                    btPrice5.setBackgroundResource(R.drawable.rounded_button)
                 }
                 if(spacemanRabbit.isPurchase){
                     btPrice6.text= "m'utiliser ?"
+                    btPrice6.setBackgroundResource(R.drawable.rounded_button)
                 }
 
 
@@ -128,52 +138,65 @@ class ShopActivity : AppCompatActivity() {
             prefs!!.skinName = yellowRabbit.file
 
             btPrice1.text = "selectionné"
+            btPrice1.setBackgroundResource(R.drawable.life_pop_background)
 
             if(whiteRabbit.isPurchase){
                 btPrice0.text= "m'utiliser ?"
+                btPrice0.setBackgroundResource(R.drawable.rounded_button)
             }
             if(girlRabbit.isPurchase){
                 btPrice2.text= "m'utiliser ?"
+                btPrice2.setBackgroundResource(R.drawable.rounded_button)
             }
             if(cowBoyRabbit.isPurchase){
                 btPrice3.text= "m'utiliser ?"
+                btPrice3.setBackgroundResource(R.drawable.rounded_button)
             }
             if(docRabbit.isPurchase){
                 btPrice4.text= "m'utiliser ?"
+                btPrice4.setBackgroundResource(R.drawable.rounded_button)
             }
             if(princessRabbit.isPurchase){
                 btPrice5.text= "m'utiliser ?"
+                btPrice5.setBackgroundResource(R.drawable.rounded_button)
             }
             if(spacemanRabbit.isPurchase){
                 btPrice6.text= "m'utiliser ?"
+                btPrice6.setBackgroundResource(R.drawable.rounded_button)
             }
             }
 
         //girlRabbit
-
         btPrice2.setOnClickListener {
             if(girlRabbit.isPurchase){
                 prefs!!.skinName = girlRabbit.file
 
                 btPrice2.text = "selectionné"
+                btPrice2.setBackgroundResource(R.drawable.life_pop_background)
 
                 if(whiteRabbit.isPurchase){
                     btPrice0.text= "m'utiliser ?"
+                    btPrice0.setBackgroundResource(R.drawable.rounded_button)
                 }
                 if(yellowRabbit.isPurchase){
                     btPrice1.text= "m'utiliser ?"
+                    btPrice1.setBackgroundResource(R.drawable.rounded_button)
                 }
                 if(cowBoyRabbit.isPurchase){
                     btPrice3.text= "m'utiliser ?"
+                    btPrice3.setBackgroundResource(R.drawable.rounded_button)
                 }
                 if(docRabbit.isPurchase){
                     btPrice4.text= "m'utiliser ?"
+                    btPrice4.setBackgroundResource(R.drawable.rounded_button)
                 }
                 if(princessRabbit.isPurchase){
                     btPrice5.text= "m'utiliser ?"
+                    btPrice5.setBackgroundResource(R.drawable.rounded_button)
                 }
                 if(spacemanRabbit.isPurchase){
                     btPrice6.text= "m'utiliser ?"
+                    btPrice6.setBackgroundResource(R.drawable.rounded_button)
                 }
             }else {
                 if(carrots-girlRabbit.price<0){
@@ -210,24 +233,31 @@ class ShopActivity : AppCompatActivity() {
                 prefs!!.skinName = cowBoyRabbit.file
 
                 btPrice3.text = "selectionné"
+                btPrice3.setBackgroundResource(R.drawable.life_pop_background)
 
                 if(whiteRabbit.isPurchase){
                     btPrice0.text= "m'utiliser ?"
+                    btPrice0.setBackgroundResource(R.drawable.rounded_button)
                 }
                 if(yellowRabbit.isPurchase){
                     btPrice1.text= "m'utiliser ?"
+                    btPrice1.setBackgroundResource(R.drawable.rounded_button)
                 }
                 if(girlRabbit.isPurchase){
                     btPrice2.text= "m'utiliser ?"
+                    btPrice2.setBackgroundResource(R.drawable.rounded_button)
                 }
                 if(docRabbit.isPurchase){
                     btPrice4.text= "m'utiliser ?"
+                    btPrice4.setBackgroundResource(R.drawable.rounded_button)
                 }
                 if(princessRabbit.isPurchase){
                     btPrice5.text= "m'utiliser ?"
+                    btPrice5.setBackgroundResource(R.drawable.rounded_button)
                 }
                 if(spacemanRabbit.isPurchase){
                     btPrice6.text= "m'utiliser ?"
+                    btPrice6.setBackgroundResource(R.drawable.rounded_button)
                 }
             }else {
                 if(carrots-cowBoyRabbit.price<0){
@@ -264,24 +294,31 @@ class ShopActivity : AppCompatActivity() {
                 prefs!!.skinName = docRabbit.file
 
                 btPrice4.text = "selectionné"
+                btPrice4.setBackgroundResource(R.drawable.life_pop_background)
 
                 if(whiteRabbit.isPurchase){
                     btPrice0.text= "m'utiliser ?"
+                    btPrice0.setBackgroundResource(R.drawable.rounded_button)
                 }
                 if(yellowRabbit.isPurchase){
                     btPrice1.text= "m'utiliser ?"
+                    btPrice1.setBackgroundResource(R.drawable.rounded_button)
                 }
                 if(girlRabbit.isPurchase){
                     btPrice2.text= "m'utiliser ?"
+                    btPrice2.setBackgroundResource(R.drawable.rounded_button)
                 }
                 if(cowBoyRabbit.isPurchase){
                     btPrice3.text= "m'utiliser ?"
+                    btPrice3.setBackgroundResource(R.drawable.rounded_button)
                 }
                 if(princessRabbit.isPurchase){
                     btPrice5.text= "m'utiliser ?"
+                    btPrice5.setBackgroundResource(R.drawable.rounded_button)
                 }
                 if(spacemanRabbit.isPurchase){
                     btPrice6.text= "m'utiliser ?"
+                    btPrice6.setBackgroundResource(R.drawable.rounded_button)
                 }
             }else {
                 if(carrots-docRabbit.price<0){
@@ -318,24 +355,32 @@ class ShopActivity : AppCompatActivity() {
                 prefs!!.skinName = princessRabbit.file
 
                 btPrice5.text = "selectionné"
+                btPrice5.setBackgroundResource(R.drawable.life_pop_background)
+
 
                 if(whiteRabbit.isPurchase){
                     btPrice0.text= "m'utiliser ?"
+                    btPrice0.setBackgroundResource(R.drawable.rounded_button)
                 }
                 if(yellowRabbit.isPurchase){
                     btPrice1.text= "m'utiliser ?"
+                    btPrice1.setBackgroundResource(R.drawable.rounded_button)
                 }
                 if(girlRabbit.isPurchase){
                     btPrice2.text= "m'utiliser ?"
+                    btPrice2.setBackgroundResource(R.drawable.rounded_button)
                 }
                 if(cowBoyRabbit.isPurchase){
                     btPrice3.text= "m'utiliser ?"
+                    btPrice3.setBackgroundResource(R.drawable.rounded_button)
                 }
                 if(docRabbit.isPurchase){
                     btPrice4.text= "m'utiliser ?"
+                    btPrice4.setBackgroundResource(R.drawable.rounded_button)
                 }
                 if(spacemanRabbit.isPurchase){
                     btPrice6.text= "m'utiliser ?"
+                    btPrice6.setBackgroundResource(R.drawable.rounded_button)
                 }
 
 
@@ -374,24 +419,31 @@ class ShopActivity : AppCompatActivity() {
                 prefs!!.skinName = spacemanRabbit.file
 
                 btPrice6.text = "selectionné"
+                btPrice6.setBackgroundResource(R.drawable.life_pop_background)
 
                 if(whiteRabbit.isPurchase){
                     btPrice0.text= "m'utiliser ?"
+                    btPrice0.setBackgroundResource(R.drawable.rounded_button)
                 }
                 if(yellowRabbit.isPurchase){
                     btPrice1.text= "m'utiliser ?"
+                    btPrice1.setBackgroundResource(R.drawable.rounded_button)
                 }
                 if(girlRabbit.isPurchase){
                     btPrice2.text= "m'utiliser ?"
+                    btPrice2.setBackgroundResource(R.drawable.rounded_button)
                 }
                 if(cowBoyRabbit.isPurchase){
                     btPrice3.text= "m'utiliser ?"
+                    btPrice3.setBackgroundResource(R.drawable.rounded_button)
                 }
                 if(docRabbit.isPurchase){
                     btPrice4.text= "m'utiliser ?"
+                    btPrice4.setBackgroundResource(R.drawable.rounded_button)
                 }
                 if(princessRabbit.isPurchase){
                     btPrice5.text= "m'utiliser ?"
+                    btPrice5.setBackgroundResource(R.drawable.rounded_button)
                 }
 
             }else {
@@ -424,10 +476,12 @@ class ShopActivity : AppCompatActivity() {
         }
 
 
+        //Button
         retour.setOnClickListener {
             val previousPage = Intent(this@ShopActivity, LevelsActivity::class.java)
             startActivity(previousPage)
         }
+
         buttonMoreCarrots.setOnClickListener {
             val difficulty = intent.getStringExtra("difficulty")
             val buy = Intent(this@ShopActivity, InAppBilling::class.java)
