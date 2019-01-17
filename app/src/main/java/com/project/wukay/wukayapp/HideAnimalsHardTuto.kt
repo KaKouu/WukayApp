@@ -39,7 +39,7 @@ class HideAnimalsHardTuto : AppCompatActivity() {
 
         val handler1 = Handler()
         handler1.postDelayed({
-            val animation2 = TranslateAnimation(250f, -450f, 0f, 0f)
+            val animation2 = TranslateAnimation(250f, -475f, 0f, 0f)
             animation2.duration = 4000
             val animationbis2 = TranslateAnimation(0f, -500f, 0f, 0f)
             animationbis2.duration = 4000
@@ -51,7 +51,7 @@ class HideAnimalsHardTuto : AppCompatActivity() {
 
         val handler2 = Handler()
         handler2.postDelayed({
-            val animation3 = TranslateAnimation(-500f, 400f, 0f, 0f)
+            val animation3 = TranslateAnimation(0f, 400f, 0f, 0f)
             animation3.duration = 4000
             curseurHide2.startAnimation(animation3)
             animation3.fillAfter = true
