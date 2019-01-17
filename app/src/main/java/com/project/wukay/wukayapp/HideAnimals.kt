@@ -41,13 +41,13 @@ class HideAnimals : AppCompatActivity() {
 
 
 
-        positionX.set(0, 0.0f)
-        positionX.set(1, 400f)
-        positionX.set(2, 700f)
+        positionX[0] = 0.0f
+        positionX[1] = 400f
+        positionX[2] = 700f
 
-        positionY.set(0, 0f)
-        positionY.set(1, 400f)
-        positionY.set(2, 800f)
+        positionY[0] = 0f
+        positionY[1] = 400f
+        positionY[2] = 800f
 
         val listOfAnimalsPictureQuestion = arrayOf(
             R.drawable.animaux_cochon_silhouette,
@@ -83,7 +83,7 @@ class HideAnimals : AppCompatActivity() {
             R.drawable.animaux_lion
         )
         setContentView(R.layout.activity_hide_animals_hard)
-        myLayout.setOnTouchListener { v: View, m: MotionEvent ->
+        myLayout.setOnTouchListener { _: View, m: MotionEvent ->
             handleTouch(m)
             true
         }
@@ -97,13 +97,13 @@ class HideAnimals : AppCompatActivity() {
             nombreAnimauxAchercher
         )
         System.out.println("PASSE")
-        animalToFind3.setImageResource(listOfAnimalsPictureQuestion[tableauEntierAleatoireDifferent.get(0)])
-        animalToFind2.setImageResource(listOfAnimalsPictureQuestion[tableauEntierAleatoireDifferent.get(1)])
-        animalToFind1.setImageResource(listOfAnimalsPictureQuestion[tableauEntierAleatoireDifferent.get(2)])
+        animalToFind3.setImageResource(listOfAnimalsPictureQuestion[tableauEntierAleatoireDifferent[0]])
+        animalToFind2.setImageResource(listOfAnimalsPictureQuestion[tableauEntierAleatoireDifferent[1]])
+        animalToFind1.setImageResource(listOfAnimalsPictureQuestion[tableauEntierAleatoireDifferent[2]])
 
-        answer3Hide.setImageResource(listOfAnimalsPicture[tableauEntierAleatoireDifferent.get(0)])
-        answer2Hide.setImageResource(listOfAnimalsPicture[tableauEntierAleatoireDifferent.get(1)])
-        answer1Hide.setImageResource(listOfAnimalsPicture[tableauEntierAleatoireDifferent.get(2)])
+        answer3Hide.setImageResource(listOfAnimalsPicture[tableauEntierAleatoireDifferent[0]])
+        answer2Hide.setImageResource(listOfAnimalsPicture[tableauEntierAleatoireDifferent[1]])
+        answer1Hide.setImageResource(listOfAnimalsPicture[tableauEntierAleatoireDifferent[2]])
         hideAnimalsHardMetier.placementAleatoireDansTableau()
 
 
