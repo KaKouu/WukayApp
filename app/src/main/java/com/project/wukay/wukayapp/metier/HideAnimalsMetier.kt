@@ -51,9 +51,7 @@ class HideAnimalsMetier {
             }
             i++
         }
-        if(tableauReponse[nombreAnimauxATrouver-2]==1){
-            estGagne=false
-        }
+
         return estGagne
     }
 

@@ -26,7 +26,6 @@ class HideAnimals : AppCompatActivity() {
     var positionY = FloatArray(3)
     var difficulty = ""
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         hideAnimalsHardMetier.initialisationJeu()
         // mise en place du layout
@@ -134,36 +133,35 @@ class HideAnimals : AppCompatActivity() {
         arbreHard.y = positionY[hideAnimalsHardMetier.getDecorPlacementY()[1]]
         rocherHard.y = positionY[hideAnimalsHardMetier.getDecorPlacementY()[2]]
 
-        progressBar.progress=100
-
         val timer = MyCounter(10000, 1000)
         timer.start()
-        progressBar.getProgressDrawable().setColorFilter(
-            Color.BLACK, android.graphics.PorterDuff.Mode.SRC_IN);
-        //stop.setOnClickListener { timer.cancel() }
-
-
-
 
     }
 
     inner class MyCounter(millisInFuture: Long, countDownInterval: Long) : CountDownTimer(millisInFuture, countDownInterval) {
 
+
         override fun onFinish() {
-            infos.setText("Perdu ! ")
+            val next = Intent(this@HideAnimals, LevelsActivity::class.java)
+            next.putExtra("difficulty", difficulty)
 
+            next.putExtra("isLastActivityIsAGame", false)
 
-            val next = Intent( this@HideAnimals, LevelsActivity::class.java)
-            next.putExtra("difficulty",difficulty)
-            next.putExtra("carotsWon",0)
-            next.putExtra("isLastActivityIsAGame",true)
             startActivity(next)
+
+
         }
 
         override fun onTick(millisUntilFinished: Long) {
-            progressBar.progress= ((millisUntilFinished/1000)*10).toInt()
+            progressBar.progress = ((millisUntilFinished / 100).toInt())
+
+
         }
     }
+
+
+
+
 
     private fun handleTouch(m: MotionEvent) {
             if (m.action == MotionEvent.ACTION_MOVE) {
@@ -208,6 +206,7 @@ class HideAnimals : AppCompatActivity() {
                                 animalToFind1Hard.visibility = View.INVISIBLE
                                 answer1HideHard.visibility = View.INVISIBLE
                                 if (hideAnimalsHardMetier.isWin()) {
+
                                     val nextAnimal = Intent(this@HideAnimals, VictoryActivity::class.java)
                                     nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
                                     var numberCarrotsWonText = random.nextInt(10).toString()
@@ -234,6 +233,7 @@ class HideAnimals : AppCompatActivity() {
                                 animalToFind3Hard.visibility = View.INVISIBLE
                                 answer3HideHard.visibility = View.INVISIBLE
                                 if (hideAnimalsHardMetier.isWin()) {
+
                                     val nextAnimal = Intent(this@HideAnimals, VictoryActivity::class.java)
                                     nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
                                     var numberCarrotsWonText = random.nextInt(10).toString()
@@ -260,6 +260,7 @@ class HideAnimals : AppCompatActivity() {
                                 animalToFind2Hard.visibility = View.INVISIBLE
                                 answer2HideHard.visibility = View.INVISIBLE
                                 if (hideAnimalsHardMetier.isWin()) {
+
                                     val nextAnimal = Intent(this@HideAnimals, VictoryActivity::class.java)
                                     nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
                                     var numberCarrotsWonText = random.nextInt(10).toString()
@@ -282,7 +283,8 @@ class HideAnimals : AppCompatActivity() {
                             if (piege.x >= rocherHard.x && piege.x + piege.width < rocherHard.x + rocherHard.width && piege.y >= rocherHard.y && piege.y + piege.height < rocherHard.y + rocherHard.height) {
                                 // ne fait rien
                             } else {
-                                hideAnimalsHardMetier.trouveElem(1)
+                                hideAnimalsHardMetier.trouveElem(3)
+
                                 infos.setText("Perdu ! ")
 
 
