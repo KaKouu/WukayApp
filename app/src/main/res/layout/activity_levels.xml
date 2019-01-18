@@ -14,7 +14,7 @@
             android:layout_height="match_parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0">
+            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="1.0">
 
         <ScrollView
                 android:layout_width="match_parent"
@@ -36,16 +36,16 @@
                                 android:layout_width="87dp"
                                 android:layout_height="89dp"
                                 android:id="@+id/lapinouSkin"
-                                android:layout_marginTop="1087dp"
-                                app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="13dp"
+                                android:layout_marginTop="1100dp"
+                                app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="0dp"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
-                                android:layout_marginStart="118dp" app:layout_constraintHorizontal_bias="0.289"
+                                android:layout_marginStart="105dp" app:layout_constraintHorizontal_bias="0.289"
                                 app:layout_constraintVertical_bias="1.0" app:srcCompat="@drawable/skin_lapinou"
                                 android:layout_alignParentTop="true"
                                 android:layout_alignParentStart="true" android:layout_alignParentBottom="true"
-                                android:layout_alignParentEnd="true" android:layout_marginEnd="179dp"/>
+                                android:layout_alignParentEnd="true" android:layout_marginEnd="192dp"/>
                     </RelativeLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -76,8 +76,11 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" app:srcCompat="@drawable/hud_levels"
                             android:id="@+id/hud1" android:layout_alignParentTop="true"
-                            android:layout_alignEnd="@+id/lifeText" android:layout_marginTop="0dp"
-                            android:layout_marginEnd="-19dp"/>
+                            android:layout_marginTop="0dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="2dp" android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="208dp" android:layout_alignParentStart="true"
+                            android:layout_marginStart="20dp"/>
                     <TextView
                             android:text="140"
                             android:layout_width="wrap_content"
@@ -90,16 +93,17 @@
                             app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="13dp"
                             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.0"
                             android:layout_alignParentEnd="true" android:layout_alignParentTop="true"
-                            android:layout_alignParentBottom="true"/>
+                            android:layout_alignParentBottom="true" android:layout_marginStart="26dp"
+                            android:layout_alignStart="@+id/imageView2"/>
                     <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent" app:srcCompat="@drawable/icone_shop2"
+                            android:layout_width="84dp"
+                            android:layout_height="38dp" app:srcCompat="@drawable/icone_shop2"
                             android:id="@+id/shopIcone"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintEnd_toStartOf="@+id/numberCarrots"
                             android:layout_marginEnd="7dp" app:layout_constraintStart_toEndOf="@+id/lifeText"
                             android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.925"
-                            android:layout_marginBottom="0dp" app:layout_constraintBottom_toBottomOf="parent"
+                            android:layout_marginBottom="14dp" app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintVertical_bias="0.0" android:layout_marginTop="0dp"
                             android:layout_alignParentTop="true" android:layout_toStartOf="@+id/numberCarrots"
                             android:layout_alignParentBottom="true"/>
@@ -120,14 +124,16 @@
                             android:layout_height="35dp"
                             android:id="@+id/lifeText" android:textSize="24sp"
                             android:textColor="@color/colorPrimaryDark" android:fontFamily="@font/grobold"
-                            android:layout_marginTop="12dp"
-                            app:layout_constraintTop_toTopOf="parent" android:layout_marginEnd="-2dp"
-                            app:layout_constraintEnd_toStartOf="@+id/numberCarrots" android:layout_marginBottom="5dp"
-                            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginStart="41dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/numberCarrots"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.193"
-                            app:layout_constraintVertical_bias="0.0" android:layout_alignParentTop="true"
-                            android:layout_toStartOf="@+id/shopIcone" android:layout_alignParentBottom="true"
-                            android:layout_alignParentStart="true"/>
+                            app:layout_constraintVertical_bias="0.0"
+                            android:layout_alignParentEnd="true" android:layout_marginEnd="222dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_alignParentTop="true" android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="9dp" android:layout_alignParentStart="true"
+                            android:layout_marginStart="39dp"/>
                 </RelativeLayout>
             </LinearLayout>
             <LinearLayout
@@ -160,11 +166,12 @@
                             android:layout_width="129dp"
                             android:layout_height="58dp" app:srcCompat="@drawable/hud_levels3"
 
-                            android:layout_marginEnd="224dp"
+                            android:layout_marginEnd="8dp"
                             android:id="@+id/fondLevel"
                             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-                            app:layout_constraintHorizontal_bias="0.531"/>
+                            app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="8dp"
+                            app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="1.0"/>
                     <TextView
                             android:text=" = 0"
                             android:layout_width="125dp"
@@ -201,6 +208,18 @@
                             android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/button_settings"
                             app:layout_constraintVertical_bias="0.009"/>
                     <Button
+                            android:text="10 LIFE"
+                            android:layout_width="71dp"
+                            android:layout_height="43dp"
+                            android:id="@+id/testLife1"
+
+                            app:layout_constraintEnd_toEndOf="@+id/fondLevel"
+                            android:layout_marginEnd="-13dp"
+                            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.0"
+                            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+                            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/button_settings"
+                            app:layout_constraintVertical_bias="0.138"/>
+                    <Button
                             android:text="Jouer !"
                             android:layout_width="109dp"
                             android:layout_height="58dp"
@@ -212,8 +231,8 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.992"
                             app:layout_constraintVertical_bias="0.983"
-                            android:layout_marginEnd="14dp"
-                            android:layout_marginBottom="12dp"/>
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginBottom="8dp"/>
                     <ImageView
                             android:layout_width="50dp"
                             android:layout_height="40dp" app:srcCompat="@drawable/ic_parameter"

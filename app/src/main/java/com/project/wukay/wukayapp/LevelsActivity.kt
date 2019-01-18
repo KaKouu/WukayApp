@@ -275,6 +275,7 @@ class LevelsActivity : AppCompatActivity() {
     }
 
 
+
     //////TIMER//////
     private fun initTimer(){
         timerState = PrefsTimer.getTimerState(this)
