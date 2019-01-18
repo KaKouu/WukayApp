@@ -71,8 +71,10 @@ class LevelsActivity : AppCompatActivity() {
         lapinouSkin.setImageResource(skinName)
 
         //life
-
         var nbLife=prefs!!.nbLife
+        var testNbLife=intent.getIntExtra("lifeWon",0)
+        nbLife+=testNbLife
+
 
         var lastSeconds=prefs!!.lastSeconds
         var test: Calendar = Calendar.getInstance()
