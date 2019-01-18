@@ -135,6 +135,23 @@ class WhatIsThisAnimalHardActivity: AppCompatActivity()  {
             ouMettreLaReponse
         )
 
+        if(numberWin==0){
+            scoreImageHard.setImageResource(R.drawable.tete_lapinou_score_0)
+        }else{
+            if(numberWin==1){
+                scoreImageHard.setImageResource(R.drawable.tete_lapinou_score_1)
+            }else{
+                if(numberWin==2){
+                    scoreImageHard.setImageResource(R.drawable.tete_lapinou_score_2)
+                }else{
+                    if(numberWin==3){
+                        scoreImageHard.setImageResource(R.drawable.tete_lapinou_score_3)
+
+                    }
+                }
+            }
+        }
+
         answer1.setOnClickListener {
             if (memoAnimauxChoisi[0] == reponse) {
 
@@ -150,6 +167,7 @@ class WhatIsThisAnimalHardActivity: AppCompatActivity()  {
                     var numberCarrotsWonText = numberCarrotsWon.toString()
                     nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
                     startActivity(nextAnimal)
+                    startActivity(popIntent)
 
 
                 } else {
@@ -195,6 +213,7 @@ class WhatIsThisAnimalHardActivity: AppCompatActivity()  {
                     var numberCarrotsWonText = numberCarrotsWon.toString()
                     nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
                     startActivity(nextAnimal)
+                    startActivity(popIntent)
                 } else {
                     reponse = rand.nextInt(arrayOfAnimalsPicture.size - 1)
                     ouMettreLaReponse = rand.nextInt(nombreDeReponsesPossibles)
@@ -232,6 +251,7 @@ class WhatIsThisAnimalHardActivity: AppCompatActivity()  {
                     var numberCarrotsWonText = numberCarrotsWon.toString()
                     nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
                     startActivity(nextAnimal)
+                    startActivity(popIntent)
 
                 } else {
                     reponse = rand.nextInt(arrayOfAnimalsPicture.size - 1)

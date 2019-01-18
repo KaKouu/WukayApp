@@ -152,6 +152,8 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
 
             var numberWin=0
 
+
+
                 ////SILHOUETTE
             choiceOfSilhouette = randomizeImage(tabOfChoice, arrayAnswerAnimal, animalPic)
 
@@ -172,6 +174,18 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
 
             WhatIsThisActivity.setOnTouchListener { v: View,m: MotionEvent ->
                 if(m.action == MotionEvent.ACTION_MOVE){
+
+                    /*if(numberWin==0){
+
+                    }else{
+                        if(numberWin==1){
+                            scoreImage.setImageResource(R.drawable.tete_lapinou_score_1)
+                        }else{
+                            if(numberWin==2){
+                                scoreImage.setImageResource(R.drawable.tete_lapinou_score_2)
+                            }
+                        }
+                    }*/
 
                     if(m.x >= animalAnwser1.x && m.x < animalAnwser1.x + animalAnwser1.width && m.y >= animalAnwser1.y && m.y < animalAnwser1.y + animalAnwser1.height ) {
                         animalAnwser1.x = m.x - animalAnwser1.width / 2
@@ -209,6 +223,7 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                             resultat.text = ""
                             numberWin += 1
 
+
                             val popIntent = Intent(applicationContext, PopUpAnimalFind::class.java)
                             popIntent.putExtra("animalFind",arrayAnimal[choiceOfSilhouette])
                             popIntent.putExtra("animalNameFind",arrayNameChoose[choiceOfSilhouette])
@@ -220,6 +235,8 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
 
                             //fin du mini jeux
                             if (numberWin == 3) {
+                                //scoreImage.setImageResource(R.drawable.tete_lapinou_score_3)
+                                //sleep(5000)
                                 var numberCarrotsWonText = numberCarrotsWon1.toString()
                                 nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
                                 startActivity(nextAnimal)
@@ -280,6 +297,7 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                             resultat.text = ""
                             numberWin += 1
 
+
                             val popIntent = Intent(applicationContext, PopUpAnimalFind::class.java)
                             popIntent.putExtra("animalFind",arrayAnimal[choiceOfSilhouette])
                             popIntent.putExtra("animalNameFind",arrayNameChoose[choiceOfSilhouette])
@@ -289,6 +307,8 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
 
                             //fin du mini jeux
                             if (numberWin == 3) {
+                               // scoreImage.setImageResource(R.drawable.tete_lapinou_score_3)
+                                //sleep(5000)
                                 var numberCarrotsWonText = numberCarrotsWon1.toString()
                                 nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
                                 startActivity(nextAnimal)
@@ -344,6 +364,8 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                             //incrementation du nombre d'animal trouvé
                             resultat.text = ""
                             numberWin += 1
+
+
                             val popIntent = Intent(applicationContext, PopUpAnimalFind::class.java)
                             popIntent.putExtra("animalFind",arrayAnimal[choiceOfSilhouette])
                             popIntent.putExtra("animalNameFind",arrayNameChoose[choiceOfSilhouette])
@@ -355,6 +377,8 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
 
                             //fin du mini jeux
                             if (numberWin == 3) {
+                                //scoreImage.setImageResource(R.drawable.tete_lapinou_score_3)
+                                //sleep(5000)
                                 var numberCarrotsWonText = numberCarrotsWon1.toString()
                                 nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
                                 startActivity(nextAnimal)

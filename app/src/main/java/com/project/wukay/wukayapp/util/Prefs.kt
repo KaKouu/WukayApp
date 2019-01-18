@@ -14,6 +14,7 @@ class Prefs(context : Context) {
     val ACTUAL_SKIN_NAME = "skinName"
     val ACTUAL_LEVEL = "actualLevel"
     val VOLUME="volume"
+    val NUMERO_MINI_JEU="num_mini_jeu"
 
     val SHOP_PURCHASES0 ="shop_PURCHASES0"
     val SHOP_PURCHASES2 ="shop_PURCHASES2"
@@ -84,4 +85,9 @@ class Prefs(context : Context) {
 
         get() = prefs.getInt(VOLUME,0)
         set(value) = prefs.edit().putInt(VOLUME,value).apply()
+
+    var num_mini_jeu : Int
+
+        get() = prefs.getInt(NUMERO_MINI_JEU, 0)
+        set(value) = prefs.edit().putInt(NUMERO_MINI_JEU, value).apply()
 }

@@ -40,6 +40,8 @@ class LevelsActivity : AppCompatActivity() {
     private var secondsRemaining =SECONDS_FOR_ONE_LIFE
 
 
+
+
     override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
         return if (keyCode == KeyEvent.KEYCODE_BACK) {
             false
@@ -55,6 +57,8 @@ class LevelsActivity : AppCompatActivity() {
 
         val vto = levelsScroll.viewTreeObserver
         vto.addOnGlobalLayoutListener { levelsScroll.scrollTo(6000, 6000) }
+
+
 
         heart.visibility = View.INVISIBLE
         numberOfLife.visibility = View.INVISIBLE
@@ -77,6 +81,9 @@ class LevelsActivity : AppCompatActivity() {
         var testNbLife=intent.getIntExtra("lifeWon",0)
         nbLife+=testNbLife
 
+
+        var randomGameTempo = prefs!!.num_mini_jeu
+        var randomGame = Random().nextInt(3)
 
         var lastSeconds=prefs!!.lastSeconds
         var test: Calendar = Calendar.getInstance()
@@ -182,7 +189,11 @@ class LevelsActivity : AppCompatActivity() {
                 }*/
             }
             else {
-               var randomGame = Random().nextInt(3)
+                while(randomGameTempo==randomGame){
+                    randomGame = Random().nextInt(3)
+                }
+
+
 
 
 
@@ -228,6 +239,7 @@ class LevelsActivity : AppCompatActivity() {
                     }
                 }
             }
+            prefs!!.num_mini_jeu=randomGame
 
 
         }
@@ -252,6 +264,7 @@ class LevelsActivity : AppCompatActivity() {
         prefs!!.nbCarrots=carrots
         prefs!!.skinName=skinName
         prefs!!.actualLevel=loopLevel
+
         numberCarrots.text = carrots.toString()
 
     }
