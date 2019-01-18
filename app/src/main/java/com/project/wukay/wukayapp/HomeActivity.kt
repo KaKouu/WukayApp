@@ -15,6 +15,7 @@ class HomeActivity : AppCompatActivity() {
 
 
     private lateinit var player :MediaPlayer
+    private lateinit var player2 :MediaPlayer
 
     private var prefs: Prefs? = null
 
@@ -55,6 +56,18 @@ class HomeActivity : AppCompatActivity() {
 
 
             System.out.println(controler.partie.difficulte)
+
+        }
+        var easterEgg = 0
+
+        imageGirafe.setOnClickListener {
+            easterEgg+=1
+            if (easterEgg==20){
+                player2 = MediaPlayer.create(this, R.raw.easter_egg)
+                player2.start()
+                easterEgg=0
+
+            }
 
         }
     }
