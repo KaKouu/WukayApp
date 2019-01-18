@@ -11,6 +11,7 @@ import android.view.View
 import com.project.wukay.wukayapp.R
 import com.project.wukay.wukayapp.VictoryActivity
 import com.project.wukay.wukayapp.metier.FeedAnimalsHardModel
+import com.project.wukay.wukayapp.metier.HideAnimalsMetier
 import com.project.wukay.wukayapp.util.Aleatoire
 import kotlinx.android.synthetic.main.activity_feed_hard_animals.*
 import java.util.*
@@ -22,6 +23,25 @@ class FeedAnimalsHardControler : AppCompatActivity() {
     var positionX=FloatArray(3)
     var positionY=FloatArray(3)
     var difficulty=""
+    val nombreAnimauxAchercher =3
+
+    val listOfAnimals = arrayOf(
+        R.drawable.animaux_panier_cochon,
+        R.drawable.animaux_panier_vache,
+        R.drawable.animaux_panier_girafe,
+        R.drawable.animaux_panier_bouc,
+        R.drawable.animaux_panier_chat,
+        R.drawable.animaux_panier_crabe,
+        R.drawable.animaux_panier_morse,
+        R.drawable.animaux_panier_panda,
+        R.drawable.animaux_panier_paon,
+        R.drawable.animaux_panier_pingouin,
+        R.drawable.animaux_panier_poule,
+        R.drawable.animaux_panier_tigre,
+        R.drawable.animaux_panier_zebre,
+        R.drawable.animaux_panier_lion
+    )
+    var tableauEntierAleatoireDifferent = aleatoire.chiffreAleatoireDifferentEntreDeuxBornes(listOfAnimals.size,nombreAnimauxAchercher)
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
         return if (keyCode == KeyEvent.KEYCODE_BACK) {
@@ -53,38 +73,41 @@ class FeedAnimalsHardControler : AppCompatActivity() {
         positionY.set(2,800f)
 
         val listOfAnimals = arrayOf(
-            R.drawable.animaux_cochon,
-            R.drawable.animaux_vache,
-            R.drawable.animaux_girafe,
-            R.drawable.animaux_bouc,
-            R.drawable.animaux_chat,
-            R.drawable.animaux_crabe,
-            R.drawable.animaux_morse,
-            R.drawable.animaux_panda,
-            R.drawable.animaux_paon,
-            R.drawable.animaux_pingouin,
-            R.drawable.animaux_poule,
-            R.drawable.animaux_tigre,
-            R.drawable.animaux_zebre,
-            R.drawable.animaux_lion
+            R.drawable.animaux_panier_cochon,
+            R.drawable.animaux_panier_vache,
+            R.drawable.animaux_panier_girafe,
+            R.drawable.animaux_panier_bouc,
+            R.drawable.animaux_panier_chat,
+            R.drawable.animaux_panier_crabe,
+            R.drawable.animaux_panier_morse,
+            R.drawable.animaux_panier_panda,
+            R.drawable.animaux_panier_paon,
+            R.drawable.animaux_panier_pingouin,
+            R.drawable.animaux_panier_poule,
+            R.drawable.animaux_panier_tigre,
+            R.drawable.animaux_panier_zebre,
+            R.drawable.animaux_panier_lion
         )
 
         val listOfFood = arrayOf(
-            R.drawable.animaux_cochon_silhouette,
-            R.drawable.animaux_vache_silhouette,
-            R.drawable.animaux_girafe_silhouette,
-            R.drawable.animaux_bouc_silhouette,
-            R.drawable.animaux_chat_silhouette,
-            R.drawable.animaux_crabe_silhouette,
-            R.drawable.animaux_morse_silhouette,
-            R.drawable.animaux_panda_silhouette,
-            R.drawable.animaux_paon_silhouette,
-            R.drawable.animaux_pingouin_silhouette,
-            R.drawable.animaux_poule_silhouette,
-            R.drawable.animaux_tigre_silhouette,
-            R.drawable.animaux_zebre_silhouette,
-            R.drawable.animaux_lion_silhouette
+            R.drawable.food_mais,
+            R.drawable.food_herbe,
+            R.drawable.food_feuille,
+            R.drawable.food_herbe,
+            R.drawable.food_souris,
+            R.drawable.food_poisson,
+            R.drawable.food_crevette,
+            R.drawable.food_bambou,
+            R.drawable.food_graine,
+            R.drawable.food_poisson,
+            R.drawable.food_graine,
+            R.drawable.food_viande,
+            R.drawable.food_feuille,
+            R.drawable.food_viande
         )
+
+
+
         setContentView(R.layout.activity_feed_hard_animals)
         myLayoutFood.setOnTouchListener { v: View, m: MotionEvent ->
             handleTouch(m)
@@ -92,10 +115,10 @@ class FeedAnimalsHardControler : AppCompatActivity() {
         }
 
 
-        val nombreAnimauxAchercher =3;
-        var tableauEntierAleatoireDifferent:IntArray
+
+
         System.out.println("PASSEPAS")
-        tableauEntierAleatoireDifferent = aleatoire.chiffreAleatoireDifferentEntreDeuxBornes(listOfAnimals.size,nombreAnimauxAchercher)
+
         System.out.println("PASSE")
         animalFood3.setImageResource(listOfAnimals[tableauEntierAleatoireDifferent.get(0)])
         animalFood2.setImageResource(listOfAnimals[tableauEntierAleatoireDifferent.get(1)])
@@ -137,6 +160,22 @@ class FeedAnimalsHardControler : AppCompatActivity() {
 
     private fun handleTouch(m: MotionEvent){
         //if(difficulty=="hard"){
+        val listAnswer = arrayOf(
+            R.drawable.animaux_nourriture_cochon,
+            R.drawable.animaux_nourriture_vache,
+            R.drawable.animaux_nourriture_girafe,
+            R.drawable.animaux_nourriture_bouc,
+            R.drawable.animaux_nourriture_chat,
+            R.drawable.animaux_nourriture_crabe,
+            R.drawable.animaux_nourriture_morse,
+            R.drawable.animaux_nourriture_panda,
+            R.drawable.animaux_nourriture_paon,
+            R.drawable.animaux_nourriture_pingouin,
+            R.drawable.animaux_nourriture_poule,
+            R.drawable.animaux_nourriture_tigre,
+            R.drawable.animaux_nourriture_zebre,
+            R.drawable.animaux_nourriture_lion
+        )
 
             if(m.action == MotionEvent.ACTION_MOVE) {
 
@@ -175,7 +214,7 @@ class FeedAnimalsHardControler : AppCompatActivity() {
                                                 && food1Hide.y >= animalFood1.y - animalFood1.height / 3 && food1Hide.y + food1Hide.height < animalFood1.y + animalFood1.height + animalFood1.height / 3
                                             ) {
                                                 feedAnimalsHard.trouveElem(0)
-                                                animalFood1.x = -500f
+                                                animalFood1.setImageResource(listAnswer[tableauEntierAleatoireDifferent.get(2)])
                                                 food1Hide.y = -500f
                                                 if (feedAnimalsHard.isWin()) {
                                                     val nextAnimal =
@@ -209,7 +248,7 @@ class FeedAnimalsHardControler : AppCompatActivity() {
                                                     && food2Hide.y >= animalFood2.y - animalFood2.height / 3 && food2Hide.y + food2Hide.height < animalFood2.y + animalFood2.height + animalFood2.height / 3
                                                 ) {
                                                     feedAnimalsHard.trouveElem(1)
-                                                    animalFood2.x = -500f
+                                                    animalFood2.setImageResource(listAnswer[tableauEntierAleatoireDifferent.get(1)])
                                                     food2Hide.y = -500f
                                                     if (feedAnimalsHard.isWin()) {
                                                         val nextAnimal =
@@ -243,7 +282,7 @@ class FeedAnimalsHardControler : AppCompatActivity() {
                                                         && food3Hide.y >= animalFood3.y - animalFood3.height / 3 && food3Hide.y + food3Hide.height < animalFood3.y + animalFood3.height + animalFood3.height / 3)
                                                     {
                                                         feedAnimalsHard.trouveElem(2)
-                                                        animalFood3.x = -500f
+                                                        animalFood3.setImageResource(listAnswer[tableauEntierAleatoireDifferent.get(0)])
                                                         food3Hide.y = -500f
                                                         if (feedAnimalsHard.isWin()) {
                                                             val nextAnimal =

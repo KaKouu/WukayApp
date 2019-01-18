@@ -57,8 +57,6 @@ class FeedAnimalsModel {
             i++
         }
 
-
-
     }
     public fun animalCanEatThisFood(indexAnimal:Int,indexFood:Int): Boolean{
         if(indexAnimal==indexFood){

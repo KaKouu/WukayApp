@@ -14,9 +14,10 @@ class InAppBilling : AppCompatActivity() {
         setContentView(R.layout.activity_in_app_bill)
 
         var prefs = Prefs(this)
+        var nbLife=prefs!!.nbLife
         val difficulty = intent.getStringExtra("difficulty")
         nbCarrot=prefs!!.nbCarrots
-        button2.setOnClickListener {
+        buttonPrice.setOnClickListener {
 
             val next = Intent( this@InAppBilling, LevelsActivity::class.java)
             next.putExtra("difficulty",difficulty)
@@ -25,11 +26,29 @@ class InAppBilling : AppCompatActivity() {
 
             startActivity(next)
         }
-        button3.setOnClickListener {
+        buttonPrice2.setOnClickListener {
 
             val next = Intent( this@InAppBilling, LevelsActivity::class.java)
             next.putExtra("difficulty",difficulty)
             next.putExtra("carotsWon",500)
+            next.putExtra("isLastActivityIsAGame",false)
+
+            startActivity(next)
+        }
+        buttonPrice3.setOnClickListener {
+
+            val next = Intent( this@InAppBilling, LevelsActivity::class.java)
+            next.putExtra("difficulty",difficulty)
+            next.putExtra("lifeWon",5)
+            next.putExtra("isLastActivityIsAGame",false)
+
+            startActivity(next)
+        }
+        buttonPrice4.setOnClickListener {
+
+            val next = Intent( this@InAppBilling, LevelsActivity::class.java)
+            next.putExtra("difficulty",difficulty)
+            next.putExtra("lifeWon",10)
             next.putExtra("isLastActivityIsAGame",false)
 
             startActivity(next)

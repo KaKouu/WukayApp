@@ -7,11 +7,11 @@
         android:layout_height="match_parent"
         tools:context=".whatIsThisAnimal.WhatIsThisAnimalActivity"
         android:background="@drawable/bg_hide_animals"
-        android:id="@+id/myLayout">
+        android:id="@+id/myLayoutHard">
     <ImageView
             android:layout_width="86dp"
             android:layout_height="105dp" app:srcCompat="@drawable/animaux_mouton"
-            android:id="@+id/answer2Hide"
+            android:id="@+id/answer2HideHard"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -22,7 +22,7 @@
     <ImageView
             android:layout_width="53dp"
             android:layout_height="75dp" app:srcCompat="@drawable/animaux_mouton_silhouette"
-            android:id="@+id/animalToFind2"
+            android:id="@+id/animalToFind2Hard"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +34,7 @@
     <ImageView
             android:layout_width="86dp"
             android:layout_height="100dp"
-            android:id="@+id/answer1Hide"
+            android:id="@+id/answer1HideHard"
             android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.516"
             app:srcCompat="@drawable/animaux_bouc" android:layout_marginStart="8dp"
@@ -42,9 +42,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             tools:srcCompat="@drawable/animaux_bouc" app:layout_constraintHorizontal_bias="0.07"/>
     <ImageView
+            android:layout_width="103dp"
+            android:layout_height="92dp" app:srcCompat="@drawable/animaux_lion"
+            android:id="@+id/piege" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.011"
+            app:layout_constraintVertical_bias="0.533"/>
+    <ImageView
             android:layout_width="62dp"
             android:layout_height="64dp"
-            android:id="@+id/animalToFind1"
+            android:id="@+id/animalToFind1Hard"
             android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.092"
             app:srcCompat="@drawable/animaux_bouc_silhouette" android:layout_marginStart="8dp"
@@ -54,7 +63,7 @@
     <ImageView
             android:layout_width="105dp"
             android:layout_height="104dp" app:srcCompat="@drawable/animaux_crabe"
-            android:id="@+id/answer3Hide" android:layout_marginTop="8dp"
+            android:id="@+id/answer3HideHard" android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
@@ -63,7 +72,7 @@
     <ImageView
             android:layout_width="61dp"
             android:layout_height="68dp" app:srcCompat="@drawable/animaux_didion_silhouette"
-            android:id="@+id/animalToFind3" android:layout_marginTop="8dp"
+            android:id="@+id/animalToFind3Hard" android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
@@ -72,7 +81,7 @@
     <ImageView
             android:layout_width="165dp"
             android:layout_height="178dp" app:srcCompat="@drawable/icon_herbe"
-            android:id="@+id/herbe" android:layout_marginTop="8dp"
+            android:id="@+id/herbeHard" android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
@@ -81,7 +90,7 @@
     <ImageView
             android:layout_width="153dp"
             android:layout_height="216dp" app:srcCompat="@drawable/arbre"
-            android:id="@+id/arbre" android:layout_marginTop="8dp"
+            android:id="@+id/arbreHard" android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
@@ -89,11 +98,35 @@
     <ImageView
             android:layout_width="188dp"
             android:layout_height="249dp" app:srcCompat="@drawable/icon_rocher"
-            android:id="@+id/rocher" android:layout_marginTop="8dp"
+            android:id="@+id/rocherHard" android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintVertical_bias="0.586"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/infos" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.226"
+            android:textAlignment="center"
+            android:fontFamily="@font/grobold"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="30sp" app:layout_constraintHorizontal_bias="0.501"/>
+    <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="199dp"
+            android:layout_height="42dp"
+            android:id="@+id/progressBar"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintVertical_bias="0.0"
+            android:scaleY="1.5"
+            />
 
 </android.support.constraint.ConstraintLayout>
