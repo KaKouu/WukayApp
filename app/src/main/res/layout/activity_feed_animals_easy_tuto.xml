@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".whatIsThisAnimal.WhatIsThisAnimalActivity"
-        android:background="@drawable/bg_what_is_this"
+        android:background="@drawable/bg_feed_animals"
         android:id="@+id/feedAnimalLayout">
 
     <Button
@@ -38,7 +38,7 @@
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.455"/>
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.47"/>
     <ImageView
             android:layout_width="124dp"
             android:layout_height="106dp" app:srcCompat="@drawable/panier_nourriture"
@@ -62,7 +62,7 @@
             android:layout_height="108dp" app:srcCompat="@drawable/animaux_panda"
             android:id="@+id/imageView3" android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.038"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.0"
             android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.949"/>
     <ImageView
@@ -72,8 +72,8 @@
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.075"
-            app:layout_constraintVertical_bias="0.018"/>
+            android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.082"
+            app:layout_constraintVertical_bias="0.0"/>
     <ImageView
             android:layout_width="121dp"
             android:layout_height="67dp" app:srcCompat="@drawable/food_viande"
