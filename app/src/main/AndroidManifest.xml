@@ -76,7 +76,7 @@
                 android:name=".HideAnimalsHardTuto">
         </activity>
         <activity
-                android:name=".FeedAnimalsEasyTuto">
+                android:name=".FeedAnimalsGame.FeedAnimalsEasyTuto">
         </activity>
         <activity
                 android:name=".SettingsActivity"
@@ -84,12 +84,12 @@
                 android:screenOrientation="portrait">
         </activity>
         <activity
-                android:name=".FeedAnimalsControler"
+                android:name=".FeedAnimalsGame.FeedAnimalsControler"
                 android:configChanges="orientation"
                 android:screenOrientation="portrait">
         </activity>
         <activity
-                android:name=".FeedAnimalsHardControler"
+                android:name=".FeedAnimalsGame.FeedAnimalsHardControler"
                 android:configChanges="orientation"
                 android:screenOrientation="portrait">
         </activity>

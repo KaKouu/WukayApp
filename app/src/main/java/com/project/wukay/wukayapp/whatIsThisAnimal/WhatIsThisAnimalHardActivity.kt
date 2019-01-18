@@ -7,10 +7,12 @@ import android.os.Bundle
 import android.os.Vibrator
 import android.support.v7.app.AppCompatActivity
 import android.view.KeyEvent
+import com.project.wukay.wukayapp.IHM.DifficultyActivity
 import com.project.wukay.wukayapp.PopUpAnimalFind
 import com.project.wukay.wukayapp.R
 import com.project.wukay.wukayapp.VictoryActivity
 import kotlinx.android.synthetic.main.activity_hard_what_is_this.*
+import kotlinx.android.synthetic.main.activity_what_is_this.*
 import java.util.*
 
 class WhatIsThisAnimalHardActivity: AppCompatActivity()  {
@@ -39,6 +41,10 @@ class WhatIsThisAnimalHardActivity: AppCompatActivity()  {
 
         val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
 
+        buttonBack2.setOnClickListener{
+            val previousPage = Intent(this@WhatIsThisAnimalHardActivity, DifficultyActivity::class.java)
+            startActivity(previousPage)
+        }
 
         //CODE DE LA PARTIE DIFFICILE
         var numberWin = 0

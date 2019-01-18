@@ -1,4 +1,4 @@
-package com.project.wukay.wukayapp
+package com.project.wukay.wukayapp.FeedAnimalsGame
 
 import android.content.Context
 import android.content.Intent
@@ -8,8 +8,9 @@ import android.os.Vibrator
 import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.View
+import com.project.wukay.wukayapp.R
+import com.project.wukay.wukayapp.VictoryActivity
 import com.project.wukay.wukayapp.metier.FeedAnimalsHardModel
-import com.project.wukay.wukayapp.metier.HideAnimalsMetier
 import com.project.wukay.wukayapp.util.Aleatoire
 import kotlinx.android.synthetic.main.activity_feed_hard_animals.*
 import java.util.*
@@ -65,7 +66,7 @@ class FeedAnimalsHardControler : AppCompatActivity() {
             R.drawable.animaux_poule,
             R.drawable.animaux_tigre,
             R.drawable.animaux_zebre,
-            R.drawable.animaux_lion 
+            R.drawable.animaux_lion
         )
 
         val listOfFood = arrayOf(
