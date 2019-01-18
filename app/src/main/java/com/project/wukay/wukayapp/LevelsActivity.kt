@@ -180,7 +180,8 @@ class LevelsActivity : AppCompatActivity() {
                 }*/
             }
             else {
-                var randomGame = Random().nextInt(3)
+               var randomGame = Random().nextInt(3)
+
 
 
                 when (randomGame) {
