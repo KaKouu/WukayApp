@@ -174,7 +174,7 @@ class LevelsActivity : AppCompatActivity() {
                 }*/
             }
             else {
-                var randomGame = 1 //Random().nextInt(1)
+                var randomGame = Random().nextInt(3)
 
 
                 when (randomGame) {
@@ -206,12 +206,12 @@ class LevelsActivity : AppCompatActivity() {
                     }
                     2-> {
                         if (difficulty == "easy") {
-                            val nextGame = Intent(this@LevelsActivity, FeedAnimalsControler::class.java)
+                            val nextGame = Intent(this@LevelsActivity, FeedAnimalsEasyTuto::class.java)
                             nextGame.putExtra("difficulty", difficulty)
                             startActivity(nextGame)
                         }
                         else {
-                            val nextGame = Intent(this@LevelsActivity, FeedAnimalsControler::class.java)
+                            val nextGame = Intent(this@LevelsActivity, FeedAnimalsHardControler::class.java)
                             nextGame.putExtra("difficulty", difficulty)
                             startActivity(nextGame)
                         }

@@ -8,11 +8,10 @@ import android.view.KeyEvent
 import android.view.View
 import android.view.animation.TranslateAnimation
 import com.project.wukay.wukayapp.util.Prefs
+import kotlinx.android.synthetic.main.activity_feed_animals_easy_tuto.*
 import kotlinx.android.synthetic.main.activity_hide_animals_easy_tuto.*
-import kotlinx.android.synthetic.main.activity_hide_animals_hard_tuto.*
-import java.lang.Thread.sleep
 
-class HideAnimalsHardTuto : AppCompatActivity() {
+class FeedAnimalsEasyTuto : AppCompatActivity() {
     private var prefs: Prefs? = null
     override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
         return if (keyCode == KeyEvent.KEYCODE_BACK) {
@@ -22,7 +21,7 @@ class HideAnimalsHardTuto : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_hide_animals_hard_tuto)
+        setContentView(R.layout.activity_feed_animals_easy_tuto)
 
         prefs = Prefs(this)
 
@@ -30,40 +29,33 @@ class HideAnimalsHardTuto : AppCompatActivity() {
         val intent = intent
         val difficulty = intent.getStringExtra("difficulty")
 
-        cocheHide2.visibility = View.INVISIBLE
+        cocheFeed.visibility = View.INVISIBLE
 
-        val animation = TranslateAnimation(0f, 270f, 0f, 0f)
+        val animation = TranslateAnimation(0f, 0f, 0f, 300f)
         animation.duration = 2000
-        curseurHide2.startAnimation(animation)
+        curseurFeed.startAnimation(animation)
         animation.fillAfter = true
 
         val handler1 = Handler()
         handler1.postDelayed({
-            val animation2 = TranslateAnimation(270f, -475f, 0f, 0f)
-            animation2.duration = 4000
-            val animationbis2 = TranslateAnimation(0f, -500f, 0f, 0f)
-            animationbis2.duration = 3500
-            rocher2.startAnimation(animationbis2)
-            curseurHide2.startAnimation(animation2)
+            val animation2 = TranslateAnimation(0f, 0f, 0f, -500f)
+            animation2.duration = 2000
+            val animation3 = TranslateAnimation(0f, 0f, 300f, -500f)
+            animation2.duration = 2000
+            viandeFeed.startAnimation(animation2)
+            curseurFeed.startAnimation(animation3)
             animation2.fillAfter = true
-            animationbis2.fillAfter = true
+            animation3.fillAfter = true
         }, 2200)
 
-        val handler2 = Handler()
-        handler2.postDelayed({
-            val animation3 = TranslateAnimation(-125f, 400f, 0f, 0f)
-            animation3.duration = 4000
-            curseurHide2.startAnimation(animation3)
-            animation3.fillAfter = true
-        }, 4400)
 
         val handler = Handler()
         handler.postDelayed({
-            cocheHide2.visibility = View.VISIBLE
-        }, 10100)
+            cocheFeed.visibility = View.VISIBLE
+        }, 4500)
 
-        startButtonHide2.setOnClickListener {
-            val nextGame = Intent(this@HideAnimalsHardTuto, HideAnimals::class.java)
+        startButtonFeed.setOnClickListener {
+            val nextGame = Intent(this@FeedAnimalsEasyTuto, FeedAnimalsControler::class.java)
             nextGame.putExtra("difficulty", difficulty)
             startActivity(nextGame)
         }

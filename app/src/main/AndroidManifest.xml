@@ -76,12 +76,20 @@
                 android:name=".HideAnimalsHardTuto">
         </activity>
         <activity
+                android:name=".FeedAnimalsEasyTuto">
+        </activity>
+        <activity
                 android:name=".SettingsActivity"
                 android:configChanges="orientation"
                 android:screenOrientation="portrait">
         </activity>
         <activity
                 android:name=".FeedAnimalsControler"
+                android:configChanges="orientation"
+                android:screenOrientation="portrait">
+        </activity>
+        <activity
+                android:name=".FeedAnimalsHardControler"
                 android:configChanges="orientation"
                 android:screenOrientation="portrait">
         </activity>
