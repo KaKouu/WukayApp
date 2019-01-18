@@ -10,11 +10,13 @@ import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.View
 import android.widget.ImageView
+import com.project.wukay.wukayapp.IHM.DifficultyActivity
 import com.project.wukay.wukayapp.LifePopActivity
 import com.project.wukay.wukayapp.PopUpAnimalFind
 import com.project.wukay.wukayapp.R
 import com.project.wukay.wukayapp.VictoryActivity
 import kotlinx.android.synthetic.main.activity_hard_what_is_this.*
+import kotlinx.android.synthetic.main.activity_levels.*
 import kotlinx.android.synthetic.main.activity_what_is_this.*
 import java.lang.Thread.sleep
 import java.util.*
@@ -42,7 +44,10 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
 
         val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
 
-
+        buttonBack.setOnClickListener{
+            val previousPage = Intent(this@WhatIsThisAnimalActivity, DifficultyActivity::class.java)
+            startActivity(previousPage)
+        }
 
         //selon le niveau de difficulté
             val startAnimalAnswer = arrayOf(
