@@ -1,4 +1,4 @@
-package com.project.wukay.wukayapp
+package com.project.wukay.wukayapp.FeedAnimalsGame
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,9 +7,9 @@ import android.support.v7.app.AppCompatActivity
 import android.view.KeyEvent
 import android.view.View
 import android.view.animation.TranslateAnimation
+import com.project.wukay.wukayapp.R
 import com.project.wukay.wukayapp.util.Prefs
 import kotlinx.android.synthetic.main.activity_feed_animals_easy_tuto.*
-import kotlinx.android.synthetic.main.activity_hide_animals_easy_tuto.*
 
 class FeedAnimalsEasyTuto : AppCompatActivity() {
     private var prefs: Prefs? = null

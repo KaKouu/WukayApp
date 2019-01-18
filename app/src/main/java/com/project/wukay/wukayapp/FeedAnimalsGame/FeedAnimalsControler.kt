@@ -1,4 +1,4 @@
-package com.project.wukay.wukayapp
+package com.project.wukay.wukayapp.FeedAnimalsGame
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity
 import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.View
+import com.project.wukay.wukayapp.R
+import com.project.wukay.wukayapp.VictoryActivity
 import com.project.wukay.wukayapp.metier.FeedAnimalsModel
 import kotlinx.android.synthetic.main.activity_feed_animals.*
 import java.util.*

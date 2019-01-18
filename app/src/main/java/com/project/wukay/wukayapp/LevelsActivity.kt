@@ -14,10 +14,10 @@ import com.project.wukay.wukayapp.util.PrefsTimer
 
 import kotlinx.android.synthetic.main.activity_levels.*
 import java.util.*
-import android.view.ViewTreeObserver.OnGlobalLayoutListener
+import com.project.wukay.wukayapp.FeedAnimalsGame.FeedAnimalsEasyTuto
+import com.project.wukay.wukayapp.FeedAnimalsGame.FeedAnimalsHardControler
 import com.project.wukay.wukayapp.whatIsThisAnimal.WhatIsThisAnimalHardTutoActivity
 import com.project.wukay.wukayapp.whatIsThisAnimal.WhatIsThisAnimalTutoActivity
-import kotlin.concurrent.schedule
 
 
 class LevelsActivity : AppCompatActivity() {
@@ -152,6 +152,10 @@ class LevelsActivity : AppCompatActivity() {
 
         testLife2.setOnClickListener {
             nbLife -=1
+            setTxtLife(lifeText,nbLife)
+        }
+        testLifeFull.setOnClickListener {
+            nbLife = 10
             setTxtLife(lifeText,nbLife)
         }
 
