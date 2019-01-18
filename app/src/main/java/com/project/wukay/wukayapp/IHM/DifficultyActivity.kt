@@ -4,11 +4,11 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.KeyEvent
+import com.project.wukay.wukayapp.HomeActivity
 import com.project.wukay.wukayapp.LevelsActivity
 import com.project.wukay.wukayapp.R
 import kotlinx.android.synthetic.main.activity_difficulty.*
-
-
+import kotlinx.android.synthetic.main.activity_what_is_this.*
 
 
 class DifficultyActivity : AppCompatActivity() {
@@ -25,6 +25,10 @@ class DifficultyActivity : AppCompatActivity() {
         val next = Intent(this@DifficultyActivity, LevelsActivity::class.java)
         var difficulty: String
 
+        buttonBack3.setOnClickListener{
+            val previousPage = Intent(this@DifficultyActivity, HomeActivity::class.java)
+            startActivity(previousPage)
+        }
 
         easyPic.setOnClickListener{
             difficulty="easy"
