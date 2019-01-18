@@ -74,6 +74,14 @@
                             android:layout_marginTop="0dp"/>
                     <ImageView
                             android:layout_width="wrap_content"
+                            android:layout_height="match_parent" app:srcCompat="@drawable/hud_levels2"
+                            android:id="@+id/imageView15" android:layout_alignParentEnd="true"
+                            android:layout_alignParentTop="true" android:layout_marginEnd="102dp"
+                            android:layout_marginTop="0dp" android:layout_alignParentStart="true"
+                            android:layout_marginStart="177dp" android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="0dp"/>
+                    <ImageView
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content" app:srcCompat="@drawable/hud_levels"
                             android:id="@+id/hud1" android:layout_alignParentTop="true"
                             android:layout_marginTop="0dp"
@@ -96,14 +104,14 @@
                             android:layout_alignParentBottom="true" android:layout_marginStart="26dp"
                             android:layout_alignStart="@+id/imageView2"/>
                     <ImageView
-                            android:layout_width="84dp"
-                            android:layout_height="38dp" app:srcCompat="@drawable/icone_shop2"
+                            android:layout_width="165dp"
+                            android:layout_height="match_parent" app:srcCompat="@drawable/icone_shop2"
                             android:id="@+id/shopIcone"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintEnd_toStartOf="@+id/numberCarrots"
-                            android:layout_marginEnd="7dp" app:layout_constraintStart_toEndOf="@+id/lifeText"
+                            android:layout_marginEnd="-32dp" app:layout_constraintStart_toEndOf="@+id/lifeText"
                             android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.925"
-                            android:layout_marginBottom="14dp" app:layout_constraintBottom_toBottomOf="parent"
+                            android:layout_marginBottom="0dp" app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintVertical_bias="0.0" android:layout_marginTop="0dp"
                             android:layout_alignParentTop="true" android:layout_toStartOf="@+id/numberCarrots"
                             android:layout_alignParentBottom="true"/>
