@@ -186,12 +186,11 @@
                             android:layout_width="129dp"
                             android:layout_height="58dp" app:srcCompat="@drawable/hud_levels3"
 
-                            android:layout_marginEnd="8dp"
                             android:id="@+id/fondLevel"
-                            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-                            app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="8dp"
-                            app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="1.0"/>
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.966"
+                            app:layout_constraintEnd_toStartOf="@+id/playButton" android:layout_marginEnd="136dp"/>
                     <TextView
                             android:text=" = 0"
                             android:layout_width="125dp"
@@ -249,7 +248,6 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.992"
                             app:layout_constraintVertical_bias="0.983"
                             android:layout_marginEnd="8dp"
                             android:layout_marginBottom="8dp"/>
@@ -257,7 +255,7 @@
                             android:layout_width="50dp"
                             android:layout_height="40dp" app:srcCompat="@drawable/ic_parameter"
                             android:id="@+id/button_settings"
-                            android:layout_marginTop="88dp" app:layout_constraintTop_toTopOf="parent"
+                            android:layout_marginTop="84dp" app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintStart_toStartOf="parent"/>
                 </android.support.constraint.ConstraintLayout>
             </LinearLayout>

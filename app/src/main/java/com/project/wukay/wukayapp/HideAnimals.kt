@@ -25,7 +25,7 @@ class HideAnimals : AppCompatActivity() {
     var positionX = FloatArray(3)
     var positionY = FloatArray(3)
     var difficulty = ""
-
+    val timer = MyCounter(20000, 1000)
     override fun onCreate(savedInstanceState: Bundle?) {
         hideAnimalsHardMetier.initialisationJeu()
         // mise en place du layout
@@ -133,7 +133,7 @@ class HideAnimals : AppCompatActivity() {
         arbreHard.y = positionY[hideAnimalsHardMetier.getDecorPlacementY()[1]]
         rocherHard.y = positionY[hideAnimalsHardMetier.getDecorPlacementY()[2]]
 
-        val timer = MyCounter(10000, 1000)
+
         timer.start()
 
     }
@@ -153,7 +153,7 @@ class HideAnimals : AppCompatActivity() {
         }
 
         override fun onTick(millisUntilFinished: Long) {
-            progressBar.progress = ((millisUntilFinished / 100).toInt())
+            progressBar.progress = (((millisUntilFinished/2 )/ 100).toInt())
 
 
         }
@@ -206,7 +206,7 @@ class HideAnimals : AppCompatActivity() {
                                 animalToFind1Hard.visibility = View.INVISIBLE
                                 answer1HideHard.visibility = View.INVISIBLE
                                 if (hideAnimalsHardMetier.isWin()) {
-
+                                    timer.cancel()
                                     val nextAnimal = Intent(this@HideAnimals, VictoryActivity::class.java)
                                     nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
                                     var numberCarrotsWonText = random.nextInt(10).toString()
@@ -233,7 +233,7 @@ class HideAnimals : AppCompatActivity() {
                                 animalToFind3Hard.visibility = View.INVISIBLE
                                 answer3HideHard.visibility = View.INVISIBLE
                                 if (hideAnimalsHardMetier.isWin()) {
-
+                                    timer.cancel()
                                     val nextAnimal = Intent(this@HideAnimals, VictoryActivity::class.java)
                                     nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
                                     var numberCarrotsWonText = random.nextInt(10).toString()
@@ -260,7 +260,7 @@ class HideAnimals : AppCompatActivity() {
                                 animalToFind2Hard.visibility = View.INVISIBLE
                                 answer2HideHard.visibility = View.INVISIBLE
                                 if (hideAnimalsHardMetier.isWin()) {
-
+                                    timer.cancel()
                                     val nextAnimal = Intent(this@HideAnimals, VictoryActivity::class.java)
                                     nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
                                     var numberCarrotsWonText = random.nextInt(10).toString()
@@ -284,7 +284,7 @@ class HideAnimals : AppCompatActivity() {
                                 // ne fait rien
                             } else {
                                 hideAnimalsHardMetier.trouveElem(3)
-
+                                timer.cancel()
                                 infos.setText("Perdu ! ")
 
 
