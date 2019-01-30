@@ -62,13 +62,22 @@ class SettingsActivity : AppCompatActivity(){
         })
 
         val music  = MediaPlayer.create(this, R.raw.sound_birds)
+        var etat = true
+        activerTuto.setOnClickListener{
+            if (etat == true) {
+                etat = false
+                test.setText("false")
+            }
+            else {
+                etat = true
+                test.setText("true")
+            }
 
-        testSon.setOnClickListener{
-            music.start()
         }
 
         flecheRetour.setOnClickListener {
             val previousPage = Intent(this@SettingsActivity, LevelsActivity::class.java)
+            previousPage.putExtra("etat",etat)
             startActivity(previousPage)
         }
 

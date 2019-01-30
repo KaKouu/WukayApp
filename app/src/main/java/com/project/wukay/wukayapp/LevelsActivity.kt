@@ -8,6 +8,7 @@ import android.view.KeyEvent
 import android.view.View
 
 import android.widget.TextView
+import com.project.wukay.wukayapp.FeedAnimalsGame.FeedAnimalsControler
 import com.project.wukay.wukayapp.IHM.DifficultyActivity
 import com.project.wukay.wukayapp.util.Prefs
 import com.project.wukay.wukayapp.util.PrefsTimer
@@ -16,8 +17,12 @@ import kotlinx.android.synthetic.main.activity_levels.*
 import java.util.*
 import com.project.wukay.wukayapp.FeedAnimalsGame.FeedAnimalsEasyTuto
 import com.project.wukay.wukayapp.FeedAnimalsGame.FeedAnimalsHardControler
+import com.project.wukay.wukayapp.FeedAnimalsGame.FeedAnimalsHardTuto
+import com.project.wukay.wukayapp.whatIsThisAnimal.WhatIsThisAnimalActivity
+import com.project.wukay.wukayapp.whatIsThisAnimal.WhatIsThisAnimalHardActivity
 import com.project.wukay.wukayapp.whatIsThisAnimal.WhatIsThisAnimalHardTutoActivity
 import com.project.wukay.wukayapp.whatIsThisAnimal.WhatIsThisAnimalTutoActivity
+import kotlinx.android.synthetic.main.activity_settings.*
 
 
 class LevelsActivity : AppCompatActivity() {
@@ -119,6 +124,7 @@ class LevelsActivity : AppCompatActivity() {
 
         //si l'on vient de finir un mini jeux
         val isLastActivityIsAGame = intent.getBooleanExtra("isLastActivityIsAGame",false)
+        val etat = intent.getBooleanExtra("etat",false)
         if(isLastActivityIsAGame){
             nbLife-=1
             loopLevel+=1
@@ -176,7 +182,6 @@ class LevelsActivity : AppCompatActivity() {
             val previousPage = Intent(this@LevelsActivity, DifficultyActivity::class.java)
             startActivity(previousPage)
         }
-
         playButton.setOnClickListener {
             if (nbLife <= 0) {
                /* heart.visibility = View.VISIBLE
@@ -189,55 +194,53 @@ class LevelsActivity : AppCompatActivity() {
                 }*/
             }
             else {
-                while(randomGameTempo==randomGame){
-                    randomGame = Random().nextInt(3)
-                }
 
-
-
-
-
-                when (randomGame) {
-                    0 -> {
-                        if(difficulty=="easy"){
-                            val nextGame = Intent(this@LevelsActivity, WhatIsThisAnimalTutoActivity::class.java)
-                            nextGame.putExtra("difficulty", difficulty)
-                            startActivity(nextGame)
-                        }else{
-                            val nextGame = Intent(this@LevelsActivity, WhatIsThisAnimalHardTutoActivity::class.java)
-                            nextGame.putExtra("difficulty", difficulty)
-                            startActivity(nextGame)
-
-                        }
-
+                    while(randomGameTempo==randomGame){
+                        randomGame = Random().nextInt(3)
                     }
-                    1 -> {
-                        if (difficulty == "easy") {
-                            val nextGame = Intent(this@LevelsActivity, HideAnimalsEasyTuto::class.java)
-                            nextGame.putExtra("difficulty", difficulty)
-                            startActivity(nextGame)
+
+                    when (randomGame) {
+                        0 -> {
+                            if(difficulty=="easy"){
+                                val nextGame = Intent(this@LevelsActivity, WhatIsThisAnimalTutoActivity::class.java)
+                                nextGame.putExtra("difficulty", difficulty)
+                                startActivity(nextGame)
+                            }else{
+                                val nextGame = Intent(this@LevelsActivity, WhatIsThisAnimalHardTutoActivity::class.java)
+                                nextGame.putExtra("difficulty", difficulty)
+                                startActivity(nextGame)
+
                             }
-                        else {
-                            val nextGame = Intent(this@LevelsActivity, HideAnimalsHardTuto::class.java)
-                            nextGame.putExtra("difficulty", difficulty)
-                            startActivity(nextGame)
-                        }
 
-                    }
-                    2-> {
-                        if (difficulty == "easy") {
-                            val nextGame = Intent(this@LevelsActivity, FeedAnimalsEasyTuto::class.java)
-                            nextGame.putExtra("difficulty", difficulty)
-                            startActivity(nextGame)
                         }
-                        else {
-                            val nextGame = Intent(this@LevelsActivity, FeedAnimalsHardControler::class.java)
-                            nextGame.putExtra("difficulty", difficulty)
-                            startActivity(nextGame)
-                        }
+                        1 -> {
+                            if (difficulty == "easy") {
+                                val nextGame = Intent(this@LevelsActivity, HideAnimalsEasyTuto::class.java)
+                                nextGame.putExtra("difficulty", difficulty)
+                                startActivity(nextGame)
+                            }
+                            else {
+                                val nextGame = Intent(this@LevelsActivity, HideAnimalsHardTuto::class.java)
+                                nextGame.putExtra("difficulty", difficulty)
+                                startActivity(nextGame)
+                            }
 
+                        }
+                        2-> {
+                            if (difficulty == "easy") {
+                                val nextGame = Intent(this@LevelsActivity, FeedAnimalsEasyTuto::class.java)
+                                nextGame.putExtra("difficulty", difficulty)
+                                startActivity(nextGame)
+                            }
+                            else {
+                                val nextGame = Intent(this@LevelsActivity, FeedAnimalsHardTuto::class.java)
+                                nextGame.putExtra("difficulty", difficulty)
+                                startActivity(nextGame)
+                            }
+
+                        }
                     }
-                }
+
             }
             prefs!!.num_mini_jeu=randomGame
 

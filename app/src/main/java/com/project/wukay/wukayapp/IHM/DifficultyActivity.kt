@@ -26,6 +26,7 @@ class DifficultyActivity : AppCompatActivity() {
         var difficulty: String
 
         buttonBack3.setOnClickListener{
+
             val previousPage = Intent(this@DifficultyActivity, HomeActivity::class.java)
             startActivity(previousPage)
         }
