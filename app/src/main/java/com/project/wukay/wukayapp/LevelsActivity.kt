@@ -175,8 +175,18 @@ class LevelsActivity : AppCompatActivity() {
             nbLife = 10
             setTxtLife(lifeText,nbLife)
         }
+        var etatTuto = true
+        buttonTuto.setOnClickListener {
+            if (etatTuto == true) {
+                etatTuto = false
+                buttonTuto.setText("Activer")
+            }
+            else {
+                etatTuto = true
+                buttonTuto.setText("Désactiver")
+            }
 
-
+        }
 
         imageRetour.setOnClickListener{
             val previousPage = Intent(this@LevelsActivity, DifficultyActivity::class.java)
@@ -194,11 +204,10 @@ class LevelsActivity : AppCompatActivity() {
                 }*/
             }
             else {
-
-                    while(randomGameTempo==randomGame){
-                        randomGame = Random().nextInt(3)
-                    }
-
+                while(randomGameTempo==randomGame){
+                    randomGame = Random().nextInt(3)
+                }
+                if (etatTuto == true) {
                     when (randomGame) {
                         0 -> {
                             if(difficulty=="easy"){
@@ -240,6 +249,51 @@ class LevelsActivity : AppCompatActivity() {
 
                         }
                     }
+                }
+                else {
+                    when (randomGame) {
+                        0 -> {
+                            if(difficulty=="easy"){
+                                val nextGame = Intent(this@LevelsActivity, WhatIsThisAnimalActivity::class.java)
+                                nextGame.putExtra("difficulty", difficulty)
+                                startActivity(nextGame)
+                            }else{
+                                val nextGame = Intent(this@LevelsActivity, WhatIsThisAnimalHardActivity::class.java)
+                                nextGame.putExtra("difficulty", difficulty)
+                                startActivity(nextGame)
+
+                            }
+
+                        }
+                        1 -> {
+                            if (difficulty == "easy") {
+                                val nextGame = Intent(this@LevelsActivity, HideAnimalsEasy::class.java)
+                                nextGame.putExtra("difficulty", difficulty)
+                                startActivity(nextGame)
+                            }
+                            else {
+                                val nextGame = Intent(this@LevelsActivity, HideAnimals::class.java)
+                                nextGame.putExtra("difficulty", difficulty)
+                                startActivity(nextGame)
+                            }
+
+                        }
+                        2-> {
+                            if (difficulty == "easy") {
+                                val nextGame = Intent(this@LevelsActivity, FeedAnimalsControler::class.java)
+                                nextGame.putExtra("difficulty", difficulty)
+                                startActivity(nextGame)
+                            }
+                            else {
+                                val nextGame = Intent(this@LevelsActivity, FeedAnimalsHardControler::class.java)
+                                nextGame.putExtra("difficulty", difficulty)
+                                startActivity(nextGame)
+                            }
+
+                        }
+                    }
+                }
+
 
             }
             prefs!!.num_mini_jeu=randomGame
