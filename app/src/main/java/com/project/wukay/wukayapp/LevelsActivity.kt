@@ -207,7 +207,7 @@ class LevelsActivity : AppCompatActivity() {
                 while(randomGameTempo==randomGame){
                     randomGame = Random().nextInt(3)
                 }
-                if (etatTuto == true) {
+                if (etatTuto) {
                     when (randomGame) {
                         0 -> {
                             if(difficulty=="easy"){
