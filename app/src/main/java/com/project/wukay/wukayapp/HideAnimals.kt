@@ -202,17 +202,22 @@ class HideAnimals : AppCompatActivity() {
                             if (answer1HideHard.x >= rocherHard.x && answer1HideHard.x + answer1HideHard.width < rocherHard.x + rocherHard.width && answer1HideHard.y >= rocherHard.y && answer1HideHard.y + answer1HideHard.height < rocherHard.y + rocherHard.height) {
                                 // ne fait rien
                             } else {
-                                hideAnimalsHardMetier.trouveElem(0)
-                                animalToFind1Hard.visibility = View.INVISIBLE
-                                answer1HideHard.visibility = View.INVISIBLE
-                                if (hideAnimalsHardMetier.isWin()) {
-                                    timer.cancel()
-                                    val nextAnimal = Intent(this@HideAnimals, VictoryActivity::class.java)
-                                    nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
-                                    var numberCarrotsWonText = random.nextInt(10).toString()
-                                    nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
-                                    startActivity(nextAnimal)
+
+                                if(hideAnimalsHardMetier.trouveElem(0)==0){
+                                    infos.setText("Essaye encore !")
+                                }else{
+                                    animalToFind1Hard.visibility = View.INVISIBLE
+                                    answer1HideHard.visibility = View.INVISIBLE
+                                    if (hideAnimalsHardMetier.isWin()) {
+                                        timer.cancel()
+                                        val nextAnimal = Intent(this@HideAnimals, VictoryActivity::class.java)
+                                        nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
+                                        var numberCarrotsWonText = random.nextInt(10).toString()
+                                        nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
+                                        startActivity(nextAnimal)
+                                    }
                                 }
+
                             }
                         }
 
@@ -229,16 +234,20 @@ class HideAnimals : AppCompatActivity() {
                             if (answer3HideHard.x >= rocherHard.x && answer3HideHard.x + answer3HideHard.width < rocherHard.x + rocherHard.width && answer3HideHard.y >= rocherHard.y && answer3HideHard.y + answer3HideHard.height < rocherHard.y + rocherHard.height) {
                                 // ne fait rien
                             } else {
-                                hideAnimalsHardMetier.trouveElem(2)
-                                animalToFind3Hard.visibility = View.INVISIBLE
-                                answer3HideHard.visibility = View.INVISIBLE
-                                if (hideAnimalsHardMetier.isWin()) {
-                                    timer.cancel()
-                                    val nextAnimal = Intent(this@HideAnimals, VictoryActivity::class.java)
-                                    nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
-                                    var numberCarrotsWonText = random.nextInt(10).toString()
-                                    nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
-                                    startActivity(nextAnimal)
+
+                                if(hideAnimalsHardMetier.trouveElem(2)==0){
+                                    infos.setText("Essaye encore !")
+                                }else{
+                                    animalToFind3Hard.visibility = View.INVISIBLE
+                                    answer3HideHard.visibility = View.INVISIBLE
+                                    if (hideAnimalsHardMetier.isWin()) {
+                                        timer.cancel()
+                                        val nextAnimal = Intent(this@HideAnimals, VictoryActivity::class.java)
+                                        nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
+                                        var numberCarrotsWonText = random.nextInt(10).toString()
+                                        nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
+                                        startActivity(nextAnimal)
+                                    }
                                 }
                             }
                         }
@@ -256,16 +265,20 @@ class HideAnimals : AppCompatActivity() {
                             if (answer2HideHard.x >= rocherHard.x && answer2HideHard.x + answer2HideHard.width < rocherHard.x + rocherHard.width && answer2HideHard.y >= rocherHard.y && answer2HideHard.y + answer2HideHard.height < rocherHard.y + rocherHard.height) {
                                 // ne fait rien
                             } else {
-                                hideAnimalsHardMetier.trouveElem(1)
-                                animalToFind2Hard.visibility = View.INVISIBLE
-                                answer2HideHard.visibility = View.INVISIBLE
-                                if (hideAnimalsHardMetier.isWin()) {
-                                    timer.cancel()
-                                    val nextAnimal = Intent(this@HideAnimals, VictoryActivity::class.java)
-                                    nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
-                                    var numberCarrotsWonText = random.nextInt(10).toString()
-                                    nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
-                                    startActivity(nextAnimal)
+
+                                if(hideAnimalsHardMetier.trouveElem(1)==0){
+                                    infos.setText("Essaye encore !")
+                                }else{
+                                    animalToFind2Hard.visibility = View.INVISIBLE
+                                    answer2HideHard.visibility = View.INVISIBLE
+                                    if (hideAnimalsHardMetier.isWin()) {
+                                        timer.cancel()
+                                        val nextAnimal = Intent(this@HideAnimals, VictoryActivity::class.java)
+                                        nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
+                                        var numberCarrotsWonText = random.nextInt(10).toString()
+                                        nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
+                                        startActivity(nextAnimal)
+                                    }
                                 }
                             }
                         }
