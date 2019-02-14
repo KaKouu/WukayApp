@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.KeyEvent
 import android.view.View
+import android.view.animation.RotateAnimation
 
 import android.widget.TextView
 import com.project.wukay.wukayapp.FeedAnimalsGame.FeedAnimalsControler
@@ -187,6 +188,9 @@ class LevelsActivity : AppCompatActivity() {
             }
 
         }
+        val animation = RotateAnimation(0f,360f,0f,0f)
+        animation.setDuration(5000);
+        shopIcone.startAnimation((animation))
 
         imageRetour.setOnClickListener{
             val previousPage = Intent(this@LevelsActivity, DifficultyActivity::class.java)
@@ -218,9 +222,7 @@ class LevelsActivity : AppCompatActivity() {
                                 val nextGame = Intent(this@LevelsActivity, WhatIsThisAnimalHardTutoActivity::class.java)
                                 nextGame.putExtra("difficulty", difficulty)
                                 startActivity(nextGame)
-
                             }
-
                         }
                         1 -> {
                             if (difficulty == "easy") {
