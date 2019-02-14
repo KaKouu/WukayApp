@@ -3,6 +3,7 @@ package com.project.wukay.wukayapp.metier
 import java.util.*
 
 class HideAnimalsMetier {
+
     private var nombreAnimauxATrouver=4;
     private var nombreDeCaseDePlacementX = 3
     private var nombreDeCaseDePlacementY = 3
@@ -16,13 +17,19 @@ class HideAnimalsMetier {
 
     private var tableauReponse = IntArray(nombreAnimauxATrouver)
 
+    private var tableauOrdreCliquer= IntArray(nombreAnimauxATrouver)
+
 
    public fun initialisationJeu(){
        var i=0
        while(i<nombreAnimauxATrouver){
            tableauReponse.set(i,0)
+
            i++
        }
+       tableauOrdreCliquer.set(0,0)
+       tableauOrdreCliquer.set(1,1)
+       tableauOrdreCliquer.set(2,1)
 
    }
 
@@ -55,10 +62,26 @@ class HideAnimalsMetier {
         return estGagne
     }
 
-    public fun trouveElem(numeroDeLaReponseClique: Int){
+    public fun trouveElem(numeroDeLaReponseClique: Int):Int{
+        var res=-1
 
-        tableauReponse.set(numeroDeLaReponseClique,1)
+        if (tableauOrdreCliquer[numeroDeLaReponseClique]==1){
+            res= 0
 
+        }else{
+            if(numeroDeLaReponseClique<2){
+                tableauOrdreCliquer.set(numeroDeLaReponseClique,1)
+                tableauOrdreCliquer.set(numeroDeLaReponseClique+1,0)
+            }else{
+                tableauOrdreCliquer.set(numeroDeLaReponseClique,0)
+            }
+
+            tableauReponse.set(numeroDeLaReponseClique,1)
+            res= 1
+            System.out.println("AHNON")
+        }
+
+        return res
 
     }
 

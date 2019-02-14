@@ -32,14 +32,15 @@ class HomeActivity : AppCompatActivity() {
 
         player = MediaPlayer.create(this, R.raw.wukay_music)
         player.isLooping = true
-        player.start()
+        //player.start()
 
         prefs = Prefs(this)
         var skinName = prefs!!.skinName
 
         imageLapinou.setImageResource(skinName)
 
-        player.start()
+        //player.start()
+
 
 
         startButton.setOnClickListener{

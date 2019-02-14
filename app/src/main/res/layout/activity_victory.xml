@@ -22,8 +22,8 @@
             android:layout_width="258dp"
             android:layout_height="226dp" app:srcCompat="@drawable/skin_lapinou"
             android:id="@+id/imageLapinou"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="24dp"
-            android:layout_marginTop="336dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="72dp"
+            android:layout_marginTop="324dp"
             app:layout_constraintTop_toTopOf="parent"/>
     <TextView
             android:text="Gagné"
@@ -90,4 +90,24 @@
             app:layout_constraintBottom_toBottomOf="parent" android:textSize="24sp"
             app:layout_constraintHorizontal_bias="0.816" app:layout_constraintVertical_bias="0.789"
             android:textColor="@color/colorPrimaryDark" android:fontFamily="@font/grobold"/>
+    <Button
+            android:text="Rejouer"
+            android:layout_width="113dp"
+            android:layout_height="50dp"
+            android:id="@+id/replayBt" android:fontFamily="@font/grobold"
+            android:background="@drawable/rounded_button" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.949"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.966"/>
+    <Button
+            android:text="Retour"
+            android:layout_width="113dp"
+            android:layout_height="50dp"
+            android:id="@+id/levelsBt" android:fontFamily="@font/grobold"
+            android:background="@drawable/rounded_button" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.031"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.966"/>
 </android.support.constraint.ConstraintLayout>
