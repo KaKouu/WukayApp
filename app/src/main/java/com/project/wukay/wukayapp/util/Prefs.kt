@@ -15,6 +15,7 @@ class Prefs(context : Context) {
     val ACTUAL_LEVEL = "actualLevel"
     val VOLUME="volume"
     val NUMERO_MINI_JEU="num_mini_jeu"
+    val ETAT_TUTO = "etatTutoActiver"
 
     val SHOP_PURCHASES0 ="shop_PURCHASES0"
     val SHOP_PURCHASES2 ="shop_PURCHASES2"
@@ -90,4 +91,10 @@ class Prefs(context : Context) {
 
         get() = prefs.getInt(NUMERO_MINI_JEU, 0)
         set(value) = prefs.edit().putInt(NUMERO_MINI_JEU, value).apply()
+
+    var etatTutoActiver : Boolean
+
+        get() = prefs.getBoolean(ETAT_TUTO,true)
+        set(value) = prefs.edit().putBoolean(ETAT_TUTO, value).apply()
+
 }

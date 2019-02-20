@@ -56,7 +56,7 @@ class VictoryActivity : AppCompatActivity() {
 
         val difficulty = intent.getStringExtra("difficulty")
 
-        var etatTuto = true
+        var etatTuto=prefs!!.etatTutoActiver
 
         replayBt.setOnClickListener {
             if (nbLife <= 0) {
@@ -66,7 +66,7 @@ class VictoryActivity : AppCompatActivity() {
                 while(randomGameTempo==randomGame){
                     randomGame = Random().nextInt(3)
                 }
-                if (etatTuto) {
+                if (etatTuto == true) {
                     when (randomGame) {
                         0 -> {
                             if(difficulty=="easy"){

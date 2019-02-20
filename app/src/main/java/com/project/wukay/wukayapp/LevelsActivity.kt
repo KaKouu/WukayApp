@@ -176,15 +176,24 @@ class LevelsActivity : AppCompatActivity() {
             nbLife = 10
             setTxtLife(lifeText,nbLife)
         }
-        var etatTuto = true
+        var etatTuto=prefs!!.etatTutoActiver
+        if (etatTuto == true) {
+            buttonTuto.setText("Désactiver")
+        }
+        else {
+            buttonTuto.setText("Activer")
+        }
+
         buttonTuto.setOnClickListener {
             if (etatTuto == true) {
                 etatTuto = false
                 buttonTuto.setText("Activer")
+                prefs!!.etatTutoActiver = etatTuto
             }
             else {
                 etatTuto = true
                 buttonTuto.setText("Désactiver")
+                prefs!!.etatTutoActiver = etatTuto
             }
 
         }
@@ -211,7 +220,7 @@ class LevelsActivity : AppCompatActivity() {
                 while(randomGameTempo==randomGame){
                     randomGame = Random().nextInt(3)
                 }
-                if (etatTuto) {
+                if (etatTuto == true) {
                     when (randomGame) {
                         0 -> {
                             if(difficulty=="easy"){
