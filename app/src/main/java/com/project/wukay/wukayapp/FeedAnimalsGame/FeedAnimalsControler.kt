@@ -17,6 +17,23 @@ class FeedAnimalsControler : AppCompatActivity() {
     private var random= Random()
     private var position = FloatArray(3)
 
+    val listOfPanier= arrayOf(
+        R.drawable.panier_nourriture_mais,
+        R.drawable.panier_nourriture_herbe,
+        R.drawable.panier_nourriture_feuille,
+        R.drawable.panier_nourriture_herbe,
+        R.drawable.panier_nourriture_souris,
+        R.drawable.panier_nourriture_poisson,
+        R.drawable.panier_nourriture_crevette,
+        R.drawable.panier_nourriture_bambou,
+        R.drawable.panier_nourriture_graine,
+        R.drawable.panier_nourriture_poisson,
+        R.drawable.panier_nourriture_graine,
+        R.drawable.panier_nourriture_viande,
+        R.drawable.panier_nourriture_feuille,
+        R.drawable.panier_nourriture_viande
+    )
+
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
         return if (keyCode == KeyEvent.KEYCODE_BACK) {
@@ -55,9 +72,9 @@ class FeedAnimalsControler : AppCompatActivity() {
 
         val listOfFood = arrayOf(
             R.drawable.food_mais,
-            R.drawable.icon_herbe,
-            R.drawable.icon_feuille,
-            R.drawable.icon_herbe,
+            R.drawable.food_herbe,
+            R.drawable.food_feuille,
+            R.drawable.food_herbe,
             R.drawable.food_souris,
             R.drawable.food_poisson,
             R.drawable.food_crevette,
@@ -97,6 +114,7 @@ class FeedAnimalsControler : AppCompatActivity() {
                    food1.x=-500f
                    food1.y=-500f
                    feedAnimalsModel.animalWasFeed(0)
+                   bucket1.setImageResource(listOfPanier[feedAnimalsModel.getBoardOfAnimals()[0]])
                    if(feedAnimalsModel.isWin()){
                        val nextAnimal = Intent(this@FeedAnimalsControler, VictoryActivity::class.java)
                        nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
@@ -119,6 +137,7 @@ class FeedAnimalsControler : AppCompatActivity() {
                         food2.x=-500f
                         food2.y=-500f
                         feedAnimalsModel.animalWasFeed(1)
+                        bucket2.setImageResource(listOfPanier[feedAnimalsModel.getBoardOfAnimals()[1]])
                         if(feedAnimalsModel.isWin()){
                             val nextAnimal = Intent(this@FeedAnimalsControler, VictoryActivity::class.java)
                             nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
@@ -141,6 +160,7 @@ class FeedAnimalsControler : AppCompatActivity() {
                             food3.x=-500f
                             food3.y=-500f
                             feedAnimalsModel.animalWasFeed(2)
+                            bucket3.setImageResource(listOfPanier[feedAnimalsModel.getBoardOfAnimals()[2]])
                             if(feedAnimalsModel.isWin()){
                                 val nextAnimal = Intent(this@FeedAnimalsControler, VictoryActivity::class.java)
                                 nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
