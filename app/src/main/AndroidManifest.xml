@@ -22,6 +22,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+
         </activity>
         <activity
                 android:name=".LevelsActivity"
@@ -112,6 +113,9 @@
         </activity>
         <activity android:name=".PopUpAnimalFind"
         android:theme="@style/AppTheme.AnimalPop">
+
+        </activity>
+        <activity android:name=".RefactoredLevelsActivity">
 
         </activity>
     </application>

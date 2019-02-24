@@ -67,20 +67,19 @@
                         android:layout_height="match_parent">
 
                     <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" app:srcCompat="@drawable/hud_levels2"
+                            android:layout_width="122dp"
+                            android:layout_height="match_parent" app:srcCompat="@drawable/hud_levels2"
                             android:id="@+id/imageView2" android:layout_alignParentEnd="true"
-                            android:layout_alignParentTop="true" android:layout_marginEnd="0dp"
+                            android:layout_alignParentTop="true" android:layout_marginEnd="39dp"
                             android:layout_marginTop="0dp"/>
                     <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" app:srcCompat="@drawable/hud_levels"
+                            android:layout_width="195dp"
+                            android:layout_height="match_parent" app:srcCompat="@drawable/hud_levels"
                             android:id="@+id/hud1" android:layout_alignParentTop="true"
                             android:layout_marginTop="0dp"
                             android:layout_alignParentBottom="true"
-                            android:layout_marginBottom="2dp" android:layout_alignParentEnd="true"
-                            android:layout_marginEnd="208dp" android:layout_alignParentStart="true"
-                            android:layout_marginStart="20dp"/>
+                            android:layout_marginBottom="0dp"
+                            android:layout_alignParentStart="true" android:layout_marginStart="47dp"/>
                     <TextView
                             android:text="140"
                             android:layout_width="wrap_content"
@@ -99,17 +98,17 @@
                             android:layout_width="23dp"
                             android:layout_height="40dp" app:srcCompat="@drawable/icon_carrot2"
                             android:id="@+id/iconCarrot"
-                            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="12dp"
+                            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="60dp"
                             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
                             app:layout_constraintHorizontal_bias="0.909"
                             app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
                             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.0"
-                            android:layout_alignParentEnd="true" android:layout_marginTop="0dp"
+                            android:layout_alignParentEnd="true" android:layout_marginTop="1dp"
                             android:layout_alignParentTop="true"/>
                     <TextView
                             android:text="10 / 10"
-                            android:layout_width="123dp"
-                            android:layout_height="35dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="31dp"
                             android:id="@+id/lifeText" android:textSize="24sp"
                             android:textColor="@color/colorPrimaryDark" android:fontFamily="@font/grobold"
                             app:layout_constraintTop_toTopOf="parent"
@@ -117,11 +116,12 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.193"
                             app:layout_constraintVertical_bias="0.0"
-                            android:layout_alignParentEnd="true" android:layout_marginEnd="222dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_alignParentTop="true" android:layout_alignParentBottom="true"
-                            android:layout_marginBottom="9dp" android:layout_alignParentStart="true"
-                            android:layout_marginStart="39dp"/>
+                            android:layout_marginEnd="55dp"
+                            android:layout_marginTop="9dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="12dp"
+                            android:layout_marginStart="45dp" android:layout_alignEnd="@+id/hud1"
+                            android:layout_alignStart="@+id/hud1" android:layout_alignTop="@+id/hud1"/>
                 </RelativeLayout>
             </LinearLayout>
             <LinearLayout
@@ -132,27 +132,26 @@
                         android:layout_height="519dp" android:id="@+id/relativeLayout">
 
                     <ImageView
-                            android:layout_width="139dp"
-                            android:layout_height="171dp" app:srcCompat="@drawable/hud_levels2"
+                            android:layout_width="153dp"
+                            android:layout_height="170dp" app:srcCompat="@drawable/hud_levels2"
                             android:id="@+id/imageView15" android:layout_alignParentEnd="true"
                             android:layout_alignParentTop="true"
                             android:layout_alignParentStart="true"
                             android:layout_alignParentBottom="true"
-                            android:rotation="90" android:layout_marginStart="276dp"
+                            android:rotation="90" android:layout_marginStart="480dp"
                             app:layout_constraintStart_toStartOf="parent"
-                            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
-                            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintVertical_bias="0.394"/>
+                            android:layout_marginTop="144dp" app:layout_constraintTop_toTopOf="parent"
+                    />
                     <ImageView
                             android:layout_width="109dp"
                             android:layout_height="93dp" app:srcCompat="@drawable/icon_life"
                             android:id="@+id/heart"
-                            android:layout_marginBottom="228dp"
-                            android:layout_marginStart="88dp" app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginBottom="140dp"
+                            android:layout_marginStart="180dp" app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintBottom_toBottomOf="parent"/>
                     <ImageView
-                            android:layout_width="42dp"
-                            android:layout_height="37dp" app:srcCompat="@drawable/icone_fleche_retour"
+                            android:layout_width="78dp"
+                            android:layout_height="64dp" app:srcCompat="@drawable/icone_fleche_retour"
                             android:id="@+id/imageRetour"
                             app:layout_constraintStart_toStartOf="parent"
                             android:layout_marginStart="2dp" app:layout_constraintEnd_toEndOf="parent"
@@ -160,7 +159,7 @@
                             android:layout_marginTop="2dp" app:layout_constraintTop_toTopOf="parent"
                             android:layout_marginBottom="8dp"
                             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.0"
-                            app:layout_constraintVertical_bias="0.054"
+                            app:layout_constraintVertical_bias="0.071"
                     />
                     <ImageView
                             android:layout_width="129dp"
@@ -175,14 +174,14 @@
                             android:text=" = 0"
                             android:layout_width="125dp"
                             android:layout_height="wrap_content" android:id="@+id/numberOfLife"
-                            android:layout_marginBottom="252dp"
+                            android:layout_marginBottom="168dp"
                             android:layout_marginStart="198dp"
                             android:fontFamily="@font/grobold" android:textSize="30sp"
                             android:textColor="@color/colorPrimaryDark"
                             android:layout_marginEnd="-57dp" app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toStartOf="@+id/playButton"
-                            app:layout_constraintHorizontal_bias="0.05"/>
+                            app:layout_constraintHorizontal_bias="0.631"/>
                     <TextView
                             android:text="Niveau : 0"
                             android:layout_width="wrap_content"
@@ -204,15 +203,14 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintVertical_bias="0.983"
-                            android:layout_marginEnd="8dp"
+                            app:layout_constraintVertical_bias="1.0"
                             android:layout_marginBottom="8dp"/>
                     <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="40dp" app:srcCompat="@drawable/ic_parameter"
+                            android:layout_width="74dp"
+                            android:layout_height="68dp" app:srcCompat="@drawable/ic_parameter"
                             android:id="@+id/button_settings"
-                            android:layout_marginTop="84dp" app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"/>
+                            android:layout_marginTop="112dp" app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="4dp"/>
                     <Button
                             android:text="Désactiver"
                             android:layout_width="wrap_content"
@@ -221,8 +219,8 @@
                             android:layout_marginEnd="8dp" android:layout_marginTop="8dp"
                             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
                             android:layout_marginBottom="8dp" app:layout_constraintStart_toStartOf="parent"
-                            android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.509"
-                            app:layout_constraintVertical_bias="0.962"/>
+                            android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.052"
+                            app:layout_constraintVertical_bias="0.997"/>
                     <ImageView
                             android:layout_width="64dp"
                             android:layout_height="153dp" app:srcCompat="@drawable/icone_shop2"
@@ -237,10 +235,9 @@
                             android:layout_width="166dp"
                             android:layout_height="182dp" app:srcCompat="@drawable/ic_shop_p"
                             android:id="@+id/imageView" android:rotation="-20"
-                            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="248dp"
-                            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
-                            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintVertical_bias="0.177"/>
+                            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="464dp"
+                            android:layout_marginTop="60dp" app:layout_constraintTop_toTopOf="parent"
+                    />
                     <TextView
                             android:text="Boutique"
                             android:layout_width="wrap_content"
