@@ -56,14 +56,11 @@ class LevelsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_levels)
 
         val vto = levelsScroll.viewTreeObserver
         vto.addOnGlobalLayoutListener { levelsScroll.scrollTo(6000, 6000) }
-
 
 
         heart.visibility = View.INVISIBLE
@@ -76,6 +73,24 @@ class LevelsActivity : AppCompatActivity() {
 
         //levels
         var loopLevel = prefs!!.actualLevel
+
+        when (loopLevel) {
+            1,4,7 -> {
+                lapinouSkin.x = 350F //625F
+                lapinouSkin.y = -450F //1170F
+                levelCounter.text = "Niveau : " + loopLevel
+            }
+            2,5,8 -> {
+                lapinouSkin.x = -100F
+                lapinouSkin.y = -800F
+                levelCounter.text = "Niveau : " + loopLevel
+            }
+            3,6,9 -> {
+                lapinouSkin.x = 400F
+                lapinouSkin.y = -1050F
+                levelCounter.text = "Niveau : " + loopLevel
+            }
+        }
 
 
         //skin
@@ -122,15 +137,6 @@ class LevelsActivity : AppCompatActivity() {
 
         }
 
-
-        //si l'on vient de finir un mini jeux
-        val isLastActivityIsAGame = intent.getBooleanExtra("isLastActivityIsAGame",false)
-        val etat = intent.getBooleanExtra("etat",false)
-        if(isLastActivityIsAGame){
-            nbLife-=1
-            loopLevel+=1
-        }
-
         //life
         setTxtLife(lifeText,nbLife)
         if(nbLife<10){
@@ -143,31 +149,8 @@ class LevelsActivity : AppCompatActivity() {
         var testNbCarrotsGagnePrecedement=intent.getIntExtra("carotsWon",0)
         carrots+=testNbCarrotsGagnePrecedement
 
-        //levels
-        when (loopLevel) {
-            1,4,7 -> {
-                lapinouSkin.x = 350F //625F
-                lapinouSkin.y = -450F //1170F
-                levelCounter.text = "Niveau : " + loopLevel
-            }
-            2,5,8 -> {
-                lapinouSkin.x = -100F
-                lapinouSkin.y = -800F
-                levelCounter.text = "Niveau : " + loopLevel
-            }
-            3,6,9 -> {
-                lapinouSkin.x = 400F
-                lapinouSkin.y = -1050F
-                levelCounter.text = "Niveau : " + loopLevel
-            }
-        }
-
 
         ////BUTTONS////
-
-
-        
-
         testLife2.setOnClickListener {
             nbLife -=1
             setTxtLife(lifeText,nbLife)

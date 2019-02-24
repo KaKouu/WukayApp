@@ -54,6 +54,9 @@ class VictoryActivity : AppCompatActivity() {
         var randomGameTempo = prefs!!.num_mini_jeu
         var randomGame = Random().nextInt(3)
 
+        //levels
+        prefs!!.actualLevel+=1
+
         val difficulty = intent.getStringExtra("difficulty")
 
         var etatTuto=prefs!!.etatTutoActiver
@@ -162,7 +165,6 @@ class VictoryActivity : AppCompatActivity() {
             val next = Intent( this@VictoryActivity, LevelsActivity::class.java)
             next.putExtra("difficulty",difficulty)
             next.putExtra("carotsWon",nbCarrots)
-            next.putExtra("isLastActivityIsAGame",true)
             startActivity(next)
         }
 
