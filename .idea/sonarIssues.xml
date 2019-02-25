@@ -8,7 +8,42 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/project/wukay/wukayapp/FeedAnimalsGame/FeedAnimalsControler.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/project/wukay/wukayapp/FeedAnimalsGame/FeedAnimalsHardControler.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/project/wukay/wukayapp/LevelsActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/layout-large/activity_difficulty.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout-large/activity_feed_animals.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout-large/activity_feed_animals_easy_tuto.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout-large/activity_feed_animals_hard_tuto.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout-large/activity_feed_hard_animals.xml">
           <value>
             <set />
           </value>
@@ -19,6 +54,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/layout-large/activity_levels.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_feed_animals_hard_tuto.xml">
           <value>
             <set />
           </value>

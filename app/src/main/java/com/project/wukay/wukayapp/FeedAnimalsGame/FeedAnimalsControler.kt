@@ -11,6 +11,9 @@ import com.project.wukay.wukayapp.VictoryActivity
 import com.project.wukay.wukayapp.metier.FeedAnimalsModel
 import kotlinx.android.synthetic.main.activity_feed_animals.*
 import java.util.*
+import android.util.DisplayMetrics
+
+
 
 class FeedAnimalsControler : AppCompatActivity() {
     private var feedAnimalsModel = FeedAnimalsModel()
@@ -45,9 +48,13 @@ class FeedAnimalsControler : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_feed_animals)
         feedAnimalsModel.beginGame()
+        val displayMetrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(displayMetrics)
+        val heightScreen = displayMetrics.heightPixels
+        val widthScreen = displayMetrics.widthPixels
         position.set(0,0f)
-        position.set(1,350f)
-        position.set(2,680f)
+        position.set(1,(widthScreen/3).toFloat())
+        position.set(2,(widthScreen*2/3).toFloat())
         feedAnimalLayout.setOnTouchListener { v: View, m: MotionEvent ->
             handleTouch(m)
             true
