@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.os.Vibrator
+import android.util.DisplayMetrics
 import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.View
@@ -40,13 +41,19 @@ class HideAnimals : AppCompatActivity() {
 
 
 
-        positionX[0] = 0.0f
-        positionX[1] = 400f
-        positionX[2] = 700f
+        val displayMetrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(displayMetrics)
+        val heightScreen = displayMetrics.heightPixels
+        val widthScreen = displayMetrics.widthPixels
 
-        positionY[0] = 0f
-        positionY[1] = 400f
-        positionY[2] = 800f
+        positionX.set(0,0f)
+        positionX.set(1,(widthScreen/4).toFloat())
+        positionX.set(2,(widthScreen*2/4).toFloat())
+
+
+        positionY.set(0,0f)
+        positionY.set(1,(heightScreen/4).toFloat())
+        positionY.set(2,(heightScreen*2/4).toFloat())
 
         val listOfAnimalsPictureQuestion = arrayOf(
             R.drawable.animaux_cochon_silhouette,

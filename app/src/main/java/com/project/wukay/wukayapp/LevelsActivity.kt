@@ -151,14 +151,7 @@ class LevelsActivity : AppCompatActivity() {
 
 
         ////BUTTONS////
-        testLife2.setOnClickListener {
-            nbLife -=1
-            setTxtLife(lifeText,nbLife)
-        }
-        testLifeFull.setOnClickListener {
-            nbLife = 10
-            setTxtLife(lifeText,nbLife)
-        }
+
         var etatTuto=prefs!!.etatTutoActiver
         if (etatTuto == true) {
             buttonTuto.setText("Désactiver")

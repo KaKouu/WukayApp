@@ -69,13 +69,13 @@
                     <ImageView
                             android:layout_width="122dp"
                             android:layout_height="match_parent" app:srcCompat="@drawable/hud_levels2"
-                            android:id="@+id/imageView2" android:layout_alignParentEnd="true"
+                            android:id="@+id/fondCarrot" android:layout_alignParentEnd="true"
                             android:layout_alignParentTop="true" android:layout_marginEnd="39dp"
                             android:layout_marginTop="0dp"/>
                     <ImageView
                             android:layout_width="195dp"
                             android:layout_height="match_parent" app:srcCompat="@drawable/hud_levels"
-                            android:id="@+id/hud1" android:layout_alignParentTop="true"
+                            android:id="@+id/fondCoeur" android:layout_alignParentTop="true"
                             android:layout_marginTop="0dp"
                             android:layout_alignParentBottom="true"
                             android:layout_marginBottom="0dp"
@@ -93,7 +93,7 @@
                             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.0"
                             android:layout_alignParentEnd="true" android:layout_alignParentTop="true"
                             android:layout_alignParentBottom="true" android:layout_marginStart="26dp"
-                            android:layout_alignStart="@+id/imageView2"/>
+                            android:layout_alignStart="@+id/fondCarrot"/>
                     <ImageView
                             android:layout_width="23dp"
                             android:layout_height="40dp" app:srcCompat="@drawable/icon_carrot2"
@@ -120,8 +120,8 @@
                             android:layout_marginTop="9dp"
                             android:layout_alignParentBottom="true"
                             android:layout_marginBottom="12dp"
-                            android:layout_marginStart="45dp" android:layout_alignEnd="@+id/hud1"
-                            android:layout_alignStart="@+id/hud1" android:layout_alignTop="@+id/hud1"/>
+                            android:layout_marginStart="45dp" android:layout_alignEnd="@+id/fondCoeur"
+                            android:layout_alignStart="@+id/fondCoeur" android:layout_alignTop="@+id/fondCoeur"/>
                 </RelativeLayout>
             </LinearLayout>
             <LinearLayout

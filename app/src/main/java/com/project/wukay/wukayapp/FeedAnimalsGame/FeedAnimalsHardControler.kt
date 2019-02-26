@@ -5,6 +5,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Vibrator
+import android.util.DisplayMetrics
 import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.View
@@ -64,13 +65,19 @@ class FeedAnimalsHardControler : AppCompatActivity() {
 
 
 
-        positionX.set(0,0.0f)
-        positionX.set(1,400f)
-        positionX.set(2,700f)
+        val displayMetrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(displayMetrics)
+        val heightScreen = displayMetrics.heightPixels
+        val widthScreen = displayMetrics.widthPixels
+
+        positionX.set(0,0f)
+        positionX.set(1,(widthScreen/4).toFloat())
+        positionX.set(2,(widthScreen*2/4).toFloat())
+
 
         positionY.set(0,0f)
-        positionY.set(1,400f)
-        positionY.set(2,800f)
+        positionY.set(1,(heightScreen/4).toFloat())
+        positionY.set(2,(heightScreen*2/4).toFloat())
 
         val listOfAnimals = arrayOf(
             R.drawable.animaux_panier_cochon,
