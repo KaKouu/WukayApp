@@ -148,6 +148,7 @@ class LevelsActivity : AppCompatActivity() {
         var carrots=prefs!!.nbCarrots
         var testNbCarrotsGagnePrecedement=intent.getIntExtra("carotsWon",0)
         carrots+=testNbCarrotsGagnePrecedement
+        var carrotsTempo=0
 
 
         ////BUTTONS////
@@ -309,7 +310,15 @@ class LevelsActivity : AppCompatActivity() {
         prefs!!.skinName=skinName
         prefs!!.actualLevel=loopLevel
 
-        numberCarrots.text = carrots.toString()
+        if(carrots>=1000){
+            carrotsTempo=carrots/1000
+            numberCarrots.text = carrotsTempo.toString()+" K"
+        }else{
+            carrotsTempo=carrots
+            numberCarrots.text = carrotsTempo.toString()
+        }
+
+
 
     }
 

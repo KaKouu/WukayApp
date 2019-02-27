@@ -31,7 +31,7 @@ class ShopActivity : AppCompatActivity() {
         var carrots = prefs!!.nbCarrots
         nbCarrot.text = carrots.toString()
 
-        val whiteRabbit = Skin(R.drawable.skin_lapinou_blanc, 5, prefs!!.shopPurchased0)
+        val whiteRabbit = Skin(R.drawable.skin_lapinou_blanc, 50, prefs!!.shopPurchased0)
         val yellowRabbit = Skin(R.drawable.skin_lapinou,0, true)
         val girlRabbit = Skin(R.drawable.skin_lapinou_fille,100,prefs!!.shopPurchased2)
         val cowBoyRabbit = Skin(R.drawable.skin_cowboy,200,prefs!!.shopPurchased3)
