@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.activity_pop_up_animal_find.*
 class PopUpAnimalFind : AppCompatActivity() {
 
     companion object {
+
         private const val HEIGHT = 1000
         private const val WIDTH = 1000
     }
@@ -22,6 +23,8 @@ class PopUpAnimalFind : AppCompatActivity() {
         val intent = intent
         val animalImage = intent.getIntExtra("animalFind",R.drawable.animaux_cochon)
         val animalName = intent.getStringExtra("animalNameFind")
+
+
 
         animalFind.setImageResource(animalImage)
         nameAnimalFind.text = animalName
@@ -37,7 +40,8 @@ class PopUpAnimalFind : AppCompatActivity() {
         metrics.widthPixels
         metrics.heightPixels
 
-        window.setLayout(PopUpAnimalFind.WIDTH, PopUpAnimalFind.HEIGHT)
+
+        window.setLayout(metrics.widthPixels*2/3, metrics.heightPixels*2/3)
 
         var params: WindowManager.LayoutParams = window.attributes
 
