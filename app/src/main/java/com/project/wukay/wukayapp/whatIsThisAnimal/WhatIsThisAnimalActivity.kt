@@ -6,6 +6,7 @@ import android.media.MediaPlayer
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Vibrator
+import android.util.DisplayMetrics
 import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.View
@@ -41,7 +42,10 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
         nextAnimal.putExtra("difficulty", difficulty)
 
         var numberCarrotsWon=10
-
+        val displayMetrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(displayMetrics)
+        val heightScreen = displayMetrics.heightPixels
+        val widthScreen = displayMetrics.widthPixels
         val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
 
         buttonBack.setOnClickListener{
@@ -214,11 +218,11 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                         if (isTheCorrectAnswer(choiceOfSilhouette, tabOfChoice, 0)) {
 
                             animalAnwser1.x = 0f
-                            animalAnwser1.y = 1300f
-                            animalAnwser2.x = 300f
-                            animalAnwser2.y = 1100f
-                            animalAnwser3.x = 700f
-                            animalAnwser3.y = 1300f
+                            animalAnwser1.y = (heightScreen*2/3).toFloat()
+                            animalAnwser2.x = (widthScreen*1/3).toFloat()
+                            animalAnwser2.y = (heightScreen*2/3).toFloat()
+                            animalAnwser3.x = (widthScreen*2/3).toFloat()
+                            animalAnwser3.y = (heightScreen*2/3).toFloat()
                             //incrementation du nombre d'animal trouvé
                             resultat.text = ""
                             numberWin += 1
@@ -269,7 +273,7 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
 
                             vibratorService.vibrate(100)
                             animalAnwser1.x = 0f
-                            animalAnwser1.y = 1300f
+                            animalAnwser1.y = (heightScreen*2/3).toFloat()
                             resultat.text = "Essaye encore !"
                             if (numberCarrotsWon1 > 1) {
                                 numberCarrotsWon1 -= 1
@@ -288,11 +292,11 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                         if (isTheCorrectAnswer(choiceOfSilhouette, tabOfChoice, 1)) {
 
                             animalAnwser1.x = 0f
-                            animalAnwser1.y = 1300f
-                            animalAnwser2.x = 300f
-                            animalAnwser2.y = 1100f
-                            animalAnwser3.x = 700f
-                            animalAnwser3.y = 1300f
+                            animalAnwser1.y = (heightScreen*2/3).toFloat()
+                            animalAnwser2.x = (widthScreen*1/3).toFloat()
+                            animalAnwser2.y = (heightScreen*2/3).toFloat()
+                            animalAnwser3.x = (widthScreen*2/3).toFloat()
+                            animalAnwser3.y = (heightScreen*2/3).toFloat()
                             //incrementation du nombre d'animal trouvé
                             resultat.text = ""
                             numberWin += 1
@@ -339,8 +343,8 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                         } else {
                             //vibration de defaite +texte
                             vibratorService.vibrate(100)
-                            animalAnwser2.x = 300f
-                            animalAnwser2.y = 1100f
+                            animalAnwser2.x =(widthScreen*1/3).toFloat()
+                            animalAnwser2.y = (heightScreen*2/3).toFloat()
                             resultat.text = "Essaye encore !"
                             if (numberCarrotsWon1 > 1) {
                                 numberCarrotsWon1 -= 1
@@ -356,11 +360,11 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                         if (isTheCorrectAnswer(choiceOfSilhouette, tabOfChoice, 2)) {
 
                             animalAnwser1.x = 0f
-                            animalAnwser1.y = 1300f
-                            animalAnwser2.x = 300f
-                            animalAnwser2.y = 1100f
-                            animalAnwser3.x = 700f
-                            animalAnwser3.y = 1300f
+                            animalAnwser1.y = (heightScreen*2/3).toFloat()
+                            animalAnwser2.x = (widthScreen*1/3).toFloat()
+                            animalAnwser2.y = (heightScreen*2/3).toFloat()
+                            animalAnwser3.x = (widthScreen*2/3).toFloat()
+                            animalAnwser3.y = (heightScreen*2/3).toFloat()
                             //incrementation du nombre d'animal trouvé
                             resultat.text = ""
                             numberWin += 1
@@ -410,8 +414,8 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                         else {
                             //vibration de defaite +texte
                             vibratorService.vibrate(100)
-                            animalAnwser3.x = 700f
-                            animalAnwser3.y = 1300f
+                            animalAnwser3.x = (widthScreen*2/3).toFloat()
+                            animalAnwser3.y = (heightScreen*2/3).toFloat()
                             resultat.text = "Essaye encore !"
                             if (numberCarrotsWon1 > 1) {
                                 numberCarrotsWon1 -= 1
