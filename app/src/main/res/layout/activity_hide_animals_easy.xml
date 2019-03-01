@@ -18,7 +18,7 @@
             android:layout_marginEnd="8dp" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintVertical_bias="0.52" app:layout_constraintHorizontal_bias="0.095"/>
+            app:layout_constraintVertical_bias="0.401" app:layout_constraintHorizontal_bias="0.021"/>
     <ImageView
             android:layout_width="53dp"
             android:layout_height="75dp" app:srcCompat="@drawable/animaux_mouton_silhouette"
@@ -37,11 +37,11 @@
             android:layout_height="100dp"
             android:id="@+id/answer1Hide"
             android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.516"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.396"
             app:srcCompat="@drawable/animaux_bouc" android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
-            tools:srcCompat="@drawable/animaux_bouc" app:layout_constraintHorizontal_bias="0.07"/>
+            tools:srcCompat="@drawable/animaux_bouc" app:layout_constraintHorizontal_bias="0.028"/>
     <ImageView
             android:layout_width="62dp"
             android:layout_height="64dp"
@@ -59,8 +59,8 @@
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.03"
-            app:layout_constraintVertical_bias="0.521"/>
+            android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.003"
+            app:layout_constraintVertical_bias="0.42"/>
     <ImageView
             android:layout_width="61dp"
             android:layout_height="68dp" app:srcCompat="@drawable/animaux_didion_silhouette"
@@ -77,7 +77,7 @@
             app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.521"
+            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.358"
             tools:srcCompat="@drawable/icon_herbe"/>
     <ImageView
             android:layout_width="95dp"
@@ -86,7 +86,7 @@
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.558"/>
+            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.394"/>
     <ImageView
             android:layout_width="102dp"
             android:layout_height="105dp" app:srcCompat="@drawable/icon_rocher"
@@ -95,7 +95,7 @@
             android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintVertical_bias="0.557" tools:srcCompat="@drawable/icon_rocher"/>
+            app:layout_constraintVertical_bias="0.365" tools:srcCompat="@drawable/icon_rocher"/>
     <TextView
             android:layout_width="388dp"
             android:layout_height="56dp"
