@@ -56,6 +56,7 @@ class VictoryActivity : AppCompatActivity() {
 
         //levels
         prefs!!.actualLevel+=1
+        System.out.println("NIVEAU : "+ prefs!!.actualLevel)
 
         val difficulty = intent.getStringExtra("difficulty")
 
@@ -69,7 +70,7 @@ class VictoryActivity : AppCompatActivity() {
                 while(randomGameTempo==randomGame){
                     randomGame = Random().nextInt(3)
                 }
-                if (etatTuto == true) {
+                if (etatTuto) {
                     when (randomGame) {
                         0 -> {
                             if(difficulty=="easy"){

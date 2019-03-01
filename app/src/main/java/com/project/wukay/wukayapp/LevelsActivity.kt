@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.KeyEvent
-import android.view.View
 import android.view.animation.RotateAnimation
 
 import android.widget.TextView
@@ -23,7 +22,7 @@ import com.project.wukay.wukayapp.whatIsThisAnimal.WhatIsThisAnimalActivity
 import com.project.wukay.wukayapp.whatIsThisAnimal.WhatIsThisAnimalHardActivity
 import com.project.wukay.wukayapp.whatIsThisAnimal.WhatIsThisAnimalHardTutoActivity
 import com.project.wukay.wukayapp.whatIsThisAnimal.WhatIsThisAnimalTutoActivity
-import kotlinx.android.synthetic.main.activity_settings.*
+
 
 
 class LevelsActivity : AppCompatActivity() {
@@ -60,11 +59,9 @@ class LevelsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_levels)
 
         val vto = levelsScroll.viewTreeObserver
-        vto.addOnGlobalLayoutListener { levelsScroll.scrollTo(6000, 6000) }
+        vto.addOnGlobalLayoutListener { levelsScroll.scrollTo(lapinouSkin.x.toInt(), lapinouSkin.y.toInt()) }
 
 
-        heart.visibility = View.INVISIBLE
-        numberOfLife.visibility = View.INVISIBLE
         prefs = Prefs(this)
 
         //difficulty
@@ -75,21 +72,52 @@ class LevelsActivity : AppCompatActivity() {
         var loopLevel = prefs!!.actualLevel
 
         when (loopLevel) {
-            1,4,7 -> {
-                lapinouSkin.x = 350F //625F
-                lapinouSkin.y = -450F //1170F
+            1 -> {
+
+                lapinouSkin.x = 269F
+                lapinouSkin.y = -250F
                 levelCounter.text = "Niveau : " + loopLevel
             }
-            2,5,8 -> {
-                lapinouSkin.x = -100F
-                lapinouSkin.y = -800F
+            2 -> {
+                lapinouSkin.x = 110F
+                lapinouSkin.y = -500F
                 levelCounter.text = "Niveau : " + loopLevel
             }
-            3,6,9 -> {
-                lapinouSkin.x = 400F
-                lapinouSkin.y = -1050F
+            3 -> {
+                lapinouSkin.x = 269F
+                lapinouSkin.y = -650F
                 levelCounter.text = "Niveau : " + loopLevel
             }
+            4 -> {
+                lapinouSkin.x = 130F
+                lapinouSkin.y = -900F
+                levelCounter.text = "Niveau : " + loopLevel
+            }
+            5 -> {
+                lapinouSkin.x = 269F
+                lapinouSkin.y = -1225F
+                levelCounter.text = "Niveau : " + loopLevel
+            }
+            6 -> {
+                lapinouSkin.x = 110F
+                lapinouSkin.y = -1375F
+                levelCounter.text = "Niveau : " + loopLevel
+            }
+            7 -> {
+                lapinouSkin.x = 269F
+                lapinouSkin.y = -1575F
+                levelCounter.text = "Niveau : " + loopLevel
+            }
+            8 -> {
+                lapinouSkin.x = 130F
+                lapinouSkin.y = -1825F
+                levelCounter.text = "Niveau : " + loopLevel
+                prefs!!.actualLevel=1
+
+                val winPopIntent = Intent(applicationContext,WinPopActivity::class.java)
+                startActivity(winPopIntent)
+            }
+
         }
 
 
@@ -110,7 +138,7 @@ class LevelsActivity : AppCompatActivity() {
         var test: Calendar = Calendar.getInstance()
         var actualSeconds = test.timeInMillis
 
-        System.out.println("LAST = " + lastSeconds.toString())
+        System.out.println("LAST = $lastSeconds")
         System.out.println(actualSeconds.toString())
         //compare les deux dates
         var difference = (actualSeconds-lastSeconds) /1000
@@ -122,8 +150,6 @@ class LevelsActivity : AppCompatActivity() {
 
             //condition pour l'affichage dans la popUp
             var nbLifeToShow =0
-
-            System.out.println("VIE A AJOUTER = " + nbLifeToAdd.toString())
 
             while(nbLifeToAdd>0 && nbLife<10){
                 nbLife+=1
