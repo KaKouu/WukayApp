@@ -181,8 +181,6 @@ class FeedAnimalsControler : AppCompatActivity() {
                             food3.y = m.y - food3.height / 2
                         }
 
-
-
                     }
                 }
             }

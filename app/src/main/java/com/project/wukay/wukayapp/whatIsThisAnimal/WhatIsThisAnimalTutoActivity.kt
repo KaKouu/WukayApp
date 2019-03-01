@@ -3,6 +3,7 @@ package com.project.wukay.wukayapp.whatIsThisAnimal
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.view.KeyEvent
 import android.view.animation.TranslateAnimation
 import com.project.wukay.wukayapp.R
@@ -30,8 +31,12 @@ class WhatIsThisAnimalTutoActivity : AppCompatActivity() {
         val intent = intent
         val difficulty = intent.getStringExtra("difficulty")
 
+        val displayMetrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(displayMetrics)
+        val heightScreen = displayMetrics.heightPixels
+        val widthScreen = displayMetrics.widthPixels
 
-        val animation = TranslateAnimation(0f, 0f, 0f, -800f)
+        val animation = TranslateAnimation(0f, 0f, 0f, -heightScreen*47/100.toFloat())
         animation.duration = 5000
         tutAnimal2.startAnimation(animation)
         tutCurseur.startAnimation(animation)

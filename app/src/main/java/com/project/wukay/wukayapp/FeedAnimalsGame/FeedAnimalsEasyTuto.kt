@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.support.v7.app.AppCompatActivity
+import android.util.DisplayMetrics
 import android.view.KeyEvent
 import android.view.View
 import android.view.animation.TranslateAnimation
@@ -28,25 +29,29 @@ class FeedAnimalsEasyTuto : AppCompatActivity() {
         //difficulty
         val intent = intent
         val difficulty = intent.getStringExtra("difficulty")
+        val displayMetrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(displayMetrics)
+        val heightScreen = displayMetrics.heightPixels
+        val widthScreen = displayMetrics.widthPixels
 
         cocheFeed.visibility = View.INVISIBLE
 
-        val animation = TranslateAnimation(0f, 0f, 0f, 400f)
-        animation.duration = 2000
+        val animation = TranslateAnimation(0f, 0f, 0f, heightScreen*1/5.toFloat())
+        animation.duration = 3000
         curseurFeed.startAnimation(animation)
         animation.fillAfter = true
 
         val handler1 = Handler()
         handler1.postDelayed({
-            val animation2 = TranslateAnimation(0f, 0f, 400f, -250f)
-            animation2.duration = 4500
-            val animation2bis = TranslateAnimation(0f, 0f, 0f, -600f)
+            val animation2 = TranslateAnimation(0f, 0f, heightScreen*1/5.toFloat(), -heightScreen*1/10.toFloat())
+            animation2.duration = 4000
+            val animation2bis = TranslateAnimation(0f, 0f, 0f, -heightScreen/3.toFloat())
             animation2bis.duration = 4000
             viandeFeed.startAnimation(animation2bis)
             curseurFeed.startAnimation(animation2)
             animation2.fillAfter = true
             animation2bis.fillAfter = true
-        }, 2200)
+        }, 3200)
 
 
         val handler = Handler()

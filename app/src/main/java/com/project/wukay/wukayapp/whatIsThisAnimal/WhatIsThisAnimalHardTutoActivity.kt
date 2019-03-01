@@ -4,6 +4,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.util.DisplayMetrics
 import android.view.KeyEvent
 import android.view.View
 import android.view.animation.TranslateAnimation
@@ -28,13 +29,18 @@ class WhatIsThisAnimalHardTutoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_what_is_this_tuto_hard)
 
+        val displayMetrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(displayMetrics)
+        val heightScreen = displayMetrics.heightPixels
+        val widthScreen = displayMetrics.widthPixels
+
         prefs = Prefs(this)
 
         //difficulty
         val intent = intent
         val difficulty = intent.getStringExtra("difficulty")
         coche.visibility = View.INVISIBLE
-        val animation = TranslateAnimation(0f, 0f, 0f, 550f)
+        val animation = TranslateAnimation(0f, 0f, 0f, heightScreen*1/3.toFloat())
         animation.duration = 4000
         curseur.startAnimation(animation)
         animation.fillAfter = true

@@ -423,9 +423,6 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                 true
             }
 
-
-
-
     }
 
     private fun isTheCorrectAnswer(indexOfAnswer: Int, arrayIndexOfPicturesPutedAsAnswer: IntArray, index: Int):Boolean  {

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.support.v7.app.AppCompatActivity
+import android.util.DisplayMetrics
 import android.view.KeyEvent
 import android.view.View
 import android.view.animation.TranslateAnimation
@@ -29,10 +30,14 @@ class HideAnimalsEasyTuto : AppCompatActivity()  {
         //difficulty
         val intent = intent
         val difficulty = intent.getStringExtra("difficulty")
+        val displayMetrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(displayMetrics)
+        val heightScreen = displayMetrics.heightPixels
+        val widthScreen = displayMetrics.widthPixels
 
         cocheHide.visibility = View.INVISIBLE
 
-        val animation = TranslateAnimation(0f, -250f, 0f, 0f)
+        val animation = TranslateAnimation(0f, -widthScreen*23/100.toFloat(), 0f, 0f)
         animation.duration = 2000
         curseurHide.startAnimation(animation)
         animation.fillAfter = true

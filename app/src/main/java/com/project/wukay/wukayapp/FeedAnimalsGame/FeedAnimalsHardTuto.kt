@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.support.v7.app.AppCompatActivity
+import android.util.DisplayMetrics
 import android.view.KeyEvent
 import android.view.View
 import android.view.animation.TranslateAnimation
@@ -30,18 +31,24 @@ class FeedAnimalsHardTuto : AppCompatActivity() {
         val intent = intent
         val difficulty = intent.getStringExtra("difficulty")
 
+        val displayMetrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(displayMetrics)
+        val heightScreen = displayMetrics.heightPixels
+        val widthScreen = displayMetrics.widthPixels
+
+
         cocheFeedHard.visibility = View.INVISIBLE
 
-        val animation = TranslateAnimation(0f, 0f, 0f, -275f)
+        val animation = TranslateAnimation(0f, 0f, 0f, -heightScreen*3/25.toFloat())
         animation.duration = 2000
         curseurFeedHard.startAnimation(animation)
         animation.fillAfter = true
 
         val handler1 = Handler()
         handler1.postDelayed({
-            val animation2 = TranslateAnimation(0f, -550f, -275f, -275f)
-            animation2.duration = 3500
-            val animation2bis = TranslateAnimation(0f, -500f, 0f, 0f)
+            val animation2 = TranslateAnimation(0f, -widthScreen*1/2.toFloat(), -heightScreen*3/25.toFloat(), -heightScreen*3/25.toFloat())
+            animation2.duration = 4000
+            val animation2bis = TranslateAnimation(0f, -widthScreen*1/2.toFloat(), 0f, 0f)
             animation2bis.duration = 4000
             herbeFood.startAnimation(animation2bis)
             curseurFeedHard.startAnimation(animation2)
@@ -51,7 +58,7 @@ class FeedAnimalsHardTuto : AppCompatActivity() {
 
         val handler2 = Handler()
         handler2.postDelayed({
-            val animation3 = TranslateAnimation(-550f, 1f, -275f, -275f)
+            val animation3 = TranslateAnimation(-widthScreen*1/2.toFloat(), widthScreen*1/100.toFloat(), -heightScreen*3/25.toFloat(), -heightScreen*3/25.toFloat())
             animation3.duration = 2000
             curseurFeedHard.startAnimation(animation3)
             animation3.fillAfter = true
@@ -60,27 +67,27 @@ class FeedAnimalsHardTuto : AppCompatActivity() {
 
         val handler3 = Handler()
         handler3.postDelayed({
-            val animation4 = TranslateAnimation(1f, -300f, -275f, -275f)
-            animation4.duration = 4500
-            val animation4bis = TranslateAnimation(0f, -250f, 0f, 0f)
-            animation4bis.duration = 5000
+            val animation4 = TranslateAnimation(widthScreen*1/100.toFloat(), -widthScreen*3/10.toFloat(), -heightScreen*3/25.toFloat(), -heightScreen*3/25.toFloat())
+            animation4.duration = 2000
+            val animation4bis = TranslateAnimation(0f, -widthScreen*3/10.toFloat(), 0f, 0f)
+            animation4bis.duration = 2000
             food1.startAnimation(animation4bis)
             curseurFeedHard.startAnimation(animation4)
             animation4.fillAfter = true
             animation4bis.fillAfter = true
-        }, 9000)
+        }, 8000)
 
         val handler4 = Handler()
         handler4.postDelayed({
-            val animation5 = TranslateAnimation(-300f, -300f, -275f, -1050f)
+            val animation5 = TranslateAnimation(-widthScreen*3/10.toFloat(), -widthScreen*3/10.toFloat(), -heightScreen*3/25.toFloat(), -heightScreen*1/2.toFloat())
             animation5.duration = 4000
-            val animation5bis = TranslateAnimation(-250f, -250f, 0f, -750f)
+            val animation5bis = TranslateAnimation(-widthScreen*3/10.toFloat(), -widthScreen*3/10.toFloat(), 0f, -heightScreen*2/5.toFloat())
             animation5bis.duration = 4000
             food1.startAnimation(animation5bis)
             curseurFeedHard.startAnimation(animation5)
             animation5.fillAfter = true
             animation5bis.fillAfter = true
-        }, 11000)
+        }, 10000)
 
         val handler = Handler()
         handler.postDelayed({
