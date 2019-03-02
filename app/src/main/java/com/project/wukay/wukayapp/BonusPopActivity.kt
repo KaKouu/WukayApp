@@ -4,11 +4,11 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.Gravity
-import android.view.WindowManager.LayoutParams
+import android.view.WindowManager
 import com.project.wukay.wukayapp.util.Prefs
 import kotlinx.android.synthetic.main.activity_life_pop.*
 
-class WinPopActivity : AppCompatActivity() {
+class BonusPopActivity : AppCompatActivity() {
 
     private var prefs: Prefs? = null
     companion object {
@@ -17,9 +17,10 @@ class WinPopActivity : AppCompatActivity() {
 
 
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_win_pop)
+        setContentView(R.layout.activity_bonus_pop)
 
         val intent = intent
 
@@ -40,15 +41,13 @@ class WinPopActivity : AppCompatActivity() {
 
         window.setLayout(WIDTH, HEIGHT)
 
-        var params: LayoutParams = window.attributes
+        var params: WindowManager.LayoutParams = window.attributes
 
-        params.gravity =Gravity.CENTER
+        params.gravity = Gravity.CENTER
         params.x = 0
         params.y = -20
 
         window.attributes = params
-
-
 
 
     }

@@ -68,6 +68,8 @@ class LevelsActivity : AppCompatActivity() {
         val intent = intent
         val difficulty = intent.getStringExtra("difficulty")
 
+
+
         //levels
         var loopLevel = prefs!!.actualLevel
 
@@ -111,11 +113,18 @@ class LevelsActivity : AppCompatActivity() {
             8 -> {
                 lapinouSkin.x = 130F
                 lapinouSkin.y = -1825F
+                loopLevel=0
                 levelCounter.text = "Niveau : " + loopLevel
-                prefs!!.actualLevel=1
 
-                val winPopIntent = Intent(applicationContext,WinPopActivity::class.java)
+
+                val winPopIntent = Intent(applicationContext,BonusPopActivity::class.java)
                 startActivity(winPopIntent)
+            }
+            0,9,10,11,12 -> {
+                lapinouSkin.x = 110F
+                lapinouSkin.y = 0F
+                levelCounter.text = "Niveau : 0"
+                loopLevel=0
             }
 
         }
@@ -177,10 +186,12 @@ class LevelsActivity : AppCompatActivity() {
         var carrotsTempo=0
 
 
+
+
         ////BUTTONS////
 
         var etatTuto=prefs!!.etatTutoActiver
-        if (etatTuto == true) {
+        if (etatTuto) {
             buttonTuto.setText("Désactiver")
         }
         else {
@@ -188,20 +199,20 @@ class LevelsActivity : AppCompatActivity() {
         }
 
         buttonTuto.setOnClickListener {
-            if (etatTuto == true) {
+            if (etatTuto) {
                 etatTuto = false
-                buttonTuto.setText("Activer")
+                buttonTuto.text = "Activer"
                 prefs!!.etatTutoActiver = etatTuto
             }
             else {
                 etatTuto = true
-                buttonTuto.setText("Désactiver")
+                buttonTuto.text = "Désactiver"
                 prefs!!.etatTutoActiver = etatTuto
             }
 
         }
         val animation = RotateAnimation(0f,360f,0f,0f)
-        animation.setDuration(5000);
+        animation.duration = 5000;
         shopIcone.startAnimation((animation))
 
         imageRetour.setOnClickListener{
@@ -223,7 +234,7 @@ class LevelsActivity : AppCompatActivity() {
                 while(randomGameTempo==randomGame){
                     randomGame = Random().nextInt(3)
                 }
-                if (etatTuto == true) {
+                if (etatTuto) {
                     when (randomGame) {
                         0 -> {
                             if(difficulty=="easy"){

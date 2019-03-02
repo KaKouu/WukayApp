@@ -52,9 +52,9 @@ class FeedAnimalsControler : AppCompatActivity() {
         windowManager.defaultDisplay.getMetrics(displayMetrics)
         val heightScreen = displayMetrics.heightPixels
         val widthScreen = displayMetrics.widthPixels
-        position.set(0,0f)
-        position.set(1,(widthScreen/3).toFloat())
-        position.set(2,(widthScreen*2/3).toFloat())
+        position[0] = 0f
+        position[1] = (widthScreen/3).toFloat()
+        position[2] = (widthScreen*2/3).toFloat()
         feedAnimalLayout.setOnTouchListener { v: View, m: MotionEvent ->
             handleTouch(m)
             true
