@@ -213,6 +213,7 @@ class HideAnimals : AppCompatActivity() {
                                 if(hideAnimalsHardMetier.trouveElem(0)==0){
                                     infos.setText("Essaye encore !")
                                 }else{
+                                    infos.setText("")
                                     animalToFind1Hard.visibility = View.INVISIBLE
                                     answer1HideHard.visibility = View.INVISIBLE
                                     if (hideAnimalsHardMetier.isWin()) {
@@ -245,6 +246,7 @@ class HideAnimals : AppCompatActivity() {
                                 if(hideAnimalsHardMetier.trouveElem(2)==0){
                                     infos.setText("Essaye encore !")
                                 }else{
+                                    infos.setText("")
                                     animalToFind3Hard.visibility = View.INVISIBLE
                                     answer3HideHard.visibility = View.INVISIBLE
                                     if (hideAnimalsHardMetier.isWin()) {
@@ -276,6 +278,7 @@ class HideAnimals : AppCompatActivity() {
                                 if(hideAnimalsHardMetier.trouveElem(1)==0){
                                     infos.setText("Essaye encore !")
                                 }else{
+                                    infos.setText("")
                                     animalToFind2Hard.visibility = View.INVISIBLE
                                     answer2HideHard.visibility = View.INVISIBLE
                                     if (hideAnimalsHardMetier.isWin()) {

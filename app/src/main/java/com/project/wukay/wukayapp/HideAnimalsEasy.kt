@@ -99,9 +99,9 @@ class HideAnimalsEasy : AppCompatActivity() {
 
         val nombreAnimauxAchercher =3;
         var tableauEntierAleatoireDifferent:IntArray
-        System.out.println("PASSEPAS")
+
         tableauEntierAleatoireDifferent = aleatoire.chiffreAleatoireDifferentEntreDeuxBornes(listOfAnimalsPictureQuestion.size,nombreAnimauxAchercher)
-        System.out.println("PASSE")
+
         animalToFind3.setImageResource(listOfAnimalsPictureQuestion[tableauEntierAleatoireDifferent.get(0)])
         animalToFind2.setImageResource(listOfAnimalsPictureQuestion[tableauEntierAleatoireDifferent.get(1)])
         animalToFind1.setImageResource(listOfAnimalsPictureQuestion[tableauEntierAleatoireDifferent.get(2)])
@@ -112,7 +112,7 @@ class HideAnimalsEasy : AppCompatActivity() {
         hideAnimalsHardMetier.placementAleatoireDansTableau()
 
 
-        System.out.println("PLACEMENT"+positionX[hideAnimalsHardMetier.getPlacementX()[0]])
+
 
 
         answer1Hide.x=positionX[hideAnimalsHardMetier.getPlacementX()[0]]
@@ -137,10 +137,12 @@ class HideAnimalsEasy : AppCompatActivity() {
     }
 
     private fun handleTouch(m: MotionEvent){
+        if (m.action == MotionEvent.ACTION_DOWN) {
             if(m.x >= answer1Hide.x && m.x < answer1Hide.x + answer1Hide.width && m.y >= answer1Hide.y && m.y < answer1Hide.y + answer1Hide.height){
                 if(hideAnimalsHardMetier.trouveElem(0)==0){
                     textView3.setText("essaye encore");
                 }else{
+                    textView3.setText("");
                     animalToFind1.visibility= View.INVISIBLE
                     answer1Hide.visibility= View.INVISIBLE
                     if(hideAnimalsHardMetier.isWin()){
@@ -158,6 +160,7 @@ class HideAnimalsEasy : AppCompatActivity() {
                 if(hideAnimalsHardMetier.trouveElem(1)==0){
                     textView3.setText("essaye encore");
                 }else{
+                    textView3.setText("");
                     animalToFind2.visibility= View.INVISIBLE
                     answer2Hide.visibility= View.INVISIBLE
                     if(hideAnimalsHardMetier.isWin()){
@@ -175,6 +178,7 @@ class HideAnimalsEasy : AppCompatActivity() {
                 if(hideAnimalsHardMetier.trouveElem(2)==0){
                     textView3.setText("essaye encore");
                 }else{
+                    textView3.setText("");
                     animalToFind3.visibility= View.INVISIBLE
                     answer3Hide.visibility= View.INVISIBLE
                     if(hideAnimalsHardMetier.isWin()){
@@ -189,6 +193,8 @@ class HideAnimalsEasy : AppCompatActivity() {
 
 
             }
+        }
+
 
         }
 
