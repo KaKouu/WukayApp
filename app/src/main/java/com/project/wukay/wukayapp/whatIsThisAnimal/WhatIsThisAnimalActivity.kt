@@ -23,7 +23,7 @@ import java.lang.Thread.sleep
 import java.util.*
 
 class WhatIsThisAnimalActivity : AppCompatActivity() {
-
+    var random= Random()
     override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
         return if (keyCode == KeyEvent.KEYCODE_BACK) {
             false
@@ -31,7 +31,6 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         // mise en place du layout
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_what_is_this)
@@ -41,7 +40,7 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
         val nextAnimal = Intent(this@WhatIsThisAnimalActivity, VictoryActivity::class.java)
         nextAnimal.putExtra("difficulty", difficulty)
 
-        var numberCarrotsWon=10
+
         val displayMetrics = DisplayMetrics()
         windowManager.defaultDisplay.getMetrics(displayMetrics)
         val heightScreen = displayMetrics.heightPixels
@@ -214,7 +213,6 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                     }
                     else{
 
-                        var numberCarrotsWon1 = numberCarrotsWon
                         if (isTheCorrectAnswer(choiceOfSilhouette, tabOfChoice, 0)) {
 
                             animalAnwser1.x = 0f
@@ -241,8 +239,11 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                             if (numberWin == 3) {
                                 //scoreImage.setImageResource(R.drawable.tete_lapinou_score_3)
                                 //sleep(5000)
-                                var numberCarrotsWonText = numberCarrotsWon1.toString()
+                                var beforeCarrots = intent.getIntExtra("carotsWon",0)
+                                var nbCarrotForThisGame = 1 + random.nextInt(10 - 1)
+                                var numberCarrotsWonText=((nbCarrotForThisGame) + beforeCarrots).toString()
                                 nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
+                                nextAnimal.putExtra("nbCarrotForThisGame", nbCarrotForThisGame)
                                 startActivity(nextAnimal)
                                 startActivity(popIntent)
 
@@ -275,9 +276,6 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                             animalAnwser1.x = 0f
                             animalAnwser1.y = (heightScreen*2/3).toFloat()
                             resultat.text = "Essaye encore !"
-                            if (numberCarrotsWon1 > 1) {
-                                numberCarrotsWon1 -= 1
-                            }
                         }
 
                     }
@@ -288,7 +286,6 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                     }
                     else{
 
-                        var numberCarrotsWon1 = numberCarrotsWon
                         if (isTheCorrectAnswer(choiceOfSilhouette, tabOfChoice, 1)) {
 
                             animalAnwser1.x = 0f
@@ -313,8 +310,11 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                             if (numberWin == 3) {
                                // scoreImage.setImageResource(R.drawable.tete_lapinou_score_3)
                                 //sleep(5000)
-                                var numberCarrotsWonText = numberCarrotsWon1.toString()
+                                var beforeCarrots = intent.getIntExtra("carotsWon",0)
+                                var nbCarrotForThisGame = 1 + random.nextInt(10 - 1)
+                                var numberCarrotsWonText=((nbCarrotForThisGame) + beforeCarrots).toString()
                                 nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
+                                nextAnimal.putExtra("nbCarrotForThisGame", nbCarrotForThisGame)
                                 startActivity(nextAnimal)
                                 startActivity(popIntent)
 
@@ -346,9 +346,6 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                             animalAnwser2.x =(widthScreen*1/3).toFloat()
                             animalAnwser2.y = (heightScreen*2/3).toFloat()
                             resultat.text = "Essaye encore !"
-                            if (numberCarrotsWon1 > 1) {
-                                numberCarrotsWon1 -= 1
-                            }
                         }
                     }
                     val hitAnimal3 = (animalPic.x - animalAnwser3.x) * (animalPic.x - animalAnwser3.x) + (animalPic.y - animalAnwser3.y) * (animalPic.y - animalAnwser3.y)
@@ -356,7 +353,6 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
 
                     }
                     else{
-                        var numberCarrotsWon1 = numberCarrotsWon
                         if (isTheCorrectAnswer(choiceOfSilhouette, tabOfChoice, 2)) {
 
                             animalAnwser1.x = 0f
@@ -383,8 +379,11 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                             if (numberWin == 3) {
                                 //scoreImage.setImageResource(R.drawable.tete_lapinou_score_3)
                                 //sleep(5000)
-                                var numberCarrotsWonText = numberCarrotsWon1.toString()
+                                var beforeCarrots = intent.getIntExtra("carotsWon",0)
+                                var nbCarrotForThisGame = 1 + random.nextInt(10 - 1)
+                                var numberCarrotsWonText=((nbCarrotForThisGame) + beforeCarrots).toString()
                                 nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
+                                nextAnimal.putExtra("nbCarrotForThisGame", nbCarrotForThisGame)
                                 startActivity(nextAnimal)
                                 startActivity(popIntent)
                                 //prochain animal à deviner
@@ -417,9 +416,6 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                             animalAnwser3.x = (widthScreen*2/3).toFloat()
                             animalAnwser3.y = (heightScreen*2/3).toFloat()
                             resultat.text = "Essaye encore !"
-                            if (numberCarrotsWon1 > 1) {
-                                numberCarrotsWon1 -= 1
-                            }
                         }
                     }
                 }

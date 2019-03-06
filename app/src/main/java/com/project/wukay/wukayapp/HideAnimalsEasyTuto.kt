@@ -30,6 +30,7 @@ class HideAnimalsEasyTuto : AppCompatActivity()  {
         //difficulty
         val intent = intent
         val difficulty = intent.getStringExtra("difficulty")
+        var nbCarrots = intent.getIntExtra("carotsWon",0)
         val displayMetrics = DisplayMetrics()
         windowManager.defaultDisplay.getMetrics(displayMetrics)
         val heightScreen = displayMetrics.heightPixels
@@ -50,6 +51,7 @@ class HideAnimalsEasyTuto : AppCompatActivity()  {
         startButtonHide.setOnClickListener {
             val nextGame = Intent(this@HideAnimalsEasyTuto, HideAnimalsEasy::class.java)
             nextGame.putExtra("difficulty", difficulty)
+            nextGame.putExtra("carotsWon",nbCarrots)
             startActivity(nextGame)
         }
     }

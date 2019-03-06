@@ -39,6 +39,8 @@ class WhatIsThisAnimalHardTutoActivity : AppCompatActivity() {
         //difficulty
         val intent = intent
         val difficulty = intent.getStringExtra("difficulty")
+        var nbCarrots = intent.getIntExtra("carotsWon",0)
+
         coche.visibility = View.INVISIBLE
         val animation = TranslateAnimation(0f, 0f, 0f, heightScreen*1/3.toFloat())
         animation.duration = 4000
@@ -54,6 +56,7 @@ class WhatIsThisAnimalHardTutoActivity : AppCompatActivity() {
         startButtonTut.setOnClickListener {
             val nextGame = Intent(this@WhatIsThisAnimalHardTutoActivity, WhatIsThisAnimalHardActivity::class.java)
             nextGame.putExtra("difficulty", difficulty)
+            nextGame.putExtra("carotsWon",nbCarrots)
             startActivity(nextGame)
         }
     }
