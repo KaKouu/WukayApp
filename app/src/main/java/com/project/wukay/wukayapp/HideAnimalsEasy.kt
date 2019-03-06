@@ -148,8 +148,11 @@ class HideAnimalsEasy : AppCompatActivity() {
                     if(hideAnimalsHardMetier.isWin()){
                         val nextAnimal = Intent(this@HideAnimalsEasy, VictoryActivity::class.java)
                         nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
-                        var numberCarrotsWonText = random.nextInt(10).toString()
+                        var beforeCarrots = intent.getIntExtra("carotsWon",0)
+                        var nbCarrotForThisGame = 1 + random.nextInt(10 - 1)
+                        var numberCarrotsWonText=((nbCarrotForThisGame) + beforeCarrots).toString()
                         nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
+                        nextAnimal.putExtra("nbCarrotForThisGame", nbCarrotForThisGame)
                         startActivity(nextAnimal)
                     }
                 }
@@ -166,8 +169,11 @@ class HideAnimalsEasy : AppCompatActivity() {
                     if(hideAnimalsHardMetier.isWin()){
                         val nextAnimal = Intent(this@HideAnimalsEasy, VictoryActivity::class.java)
                         nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
-                        var numberCarrotsWonText = random.nextInt(10).toString()
+                        var beforeCarrots = intent.getIntExtra("carotsWon",0)
+                        var nbCarrotForThisGame = 1 + random.nextInt(10 - 1)
+                        var numberCarrotsWonText=((nbCarrotForThisGame) + beforeCarrots).toString()
                         nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
+                        nextAnimal.putExtra("nbCarrotForThisGame", nbCarrotForThisGame)
                         startActivity(nextAnimal)
                     }
                 }
@@ -184,8 +190,11 @@ class HideAnimalsEasy : AppCompatActivity() {
                     if(hideAnimalsHardMetier.isWin()){
                         val nextAnimal = Intent(this@HideAnimalsEasy, VictoryActivity::class.java)
                         nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
-                        var numberCarrotsWonText = random.nextInt(10).toString()
+                        var beforeCarrots = intent.getIntExtra("carotsWon",0)
+                        var nbCarrotForThisGame = 1 + random.nextInt(10 - 1)
+                        var numberCarrotsWonText=((nbCarrotForThisGame) + beforeCarrots).toString()
                         nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
+                        nextAnimal.putExtra("nbCarrotForThisGame", nbCarrotForThisGame)
                         startActivity(nextAnimal)
                     }
                 }

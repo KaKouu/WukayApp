@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_what_is_this.*
 import java.util.*
 
 class WhatIsThisAnimalHardActivity: AppCompatActivity()  {
-
+    var random = Random()
     override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
         return if (keyCode == KeyEvent.KEYCODE_BACK) {
             false
@@ -36,8 +36,6 @@ class WhatIsThisAnimalHardActivity: AppCompatActivity()  {
         nextAnimal.putExtra("difficulty", difficulty)
 
 
-
-        var numberCarrotsWon=10
 
         val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
 
@@ -164,8 +162,11 @@ class WhatIsThisAnimalHardActivity: AppCompatActivity()  {
                 startActivity(popIntent)
                music.start()
                 if (numberWin == 3) {
-                    var numberCarrotsWonText = numberCarrotsWon.toString()
+                    var beforeCarrots = intent.getIntExtra("carotsWon",0)
+                    var nbCarrotForThisGame = 1 + random.nextInt(10 - 1)
+                    var numberCarrotsWonText=((nbCarrotForThisGame) + beforeCarrots).toString()
                     nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
+                    nextAnimal.putExtra("nbCarrotForThisGame", nbCarrotForThisGame)
                     startActivity(nextAnimal)
                     startActivity(popIntent)
 
@@ -189,9 +190,6 @@ class WhatIsThisAnimalHardActivity: AppCompatActivity()  {
             } else {
                 description.text = "Essaye encore !"
                 vibratorService.vibrate(100)
-                if (numberCarrotsWon > 1) {
-                    numberCarrotsWon -= 1
-                }
             }
 
         }
@@ -210,8 +208,11 @@ class WhatIsThisAnimalHardActivity: AppCompatActivity()  {
 
                 if (numberWin == 3) {
 
-                    var numberCarrotsWonText = numberCarrotsWon.toString()
+                    var beforeCarrots = intent.getIntExtra("carotsWon",0)
+                    var nbCarrotForThisGame = 1 + random.nextInt(10 - 1)
+                    var numberCarrotsWonText=((nbCarrotForThisGame) + beforeCarrots).toString()
                     nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
+                    nextAnimal.putExtra("nbCarrotForThisGame", nbCarrotForThisGame)
                     startActivity(nextAnimal)
                     startActivity(popIntent)
                 } else {
@@ -232,9 +233,6 @@ class WhatIsThisAnimalHardActivity: AppCompatActivity()  {
             } else {
                 description.text = "Essaye encore !"
                 vibratorService.vibrate(100)
-                if (numberCarrotsWon > 1) {
-                    numberCarrotsWon -= 1
-                }
             }
         }
         answer3.setOnClickListener {
@@ -248,8 +246,11 @@ class WhatIsThisAnimalHardActivity: AppCompatActivity()  {
                 startActivity(popIntent)
                 music.start()
                 if (numberWin == 3) {
-                    var numberCarrotsWonText = numberCarrotsWon.toString()
+                    var beforeCarrots = intent.getIntExtra("carotsWon",0)
+                    var nbCarrotForThisGame = 1 + random.nextInt(10 - 1)
+                    var numberCarrotsWonText=((nbCarrotForThisGame) + beforeCarrots).toString()
                     nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
+                    nextAnimal.putExtra("nbCarrotForThisGame", nbCarrotForThisGame)
                     startActivity(nextAnimal)
                     startActivity(popIntent)
 
@@ -271,9 +272,6 @@ class WhatIsThisAnimalHardActivity: AppCompatActivity()  {
             } else {
                 description.text = "Essaye encore !"
                 vibratorService.vibrate(100)
-                if (numberCarrotsWon > 1) {
-                    numberCarrotsWon -= 1
-                }
             }
         }
 
