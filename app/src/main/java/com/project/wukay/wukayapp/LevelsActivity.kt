@@ -71,8 +71,8 @@ class LevelsActivity : AppCompatActivity() {
 
 
         //levels
-        var loopLevel = prefs!!.actualLevel
 
+        var loopLevel = prefs!!.actualLevel
         when (loopLevel) {
             1 -> {
 
@@ -120,11 +120,12 @@ class LevelsActivity : AppCompatActivity() {
                 val winPopIntent = Intent(applicationContext,BonusPopActivity::class.java)
                 startActivity(winPopIntent)
             }
-            0,9,10,11,12 -> {
+            0,9,10,11,12,13,14,15,16,17,18,19,20,21,22,323,24,25,26,27,28,29,30-> {
                 lapinouSkin.x = 110F
                 lapinouSkin.y = 0F
                 levelCounter.text = "Niveau : 0"
                 loopLevel=0
+
             }
 
         }
