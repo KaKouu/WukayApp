@@ -23,8 +23,8 @@ class HideAnimals : AppCompatActivity() {
     var hideAnimalsHardMetier = HideAnimalsMetier()
     var aleatoire = Aleatoire()
     var random = Random()
-    var positionX = FloatArray(3)
-    var positionY = FloatArray(3)
+    var positionX = FloatArray(4)
+    var positionY = FloatArray(4)
     var difficulty = ""
     val timer = MyCounter(20000, 1000)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,13 +47,13 @@ class HideAnimals : AppCompatActivity() {
         val widthScreen = displayMetrics.widthPixels
 
         positionX.set(0,0f)
-        positionX.set(1,(widthScreen/4).toFloat())
-        positionX.set(2,(widthScreen*2/4).toFloat())
+        positionX.set(1,(widthScreen/5).toFloat())
+        positionX.set(2,(widthScreen*2/5).toFloat())
 
 
         positionY.set(0,0f)
-        positionY.set(1,(heightScreen/4).toFloat())
-        positionY.set(2,(heightScreen*2/4).toFloat())
+        positionY.set(1,(heightScreen/5).toFloat())
+        positionY.set(2,(heightScreen*2/5).toFloat())
 
         val listOfAnimalsPictureQuestion = arrayOf(
             R.drawable.animaux_cochon_silhouette,
@@ -171,6 +171,7 @@ class HideAnimals : AppCompatActivity() {
 
 
     private fun handleTouch(m: MotionEvent) {
+
             if (m.action == MotionEvent.ACTION_MOVE) {
 
                 if (m.x >= herbeHard.x && m.x < herbeHard.x + herbeHard.width && m.y >= herbeHard.y && m.y < herbeHard.y + herbeHard.height) {
@@ -322,7 +323,8 @@ class HideAnimals : AppCompatActivity() {
 
                                 val next = Intent( this@HideAnimals, LevelsActivity::class.java)
                                 next.putExtra("difficulty",difficulty)
-                                next.putExtra("carotsWon",0)
+                                var beforeCarrots = intent.getIntExtra("carotsWon",0)
+                                next.putExtra("carotsWon",beforeCarrots)
                                 next.putExtra("isLastActivityIsAGame",true)
                                 startActivity(next)
 

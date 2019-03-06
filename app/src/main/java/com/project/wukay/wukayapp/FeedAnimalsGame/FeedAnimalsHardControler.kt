@@ -71,13 +71,13 @@ class FeedAnimalsHardControler : AppCompatActivity() {
         val widthScreen = displayMetrics.widthPixels
 
         positionX.set(0,0f)
-        positionX.set(1,(widthScreen/4).toFloat())
-        positionX.set(2,(widthScreen*2/4).toFloat())
+        positionX.set(1,(widthScreen/5).toFloat())
+        positionX.set(2,(widthScreen*2/5).toFloat())
 
 
         positionY.set(0,0f)
-        positionY.set(1,(heightScreen/4).toFloat())
-        positionY.set(2,(heightScreen*2/4).toFloat())
+        positionY.set(1,(heightScreen/6).toFloat())
+        positionY.set(2,(heightScreen*2/5).toFloat())
 
         val listOfAnimals = arrayOf(
             R.drawable.animaux_panier_cochon,
