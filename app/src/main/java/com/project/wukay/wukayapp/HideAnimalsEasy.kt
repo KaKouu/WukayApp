@@ -99,9 +99,9 @@ class HideAnimalsEasy : AppCompatActivity() {
 
         val nombreAnimauxAchercher =3;
         var tableauEntierAleatoireDifferent:IntArray
-
+        System.out.println("PASSEPAS")
         tableauEntierAleatoireDifferent = aleatoire.chiffreAleatoireDifferentEntreDeuxBornes(listOfAnimalsPictureQuestion.size,nombreAnimauxAchercher)
-
+        System.out.println("PASSE")
         animalToFind3.setImageResource(listOfAnimalsPictureQuestion[tableauEntierAleatoireDifferent.get(0)])
         animalToFind2.setImageResource(listOfAnimalsPictureQuestion[tableauEntierAleatoireDifferent.get(1)])
         animalToFind1.setImageResource(listOfAnimalsPictureQuestion[tableauEntierAleatoireDifferent.get(2)])
@@ -112,7 +112,7 @@ class HideAnimalsEasy : AppCompatActivity() {
         hideAnimalsHardMetier.placementAleatoireDansTableau()
 
 
-
+        System.out.println("PLACEMENT"+positionX[hideAnimalsHardMetier.getPlacementX()[0]])
 
 
         answer1Hide.x=positionX[hideAnimalsHardMetier.getPlacementX()[0]]
