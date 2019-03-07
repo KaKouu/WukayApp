@@ -114,6 +114,8 @@
         </activity>
         <activity android:name=".RefactoredLevelsActivity">
         </activity>
+        <activity android:name=".PopupTempsEcoule">
+        </activity>
     </application>
 
 </manifest>

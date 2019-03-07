@@ -152,8 +152,8 @@
                             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
                             android:layout_marginStart="276dp" android:layout_marginBottom="8dp"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintVertical_bias="0.653" app:layout_constraintEnd_toEndOf="parent"
-                            android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.0"/>
+                            app:layout_constraintVertical_bias="0.707" app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="1.0"/>
                     <ImageView
                             android:layout_width="129dp"
                             android:layout_height="58dp" app:srcCompat="@drawable/hud_levels3"

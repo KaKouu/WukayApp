@@ -3,6 +3,7 @@ package com.project.wukay.wukayapp
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.media.MediaPlayer
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -149,12 +150,16 @@ class HideAnimals : AppCompatActivity() {
 
 
         override fun onFinish() {
+
+
+            val popIntent = Intent(applicationContext, PopupTempsEcoule::class.java)
+
+
             val next = Intent(this@HideAnimals, LevelsActivity::class.java)
             next.putExtra("difficulty", difficulty)
-
             next.putExtra("isLastActivityIsAGame", false)
-
             startActivity(next)
+            startActivity(popIntent)
 
 
         }
@@ -317,16 +322,8 @@ class HideAnimals : AppCompatActivity() {
                                 // ne fait rien
                             } else {
                                 hideAnimalsHardMetier.trouveElem(3)
-                                timer.cancel()
-                                infos.setText("Perdu ! ")
+                                infos.setText("Essaye encore !")
 
-
-                                val next = Intent( this@HideAnimals, LevelsActivity::class.java)
-                                next.putExtra("difficulty",difficulty)
-                                var beforeCarrots = intent.getIntExtra("carotsWon",0)
-                                next.putExtra("carotsWon",beforeCarrots)
-                                next.putExtra("isLastActivityIsAGame",true)
-                                startActivity(next)
 
                             }
                         }
