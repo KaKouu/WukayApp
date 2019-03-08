@@ -4,6 +4,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.DisplayMetrics
 import android.view.KeyEvent
 import android.view.animation.RotateAnimation
 
@@ -68,7 +69,10 @@ class LevelsActivity : AppCompatActivity() {
         val intent = intent
         val difficulty = intent.getStringExtra("difficulty")
 
-
+        val displayMetrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(displayMetrics)
+        val heightScreen = displayMetrics.heightPixels
+        val widthScreen = displayMetrics.widthPixels
 
         //levels
 
@@ -76,44 +80,44 @@ class LevelsActivity : AppCompatActivity() {
         when (loopLevel) {
             1 -> {
 
-                lapinouSkin.x = 269F
-                lapinouSkin.y = -250F
+                lapinouSkin.x = widthScreen*30/100F
+                lapinouSkin.y = -heightScreen*15/100F
                 levelCounter.text = "Niveau : " + loopLevel
             }
             2 -> {
-                lapinouSkin.x = 110F
-                lapinouSkin.y = -500F
+                lapinouSkin.x = -widthScreen*16/100F
+                lapinouSkin.y = -heightScreen*33/100F
                 levelCounter.text = "Niveau : " + loopLevel
             }
             3 -> {
-                lapinouSkin.x = 269F
-                lapinouSkin.y = -650F
+                lapinouSkin.x = widthScreen*32/100F
+                lapinouSkin.y = -heightScreen*45/100F
                 levelCounter.text = "Niveau : " + loopLevel
             }
             4 -> {
-                lapinouSkin.x = 130F
-                lapinouSkin.y = -900F
+                lapinouSkin.x = -widthScreen*5/100F
+                lapinouSkin.y = -heightScreen*70/100F
                 levelCounter.text = "Niveau : " + loopLevel
             }
             5 -> {
-                lapinouSkin.x = 269F
-                lapinouSkin.y = -1225F
+                lapinouSkin.x = widthScreen*30/100F
+                lapinouSkin.y = -heightScreen*105/100F
                 levelCounter.text = "Niveau : " + loopLevel
             }
             6 -> {
-                lapinouSkin.x = 110F
-                lapinouSkin.y = -1375F
+                lapinouSkin.x = -widthScreen*16/100F
+                lapinouSkin.y = -heightScreen*125/100F
                 levelCounter.text = "Niveau : " + loopLevel
             }
             7 -> {
-                lapinouSkin.x = 269F
-                lapinouSkin.y = -1575F
+                lapinouSkin.x = widthScreen*30/100F
+                lapinouSkin.y = -heightScreen*140/100F
                 levelCounter.text = "Niveau : " + loopLevel
             }
             8 -> {
-                lapinouSkin.x = 130F
-                lapinouSkin.y = -1825F
-                loopLevel=0
+                lapinouSkin.x = -widthScreen*5/100F
+                lapinouSkin.y = -heightScreen*155/100F
+
                 levelCounter.text = "Niveau : " + loopLevel
 
 

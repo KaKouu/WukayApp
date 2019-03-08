@@ -1,6 +1,7 @@
 package com.project.wukay.wukayapp
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.KeyEvent
@@ -77,6 +78,47 @@ class ShopActivity : AppCompatActivity() {
         }
 
         //whiteRabbit
+        if(carrots-whiteRabbit.price<0){
+            btPrice0.setBackgroundColor(getColorWithAlpha(Color.LTGRAY,0.8f));
+        }else{
+            btPrice0.setBackgroundResource(R.drawable.rounded_button)
+        }
+
+        //girl rabbit
+        if(carrots-girlRabbit.price<0){
+            btPrice2.setBackgroundColor(getColorWithAlpha(Color.LTGRAY,0.8f));
+        }else{
+            btPrice2.setBackgroundResource(R.drawable.rounded_button)
+        }
+
+        //cowboy rabbit
+        if(carrots-cowBoyRabbit.price<0){
+            btPrice3.setBackgroundColor(getColorWithAlpha(Color.LTGRAY,0.8f));
+        }else{
+            btPrice3.setBackgroundResource(R.drawable.rounded_button)
+        }
+
+        //doc rabbit
+        if(carrots-docRabbit.price<0){
+            btPrice4.setBackgroundColor(getColorWithAlpha(Color.LTGRAY,0.8f));
+        }else{
+            btPrice4.setBackgroundResource(R.drawable.rounded_button)
+        }
+
+        //princess rabbit
+        if(carrots-princessRabbit.price<0){
+            btPrice5.setBackgroundColor(getColorWithAlpha(Color.LTGRAY,0.8f));
+        }else{
+            btPrice5.setBackgroundResource(R.drawable.rounded_button)
+        }
+
+        //spaceman rabbit
+        if(carrots-spacemanRabbit.price<0){
+            btPrice6.setBackgroundColor(getColorWithAlpha(Color.LTGRAY,0.8f));
+        }else{
+            btPrice6.setBackgroundResource(R.drawable.rounded_button)
+        }
+
         btPrice0.setOnClickListener {
             if(whiteRabbit.isPurchase){
                 prefs!!.skinName = whiteRabbit.file
@@ -112,8 +154,7 @@ class ShopActivity : AppCompatActivity() {
 
             }else {
                 if(carrots-whiteRabbit.price<0){
-                    //pas assez de carrotes
-                    //TODO
+
                 }else {
                     //actions
                     carrots -= whiteRabbit.price
@@ -496,5 +537,15 @@ class ShopActivity : AppCompatActivity() {
             startActivity(buy)
         }
 
+    }
+
+    fun getColorWithAlpha(color: Int, ratio: Float): Int {
+        var newColor = 0
+        val alpha = Math.round(Color.alpha(color) * ratio)
+        val r = Color.red(color)
+        val g = Color.green(color)
+        val b = Color.blue(color)
+        newColor = Color.argb(alpha, r, g, b)
+        return newColor
     }
 }
