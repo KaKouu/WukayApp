@@ -78,45 +78,68 @@ class ShopActivity : AppCompatActivity() {
         }
 
         //whiteRabbit
-        if(carrots-whiteRabbit.price<0){
-            btPrice0.setBackgroundColor(getColorWithAlpha(Color.LTGRAY,0.8f));
-        }else{
-            btPrice0.setBackgroundResource(R.drawable.rounded_button)
+        if(whiteRabbit.isPurchase==false){
+            if(carrots-whiteRabbit.price<0){
+                btPrice0.setBackgroundResource(R.drawable.rounded_button_grey)
+                img0.setImageResource(R.drawable.skin_lapinou_blanc_gris)
+            }else{
+                btPrice0.setBackgroundResource(R.drawable.rounded_button)
+                img0.setImageResource(R.drawable.skin_lapinou_blanc)
+            }
         }
 
         //girl rabbit
-        if(carrots-girlRabbit.price<0){
-            btPrice2.setBackgroundColor(getColorWithAlpha(Color.LTGRAY,0.8f));
-        }else{
-            btPrice2.setBackgroundResource(R.drawable.rounded_button)
+        if(girlRabbit.isPurchase==false){
+            if(carrots-girlRabbit.price<0){
+                btPrice2.setBackgroundResource(R.drawable.rounded_button_grey)
+                img2.setImageResource(R.drawable.skin_lapinou_fille_gris)
+            }else{
+                btPrice2.setBackgroundResource(R.drawable.rounded_button)
+                img2.setImageResource(R.drawable.skin_lapinou_fille)
+            }
         }
 
         //cowboy rabbit
-        if(carrots-cowBoyRabbit.price<0){
-            btPrice3.setBackgroundColor(getColorWithAlpha(Color.LTGRAY,0.8f));
-        }else{
-            btPrice3.setBackgroundResource(R.drawable.rounded_button)
+        if(cowBoyRabbit.isPurchase==false){
+            if(carrots-cowBoyRabbit.price<0){
+                btPrice3.setBackgroundResource(R.drawable.rounded_button_grey)
+                img3.setImageResource(R.drawable.skin_cowboy_gris)
+            }else{
+                btPrice3.setBackgroundResource(R.drawable.rounded_button)
+                img3.setImageResource(R.drawable.skin_cowboy)
+            }
         }
 
         //doc rabbit
-        if(carrots-docRabbit.price<0){
-            btPrice4.setBackgroundColor(getColorWithAlpha(Color.LTGRAY,0.8f));
-        }else{
-            btPrice4.setBackgroundResource(R.drawable.rounded_button)
+        if(docRabbit.isPurchase==false){
+            if(carrots-docRabbit.price<0){
+                btPrice4.setBackgroundResource(R.drawable.rounded_button_grey)
+                img4.setImageResource(R.drawable.skin_docteur_gris)
+            }else{
+                btPrice4.setBackgroundResource(R.drawable.rounded_button)
+                img4.setImageResource(R.drawable.skin_docteur)
+            }
         }
 
         //princess rabbit
-        if(carrots-princessRabbit.price<0){
-            btPrice5.setBackgroundColor(getColorWithAlpha(Color.LTGRAY,0.8f));
-        }else{
-            btPrice5.setBackgroundResource(R.drawable.rounded_button)
+        if(princessRabbit.isPurchase==false){
+            if(carrots-princessRabbit.price<0){
+                btPrice5.setBackgroundResource(R.drawable.rounded_button_grey)
+                img5.setImageResource(R.drawable.skin_lapin_princesse_gris)
+            }else{
+                img5.setImageResource(R.drawable.skin_lapin_princesse)
+            }
         }
 
         //spaceman rabbit
-        if(carrots-spacemanRabbit.price<0){
-            btPrice6.setBackgroundColor(getColorWithAlpha(Color.LTGRAY,0.8f));
-        }else{
-            btPrice6.setBackgroundResource(R.drawable.rounded_button)
+        if(spacemanRabbit.isPurchase==false){
+            if(carrots-spacemanRabbit.price<0){
+                btPrice6.setBackgroundResource(R.drawable.rounded_button_grey)
+                img6.setImageResource(R.drawable.skin_lapin_spaceman_gris)
+            }else{
+                btPrice6.setBackgroundResource(R.drawable.rounded_button)
+                img6.setImageResource(R.drawable.skin_lapin_spaceman)
+            }
         }
 
         btPrice0.setOnClickListener {
@@ -172,6 +195,60 @@ class ShopActivity : AppCompatActivity() {
                     prefs!!.skinName = whiteRabbit.file
                     prefs!!.shopPurchased0= whiteRabbit.isPurchase
 
+
+                    //girl rabbit
+                    if(girlRabbit.isPurchase==false){
+                        if(carrots-girlRabbit.price<0){
+                            btPrice2.setBackgroundResource(R.drawable.rounded_button_grey)
+                            img2.setImageResource(R.drawable.skin_lapinou_fille_gris)
+                        }else{
+                            btPrice2.setBackgroundResource(R.drawable.rounded_button)
+                            img2.setImageResource(R.drawable.skin_lapinou_fille)
+                        }
+                    }
+
+                    //cowboy rabbit
+                    if(cowBoyRabbit.isPurchase==false){
+                        if(carrots-cowBoyRabbit.price<0){
+                            btPrice3.setBackgroundResource(R.drawable.rounded_button_grey)
+                            img3.setImageResource(R.drawable.skin_cowboy_gris)
+                        }else{
+                            btPrice3.setBackgroundResource(R.drawable.rounded_button)
+                            img3.setImageResource(R.drawable.skin_cowboy)
+                        }
+                    }
+
+                    //doc rabbit
+                    if(docRabbit.isPurchase==false){
+                        if(carrots-docRabbit.price<0){
+                            btPrice4.setBackgroundResource(R.drawable.rounded_button_grey)
+                            img4.setImageResource(R.drawable.skin_docteur_gris)
+                        }else{
+                            btPrice4.setBackgroundResource(R.drawable.rounded_button)
+                            img4.setImageResource(R.drawable.skin_docteur)
+                        }
+                    }
+
+                    //princess rabbit
+                    if(princessRabbit.isPurchase==false){
+                        if(carrots-princessRabbit.price<0){
+                            btPrice5.setBackgroundResource(R.drawable.rounded_button_grey)
+                            img5.setImageResource(R.drawable.skin_lapin_princesse_gris)
+                        }else{
+                            img5.setImageResource(R.drawable.skin_lapin_princesse)
+                        }
+                    }
+
+                    //spaceman rabbit
+                    if(spacemanRabbit.isPurchase==false){
+                        if(carrots-spacemanRabbit.price<0){
+                            btPrice6.setBackgroundResource(R.drawable.rounded_button_grey)
+                            img6.setImageResource(R.drawable.skin_lapin_spaceman_gris)
+                        }else{
+                            btPrice6.setBackgroundResource(R.drawable.rounded_button)
+                            img6.setImageResource(R.drawable.skin_lapin_spaceman)
+                        }
+                    }
                 }
             }
 
@@ -266,6 +343,60 @@ class ShopActivity : AppCompatActivity() {
                     prefs!!.skinName = girlRabbit.file
                     prefs!!.shopPurchased2= girlRabbit.isPurchase
 
+                    //whiteRabbit
+                    if(whiteRabbit.isPurchase==false){
+                        if(carrots-whiteRabbit.price<0){
+                            btPrice0.setBackgroundResource(R.drawable.rounded_button_grey)
+                            img0.setImageResource(R.drawable.skin_lapinou_blanc_gris)
+                        }else{
+                            btPrice0.setBackgroundResource(R.drawable.rounded_button)
+                            img0.setImageResource(R.drawable.skin_lapinou_blanc)
+                        }
+                    }
+
+                    //cowboy rabbit
+                    if(cowBoyRabbit.isPurchase==false){
+                        if(carrots-cowBoyRabbit.price<0){
+                            btPrice3.setBackgroundResource(R.drawable.rounded_button_grey)
+                            img3.setImageResource(R.drawable.skin_cowboy_gris)
+                        }else{
+                            btPrice3.setBackgroundResource(R.drawable.rounded_button)
+                            img3.setImageResource(R.drawable.skin_cowboy)
+                        }
+                    }
+
+                    //doc rabbit
+                    if(docRabbit.isPurchase==false){
+                        if(carrots-docRabbit.price<0){
+                            btPrice4.setBackgroundResource(R.drawable.rounded_button_grey)
+                            img4.setImageResource(R.drawable.skin_docteur_gris)
+                        }else{
+                            btPrice4.setBackgroundResource(R.drawable.rounded_button)
+                            img4.setImageResource(R.drawable.skin_docteur)
+                        }
+                    }
+
+                    //princess rabbit
+                    if(princessRabbit.isPurchase==false){
+                        if(carrots-princessRabbit.price<0){
+                            btPrice5.setBackgroundResource(R.drawable.rounded_button_grey)
+                            img5.setImageResource(R.drawable.skin_lapin_princesse_gris)
+                        }else{
+                            img5.setImageResource(R.drawable.skin_lapin_princesse)
+                        }
+                    }
+
+                    //spaceman rabbit
+                    if(spacemanRabbit.isPurchase==false){
+                        if(carrots-spacemanRabbit.price<0){
+                            btPrice6.setBackgroundResource(R.drawable.rounded_button_grey)
+                            img6.setImageResource(R.drawable.skin_lapin_spaceman_gris)
+                        }else{
+                            btPrice6.setBackgroundResource(R.drawable.rounded_button)
+                            img6.setImageResource(R.drawable.skin_lapin_spaceman)
+                        }
+                    }
+
                 }
             }
 
@@ -327,6 +458,59 @@ class ShopActivity : AppCompatActivity() {
                     prefs!!.skinName = cowBoyRabbit.file
                     prefs!!.shopPurchased3= cowBoyRabbit.isPurchase
 
+                    //whiteRabbit
+                    if(whiteRabbit.isPurchase==false){
+                        if(carrots-whiteRabbit.price<0){
+                            btPrice0.setBackgroundResource(R.drawable.rounded_button_grey)
+                            img0.setImageResource(R.drawable.skin_lapinou_blanc_gris)
+                        }else{
+                            btPrice0.setBackgroundResource(R.drawable.rounded_button)
+                            img0.setImageResource(R.drawable.skin_lapinou_blanc)
+                        }
+                    }
+
+                    //girl rabbit
+                    if(girlRabbit.isPurchase==false){
+                        if(carrots-girlRabbit.price<0){
+                            btPrice2.setBackgroundResource(R.drawable.rounded_button_grey)
+                            img2.setImageResource(R.drawable.skin_lapinou_fille_gris)
+                        }else{
+                            btPrice2.setBackgroundResource(R.drawable.rounded_button)
+                            img2.setImageResource(R.drawable.skin_lapinou_fille)
+                        }
+                    }
+
+                    //doc rabbit
+                    if(docRabbit.isPurchase==false){
+                        if(carrots-docRabbit.price<0){
+                            btPrice4.setBackgroundResource(R.drawable.rounded_button_grey)
+                            img4.setImageResource(R.drawable.skin_docteur_gris)
+                        }else{
+                            btPrice4.setBackgroundResource(R.drawable.rounded_button)
+                            img4.setImageResource(R.drawable.skin_docteur)
+                        }
+                    }
+
+                    //princess rabbit
+                    if(princessRabbit.isPurchase==false){
+                        if(carrots-princessRabbit.price<0){
+                            btPrice5.setBackgroundResource(R.drawable.rounded_button_grey)
+                            img5.setImageResource(R.drawable.skin_lapin_princesse_gris)
+                        }else{
+                            img5.setImageResource(R.drawable.skin_lapin_princesse)
+                        }
+                    }
+
+                    //spaceman rabbit
+                    if(spacemanRabbit.isPurchase==false){
+                        if(carrots-spacemanRabbit.price<0){
+                            btPrice6.setBackgroundResource(R.drawable.rounded_button_grey)
+                            img6.setImageResource(R.drawable.skin_lapin_spaceman_gris)
+                        }else{
+                            btPrice6.setBackgroundResource(R.drawable.rounded_button)
+                            img6.setImageResource(R.drawable.skin_lapin_spaceman)
+                        }
+                    }
                 }
             }
 
@@ -388,6 +572,59 @@ class ShopActivity : AppCompatActivity() {
                     prefs!!.skinName = docRabbit.file
                     prefs!!.shopPurchased4= docRabbit.isPurchase
 
+                    //whiteRabbit
+                    if(whiteRabbit.isPurchase==false){
+                        if(carrots-whiteRabbit.price<0){
+                            btPrice0.setBackgroundResource(R.drawable.rounded_button_grey)
+                            img0.setImageResource(R.drawable.skin_lapinou_blanc_gris)
+                        }else{
+                            btPrice0.setBackgroundResource(R.drawable.rounded_button)
+                            img0.setImageResource(R.drawable.skin_lapinou_blanc)
+                        }
+                    }
+
+                    //girl rabbit
+                    if(girlRabbit.isPurchase==false){
+                        if(carrots-girlRabbit.price<0){
+                            btPrice2.setBackgroundResource(R.drawable.rounded_button_grey)
+                            img2.setImageResource(R.drawable.skin_lapinou_fille_gris)
+                        }else{
+                            btPrice2.setBackgroundResource(R.drawable.rounded_button)
+                            img2.setImageResource(R.drawable.skin_lapinou_fille)
+                        }
+                    }
+
+                    //cowboy rabbit
+                    if(cowBoyRabbit.isPurchase==false){
+                        if(carrots-cowBoyRabbit.price<0){
+                            btPrice3.setBackgroundResource(R.drawable.rounded_button_grey)
+                            img3.setImageResource(R.drawable.skin_cowboy_gris)
+                        }else{
+                            btPrice3.setBackgroundResource(R.drawable.rounded_button)
+                            img3.setImageResource(R.drawable.skin_cowboy)
+                        }
+                    }
+
+                    //princess rabbit
+                    if(princessRabbit.isPurchase==false){
+                        if(carrots-princessRabbit.price<0){
+                            btPrice5.setBackgroundResource(R.drawable.rounded_button_grey)
+                            img5.setImageResource(R.drawable.skin_lapin_princesse_gris)
+                        }else{
+                            img5.setImageResource(R.drawable.skin_lapin_princesse)
+                        }
+                    }
+
+                    //spaceman rabbit
+                    if(spacemanRabbit.isPurchase==false){
+                        if(carrots-spacemanRabbit.price<0){
+                            btPrice6.setBackgroundResource(R.drawable.rounded_button_grey)
+                            img6.setImageResource(R.drawable.skin_lapin_spaceman_gris)
+                        }else{
+                            btPrice6.setBackgroundResource(R.drawable.rounded_button)
+                            img6.setImageResource(R.drawable.skin_lapin_spaceman)
+                        }
+                    }
                 }
             }
 
@@ -452,6 +689,60 @@ class ShopActivity : AppCompatActivity() {
                     prefs!!.skinName = princessRabbit.file
                     prefs!!.shopPurchased5= princessRabbit.isPurchase
 
+                    //whiteRabbit
+                    if(whiteRabbit.isPurchase==false){
+                        if(carrots-whiteRabbit.price<0){
+                            btPrice0.setBackgroundResource(R.drawable.rounded_button_grey)
+                            img0.setImageResource(R.drawable.skin_lapinou_blanc_gris)
+                        }else{
+                            btPrice0.setBackgroundResource(R.drawable.rounded_button)
+                            img0.setImageResource(R.drawable.skin_lapinou_blanc)
+                        }
+                    }
+
+                    //girl rabbit
+                    if(girlRabbit.isPurchase==false){
+                        if(carrots-girlRabbit.price<0){
+                            btPrice2.setBackgroundResource(R.drawable.rounded_button_grey)
+                            img2.setImageResource(R.drawable.skin_lapinou_fille_gris)
+                        }else{
+                            btPrice2.setBackgroundResource(R.drawable.rounded_button)
+                            img2.setImageResource(R.drawable.skin_lapinou_fille)
+                        }
+                    }
+
+                    //cowboy rabbit
+                    if(cowBoyRabbit.isPurchase==false){
+                        if(carrots-cowBoyRabbit.price<0){
+                            btPrice3.setBackgroundResource(R.drawable.rounded_button_grey)
+                            img3.setImageResource(R.drawable.skin_cowboy_gris)
+                        }else{
+                            btPrice3.setBackgroundResource(R.drawable.rounded_button)
+                            img3.setImageResource(R.drawable.skin_cowboy)
+                        }
+                    }
+
+                    //doc rabbit
+                    if(docRabbit.isPurchase==false){
+                        if(carrots-docRabbit.price<0){
+                            btPrice4.setBackgroundResource(R.drawable.rounded_button_grey)
+                            img4.setImageResource(R.drawable.skin_docteur_gris)
+                        }else{
+                            btPrice4.setBackgroundResource(R.drawable.rounded_button)
+                            img4.setImageResource(R.drawable.skin_docteur)
+                        }
+                    }
+
+                    //spaceman rabbit
+                    if(spacemanRabbit.isPurchase==false){
+                        if(carrots-spacemanRabbit.price<0){
+                            btPrice6.setBackgroundResource(R.drawable.rounded_button_grey)
+                            img6.setImageResource(R.drawable.skin_lapin_spaceman_gris)
+                        }else{
+                            btPrice6.setBackgroundResource(R.drawable.rounded_button)
+                            img6.setImageResource(R.drawable.skin_lapin_spaceman)
+                        }
+                    }
                 }
             }
 
@@ -514,6 +805,59 @@ class ShopActivity : AppCompatActivity() {
                     prefs!!.skinName = spacemanRabbit.file
                     prefs!!.shopPurchased6= spacemanRabbit.isPurchase
 
+                    //whiteRabbit
+                    if(whiteRabbit.isPurchase==false){
+                        if(carrots-whiteRabbit.price<0){
+                            btPrice0.setBackgroundResource(R.drawable.rounded_button_grey)
+                            img0.setImageResource(R.drawable.skin_lapinou_blanc_gris)
+                        }else{
+                            btPrice0.setBackgroundResource(R.drawable.rounded_button)
+                            img0.setImageResource(R.drawable.skin_lapinou_blanc)
+                        }
+                    }
+
+                    //girl rabbit
+                    if(girlRabbit.isPurchase==false){
+                        if(carrots-girlRabbit.price<0){
+                            btPrice2.setBackgroundResource(R.drawable.rounded_button_grey)
+                            img2.setImageResource(R.drawable.skin_lapinou_fille_gris)
+                        }else{
+                            btPrice2.setBackgroundResource(R.drawable.rounded_button)
+                            img2.setImageResource(R.drawable.skin_lapinou_fille)
+                        }
+                    }
+
+                    //cowboy rabbit
+                    if(cowBoyRabbit.isPurchase==false){
+                        if(carrots-cowBoyRabbit.price<0){
+                            btPrice3.setBackgroundResource(R.drawable.rounded_button_grey)
+                            img3.setImageResource(R.drawable.skin_cowboy_gris)
+                        }else{
+                            btPrice3.setBackgroundResource(R.drawable.rounded_button)
+                            img3.setImageResource(R.drawable.skin_cowboy)
+                        }
+                    }
+
+                    //doc rabbit
+                    if(docRabbit.isPurchase==false){
+                        if(carrots-docRabbit.price<0){
+                            btPrice4.setBackgroundResource(R.drawable.rounded_button_grey)
+                            img4.setImageResource(R.drawable.skin_docteur_gris)
+                        }else{
+                            btPrice4.setBackgroundResource(R.drawable.rounded_button)
+                            img4.setImageResource(R.drawable.skin_docteur)
+                        }
+                    }
+
+                    //princess rabbit
+                    if(princessRabbit.isPurchase==false){
+                        if(carrots-princessRabbit.price<0){
+                            btPrice5.setBackgroundResource(R.drawable.rounded_button_grey)
+                            img5.setImageResource(R.drawable.skin_lapin_princesse_gris)
+                        }else{
+                            img5.setImageResource(R.drawable.skin_lapin_princesse)
+                        }
+                    }
                 }
             }
 
