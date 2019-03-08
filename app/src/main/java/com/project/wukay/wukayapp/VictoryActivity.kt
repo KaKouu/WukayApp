@@ -42,6 +42,8 @@ class VictoryActivity : AppCompatActivity() {
         var nbCarrots=numberCarrotsWonValue
         carrotTxt.text="+$nbCarrotForThisGame"
 
+        val lifeConso=intent.getIntExtra("numberLifeConso",0)
+
         prefs = Prefs(this)
 
         //skin
@@ -50,12 +52,15 @@ class VictoryActivity : AppCompatActivity() {
 
         //life
         var nbLife = prefs!!.nbLife
+        prefs!!.nbLife-=1
 
         //miniGame
         var randomGameTempo = prefs!!.num_mini_jeu
         var randomGame = Random().nextInt(3)
 
         //levels
+
+
         prefs!!.actualLevel+=1
         System.out.println("NIVEAU : "+ prefs!!.actualLevel)
 
@@ -78,11 +83,13 @@ class VictoryActivity : AppCompatActivity() {
                                 val nextGame = Intent(this@VictoryActivity, WhatIsThisAnimalTutoActivity::class.java)
                                 nextGame.putExtra("difficulty", difficulty)
                                 nextGame.putExtra("carotsWon",nbCarrots)
+                                nextGame.putExtra("nblifeConso",lifeConso)
                                 startActivity(nextGame)
                             }else{
                                 val nextGame = Intent(this@VictoryActivity, WhatIsThisAnimalHardTutoActivity::class.java)
                                 nextGame.putExtra("difficulty", difficulty)
                                 nextGame.putExtra("carotsWon",nbCarrots)
+                                nextGame.putExtra("nblifeConso",lifeConso)
                                 startActivity(nextGame)
 
                             }
@@ -93,12 +100,14 @@ class VictoryActivity : AppCompatActivity() {
                                 val nextGame = Intent(this@VictoryActivity, HideAnimalsEasyTuto::class.java)
                                 nextGame.putExtra("difficulty", difficulty)
                                 nextGame.putExtra("carotsWon",nbCarrots)
+                                nextGame.putExtra("nblifeConso",lifeConso)
                                 startActivity(nextGame)
                             }
                             else {
                                 val nextGame = Intent(this@VictoryActivity, HideAnimalsHardTuto::class.java)
                                 nextGame.putExtra("difficulty", difficulty)
                                 nextGame.putExtra("carotsWon",nbCarrots)
+                                nextGame.putExtra("nblifeConso",lifeConso)
                                 startActivity(nextGame)
                             }
 
@@ -108,12 +117,14 @@ class VictoryActivity : AppCompatActivity() {
                                 val nextGame = Intent(this@VictoryActivity, FeedAnimalsEasyTuto::class.java)
                                 nextGame.putExtra("difficulty", difficulty)
                                 nextGame.putExtra("carotsWon",nbCarrots)
+                                nextGame.putExtra("nblifeConso",lifeConso)
                                 startActivity(nextGame)
                             }
                             else {
                                 val nextGame = Intent(this@VictoryActivity, FeedAnimalsHardTuto::class.java)
                                 nextGame.putExtra("difficulty", difficulty)
                                 nextGame.putExtra("carotsWon",nbCarrots)
+                                nextGame.putExtra("nblifeConso",lifeConso)
                                 startActivity(nextGame)
                             }
 
@@ -127,11 +138,13 @@ class VictoryActivity : AppCompatActivity() {
                                 val nextGame = Intent(this@VictoryActivity, WhatIsThisAnimalActivity::class.java)
                                 nextGame.putExtra("difficulty", difficulty)
                                 nextGame.putExtra("carotsWon",nbCarrots)
+                                nextGame.putExtra("nblifeConso",lifeConso)
                                 startActivity(nextGame)
                             }else{
                                 val nextGame = Intent(this@VictoryActivity, WhatIsThisAnimalHardActivity::class.java)
                                 nextGame.putExtra("difficulty", difficulty)
                                 nextGame.putExtra("carotsWon",nbCarrots)
+                                nextGame.putExtra("nblifeConso",lifeConso)
                                 startActivity(nextGame)
 
                             }
@@ -142,12 +155,14 @@ class VictoryActivity : AppCompatActivity() {
                                 val nextGame = Intent(this@VictoryActivity, HideAnimalsEasy::class.java)
                                 nextGame.putExtra("difficulty", difficulty)
                                 nextGame.putExtra("carotsWon",nbCarrots)
+                                nextGame.putExtra("nblifeConso",lifeConso)
                                 startActivity(nextGame)
                             }
                             else {
                                 val nextGame = Intent(this@VictoryActivity, HideAnimals::class.java)
                                 nextGame.putExtra("difficulty", difficulty)
                                 nextGame.putExtra("carotsWon",nbCarrots)
+                                nextGame.putExtra("nblifeConso",lifeConso)
                                 startActivity(nextGame)
                             }
 
@@ -157,12 +172,14 @@ class VictoryActivity : AppCompatActivity() {
                                 val nextGame = Intent(this@VictoryActivity, FeedAnimalsControler::class.java)
                                 nextGame.putExtra("difficulty", difficulty)
                                 nextGame.putExtra("carotsWon",nbCarrots)
+                                nextGame.putExtra("nblifeConso",lifeConso)
                                 startActivity(nextGame)
                             }
                             else {
                                 val nextGame = Intent(this@VictoryActivity, FeedAnimalsHardControler::class.java)
                                 nextGame.putExtra("difficulty", difficulty)
                                 nextGame.putExtra("carotsWon",nbCarrots)
+                                nextGame.putExtra("nblifeConso",lifeConso)
                                 startActivity(nextGame)
                             }
 
@@ -179,6 +196,8 @@ class VictoryActivity : AppCompatActivity() {
             val next = Intent( this@VictoryActivity, LevelsActivity::class.java)
             next.putExtra("difficulty",difficulty)
             next.putExtra("carotsWon",nbCarrots)
+            next.putExtra("nblifeConso",lifeConso)
+            next.putExtra("isLastActivityIsAGame",true)
             startActivity(next)
         }
 

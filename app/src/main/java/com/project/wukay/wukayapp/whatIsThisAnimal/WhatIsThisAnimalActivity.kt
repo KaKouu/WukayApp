@@ -239,11 +239,15 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                             if (numberWin == 3) {
                                 //scoreImage.setImageResource(R.drawable.tete_lapinou_score_3)
                                 //sleep(5000)
+                                var beforeLife=intent.getIntExtra("nbLifeConso",0)
+                                var nbLifeForThisGame=1
+                                var numberLifeConso=beforeLife+nbLifeForThisGame
                                 var beforeCarrots = intent.getIntExtra("carotsWon",0)
                                 var nbCarrotForThisGame = 1 + random.nextInt(10 - 1)
                                 var numberCarrotsWonText=((nbCarrotForThisGame) + beforeCarrots).toString()
                                 nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
                                 nextAnimal.putExtra("nbCarrotForThisGame", nbCarrotForThisGame)
+                                nextAnimal.putExtra("numberLifeConso", numberLifeConso)
                                 startActivity(nextAnimal)
                                 startActivity(popIntent)
 
@@ -310,11 +314,15 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                             if (numberWin == 3) {
                                // scoreImage.setImageResource(R.drawable.tete_lapinou_score_3)
                                 //sleep(5000)
+                                var beforeLife=intent.getIntExtra("nbLifeConso",0)
+                                var nbLifeForThisGame=1
+                                var numberLifeConso=beforeLife+nbLifeForThisGame
                                 var beforeCarrots = intent.getIntExtra("carotsWon",0)
                                 var nbCarrotForThisGame = 1 + random.nextInt(10 - 1)
                                 var numberCarrotsWonText=((nbCarrotForThisGame) + beforeCarrots).toString()
                                 nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
                                 nextAnimal.putExtra("nbCarrotForThisGame", nbCarrotForThisGame)
+                                nextAnimal.putExtra("numberLifeConso", numberLifeConso)
                                 startActivity(nextAnimal)
                                 startActivity(popIntent)
 
@@ -379,11 +387,15 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                             if (numberWin == 3) {
                                 //scoreImage.setImageResource(R.drawable.tete_lapinou_score_3)
                                 //sleep(5000)
+                                var beforeLife=intent.getIntExtra("nbLifeConso",0)
+                                var nbLifeForThisGame=1
+                                var numberLifeConso=beforeLife+nbLifeForThisGame
                                 var beforeCarrots = intent.getIntExtra("carotsWon",0)
                                 var nbCarrotForThisGame = 1 + random.nextInt(10 - 1)
                                 var numberCarrotsWonText=((nbCarrotForThisGame) + beforeCarrots).toString()
                                 nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
                                 nextAnimal.putExtra("nbCarrotForThisGame", nbCarrotForThisGame)
+                                nextAnimal.putExtra("numberLifeConso", numberLifeConso)
                                 startActivity(nextAnimal)
                                 startActivity(popIntent)
                                 //prochain animal à deviner

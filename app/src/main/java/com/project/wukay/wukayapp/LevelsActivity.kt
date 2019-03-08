@@ -123,7 +123,7 @@ class LevelsActivity : AppCompatActivity() {
             0,9,10,11,12,13,14,15,16,17,18,19,20,21,22,323,24,25,26,27,28,29,30-> {
                 lapinouSkin.x = 110F
                 lapinouSkin.y = 0F
-                levelCounter.text = "Niveau : 0"
+                levelCounter.text = "Niveau : "+loopLevel
                 loopLevel=0
 
             }
@@ -139,6 +139,12 @@ class LevelsActivity : AppCompatActivity() {
         var nbLife=prefs!!.nbLife
         var testNbLife=intent.getIntExtra("lifeWon",0)
         nbLife+=testNbLife
+
+        /*val isLastActivityIsAGame = intent.getBooleanExtra("isLastActivityIsAGame",false)
+        val nblifeConsomme = intent.getIntExtra("nblifeConso",0)
+        if(isLastActivityIsAGame){
+            nbLife=nbLife - nblifeConsomme
+        }*/
 
 
         var randomGameTempo = prefs!!.num_mini_jeu
@@ -172,6 +178,8 @@ class LevelsActivity : AppCompatActivity() {
             startActivity(popIntent)
 
         }
+
+
 
         //life
         setTxtLife(lifeText,nbLife)
@@ -212,6 +220,7 @@ class LevelsActivity : AppCompatActivity() {
             }
 
         }
+
         val animation = RotateAnimation(0f,360f,0f,0f)
         animation.duration = 5000;
         shopIcone.startAnimation((animation))

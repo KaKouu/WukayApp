@@ -162,11 +162,15 @@ class WhatIsThisAnimalHardActivity: AppCompatActivity()  {
                 startActivity(popIntent)
                music.start()
                 if (numberWin == 3) {
+                    var beforeLife=intent.getIntExtra("nbLifeConso",0)
+                    var nbLifeForThisGame=1
+                    var numberLifeConso=beforeLife+nbLifeForThisGame
                     var beforeCarrots = intent.getIntExtra("carotsWon",0)
                     var nbCarrotForThisGame = 1 + random.nextInt(10 - 1)
                     var numberCarrotsWonText=((nbCarrotForThisGame) + beforeCarrots).toString()
                     nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
                     nextAnimal.putExtra("nbCarrotForThisGame", nbCarrotForThisGame)
+                    nextAnimal.putExtra("numberLifeConso", numberLifeConso)
                     startActivity(nextAnimal)
                     startActivity(popIntent)
 
@@ -207,12 +211,15 @@ class WhatIsThisAnimalHardActivity: AppCompatActivity()  {
                 music.start()
 
                 if (numberWin == 3) {
-
+                    var beforeLife=intent.getIntExtra("nbLifeConso",0)
+                    var nbLifeForThisGame=1
+                    var numberLifeConso=beforeLife+nbLifeForThisGame
                     var beforeCarrots = intent.getIntExtra("carotsWon",0)
                     var nbCarrotForThisGame = 1 + random.nextInt(10 - 1)
                     var numberCarrotsWonText=((nbCarrotForThisGame) + beforeCarrots).toString()
                     nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
                     nextAnimal.putExtra("nbCarrotForThisGame", nbCarrotForThisGame)
+                    nextAnimal.putExtra("numberLifeConso", numberLifeConso)
                     startActivity(nextAnimal)
                     startActivity(popIntent)
                 } else {
@@ -246,11 +253,15 @@ class WhatIsThisAnimalHardActivity: AppCompatActivity()  {
                 startActivity(popIntent)
                 music.start()
                 if (numberWin == 3) {
+                    var beforeLife=intent.getIntExtra("nbLifeConso",0)
+                    var nbLifeForThisGame=1
+                    var numberLifeConso=beforeLife+nbLifeForThisGame
                     var beforeCarrots = intent.getIntExtra("carotsWon",0)
                     var nbCarrotForThisGame = 1 + random.nextInt(10 - 1)
                     var numberCarrotsWonText=((nbCarrotForThisGame) + beforeCarrots).toString()
                     nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
                     nextAnimal.putExtra("nbCarrotForThisGame", nbCarrotForThisGame)
+                    nextAnimal.putExtra("numberLifeConso", numberLifeConso)
                     startActivity(nextAnimal)
                     startActivity(popIntent)
 

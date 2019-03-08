@@ -125,11 +125,15 @@ class FeedAnimalsControler : AppCompatActivity() {
                    if(feedAnimalsModel.isWin()){
                        val nextAnimal = Intent(this@FeedAnimalsControler, VictoryActivity::class.java)
                        nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
+                       var beforeLife=intent.getIntExtra("nbLifeConso",0)
+                       var nbLifeForThisGame=1
+                       var numberLifeConso=beforeLife+nbLifeForThisGame
                        var beforeCarrots = intent.getIntExtra("carotsWon",0)
                        var nbCarrotForThisGame = 1 + random.nextInt(10 - 1)
                        var numberCarrotsWonText=((nbCarrotForThisGame) + beforeCarrots).toString()
                        nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
                        nextAnimal.putExtra("nbCarrotForThisGame", nbCarrotForThisGame)
+                       nextAnimal.putExtra("numberLifeConso", numberLifeConso)
                        startActivity(nextAnimal)
                    }
                }else{
@@ -151,11 +155,15 @@ class FeedAnimalsControler : AppCompatActivity() {
                         if(feedAnimalsModel.isWin()){
                             val nextAnimal = Intent(this@FeedAnimalsControler, VictoryActivity::class.java)
                             nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
+                            var beforeLife=intent.getIntExtra("nbLifeConso",0)
+                            var nbLifeForThisGame=1
+                            var numberLifeConso=beforeLife+nbLifeForThisGame
                             var beforeCarrots = intent.getIntExtra("carotsWon",0)
                             var nbCarrotForThisGame = 1 + random.nextInt(10 - 1)
                             var numberCarrotsWonText=((nbCarrotForThisGame) + beforeCarrots).toString()
                             nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
                             nextAnimal.putExtra("nbCarrotForThisGame", nbCarrotForThisGame)
+                            nextAnimal.putExtra("numberLifeConso", numberLifeConso)
                             startActivity(nextAnimal)
                         }
                     }else{
@@ -177,11 +185,15 @@ class FeedAnimalsControler : AppCompatActivity() {
                             if(feedAnimalsModel.isWin()){
                                 val nextAnimal = Intent(this@FeedAnimalsControler, VictoryActivity::class.java)
                                 nextAnimal.putExtra("difficulty", intent.getStringExtra("difficulty"))
+                                var beforeLife=intent.getIntExtra("nbLifeConso",0)
+                                var nbLifeForThisGame=1
+                                var numberLifeConso=beforeLife+nbLifeForThisGame
                                 var beforeCarrots = intent.getIntExtra("carotsWon",0)
                                 var nbCarrotForThisGame = 1 + random.nextInt(10 - 1)
                                 var numberCarrotsWonText=((nbCarrotForThisGame) + beforeCarrots).toString()
                                 nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
                                 nextAnimal.putExtra("nbCarrotForThisGame", nbCarrotForThisGame)
+                                nextAnimal.putExtra("numberLifeConso", numberLifeConso)
                                 startActivity(nextAnimal)
                             }
 
