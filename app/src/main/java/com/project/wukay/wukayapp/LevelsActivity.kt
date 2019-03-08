@@ -336,6 +336,113 @@ class LevelsActivity : AppCompatActivity() {
 
         }
 
+        lapinouSkin.setOnClickListener {
+            if (nbLife <= 0) {
+                /* heart.visibility = View.VISIBLE
+                 numberOfLife.visibility = View.VISIBLE
+
+                 Timer().schedule(1000) {
+                     heart.visibility = View.INVISIBLE
+                     numberOfLife.visibility = View.INVISIBLE
+
+                 }*/
+            }
+            else {
+                while(randomGameTempo==randomGame){
+                    randomGame = Random().nextInt(3)
+                }
+                if (etatTuto) {
+                    when (randomGame) {
+                        0 -> {
+                            if(difficulty=="easy"){
+                                val nextGame = Intent(this@LevelsActivity, WhatIsThisAnimalTutoActivity::class.java)
+                                nextGame.putExtra("difficulty", difficulty)
+                                startActivity(nextGame)
+                            }else{
+                                val nextGame = Intent(this@LevelsActivity, WhatIsThisAnimalHardTutoActivity::class.java)
+                                nextGame.putExtra("difficulty", difficulty)
+                                startActivity(nextGame)
+                            }
+                        }
+                        1 -> {
+                            if (difficulty == "easy") {
+                                val nextGame = Intent(this@LevelsActivity, HideAnimalsEasyTuto::class.java)
+                                nextGame.putExtra("difficulty", difficulty)
+                                startActivity(nextGame)
+                            }
+                            else {
+                                val nextGame = Intent(this@LevelsActivity, HideAnimalsHardTuto::class.java)
+                                nextGame.putExtra("difficulty", difficulty)
+                                startActivity(nextGame)
+                            }
+
+                        }
+                        2-> {
+                            if (difficulty == "easy") {
+                                val nextGame = Intent(this@LevelsActivity, FeedAnimalsEasyTuto::class.java)
+                                nextGame.putExtra("difficulty", difficulty)
+                                startActivity(nextGame)
+                            }
+                            else {
+                                val nextGame = Intent(this@LevelsActivity, FeedAnimalsHardTuto::class.java)
+                                nextGame.putExtra("difficulty", difficulty)
+                                startActivity(nextGame)
+                            }
+
+                        }
+                    }
+                }
+                else {
+                    when (randomGame) {
+                        0 -> {
+                            if(difficulty=="easy"){
+                                val nextGame = Intent(this@LevelsActivity, WhatIsThisAnimalActivity::class.java)
+                                nextGame.putExtra("difficulty", difficulty)
+                                startActivity(nextGame)
+                            }else{
+                                val nextGame = Intent(this@LevelsActivity, WhatIsThisAnimalHardActivity::class.java)
+                                nextGame.putExtra("difficulty", difficulty)
+                                startActivity(nextGame)
+
+                            }
+
+                        }
+                        1 -> {
+                            if (difficulty == "easy") {
+                                val nextGame = Intent(this@LevelsActivity, HideAnimalsEasy::class.java)
+                                nextGame.putExtra("difficulty", difficulty)
+                                startActivity(nextGame)
+                            }
+                            else {
+                                val nextGame = Intent(this@LevelsActivity, HideAnimals::class.java)
+                                nextGame.putExtra("difficulty", difficulty)
+                                startActivity(nextGame)
+                            }
+
+                        }
+                        2-> {
+                            if (difficulty == "easy") {
+                                val nextGame = Intent(this@LevelsActivity, FeedAnimalsControler::class.java)
+                                nextGame.putExtra("difficulty", difficulty)
+                                startActivity(nextGame)
+                            }
+                            else {
+                                val nextGame = Intent(this@LevelsActivity, FeedAnimalsHardControler::class.java)
+                                nextGame.putExtra("difficulty", difficulty)
+                                startActivity(nextGame)
+                            }
+
+                        }
+                    }
+                }
+
+
+            }
+            prefs!!.num_mini_jeu=randomGame
+
+
+        }
+
         shopIcone.setOnClickListener {
 
             val shop = Intent(this@LevelsActivity, ShopActivity::class.java)
