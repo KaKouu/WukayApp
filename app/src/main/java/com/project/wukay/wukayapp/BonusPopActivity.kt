@@ -27,6 +27,7 @@ class BonusPopActivity : AppCompatActivity() {
         prefs = Prefs(this)
 
         prefs!!.nbCarrots+=20
+        prefs!!.nbPopLevel+=1
 
         closeButton.setOnClickListener {
             finish()

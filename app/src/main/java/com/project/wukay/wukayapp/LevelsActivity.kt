@@ -120,9 +120,11 @@ class LevelsActivity : AppCompatActivity() {
 
                 levelCounter.text = "Niveau : " + loopLevel
 
+                if(loopLevel/8>prefs!!.nbPopLevel){
+                    val winPopIntent = Intent(applicationContext,BonusPopActivity::class.java)
+                    startActivity(winPopIntent)
+                }
 
-                val winPopIntent = Intent(applicationContext,BonusPopActivity::class.java)
-                startActivity(winPopIntent)
             }
             /*0,9,10,11,12,13,14,15,16,17,18,19,20,21,22,323,24,25,26,27,28,29,30-> {
                 lapinouSkin.x = 110F
@@ -132,6 +134,10 @@ class LevelsActivity : AppCompatActivity() {
 
             }*/
 
+        }
+        if(loopLevel==0){
+            lapinouSkin.x = widthScreen*5/100F
+            lapinouSkin.y = 0F
         }
 
 
