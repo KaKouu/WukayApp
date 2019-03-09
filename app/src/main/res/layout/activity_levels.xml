@@ -29,7 +29,9 @@
                 <LinearLayout
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" android:background="@drawable/bg_levels_2">
+                        android:layout_height="match_parent"
+                        android:id="@+id/background"
+                        android:background="@drawable/bg_levels_2">
                     <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">

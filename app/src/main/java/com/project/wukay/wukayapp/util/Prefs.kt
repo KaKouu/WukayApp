@@ -17,6 +17,7 @@ class Prefs(context : Context) {
     val NUMERO_MINI_JEU="num_mini_jeu"
     val ETAT_TUTO = "etatTutoActiver"
     val NB_POP_LEVEL="nbPopLevel"
+    val INT_BACKGROUND="intBackground"
 
     val SHOP_PURCHASES0 ="shop_PURCHASES0"
     val SHOP_PURCHASES2 ="shop_PURCHASES2"
@@ -38,6 +39,11 @@ class Prefs(context : Context) {
 
         get() = prefs.getInt(NB_POP_LEVEL, 0)
         set(value) = prefs.edit().putInt(NB_POP_LEVEL, value).apply()
+
+    var intBackground : Int
+
+        get() = prefs.getInt(INT_BACKGROUND, 0)
+        set(value) = prefs.edit().putInt(INT_BACKGROUND, value).apply()
 
     var nbCarrots : Int
 

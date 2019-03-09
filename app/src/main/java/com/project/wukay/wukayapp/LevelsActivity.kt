@@ -4,6 +4,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.support.v4.content.ContextCompat
 import android.util.DisplayMetrics
 import android.view.KeyEvent
 import android.view.animation.RotateAnimation
@@ -65,6 +66,8 @@ class LevelsActivity : AppCompatActivity() {
 
         prefs = Prefs(this)
 
+
+
         //difficulty
         val intent = intent
         val difficulty = intent.getStringExtra("difficulty")
@@ -73,6 +76,20 @@ class LevelsActivity : AppCompatActivity() {
         windowManager.defaultDisplay.getMetrics(displayMetrics)
         val heightScreen = displayMetrics.heightPixels
         val widthScreen = displayMetrics.widthPixels
+
+        when(prefs!!.intBackground){
+            0 -> {
+                background.setBackgroundResource(R.drawable.bg_levels_2)
+            }
+            1 -> {
+                background.setBackgroundResource(R.drawable.bg_levels_sable)
+            }
+            2 -> {
+                background.setBackgroundResource(R.drawable.bg_levels_neige)
+            }
+        }
+
+
 
         //levels
 
@@ -121,6 +138,24 @@ class LevelsActivity : AppCompatActivity() {
                 levelCounter.text = "Niveau : " + loopLevel
 
                 if(loopLevel/8>prefs!!.nbPopLevel){
+
+                    var randomBackground = Random().nextInt(3)
+                    while(randomBackground==prefs!!.intBackground){
+                        randomBackground = Random().nextInt(3)
+                    }
+                    when(randomBackground){
+                        0 -> {
+                            background.setBackgroundResource(R.drawable.bg_levels_2)
+                        }
+                        1 -> {
+                            background.setBackgroundResource(R.drawable.bg_levels_sable)
+                        }
+                        2 -> {
+                            background.setBackgroundResource(R.drawable.bg_levels_neige)
+                        }
+                    }
+
+                    prefs!!.intBackground=randomBackground
                     val winPopIntent = Intent(applicationContext,BonusPopActivity::class.java)
                     startActivity(winPopIntent)
                 }
@@ -473,6 +508,7 @@ class LevelsActivity : AppCompatActivity() {
         prefs!!.nbCarrots=carrots
         prefs!!.skinName=skinName
         prefs!!.actualLevel=loopLevel
+
 
         if(carrots>=1000){
             carrotsTempo=carrots/1000
