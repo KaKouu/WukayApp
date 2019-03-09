@@ -9,35 +9,35 @@
         android:background="@drawable/bg_feed_animals"
         android:id="@+id/myLayoutFood">
     <ImageView
-            android:layout_width="104dp"
-            android:layout_height="98dp" app:srcCompat="@drawable/animaux_mouton_silhouette"
+            android:layout_width="117dp"
+            android:layout_height="119dp" app:srcCompat="@drawable/animaux_mouton_silhouette"
             android:id="@+id/animalFood2"
             android:layout_marginStart="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintVertical_bias="0.091" tools:srcCompat="@drawable/animaux_mouton_silhouette"
-            app:layout_constraintHorizontal_bias="0.511"/>
+            app:layout_constraintVertical_bias="0.063" tools:srcCompat="@drawable/animaux_mouton_silhouette"
+            app:layout_constraintHorizontal_bias="0.501"/>
     <ImageView
-            android:layout_width="102dp"
-            android:layout_height="91dp"
+            android:layout_width="120dp"
+            android:layout_height="111dp"
             android:id="@+id/animalFood1"
             app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.094"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.076"
             app:srcCompat="@drawable/animaux_bouc_silhouette" android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.085"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.072"
             tools:srcCompat="@drawable/animaux_bouc_silhouette"/>
     <ImageView
-            android:layout_width="96dp"
-            android:layout_height="87dp" app:srcCompat="@drawable/animaux_didion_silhouette"
+            android:layout_width="123dp"
+            android:layout_height="109dp" app:srcCompat="@drawable/animaux_didion_silhouette"
             android:id="@+id/animalFood3"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.94"
-            app:layout_constraintVertical_bias="0.094" tools:srcCompat="@drawable/animaux_didion_silhouette"/>
+            android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.941"
+            app:layout_constraintVertical_bias="0.08" tools:srcCompat="@drawable/animaux_didion_silhouette"/>
     <ImageView
             android:layout_width="129dp"
             android:layout_height="125dp" app:srcCompat="@drawable/animaux_mouton"
@@ -97,7 +97,7 @@
     <ProgressBar
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="285dp"
-            android:layout_height="27dp"
+            android:layout_height="18dp"
             android:id="@+id/progressBarFeed"
             android:progressDrawable="@drawable/custom_progress"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
