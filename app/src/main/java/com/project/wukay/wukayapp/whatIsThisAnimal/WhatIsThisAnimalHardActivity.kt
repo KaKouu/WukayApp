@@ -8,15 +8,17 @@ import android.os.Vibrator
 import android.support.v7.app.AppCompatActivity
 import android.view.KeyEvent
 import com.project.wukay.wukayapp.IHM.DifficultyActivity
-import com.project.wukay.wukayapp.PopUpAnimalFind
-import com.project.wukay.wukayapp.R
-import com.project.wukay.wukayapp.VictoryActivity
 import kotlinx.android.synthetic.main.activity_hard_what_is_this.*
 import kotlinx.android.synthetic.main.activity_what_is_this.*
 import java.util.*
+import android.os.CountDownTimer
+import com.project.wukay.wukayapp.*
+import kotlinx.android.synthetic.main.activity_feed_hard_animals.*
 
 class WhatIsThisAnimalHardActivity: AppCompatActivity()  {
     var random = Random()
+    var difficulty=""
+    val timer = MyCounter(20000, 1000)
     override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
         return if (keyCode == KeyEvent.KEYCODE_BACK) {
             false
@@ -31,7 +33,7 @@ class WhatIsThisAnimalHardActivity: AppCompatActivity()  {
         setContentView(R.layout.activity_hard_what_is_this)
 
         //déclaration des variables
-        val difficulty = intent.getStringExtra("difficulty") //renvaiera la difficulté choisit precedement
+        difficulty = intent.getStringExtra("difficulty") //renvaiera la difficulté choisit precedement
         val nextAnimal = Intent(this@WhatIsThisAnimalHardActivity, VictoryActivity::class.java)
         nextAnimal.putExtra("difficulty", difficulty)
 
@@ -41,6 +43,7 @@ class WhatIsThisAnimalHardActivity: AppCompatActivity()  {
 
         buttonBack2.setOnClickListener{
             val previousPage = Intent(this@WhatIsThisAnimalHardActivity, DifficultyActivity::class.java)
+            timer.cancel()
             startActivity(previousPage)
         }
 
@@ -133,22 +136,7 @@ class WhatIsThisAnimalHardActivity: AppCompatActivity()  {
             ouMettreLaReponse
         )
 
-        if(numberWin==0){
-            scoreImageHard.setImageResource(R.drawable.tete_lapinou_score_0)
-        }else{
-            if(numberWin==1){
-                scoreImageHard.setImageResource(R.drawable.tete_lapinou_score_1)
-            }else{
-                if(numberWin==2){
-                    scoreImageHard.setImageResource(R.drawable.tete_lapinou_score_2)
-                }else{
-                    if(numberWin==3){
-                        scoreImageHard.setImageResource(R.drawable.tete_lapinou_score_3)
 
-                    }
-                }
-            }
-        }
 
         answer1.setOnClickListener {
             if (memoAnimauxChoisi[0] == reponse) {
@@ -159,6 +147,7 @@ class WhatIsThisAnimalHardActivity: AppCompatActivity()  {
                 popIntent.putExtra("animalNameFind",arrayNameAnimal[reponse])
 
                val music = MediaPlayer.create(this,arrayMusicAnimal[reponse])
+
                 startActivity(popIntent)
                music.start()
                 if (numberWin == 3) {
@@ -171,6 +160,7 @@ class WhatIsThisAnimalHardActivity: AppCompatActivity()  {
                     nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
                     nextAnimal.putExtra("nbCarrotForThisGame", nbCarrotForThisGame)
                     nextAnimal.putExtra("numberLifeConso", numberLifeConso)
+                    timer.cancel()
                     startActivity(nextAnimal)
                     startActivity(popIntent)
 
@@ -220,6 +210,7 @@ class WhatIsThisAnimalHardActivity: AppCompatActivity()  {
                     nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
                     nextAnimal.putExtra("nbCarrotForThisGame", nbCarrotForThisGame)
                     nextAnimal.putExtra("numberLifeConso", numberLifeConso)
+                    timer.cancel()
                     startActivity(nextAnimal)
                     startActivity(popIntent)
                 } else {
@@ -262,6 +253,7 @@ class WhatIsThisAnimalHardActivity: AppCompatActivity()  {
                     nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
                     nextAnimal.putExtra("nbCarrotForThisGame", nbCarrotForThisGame)
                     nextAnimal.putExtra("numberLifeConso", numberLifeConso)
+                    timer.cancel()
                     startActivity(nextAnimal)
                     startActivity(popIntent)
 
@@ -285,9 +277,33 @@ class WhatIsThisAnimalHardActivity: AppCompatActivity()  {
                 vibratorService.vibrate(100)
             }
         }
-
+        timer.start()
     }
+    inner class MyCounter(millisInFuture: Long, countDownInterval: Long) : CountDownTimer(millisInFuture, countDownInterval) {
 
+
+        override fun onFinish() {
+
+
+            val popIntent = Intent(applicationContext, PopupTempsEcoule::class.java)
+
+
+            val next = Intent(this@WhatIsThisAnimalHardActivity, LevelsActivity::class.java)
+            next.putExtra("difficulty", difficulty)
+            next.putExtra("isLastActivityIsAGame", false)
+            startActivity(next)
+            startActivity(popIntent)
+
+
+        }
+
+        override fun onTick(millisUntilFinished: Long) {
+            progressBarWhat.progress = (((millisUntilFinished/2 )/ 100).toInt())
+
+
+
+        }
+    }
 
     private fun game(
         arrayOfQuestion: Array<String>,

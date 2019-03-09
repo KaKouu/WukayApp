@@ -9,35 +9,35 @@
         android:background="@drawable/bg_feed_animals"
         android:id="@+id/myLayoutFood">
     <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp" app:srcCompat="@drawable/animaux_mouton_silhouette"
+            android:layout_width="78dp"
+            android:layout_height="71dp" app:srcCompat="@drawable/animaux_mouton_silhouette"
             android:id="@+id/animalFood2"
             android:layout_marginStart="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintVertical_bias="0.034" tools:srcCompat="@drawable/animaux_mouton_silhouette"
-            app:layout_constraintHorizontal_bias="0.541"/>
+            app:layout_constraintVertical_bias="0.098" tools:srcCompat="@drawable/animaux_mouton_silhouette"
+    />
     <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="81dp"
+            android:layout_height="68dp"
             android:id="@+id/animalFood1"
             app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.034"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.097"
             app:srcCompat="@drawable/animaux_bouc_silhouette" android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.111"
             tools:srcCompat="@drawable/animaux_bouc_silhouette"/>
     <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp" app:srcCompat="@drawable/animaux_didion_silhouette"
+            android:layout_width="80dp"
+            android:layout_height="70dp" app:srcCompat="@drawable/animaux_didion_silhouette"
             android:id="@+id/animalFood3"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.97"
-            app:layout_constraintVertical_bias="0.034" tools:srcCompat="@drawable/animaux_didion_silhouette"/>
+            android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.927"
+            app:layout_constraintVertical_bias="0.098" tools:srcCompat="@drawable/animaux_didion_silhouette"/>
     <ImageView
             android:layout_width="86dp"
             android:layout_height="105dp" app:srcCompat="@drawable/animaux_mouton"
@@ -94,5 +94,18 @@
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintVertical_bias="0.557"/>
+    <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="246dp"
+            android:layout_height="21dp"
+            android:id="@+id/progressBarFeed"
+            android:progressDrawable="@drawable/custom_progress"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:scaleY="1.5"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.015"/>
 
 </android.support.constraint.ConstraintLayout>

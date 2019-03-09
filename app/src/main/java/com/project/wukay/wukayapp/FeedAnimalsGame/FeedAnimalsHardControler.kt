@@ -4,17 +4,21 @@ import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.os.Vibrator
 import android.util.DisplayMetrics
 import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.View
+import com.project.wukay.wukayapp.LevelsActivity
+import com.project.wukay.wukayapp.PopupTempsEcoule
 import com.project.wukay.wukayapp.R
 import com.project.wukay.wukayapp.VictoryActivity
 import com.project.wukay.wukayapp.metier.FeedAnimalsHardModel
 import com.project.wukay.wukayapp.metier.HideAnimalsMetier
 import com.project.wukay.wukayapp.util.Aleatoire
 import kotlinx.android.synthetic.main.activity_feed_hard_animals.*
+import kotlinx.android.synthetic.main.activity_hide_animals_hard.*
 import java.util.*
 
 class FeedAnimalsHardControler : AppCompatActivity() {
@@ -24,7 +28,9 @@ class FeedAnimalsHardControler : AppCompatActivity() {
     var positionX=FloatArray(3)
     var positionY=FloatArray(3)
     var difficulty=""
+    val timer = MyCounter(20000, 1000)
     val nombreAnimauxAchercher =3
+
 
     val listOfAnimals = arrayOf(
         R.drawable.animaux_panier_cochon,
@@ -162,9 +168,34 @@ class FeedAnimalsHardControler : AppCompatActivity() {
 
 
 
-
+        timer.start()
+        System.out.println("OUIJHSUISLA")
     }
+    inner class MyCounter(millisInFuture: Long, countDownInterval: Long) : CountDownTimer(millisInFuture, countDownInterval) {
 
+
+        override fun onFinish() {
+
+
+            val popIntent = Intent(applicationContext, PopupTempsEcoule::class.java)
+
+
+            val next = Intent(this@FeedAnimalsHardControler, LevelsActivity::class.java)
+            next.putExtra("difficulty", difficulty)
+            next.putExtra("isLastActivityIsAGame", false)
+            startActivity(next)
+            startActivity(popIntent)
+
+
+        }
+
+        override fun onTick(millisUntilFinished: Long) {
+            progressBarFeed.progress = (((millisUntilFinished/2 )/ 100).toInt())
+            System.out.println("OEOEO")
+
+
+        }
+    }
     private fun handleTouch(m: MotionEvent){
         //if(difficulty=="hard"){
         val listAnswer = arrayOf(
@@ -237,6 +268,7 @@ class FeedAnimalsHardControler : AppCompatActivity() {
                                                     nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
                                                     nextAnimal.putExtra("nbCarrotForThisGame", nbCarrotForThisGame)
                                                     nextAnimal.putExtra("numberLifeConso", numberLifeConso)
+                                                    timer.cancel()
                                                     startActivity(nextAnimal)
                                                 }
                                             } else {
@@ -278,6 +310,7 @@ class FeedAnimalsHardControler : AppCompatActivity() {
                                                         nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
                                                         nextAnimal.putExtra("nbCarrotForThisGame", nbCarrotForThisGame)
                                                         nextAnimal.putExtra("numberLifeConso", numberLifeConso)
+                                                        timer.cancel()
                                                         startActivity(nextAnimal)
                                                     }
                                                 } else {
@@ -319,6 +352,7 @@ class FeedAnimalsHardControler : AppCompatActivity() {
                                                             nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
                                                             nextAnimal.putExtra("nbCarrotForThisGame", nbCarrotForThisGame)
                                                             nextAnimal.putExtra("numberLifeConso", numberLifeConso)
+                                                            timer.cancel()
                                                             startActivity(nextAnimal)
                                                         }
                                                     } else {
@@ -340,3 +374,4 @@ class FeedAnimalsHardControler : AppCompatActivity() {
 
 
 }
+

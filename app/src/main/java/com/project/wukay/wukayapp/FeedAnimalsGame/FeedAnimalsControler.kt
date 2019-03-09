@@ -134,6 +134,7 @@ class FeedAnimalsControler : AppCompatActivity() {
                        nextAnimal.putExtra("numberCarrotsWonText", numberCarrotsWonText)
                        nextAnimal.putExtra("nbCarrotForThisGame", nbCarrotForThisGame)
                        nextAnimal.putExtra("numberLifeConso", numberLifeConso)
+
                        startActivity(nextAnimal)
                    }
                }else{

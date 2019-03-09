@@ -96,7 +96,7 @@ class FeedAnimalsHardTuto : AppCompatActivity() {
         }, 15000)
 
         startButtonFeedHard.setOnClickListener {
-            val nextGame = Intent(this@FeedAnimalsHardTuto, FeedAnimalsControler::class.java)
+            val nextGame = Intent(this@FeedAnimalsHardTuto, FeedAnimalsHardControler::class.java)
             nextGame.putExtra("difficulty", difficulty)
             nextGame.putExtra("carotsWon",nbCarrots)
             startActivity(nextGame)
