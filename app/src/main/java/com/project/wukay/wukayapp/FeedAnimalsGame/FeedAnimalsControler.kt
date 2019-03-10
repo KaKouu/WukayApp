@@ -21,20 +21,21 @@ class FeedAnimalsControler : AppCompatActivity() {
     private var position = FloatArray(3)
 
     val listOfPanier= arrayOf(
+        R.drawable.panier_nourriture_poisson_saumon,
         R.drawable.panier_nourriture_mais,
-        R.drawable.panier_nourriture_herbe,
-        R.drawable.panier_nourriture_feuille,
+        R.drawable.panier_nourriture_foin,
+        R.drawable.panier_nourriture_feuille_seche,
         R.drawable.panier_nourriture_herbe,
         R.drawable.panier_nourriture_souris,
         R.drawable.panier_nourriture_poisson,
         R.drawable.panier_nourriture_crevette,
         R.drawable.panier_nourriture_bambou,
-        R.drawable.panier_nourriture_graine,
-        R.drawable.panier_nourriture_poisson,
+        R.drawable.panier_nourriture_mure,
+        R.drawable.panier_nourriture_poisson_gris,
         R.drawable.panier_nourriture_graine,
         R.drawable.panier_nourriture_viande,
         R.drawable.panier_nourriture_feuille,
-        R.drawable.panier_nourriture_viande
+        R.drawable.panier_nourriture_viande_lion
     )
 
 
@@ -61,6 +62,7 @@ class FeedAnimalsControler : AppCompatActivity() {
         }
 
         val listOfAnimals = arrayOf(
+            R.drawable.animaux_crabe,
             R.drawable.animaux_cochon,
             R.drawable.animaux_vache,
             R.drawable.animaux_girafe,
@@ -78,20 +80,21 @@ class FeedAnimalsControler : AppCompatActivity() {
         )
 
         val listOfFood = arrayOf(
+            R.drawable.food_poisson_saumon,
             R.drawable.food_mais,
-            R.drawable.food_herbe,
-            R.drawable.food_feuille,
+            R.drawable.food_foin,
+            R.drawable.food_feuille_seche,
             R.drawable.food_herbe,
             R.drawable.food_souris,
             R.drawable.food_poisson,
             R.drawable.food_crevette,
             R.drawable.food_bambou,
-            R.drawable.food_graine,
-            R.drawable.food_poisson,
+            R.drawable.food_mure,
+            R.drawable.food_poisson_gris,
             R.drawable.food_graine,
             R.drawable.food_viande,
-            R.drawable.icon_feuille,
-            R.drawable.food_viande
+            R.drawable.food_feuille,
+            R.drawable.food_viande_lion
         )
         feedAnimalsModel.generateAnimalsAndFood()
         animalFeed1.setImageResource(listOfAnimals[feedAnimalsModel.getBoardOfAnimals()[0]])

@@ -33,6 +33,7 @@ class FeedAnimalsHardControler : AppCompatActivity() {
 
 
     val listOfAnimals = arrayOf(
+        R.drawable.animaux_panier_pirahna,
         R.drawable.animaux_panier_cochon,
         R.drawable.animaux_panier_vache,
         R.drawable.animaux_panier_girafe,
@@ -86,6 +87,7 @@ class FeedAnimalsHardControler : AppCompatActivity() {
         positionY.set(2,(heightScreen*2/5).toFloat())
 
         val listOfAnimals = arrayOf(
+            R.drawable.animaux_panier_pirahna,
             R.drawable.animaux_panier_cochon,
             R.drawable.animaux_panier_vache,
             R.drawable.animaux_panier_girafe,
@@ -103,20 +105,21 @@ class FeedAnimalsHardControler : AppCompatActivity() {
         )
 
         val listOfFood = arrayOf(
+            R.drawable.food_poisson,
             R.drawable.food_mais,
-            R.drawable.food_herbe,
-            R.drawable.food_feuille,
+            R.drawable.food_foin,
+            R.drawable.food_feuille_seche,
             R.drawable.food_herbe,
             R.drawable.food_souris,
-            R.drawable.food_poisson,
+            R.drawable.food_poisson_saumon,
             R.drawable.food_crevette,
             R.drawable.food_bambou,
-            R.drawable.food_graine,
-            R.drawable.food_poisson,
+            R.drawable.food_mure,
+            R.drawable.food_poisson_gris,
             R.drawable.food_graine,
             R.drawable.food_viande,
             R.drawable.food_feuille,
-            R.drawable.food_viande
+            R.drawable.food_viande_lion
         )
 
 
@@ -199,6 +202,7 @@ class FeedAnimalsHardControler : AppCompatActivity() {
     private fun handleTouch(m: MotionEvent){
         //if(difficulty=="hard"){
         val listAnswer = arrayOf(
+            R.drawable.animaux_nourriture_pirahna,
             R.drawable.animaux_nourriture_cochon,
             R.drawable.animaux_nourriture_vache,
             R.drawable.animaux_nourriture_girafe,
