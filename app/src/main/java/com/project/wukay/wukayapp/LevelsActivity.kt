@@ -4,10 +4,13 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.os.Handler
 import android.support.v4.content.ContextCompat
 import android.util.DisplayMetrics
 import android.view.KeyEvent
+import android.view.View
 import android.view.animation.RotateAnimation
+import android.view.animation.TranslateAnimation
 
 import android.widget.TextView
 import com.project.wukay.wukayapp.FeedAnimalsGame.FeedAnimalsControler
@@ -24,7 +27,7 @@ import com.project.wukay.wukayapp.whatIsThisAnimal.WhatIsThisAnimalActivity
 import com.project.wukay.wukayapp.whatIsThisAnimal.WhatIsThisAnimalHardActivity
 import com.project.wukay.wukayapp.whatIsThisAnimal.WhatIsThisAnimalHardTutoActivity
 import com.project.wukay.wukayapp.whatIsThisAnimal.WhatIsThisAnimalTutoActivity
-
+import kotlinx.android.synthetic.main.activity_feed_animals_easy_tuto.*
 
 
 class LevelsActivity : AppCompatActivity() {
@@ -66,7 +69,9 @@ class LevelsActivity : AppCompatActivity() {
 
         prefs = Prefs(this)
 
-
+        shapeLife.visibility = View.INVISIBLE
+        heart.visibility = View.INVISIBLE
+        numberOfLife.visibility = View.INVISIBLE
 
         //difficulty
         val intent = intent
@@ -275,7 +280,16 @@ class LevelsActivity : AppCompatActivity() {
             startActivity(previousPage)
         }
         playButton.setOnClickListener {
-            if (nbLife <= 0) {
+            if (nbLife == 0) {
+                shapeLife.visibility = View.VISIBLE
+                heart.visibility = View.VISIBLE
+                numberOfLife.visibility = View.VISIBLE
+                val handler = Handler()
+                handler.postDelayed({
+                    shapeLife.visibility = View.INVISIBLE
+                    heart.visibility = View.INVISIBLE
+                    numberOfLife.visibility = View.INVISIBLE
+                }, 2000)
                /* heart.visibility = View.VISIBLE
                 numberOfLife.visibility = View.VISIBLE
 

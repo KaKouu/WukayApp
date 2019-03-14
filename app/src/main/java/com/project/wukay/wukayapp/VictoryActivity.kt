@@ -4,6 +4,7 @@ import java.util.*
 import kotlin.concurrent.schedule
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import android.view.KeyEvent
 import android.view.MotionEvent
@@ -18,6 +19,7 @@ import com.project.wukay.wukayapp.whatIsThisAnimal.WhatIsThisAnimalHardActivity
 import com.project.wukay.wukayapp.whatIsThisAnimal.WhatIsThisAnimalHardTutoActivity
 import com.project.wukay.wukayapp.whatIsThisAnimal.WhatIsThisAnimalTutoActivity
 import kotlinx.android.synthetic.main.activity_hide_animals_hard.*
+import kotlinx.android.synthetic.main.activity_levels.*
 import kotlinx.android.synthetic.main.activity_victory.*
 
 class VictoryActivity : AppCompatActivity() {
@@ -43,7 +45,9 @@ class VictoryActivity : AppCompatActivity() {
         carrotTxt.text="+$nbCarrotForThisGame"
 
         val lifeConso=intent.getIntExtra("numberLifeConso",0)
-
+        shapeLife2.visibility = View.INVISIBLE
+        heart2.visibility = View.INVISIBLE
+        numberOfLife2.visibility = View.INVISIBLE
         prefs = Prefs(this)
 
         //skin
@@ -52,7 +56,13 @@ class VictoryActivity : AppCompatActivity() {
 
         //life
         var nbLife = prefs!!.nbLife
-        prefs!!.nbLife-=1
+        if (nbLife == 0) {
+            prefs!!.nbLife=0
+        }
+        else {
+            prefs!!.nbLife-=1
+        }
+
 
         //miniGame
         var randomGameTempo = prefs!!.num_mini_jeu
@@ -69,8 +79,16 @@ class VictoryActivity : AppCompatActivity() {
         var etatTuto=prefs!!.etatTutoActiver
 
         replayBt.setOnClickListener {
-            if (nbLife <= 0) {
-
+            if (nbLife == 0) {
+                shapeLife2.visibility = View.VISIBLE
+                heart2.visibility = View.VISIBLE
+                numberOfLife2.visibility = View.VISIBLE
+                val handler = Handler()
+                handler.postDelayed({
+                    shapeLife2.visibility = View.INVISIBLE
+                    heart2.visibility = View.INVISIBLE
+                    numberOfLife2.visibility = View.INVISIBLE
+                }, 2000)
             }
             else {
                 while(randomGameTempo==randomGame){

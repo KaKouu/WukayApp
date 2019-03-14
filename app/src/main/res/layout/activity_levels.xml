@@ -223,6 +223,35 @@
                             app:layout_constraintHorizontal_bias="0.384"
                             app:layout_constraintTop_toTopOf="@+id/fondShop"
                             app:layout_constraintVertical_bias="0.607"/>
+                    <ImageView
+                            android:layout_width="262dp"
+                            android:layout_height="324dp" app:srcCompat="@drawable/icon_rectangle"
+                            android:id="@+id/shapeLife" android:layout_marginTop="8dp"
+                            app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                            app:layout_constraintHorizontal_bias="0.603" app:layout_constraintVertical_bias="0.461"/>
+                    <ImageView
+                            android:layout_width="93dp"
+                            android:layout_height="121dp" app:srcCompat="@drawable/icon_life"
+                            android:id="@+id/heart" android:layout_marginTop="8dp"
+                            app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
+                            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.312"
+                            app:layout_constraintVertical_bias="0.454"/>
+                    <TextView
+                            android:text="=0"
+                            android:layout_width="121dp"
+                            android:layout_height="132dp"
+                            android:id="@+id/numberOfLife"
+                            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                            android:textSize="100sp" app:layout_constraintHorizontal_bias="0.769"
+                            app:layout_constraintVertical_bias="0.427"/>
                 </android.support.constraint.ConstraintLayout>
             </LinearLayout>
         </LinearLayout>
