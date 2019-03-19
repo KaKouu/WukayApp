@@ -78,7 +78,7 @@ class HideAnimalsMetier {
 
             tableauReponse.set(numeroDeLaReponseClique,1)
             res= 1
-            System.out.println("AHNON")
+
         }
 
         return res

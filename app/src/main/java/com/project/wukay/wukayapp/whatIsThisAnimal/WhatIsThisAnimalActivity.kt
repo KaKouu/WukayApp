@@ -12,14 +12,10 @@ import android.view.MotionEvent
 import android.view.View
 import android.widget.ImageView
 import com.project.wukay.wukayapp.IHM.DifficultyActivity
-import com.project.wukay.wukayapp.LifePopActivity
 import com.project.wukay.wukayapp.PopUpAnimalFind
 import com.project.wukay.wukayapp.R
 import com.project.wukay.wukayapp.VictoryActivity
-import kotlinx.android.synthetic.main.activity_hard_what_is_this.*
-import kotlinx.android.synthetic.main.activity_levels.*
 import kotlinx.android.synthetic.main.activity_what_is_this.*
-import java.lang.Thread.sleep
 import java.util.*
 
 class WhatIsThisAnimalActivity : AppCompatActivity() {
@@ -175,8 +171,8 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
             tabOfChoice[2] = choice3
 
 
-            WhatIsThisActivity.setOnTouchListener { v: View,m: MotionEvent ->
-                if(m.action == MotionEvent.ACTION_MOVE){
+            WhatIsThisActivity.setOnTouchListener { v: View,motionEvent: MotionEvent ->
+                if(motionEvent.action == MotionEvent.ACTION_MOVE){
 
                     /*if(numberWin==0){
 
@@ -190,19 +186,16 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
                         }
                     }*/
 
-                    if(m.x >= animalAnwser1.x && m.x < animalAnwser1.x + animalAnwser1.width && m.y >= animalAnwser1.y && m.y < animalAnwser1.y + animalAnwser1.height ) {
-                        animalAnwser1.x = m.x - animalAnwser1.width / 2
-                        animalAnwser1.y = m.y - animalAnwser1.height / 2
+                    if(isFingerOnPicture(motionEvent,animalAnwser1)) {
+                        makeThePictureFollowTheFinger(motionEvent,animalAnwser1)
                     }
                     else{
-                        if(m.x >= animalAnwser2.x && m.x < animalAnwser2.x + animalAnwser2.width && m.y >= animalAnwser2.y && m.y < animalAnwser2.y + animalAnwser2.height) {
-                            animalAnwser2.x = m.x - animalAnwser2.width/2
-                            animalAnwser2.y = m.y - animalAnwser2.height/2
+                        if(isFingerOnPicture(motionEvent,animalAnwser2)) {
+                            makeThePictureFollowTheFinger(motionEvent,animalAnwser2)
                         }
                         else{
-                            if(m.x >= animalAnwser3.x && m.x < animalAnwser3.x + animalAnwser3.width && m.y >= animalAnwser3.y && m.y < animalAnwser3.y + animalAnwser1.height) {
-                                animalAnwser3.x = m.x - animalAnwser3.width/2
-                                animalAnwser3.y = m.y - animalAnwser3.height/2
+                            if(isFingerOnPicture(motionEvent,animalAnwser3)) {
+                                makeThePictureFollowTheFinger(motionEvent,animalAnwser3)
                             }
                         }
                     }
@@ -437,9 +430,18 @@ class WhatIsThisAnimalActivity : AppCompatActivity() {
 
     }
 
-    private fun isTheCorrectAnswer(indexOfAnswer: Int, arrayIndexOfPicturesPutedAsAnswer: IntArray, index: Int):Boolean  {
-        return indexOfAnswer == arrayIndexOfPicturesPutedAsAnswer[index]
+    private fun makeThePictureFollowTheFinger(motionEvent: MotionEvent,idImageView:ImageView) {
+        idImageView.x = motionEvent.x - idImageView.width / 2
+        idImageView.y = motionEvent.y - idImageView.height / 2
     }
+
+    private fun isFingerOnPicture(motionEvent: MotionEvent, idImageView: ImageView): Boolean {
+        return motionEvent.x >= idImageView.x && motionEvent.x < idImageView.x + idImageView.width && motionEvent.y >= idImageView.y && motionEvent.y < idImageView.y + idImageView.height
+    }
+
+    private fun isTheCorrectAnswer(indexOfAnswer: Int, arrayIndexOfPicturesPutedAsAnswer: IntArray, index: Int)=
+         indexOfAnswer == arrayIndexOfPicturesPutedAsAnswer[index]
+
 
     private fun randomizeImage(arrayIndexOfAnswerPicture: IntArray, arrayOfPictures: Array<Int>, view: ImageView): Int {
         var rand = Random()
